@@ -3,6 +3,7 @@ package com.test.juxiaohui.mdxc.adapter;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.test.juxiaohui.mdxc.data.CountryCode;
 import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
 import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
 import android.content.Context;
@@ -16,17 +17,14 @@ import android.widget.SectionIndexer;
 import android.widget.TextView;
 
 import com.test.juxiaohui.R;
-import com.test.juxiaohui.mdxc.data.CityData;
-import com.test.juxiaohui.mdxc.data.ControlCode;
-import com.test.juxiaohui.mdxc.manager.CityManager;
-import com.test.juxiaohui.mdxc.manager.ControlManager;
+import com.test.juxiaohui.mdxc.manager.CountryManager;
 
 public class ControlCodeListAdapter extends BaseAdapter  implements StickyListHeadersAdapter, SectionIndexer{
 
-	private ArrayList<ControlCode> mResultControl;
-	private ArrayList<ControlCode> mNearbyPorts;
-	private ArrayList<ControlCode> mLastSearchCities;
-	private ArrayList<ControlCode> mHotCities;
+	private ArrayList<CountryCode> mResultControl;
+	private ArrayList<CountryCode> mNearbyPorts;
+	private ArrayList<CountryCode> mLastSearchCities;
+	private ArrayList<CountryCode> mHotCities;
 	private SparseIntArray mPositionOfSection;
 	private SparseIntArray mSectionOfPosition;
 	private boolean isShowResult = true;
@@ -38,9 +36,9 @@ public class ControlCodeListAdapter extends BaseAdapter  implements StickyListHe
 
     
     
-	public ControlCodeListAdapter(ArrayList<ControlCode> nearbyPorts, ArrayList<ControlCode> lastSearchControl, ArrayList<ControlCode> hotControls,Context context, StickyListHeadersListView stickHeaderListView){
+	public ControlCodeListAdapter(ArrayList<CountryCode> nearbyPorts, ArrayList<CountryCode> lastSearchControl, ArrayList<CountryCode> hotControls,Context context, StickyListHeadersListView stickHeaderListView){
 		mContext = context;
-		mResultControl = ControlManager.getInstance().getSearchResult("");
+		mResultControl = CountryManager.getInstance().getSearchResult("");
 		
 		mHotCities = hotControls;
 		mNearbyPorts = nearbyPorts;
@@ -54,8 +52,8 @@ public class ControlCodeListAdapter extends BaseAdapter  implements StickyListHe
 //	@Override
 //	public View getView(int position, View convertView, ViewGroup parent) {
 //		// TODO Auto-generated method stub
-//		ControlCode mControl = (ControlCode)getItem(position);
-//		if(mControl == null && ! (mControl instanceof ControlCode)){
+//		CountryCode mControl = (CountryCode)getItem(position);
+//		if(mControl == null && ! (mControl instanceof CountryCode)){
 //			return null;
 //		} else {
 //			convertView = View.inflate(mContext, R.layout.controlcode_listviewitem, null);
@@ -108,7 +106,7 @@ public class ControlCodeListAdapter extends BaseAdapter  implements StickyListHe
 	}
 
 	@Override
-	public ControlCode getItem(int arg0) {
+	public CountryCode getItem(int arg0) {
 		// TODO Auto-generated method stub
 		if(isShowResult && mResultControl != null)
 			return mResultControl.get(arg0);
@@ -144,16 +142,16 @@ public class ControlCodeListAdapter extends BaseAdapter  implements StickyListHe
 	public View getView(int position, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
 		ItemViewHoler holder;
-		ControlCode data;
+		CountryCode data;
 	//	try
 	//	{
-			data = (ControlCode)getItem(position);
+			data = (CountryCode)getItem(position);
 	//	}
 	//	catch(Exception e)
 	//	{
 			
 	//	}
-		if(data == null || ! (data instanceof ControlCode))
+		if(data == null || ! (data instanceof CountryCode))
 			return null;
 		if (convertView == null) {
 			holder = new ItemViewHoler();
@@ -168,8 +166,8 @@ public class ControlCodeListAdapter extends BaseAdapter  implements StickyListHe
 			holder = (ItemViewHoler) convertView.getTag();
 		}
  
-		holder.title.setText(data.mControlEngName);
-		holder.subTitle.setText(data.mControlChinaName + " - (" + data.mControlCode + ")");
+		holder.title.setText(data.mEngName);
+		holder.subTitle.setText(data.mChinaName + " - (" + data.mCode + ")");
 		 
 		return convertView;
 	}
@@ -254,9 +252,9 @@ public class ControlCodeListAdapter extends BaseAdapter  implements StickyListHe
 		TextView description;
 	}
 	
-	public ControlCode getDataByPosition(int position)
+	public CountryCode getDataByPosition(int position)
 	{
-		return (ControlCode)getItem(position);
+		return (CountryCode)getItem(position);
 	}
 
 	public int getPositionForSection(int section) {
@@ -278,7 +276,7 @@ public class ControlCodeListAdapter extends BaseAdapter  implements StickyListHe
 		mSectionOfPosition.put(0, 0);
 		for (int i = 0; i < count; i++) {
 
-			String letter = getItem(i).mControlEngName.substring(0, 1);
+			String letter = getItem(i).mEngName.substring(0, 1);
 			int section = list.size()-1;
 			if (list.get(section) != null && !list.get(section).equals(letter)) {
 				list.add(letter);
@@ -292,7 +290,7 @@ public class ControlCodeListAdapter extends BaseAdapter  implements StickyListHe
 	
 	public void setFilter(String filter)
 	{
-		mResultControl = ControlManager.getInstance().getSearchResult(filter);
+		mResultControl = CountryManager.getInstance().getSearchResult(filter);
 		this.notifyDataSetChanged();
 	}
 	

@@ -14,11 +14,10 @@ import android.widget.*;
 
 import com.test.juxiaohui.R;
 import com.test.juxiaohui.mdxc.data.CountryCode;
-import com.test.juxiaohui.mdxc.manager.ServerManager;
+import com.test.juxiaohui.mdxc.data.CountryCode_Temp;
 import com.test.juxiaohui.mdxc.manager.UserManager;
 import com.test.juxiaohui.mdxc.mediator.IRegisterMediator;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RegisterActivity extends Activity implements IRegisterMediator {
@@ -33,8 +32,8 @@ public class RegisterActivity extends Activity implements IRegisterMediator {
 	private EditText mCheckcodeEditText;
 	private UserManager mUserManager;
 	ExpandableListView mElvCountryCode;
-	private int mSelectedChildPos = -1;
-	private String mCountryCode = "+86";
+	CountryCode mSelectCountryCode = CountryCode.NULL;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState)
 	{
@@ -95,7 +94,8 @@ public class RegisterActivity extends Activity implements IRegisterMediator {
 	@Override
 	public void addCountryCodeView() {
 		final List<String> countryCodeList = CountryCode.convertCodeListToString(CountryCode.getDefaultCodes());
-
+		countryCodeList.add("More");
+		mSelectCountryCode = CountryCode.getDefaultCodes().get(0);
 		mElvCountryCode = (ExpandableListView)findViewById(R.id.expandableListView_countryCode);
 		mElvCountryCode.setAdapter(new BaseExpandableListAdapter() {
 
@@ -116,7 +116,8 @@ public class RegisterActivity extends Activity implements IRegisterMediator {
 
 			@Override
 			public Object getChild(int groupPosition, int childPosition) {
-				return null;
+				return countryCodeList.get(childPosition);
+
 			}
 
 			@Override
@@ -139,9 +140,10 @@ public class RegisterActivity extends Activity implements IRegisterMediator {
 				long pos = mElvCountryCode.getSelectedPosition();
 				View view = getLayoutInflater().inflate(R.layout.item_country_code, null);
 				TextView tv = (TextView) view.findViewById(R.id.textView_country_code);
-				if(mSelectedChildPos >= 0)
+				if(mSelectCountryCode != CountryCode.NULL)
 				{
-					tv.setText(countryCodeList.get(mSelectedChildPos));
+
+					tv.setText(mSelectCountryCode.mCode + " (" + mSelectCountryCode.mEngName + ")");
 				}
 				else
 				{
@@ -168,8 +170,16 @@ public class RegisterActivity extends Activity implements IRegisterMediator {
 		mElvCountryCode.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
 			@Override
 			public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-				mSelectedChildPos = childPosition;
-				mElvCountryCode.collapseGroup(0);
+				if(childPosition<CountryCode.getDefaultCodes().size())
+				{
+					mSelectCountryCode = CountryCode.getDefaultCodes().get(childPosition);
+					mElvCountryCode.collapseGroup(0);
+				}
+				else
+				{
+					CountryCodeActivity.startActivity(RegisterActivity.this);
+				}
+
 				return false;
 			}
 		});
@@ -213,7 +223,7 @@ public class RegisterActivity extends Activity implements IRegisterMediator {
 			mRegisterResult = "password_confirm_error";
 			return;
 		}
-		String[] params = {mCountryCode, name,password,checkcode};
+		String[] params = {mSelectCountryCode.mCode, name,password,checkcode};
 		new RegisterTask().execute(params);
 	}
 	
@@ -303,11 +313,22 @@ public class RegisterActivity extends Activity implements IRegisterMediator {
 		Thread t = new Thread(new Runnable() {
 			@Override
 			public void run() {
-				mUserManager.sendCheckcode(mCountryCode, mPhoneNumberEditText.getText().toString());
+				mUserManager.sendCheckcode(mSelectCountryCode.mCode, mPhoneNumberEditText.getText().toString());
 			}
 		});
 		t.start();
 		
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (resultCode == RESULT_OK) {
+			CountryCode control = (CountryCode)data.getSerializableExtra("control");
+			mSelectCountryCode = control;
+		}
+		mElvCountryCode.invalidate();
+		mElvCountryCode.collapseGroup(0);
+		super.onActivityResult(requestCode, resultCode, data);
 	}
 
 }

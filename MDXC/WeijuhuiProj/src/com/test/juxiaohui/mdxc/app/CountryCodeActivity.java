@@ -2,6 +2,8 @@ package com.test.juxiaohui.mdxc.app;
 
 import java.util.ArrayList;
 
+import android.content.Context;
+import com.test.juxiaohui.mdxc.data.CountryCode;
 import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
 import android.app.Activity;
 import android.content.Intent;
@@ -14,18 +16,19 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ListView;
 
 import com.test.juxiaohui.R;
-import com.test.juxiaohui.mdxc.adapter.CityStickyListHeadersListAdapter;
 import com.test.juxiaohui.mdxc.adapter.ControlCodeListAdapter;
-import com.test.juxiaohui.mdxc.data.ControlCode;
-import com.test.juxiaohui.mdxc.manager.ControlManager;
+import com.test.juxiaohui.mdxc.manager.CountryManager;
 import com.test.juxiaohui.mdxc.mediator.IControlSearchActivityMediator;
 import com.test.juxiaohui.widget.Sidebar;
 
-public class ControlCodeActivity extends Activity implements IControlSearchActivityMediator{
+public class CountryCodeActivity extends Activity implements IControlSearchActivityMediator{
 
+	public static void startActivity(Activity activity)
+	{
+		activity.startActivityForResult(new Intent(activity, CountryCodeActivity.class), 0);
+	}
 	
 	private StickyListHeadersListView mControlListView;
 	private RelativeLayout mSearchView;
@@ -41,7 +44,7 @@ public class ControlCodeActivity extends Activity implements IControlSearchActiv
 	}
 	
 	private void initData(){
-		ControlManager.getInstance();
+		CountryManager.getInstance();
 	}
 	
 	private void initView()
@@ -97,7 +100,7 @@ public class ControlCodeActivity extends Activity implements IControlSearchActiv
 				// TODO Auto-generated method stub
 				Intent intent = new Intent();
 				intent.putExtra("control", mControlCodeListAdapter.getDataByPosition(arg2));
-				setResult(0, intent);
+				setResult(RESULT_OK, intent);
 				finish();
 			}
 		});
@@ -116,28 +119,28 @@ public class ControlCodeActivity extends Activity implements IControlSearchActiv
 	}
 
 	@Override
-	public ArrayList<ControlCode> getNearbyPort() {
+	public ArrayList<CountryCode> getNearbyPort() {
 		// TODO Auto-generated method stub
-		ArrayList<ControlCode> mNearbyPort = new ArrayList<ControlCode>();
+		ArrayList<CountryCode> mNearbyPort = new ArrayList<CountryCode>();
 		return mNearbyPort;
 	}
 
 	@Override
-	public ArrayList<ControlCode> getLastSearchControl() {
+	public ArrayList<CountryCode> getLastSearchControl() {
 		// TODO Auto-generated method stub
-		ArrayList<ControlCode> mLastSearchControl = new ArrayList<ControlCode>();
+		ArrayList<CountryCode> mLastSearchControl = new ArrayList<CountryCode>();
 		return mLastSearchControl;
 	}
 
 	@Override
-	public ArrayList<ControlCode> getHostControl() {
+	public ArrayList<CountryCode> getHostControl() {
 		// TODO Auto-generated method stub
-		ArrayList<ControlCode> mHostControl = new ArrayList<ControlCode>();
+		ArrayList<CountryCode> mHostControl = new ArrayList<CountryCode>();
 		return mHostControl;
 	}
 
 	@Override
-	public ArrayList<ControlCode> getSearchResult(String condition) {
+	public ArrayList<CountryCode> getSearchResult(String condition) {
 		// TODO Auto-generated method stub
 		return null;
 	}

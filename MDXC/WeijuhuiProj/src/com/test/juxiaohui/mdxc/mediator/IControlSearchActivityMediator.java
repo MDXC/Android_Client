@@ -2,7 +2,7 @@ package com.test.juxiaohui.mdxc.mediator;
 
 import java.util.ArrayList;
 
-import com.test.juxiaohui.mdxc.data.ControlCode;
+import com.test.juxiaohui.mdxc.data.CountryCode;
 
 public interface IControlSearchActivityMediator 
 {
@@ -25,17 +25,17 @@ public interface IControlSearchActivityMediator
 	 */
 	public void updateList();
 	
-	public ArrayList<ControlCode> getNearbyPort();
+	public ArrayList<CountryCode> getNearbyPort();
 	
-	public ArrayList<ControlCode> getLastSearchControl();
+	public ArrayList<CountryCode> getLastSearchControl();
 	
-	public ArrayList<ControlCode> getHostControl();
+	public ArrayList<CountryCode> getHostControl();
 	
 	/**
 	 * 
 	 * @param condition
 	 * @return
 	 */
-	public ArrayList<ControlCode> getSearchResult(String condition);
+	public ArrayList<CountryCode> getSearchResult(String condition);
 	
 }

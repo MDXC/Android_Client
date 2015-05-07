@@ -155,7 +155,8 @@
         </activity>
             
          <activity android:name=".mdxc.app.PassengerEditorActivity" android:theme="@style/CTActivityStyleLeftPush"/>
-
+        <activity android:name=".mdxc.app.CountryCodeTestActivity"/>
+        <activity android:name=".mdxc.app.CountryCodeActivity" android:theme="@style/CTActivityStyleLeftPush"/>
 
     </application>
 

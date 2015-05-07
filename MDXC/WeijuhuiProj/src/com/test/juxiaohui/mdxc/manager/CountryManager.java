@@ -6,31 +6,29 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-import android.util.Log;
-
 import com.test.juxiaohui.DemoApplication;
-import com.test.juxiaohui.mdxc.data.ControlCode;
+import com.test.juxiaohui.mdxc.data.CountryCode;
 
-public class ControlManager {
+public class CountryManager {
 
-	    private ArrayList<ControlCode> mControlCode = new ArrayList<ControlCode>();
-	    private static ControlManager mInstance = null;
-	    public static ControlManager getInstance()
+	    private ArrayList<CountryCode> mControlCode = new ArrayList<CountryCode>();
+	    private static CountryManager mInstance = null;
+	    public static CountryManager getInstance()
 	    {
 	        if(null == mInstance)
 	        {
-	            mInstance = new ControlManager();
+	            mInstance = new CountryManager();
 
 	        }
 	        return mInstance;
 	    }
 	    
 	    
-	    private ControlManager () {
+	    private CountryManager() {
 	    	createFromFile();
 	    }
 
-	    public ArrayList<ControlCode> getSearchResult(String condition) {
+	    public ArrayList<CountryCode> getSearchResult(String condition) {
 
 	        if(condition==null||condition.length()==0)
 	        {
@@ -38,22 +36,22 @@ public class ControlManager {
 	        }
 	        else
 	        {
-	            ArrayList<ControlCode> results = (ArrayList<ControlCode>) mControlCode.clone();
-	            ArrayList<ControlCode> temp = new ArrayList<ControlCode>();
+	            ArrayList<CountryCode> results = (ArrayList<CountryCode>) mControlCode.clone();
+	            ArrayList<CountryCode> temp = new ArrayList<CountryCode>();
 	            for(int i=0; i<condition.length(); i++)
 	            {
 	                for(int j=0; j<results.size(); j++)
 	                {
-	                    if((results.get(j).mControlCode.length()>i
-	                    		&&(results.get(j).mControlCode.contains(condition)))
-	                    		||(results.get(j).mControlEngName.length()>i && results.get(j).mControlEngName.toLowerCase().contains(condition.toLowerCase()))
-	                    		||(results.get(j).mControlChinaName.length()>i && results.get(j).mControlChinaName.contains(condition))
+	                    if((results.get(j).mCode.length()>i
+	                    		&&(results.get(j).mCode.contains(condition)))
+	                    		||(results.get(j).mEngName.length()>i && results.get(j).mEngName.toLowerCase().contains(condition.toLowerCase()))
+	                    		||(results.get(j).mChinaName.length()>i && results.get(j).mChinaName.contains(condition))
                                 )
 	                    {
 	                        temp.add(results.get(j));
 	                    }
 	                }
-	                results = (ArrayList<ControlCode>) temp.clone();
+	                results = (ArrayList<CountryCode>) temp.clone();
 	                temp.clear();
 	            }
 	            return results;
@@ -72,11 +70,11 @@ public class ControlManager {
 		        String[] arrs=null;
 		        while ((line=br.readLine())!=null) {
 		            arrs=line.split(",");
-		            ControlCode mControl = new ControlCode();
-		            mControl.mControlEngName = arrs[0].trim();
-		            mControl.mControlChinaName = arrs[1].trim();
-		            mControl.mControlshortName = arrs[2].trim();
-		            mControl.mControlCode = arrs[3].trim().replace("00", "+");
+		            CountryCode mControl = new CountryCode("","","","");
+		            mControl.mEngName = arrs[0].trim();
+		            mControl.mChinaName = arrs[1].trim();
+		            mControl.mShortName = arrs[2].trim();
+		            mControl.mCode = arrs[3].trim().replace("00", "+");
 		            mControlCode.add(mControl);
 		        }
 		        is.close();

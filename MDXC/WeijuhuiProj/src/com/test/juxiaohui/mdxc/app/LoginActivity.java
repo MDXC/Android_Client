@@ -11,11 +11,10 @@ import android.widget.*;
 import com.test.juxiaohui.DemoApplication;
 import com.test.juxiaohui.R;
 import com.test.juxiaohui.mdxc.data.CountryCode;
-import com.test.juxiaohui.mdxc.manager.ServerManager;
+import com.test.juxiaohui.mdxc.data.CountryCode_Temp;
 import com.test.juxiaohui.mdxc.manager.UserManager;
 import com.test.juxiaohui.mdxc.mediator.ILoginMediator;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -32,8 +31,8 @@ public class LoginActivity extends Activity implements ILoginMediator{
     RelativeLayout mLayoutSplash;
     LinearLayout mLayoutContent;
     ExpandableListView mElvCountryCode;
-    String mCountryCode = "";
-    private int mSelectedChildPos = -1;
+    CountryCode mSelectCountryCode = CountryCode.NULL;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -158,7 +157,7 @@ public class LoginActivity extends Activity implements ILoginMediator{
 
                 @Override
                 public void run() {
-                    mLoginResult = UserManager.getInstance().login(mCountryCode, username, password);
+                    mLoginResult = UserManager.getInstance().login(mSelectCountryCode.mCode, username, password);
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
@@ -217,7 +216,8 @@ public class LoginActivity extends Activity implements ILoginMediator{
     @Override
     public void addCountryCodeView() {
         final List<String> countryCodeList = CountryCode.convertCodeListToString(CountryCode.getDefaultCodes());
-
+        countryCodeList.add("More");
+        mSelectCountryCode = CountryCode.getDefaultCodes().get(0);
         mElvCountryCode = (ExpandableListView)findViewById(R.id.expandableListView_countryCode);
         mElvCountryCode.setAdapter(new BaseExpandableListAdapter() {
 
@@ -238,7 +238,8 @@ public class LoginActivity extends Activity implements ILoginMediator{
 
             @Override
             public Object getChild(int groupPosition, int childPosition) {
-                return null;
+                return countryCodeList.get(childPosition);
+
             }
 
             @Override
@@ -261,9 +262,10 @@ public class LoginActivity extends Activity implements ILoginMediator{
                 long pos = mElvCountryCode.getSelectedPosition();
                 View view = getLayoutInflater().inflate(R.layout.item_country_code, null);
                 TextView tv = (TextView) view.findViewById(R.id.textView_country_code);
-                if(mSelectedChildPos >= 0)
+                if(mSelectCountryCode != CountryCode.NULL)
                 {
-                    tv.setText(countryCodeList.get(mSelectedChildPos));
+
+                    tv.setText(mSelectCountryCode.mCode + " (" + mSelectCountryCode.mEngName + ")");
                 }
                 else
                 {
@@ -290,8 +292,16 @@ public class LoginActivity extends Activity implements ILoginMediator{
         mElvCountryCode.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-                mSelectedChildPos = childPosition;
-                mElvCountryCode.collapseGroup(0);
+                if(childPosition<CountryCode.getDefaultCodes().size())
+                {
+                    mSelectCountryCode = CountryCode.getDefaultCodes().get(childPosition);
+                    mElvCountryCode.collapseGroup(0);
+                }
+                else
+                {
+                    CountryCodeActivity.startActivity(LoginActivity.this);
+                }
+
                 return false;
             }
         });
@@ -350,6 +360,17 @@ public class LoginActivity extends Activity implements ILoginMediator{
     private void gotoNext(){
         EntryActivity.startActivity(LoginActivity.this);
         finish();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK) {
+            CountryCode control = (CountryCode)data.getSerializableExtra("control");
+            mSelectCountryCode = control;
+        }
+        mElvCountryCode.invalidate();
+        mElvCountryCode.collapseGroup(0);
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
 }

@@ -1,25 +1,70 @@
 package com.test.juxiaohui.mdxc.data;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by yihao on 15/5/5.
- */
-public class CountryCode
-{
-    public String mCountry;
-    public String mCode;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-    public CountryCode(String country, String code)
-    {
-        mCountry = country;
-        mCode = code;
-    }
+public class CountryCode implements Serializable,Comparable{
 
+	public String mEngName = "";
+	public String mChinaName = "";
+	public String mCode = "";
+	public String mShortName = "";
+	
+	public static CountryCode NULL = new CountryCode("", "", "", "");
 
-public static List<CountryCode> getDefaultCodes()
-{
+	public CountryCode(String engName, String chinaName, String code, String shortName)
+	{
+		mEngName = engName;
+		mChinaName = chinaName;
+		mCode = code;
+		mShortName = shortName;
+	}
+	
+	public static JSONObject toJSON(CountryCode data)
+	{
+		JSONObject obj = new JSONObject();
+		try {
+			obj.put("engName", data.mEngName);
+			obj.put("chinaName", data.mChinaName);
+			obj.put("code", data.mCode);
+			obj.put("shortName", data.mShortName);
+			
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+
+		return obj;
+	}
+
+	public CountryCode fromJSON(JSONObject json)
+	{
+		CountryCode data = new CountryCode("", "", "", "");
+		try {
+			data.mEngName = json.getString("engName");
+			data.mChinaName = json.getString("chinaName");
+			data.mCode = json.getString("code");
+			data.mShortName = json.getString("shortName");
+		} catch (JSONException e) {
+			e.printStackTrace();
+			data = NULL;
+		}
+		return data;
+	}
+	
+	
+	
+	@Override
+	public int compareTo(Object another) {
+		// TODO Auto-generated method stub
+		return mCode.compareToIgnoreCase(((CountryCode)another).mEngName);
+	}
+
+	public static List<CountryCode> getDefaultCodes()
+	{
 //    +95 Myanmar
 //        +86 China
 //        +65 Singapore
@@ -30,29 +75,28 @@ public static List<CountryCode> getDefaultCodes()
 //    +1 US&Canada
 //        +44 United Kindom
 //    +61 Australia
-    List<CountryCode> codeList = new ArrayList<CountryCode>();
+		List<CountryCode> codeList = new ArrayList<CountryCode>();
 
-    codeList.add(new CountryCode("Myanmar", "+95"));
-    codeList.add(new CountryCode("China", "+86"));
-    codeList.add(new CountryCode("Singapore", "+65"));
-    codeList.add(new CountryCode("Thailand", "+66"));
-    codeList.add(new CountryCode("Japan", "+81"));
-    codeList.add(new CountryCode("Korea", "+82"));
-    codeList.add(new CountryCode("Hong Kong", "+852"));
-    codeList.add(new CountryCode("US&Canada", "+1"));
-    codeList.add(new CountryCode("United Kindom", "+44"));
-    codeList.add(new CountryCode("Australia", "+61"));
-    return codeList;
+		codeList.add(new CountryCode("Myanmar", "", "+95", ""));
+		codeList.add(new CountryCode("China","", "+86", ""));
+		codeList.add(new CountryCode("Singapore","", "+65", ""));
+		codeList.add(new CountryCode("Thailand","", "+66", ""));
+		codeList.add(new CountryCode("Japan","", "+81", ""));
+		codeList.add(new CountryCode("Korea","", "+82", ""));
+		codeList.add(new CountryCode("Hong Kong","", "+852", ""));
+		codeList.add(new CountryCode("US&Canada","", "+1", ""));
+		codeList.add(new CountryCode("United Kindom","", "+44", ""));
+		codeList.add(new CountryCode("Australia","", "+61", ""));
+		return codeList;
+	}
+
+	public static List<String> convertCodeListToString(List<CountryCode> codeList)
+	{
+		List<String> listStr = new ArrayList<String>();
+		for (CountryCode code:codeList) {
+			listStr.add(code.mCode + "(" + code.mEngName + ")");
+		}
+		return listStr;
+	}
+
 }
-
-public static List<String> convertCodeListToString(List<CountryCode> codeList)
-{
-    List<String> listStr = new ArrayList<String>();
-    for (CountryCode code:codeList)
-    {
-        listStr.add(code.mCode + "(" + code.mCountry + ")");
-    }
-    return listStr;
-}
-
-};
