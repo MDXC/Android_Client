@@ -27,6 +27,9 @@ public class FlightOrder implements Comparable{
      */
     public static int SOURCE_ANDROID = 11;
 
+
+
+
     /**
      * 定义航班类型
      */
