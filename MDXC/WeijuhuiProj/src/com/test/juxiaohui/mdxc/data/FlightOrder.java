@@ -4,8 +4,11 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
+
 import com.test.juxiaohui.R;
+
 import junit.framework.Assert;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -18,7 +21,7 @@ import java.util.List;
 /**
  * Created by yihao on 15/4/18.
  */
-public class FlightOrder {
+public class FlightOrder implements Comparable{
     /**
      * 定义订单来源
      */
@@ -245,4 +248,17 @@ public class FlightOrder {
         mFlightdataList.add(FlightData.NULL);
         mFlightdataList.add(FlightData.NULL);
     }
+
+	@Override
+	public int compareTo(Object compareObj) {
+		long createDatetoLong = Date.parse(mCreateDate.toLocaleString());
+		long compareDate = Date.parse(((FlightOrder)compareObj).mCreateDate.toLocaleString());
+		if (createDatetoLong > compareDate) {
+			return 1;
+		} else if (createDatetoLong < compareDate) {
+			 return -1;
+		} else {
+			return 0; 
+		}
+	}
 }
