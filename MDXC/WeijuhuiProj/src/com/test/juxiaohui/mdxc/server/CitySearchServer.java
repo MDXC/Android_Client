@@ -4,10 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 import android.content.Context;
 
@@ -17,13 +14,18 @@ import com.test.juxiaohui.DemoApplication;
 import com.test.juxiaohui.common.dal.ICitySearchServer;
 import com.test.juxiaohui.mdxc.data.AirportData;
 import com.test.juxiaohui.mdxc.data.CityData;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class CitySearchServer implements ICitySearchServer {
-	public String[] mHotCityList = {"Yangon", "Mandalay", "Nay Pyi Taw", "Hongkong", "Singarpore", "Bangkok",
-	"Beijing", "Kunming", "Guangzhou"};
+//	public String[] mHotCityList = {"Yangon", "Mandalay", "Nay Pyi Taw", "Hongkong", "Singarpore", "Bangkok",
+//	"Beijing", "Kunming", "Guangzhou"};
 	private static CitySearchServer mInstance = null;
 	private HashSet<String> mRecentCities = new HashSet<String>();
 	private static final String PREF_RECENT_CITIES = "recent_cities";
+	private ArrayList<CityData> mHotCityList = new ArrayList<CityData>();
+	public static final int MAX_RECENT_CITY = 3;
 	public static CitySearchServer getInstance()
 	{
 		if(mInstance == null)
@@ -38,7 +40,7 @@ public class CitySearchServer implements ICitySearchServer {
 		createFromFile();
 
 		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(DemoApplication.applicationContext);
-		preferences.getStringSet(PREF_RECENT_CITIES, mRecentCities);
+		//preferences.getStringSet(PREF_RECENT_CITIES, mRecentCities);
 	}
 	
 
@@ -64,13 +66,19 @@ public class CitySearchServer implements ICitySearchServer {
 
 	@Override
 	public ArrayList<CityData> getHotCities() {
-		// 丑代码，不过可用
-		ArrayList<CityData> hostList = new ArrayList<CityData>();
-		for(CityData city:hostList)
+		if(mHotCityList.size()==0)
 		{
-			hostList.add(city);
+			mHotCityList.add(new CityData("522", "Yangon", "RGN"));
+			mHotCityList.add(new CityData("4080", "Mandalay", "MDL"));
+			mHotCityList.add(new CityData("", "Nay Pyi Taw", ""));
+			mHotCityList.add(new CityData("58", "Hong Kong", "HKG"));
+			mHotCityList.add(new CityData("73", "Singapore", "SIN"));
+			mHotCityList.add(new CityData("359", "Bangkok", "BKK"));
+			mHotCityList.add(new CityData("1", "Beijing", "BJS"));
+			mHotCityList.add(new CityData("34", "Kunming", "KMG"));
+			mHotCityList.add(new CityData("32", "Guangzhou", "CAN"));
 		}
-		return hostList;
+		return mHotCityList;
 	}
 
 	@Override
@@ -132,18 +140,7 @@ public class CitySearchServer implements ICitySearchServer {
 		} 
 	}
 
-	/**
-	 *  添加 最近搜索过的城市名
-	 * @param cityName
-	 */
-	public void addRecentCity(String cityName)
-	{
-		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(DemoApplication.applicationContext);
-		SharedPreferences.Editor editor = preferences.edit();
-		mRecentCities.add(cityName);
-		editor.putStringSet(PREF_RECENT_CITIES, mRecentCities).commit();
 
-	}
 
 
 

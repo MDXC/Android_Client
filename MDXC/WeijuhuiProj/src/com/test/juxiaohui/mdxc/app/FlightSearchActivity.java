@@ -180,7 +180,7 @@ public class FlightSearchActivity extends Activity implements IFlightSearchMedia
         mLlDepartDate = (LinearLayout) findViewById(R.id.ll_departDate_container);
         mLlReturnlDate = (LinearLayout) findViewById(R.id.flight_search_returnDate_container);
         mTvDepartTime = (TextView) findViewById(R.id.tv_depart_date);
-        mTvDepartTime.setText(getString(R.string.depart_time));
+        mTvDepartTime.setText(mDataFormat.format(new Date()));
         mTvReturnTime = (TextView)findViewById(R.id.tv_return_date);
         mTvReturnTime.setText(R.string.return_time);
         mLlDepartDate.setClickable(true);

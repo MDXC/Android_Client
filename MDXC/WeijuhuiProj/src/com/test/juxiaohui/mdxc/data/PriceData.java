@@ -15,6 +15,13 @@ public class PriceData {
 		mTicketPrice = ticketPrize;
 		mTax = tax;
 	}
+
+	public PriceData(PriceData data)
+	{
+		mTicketPrice = data.mTicketPrice;
+		mTax = data.mTax;
+		mCurrency = data.mCurrency;
+	}
 	
 	public PriceData()
 	{

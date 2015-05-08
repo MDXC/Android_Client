@@ -12,4 +12,6 @@ public class RouteData {
     public String mArrivalDate;
     public String mDepartTime;
     public String mArrivalTime;
+    public String mNumbers;
+    public String mAirplanes;
 }

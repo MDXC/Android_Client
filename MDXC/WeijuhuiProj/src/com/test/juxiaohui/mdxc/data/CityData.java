@@ -10,6 +10,7 @@ public class CityData implements Serializable,Comparable
 {
 	public String cityName = "";
 	public String cityCode = "";
+	public String cityId = "";
 	public String countryName = "";
 	public String countryCode = "";
 	public String provinceName = "";
@@ -25,12 +26,26 @@ public class CityData implements Serializable,Comparable
 
 	public static CityData NULL = new CityData();
 
+	public CityData(String cityId, String cityName, String cityCode)
+	{
+		this.cityId = cityId;
+		this.cityName = cityName;
+		this.cityCode = cityCode;
+
+	}
+
+	public CityData()
+	{
+
+	}
+
 	public static JSONObject toJSON(CityData data)
 	{
 		JSONObject obj = new JSONObject();
 		try {
 			obj.put("cityName", data.cityName);
 			obj.put("cityCode", data.cityCode);
+			obj.put("cityId", data.cityId);
 			//obj.put("portsList", data.portList);
 		} catch (JSONException e) {
 			e.printStackTrace();
@@ -39,12 +54,13 @@ public class CityData implements Serializable,Comparable
 		return obj;
 	}
 
-	public CityData fromJSON(JSONObject json)
+	public static CityData fromJSON(JSONObject json)
 	{
 		CityData data = new CityData();
 		try {
 			data.cityCode = json.getString("cityCode");
 			data.cityName = json.getString("cityName");
+			data.cityId = json.getString("cityId");
 		} catch (JSONException e) {
 			e.printStackTrace();
 			data = NULL;

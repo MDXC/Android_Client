@@ -2,6 +2,7 @@ package com.test.juxiaohui.mdxc.app;
 
 import java.util.ArrayList;
 
+import com.test.juxiaohui.mdxc.manager.CityManager;
 import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
 
 import com.test.juxiaohui.R;
@@ -102,10 +103,13 @@ public class CitySearchActivity extends Activity implements ICitySearchActivityM
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
 				// TODO Auto-generated method stub
+				CityManager.getInstance().addRecentCity(mCityAdapter.getItem(arg2));
+				mCityAdapter.notifyDataSetChanged();
 				Intent intent = new Intent();
 				intent.putExtra("city", mCityAdapter.getDataByPosition(arg2));
 				setResult(0, intent);
 				finish();
+
 			}
 		});
 		
@@ -146,7 +150,7 @@ public class CitySearchActivity extends Activity implements ICitySearchActivityM
 		ArrayList<CityData> l = new ArrayList<CityData>();
 		CityData c = new CityData();
 
-		return l;
+		return CityManager.getInstance().getHotCities();
 	}
 
 	@Override

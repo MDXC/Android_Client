@@ -2,10 +2,7 @@ package com.test.juxiaohui.mdxc.data;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 import com.test.juxiaohui.R;
 
@@ -22,7 +19,7 @@ import org.json.JSONObject;
 /**
  * Created by yihao on 15/3/13.
  */
-public class FlightData {
+public class FlightData implements Cloneable{
 	
 	public static enum BEHAVIOR_TYPE
 	{
@@ -42,7 +39,7 @@ public class FlightData {
 
 
 
-    public List<RouteData> mRoutes = new ArrayList<RouteData>();
+    public LinkedList<RouteData> mRoutes = new LinkedList<RouteData>();
     public String mAirlineName = "unknown airline";
     public String mAirlineLogoUrl = "";
     public PriceData mPrice = PriceData.NULL;
@@ -54,6 +51,24 @@ public class FlightData {
     public Date mToTime = new Date();
     public String mDurTime = "60";
     public int mTripType = FlightOrder.TRIP_ONE_WAY;
+
+
+    public FlightData(FlightData flightData)
+    {
+        mPrice = new PriceData(flightData.mPrice);
+        mFromCity = flightData.mFromCity;
+        mFromCode = flightData.mFromCode;
+        mToCity = flightData.mToCity;
+        mToCode = flightData.mToCode;
+        mFromTime = (Date)flightData.mFromTime.clone();
+        mToTime = (Date)flightData.mToTime.clone();
+        mDurTime = flightData.mDurTime;
+        mTripType = flightData.mTripType;
+    }
+
+    public FlightData(){
+
+    }
 
     public static FlightData NULL = new FlightData();
 
@@ -91,6 +106,7 @@ public class FlightData {
         TextView mTvDistance;
         TextView mTvCurrency;
         TextView mTvPrize;
+        TextView mTvStop0;
     }
 
     public static FlightData fromJSON(JSONObject jsonObject) {
@@ -168,6 +184,7 @@ public class FlightData {
             holder.mTvDistance = (TextView) convertView.findViewById(R.id.tv_duration);
             holder.mTvCurrency = (TextView) convertView.findViewById(R.id.tv_currency);
             holder.mTvPrize = (TextView) convertView.findViewById(R.id.tv_price);
+
             convertView.setTag(holder);
         }
         holder = (ViewHolder) convertView.getTag();
@@ -178,11 +195,18 @@ public class FlightData {
             //Picasso.with(context).load(data.mAirlineLogoUrl).into(holder.mIvAirlineLogo);
             holder.mIvAirlineLogo.setImageResource(new Integer(data.mAirlineLogoUrl));
         }
-        if (data.mRoutes.size() > 0) {
-            holder.mTvDepartTime.setText(data.mRoutes.get(0).mDepartTime);
-            holder.mTvDepartCity.setText(data.mRoutes.get(0).mDepartCity);
-            holder.mTvArrivalTime.setText(data.mRoutes.get(data.mRoutes.size() - 1).mArrivalTime);
-            holder.mTvArrivalCity.setText(data.mRoutes.get(data.mRoutes.size() - 1).mArrivalCity);
+        if (data.mRoutes.size() > 1) {
+//            holder.mTvDepartTime.setText(data.mRoutes.get(0).mDepartTime);
+//            holder.mTvDepartCity.setText(data.mRoutes.get(0).mDepartCity);
+//            holder.mTvArrivalTime.setText(data.mRoutes.get(data.mRoutes.size() - 1).mArrivalTime);
+//            holder.mTvArrivalCity.setText(data.mRoutes.get(data.mRoutes.size() - 1).mArrivalCity);
+            View stopView = convertView.findViewById(R.id.view_stop_0);
+            stopView.setVisibility(View.VISIBLE);
+            holder.mTvStop0 = (TextView)stopView.findViewById(R.id.tv_stop_code);
+            holder.mTvStop0.setText(data.mRoutes.getFirst().mArrivalCity);
+        }
+        else{
+
         }
         holder.mTvDepartTime.setText(FORMAT_SEARCH.format(data.mFromTime));
         holder.mTvDepartCity.setText(data.mFromCode);
