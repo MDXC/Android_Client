@@ -1,16 +1,27 @@
 package com.test.juxiaohui.mdxc.manager;
 
+import android.content.Context;
+import android.content.Intent;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Base64;
 import android.util.Log;
+import android.widget.Toast;
+
 import com.test.juxiaohui.DemoApplication;
+import com.test.juxiaohui.R;
 import com.test.juxiaohui.cache.temp.JSONCache;
 import com.test.juxiaohui.common.dal.IUserServer;
 import com.test.juxiaohui.common.data.User;
+import com.test.juxiaohui.mdxc.app.FlightOrderActivity;
+import com.test.juxiaohui.mdxc.app.LoginActivity;
 import com.test.juxiaohui.mdxc.data.ContactUser;
 import com.test.juxiaohui.mdxc.data.Passenger;
 import com.test.juxiaohui.mdxc.server.UserServer;
 import com.test.juxiaohui.utils.EncryptUtil;
+
 import junit.framework.Assert;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -35,6 +46,7 @@ public class UserManager {
 	private List<Passenger> mPassengerList = new ArrayList<Passenger>();
 
 	public static boolean DEBUG = true;
+	public static final int START_LOGIN_ACTIVITY = 1;
 	public static UserManager getInstance()
 	{
 		if(null == mInstance)
@@ -366,8 +378,83 @@ public class UserManager {
 			mContatctUser = ContactUser.fromJSON(obj);
 		}
 	}
-
-
-
+	
+	
+	
+	
+	
+	   public boolean isHasLoginCache()
+	    {
+	        String username = DemoApplication.getInstance().getUserName();
+	        String password = DemoApplication.getInstance().getPassword();
+	        return (null!=username&&null!=password);
+	    }
+	    
+	    public void loginFromCache(Context mContext) {
+	        if(!UserManager.getInstance().isLogin())
+	        {
+	            String username = DemoApplication.getInstance().getUserName();
+	            String password = DemoApplication.getInstance().getPassword();
+	            String countryCode = getCachedCountryCode();
+	            if(null!=username && null!=password)
+	            {
+	               String mLoginResult = login(countryCode,username, password);
+	                if(!mLoginResult.equals(UserManager.LOGIN_SUCCESS))
+	                {
+	                    Toast.makeText(mContext, R.string.login_fail, Toast.LENGTH_LONG).show();
+	                    Message msg = Message.obtain();
+	                    msg.what = START_LOGIN_ACTIVITY;
+	                    msg.obj = mContext;
+	                    mHandler.sendMessageDelayed(msg, 5000);
+	                }
+	            }
+	        }
+	    }
+	    
+	   public Handler mHandler = new Handler() {
+	    	public void handleMessage(android.os.Message msg) {
+	    		switch(msg.what) {
+	    		case START_LOGIN_ACTIVITY:
+	    			Context mContext = (Context)msg.obj;
+	    			mContext.startActivity(new Intent(mContext,LoginActivity.class));			
+	    			break;
+	    		}
+	    	};
+	    };
+   
+      public void sendMessageToLogin(Context mContext){
+    	  Message msg = Message.obtain();
+    	  msg.what = START_LOGIN_ACTIVITY;
+    	  msg.obj = mContext;
+    	  mHandler.sendMessage(msg);
+      }
+      
+      
+      
+      /**
+       *  checkLogin 检测登录、验证缓存登录、以及执行回调
+       * @param mContext 当前活动页Context
+       * @param mCallBack 回调消息
+       * @param isSupportCacheLogin 是否支持缓存登录
+       */
+      public void checkLogin (Context mContext,Message mCallBack,boolean isSupportCacheLogin) {
+			if (!isLogin()) {
+				if (isHasLoginCache() && isSupportCacheLogin) {
+					loginFromCache(mContext);
+					if (isLogin()) {
+						if (mCallBack != null) {
+							mCallBack.sendToTarget();
+						}
+					}
+				} else {
+					 sendMessageToLogin(mContext);
+				}
+			} else {
+				if(mCallBack != null){
+					mCallBack.sendToTarget();
+				}
+			}
+      }
+     
 
 }

@@ -140,16 +140,17 @@
                   android:theme="@style/CTActivityStyleLeftPush">
         </activity>
         <activity android:name=".mdxc.app.LoginActivity" android:theme="@style/CTActivityStyleLeftPush">
-		<intent-filter>
-           <action android:name="android.intent.action.MAIN"/>
-           <category android:name="android.intent.category.LAUNCHER"/>
-         </intent-filter>
-	    </activity>
+		</activity>
         <activity android:name=".mdxc.app.FlightSearchActivity" android:theme="@style/CTActivityStyleLeftPush" />
         <activity android:name=".mdxc.app.FlightSearchResultActivity" android:theme="@style/CTActivityStyleLeftPush"/>
         <activity android:name=".mdxc.app.FlightDetailActivity" android:theme="@style/CTActivityStyleLeftPush"/>
        <activity android:name=".mdxc.app.FlightOrderActivity" android:theme="@style/CTActivityStyleLeftPush"/>
-        <activity android:name=".mdxc.app.EntryActivity" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:name=".mdxc.app.EntryActivity" android:theme="@style/CTActivityStyleLeftPush">
+           <intent-filter>
+             <action android:name="android.intent.action.MAIN"/>
+             <category android:name="android.intent.category.LAUNCHER"/>
+           </intent-filter>
+        </activity>
         <activity android:name=".mdxc.app.CitySearchActivity" android:theme="@style/CTActivityStyleLeftPush"/>
          <activity android:name=".mdxc.app.PassengerListActivity" android:theme="@style/CTActivityStyleLeftPush">
         </activity>

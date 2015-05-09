@@ -809,4 +809,5 @@
     <string name="reg_success">Register Success</string>
     <string name="reg_fail">Register Fail</string>
     <string name="select_countryCode">Please select the phone\'s country code</string>
+    <string name="login_fail">Login failed, will jump to the login screen</string>
 </resources>

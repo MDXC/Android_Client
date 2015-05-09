@@ -358,7 +358,7 @@ public class LoginActivity extends Activity implements ILoginMediator{
     }
 
     private void gotoNext(){
-        EntryActivity.startActivity(LoginActivity.this);
+        //EntryActivity.startActivity(LoginActivity.this);
         finish();
     }
 

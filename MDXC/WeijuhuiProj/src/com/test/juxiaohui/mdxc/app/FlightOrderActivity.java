@@ -7,15 +7,20 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.*;
 import android.widget.LinearLayout.LayoutParams;
 
+import com.test.juxiaohui.DemoApplication;
 import com.test.juxiaohui.R;
 import com.test.juxiaohui.mdxc.data.ContactUser;
+import com.test.juxiaohui.mdxc.data.FlightData;
 import com.test.juxiaohui.mdxc.data.FlightOrder;
+import com.test.juxiaohui.mdxc.data.Passenger;
 import com.test.juxiaohui.mdxc.manager.FlightOrderManager;
 import com.test.juxiaohui.mdxc.manager.ServerManager;
 import com.test.juxiaohui.mdxc.data.FlightData;
@@ -40,6 +45,10 @@ public class FlightOrderActivity extends Activity implements
 	private LayoutInflater mInflater;
 	private FlightOrder mFlightOrder;
 	
+	
+	public static final int MESSAGE_SUBMIT_ORDER = 1;
+	
+	
 	public static void startActivity(String orderId, Context context)
 	{
 		Intent intent = new Intent(context, FlightOrderActivity.class);
@@ -62,7 +71,9 @@ public class FlightOrderActivity extends Activity implements
 		btn_OK.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				submitOrder();
+		       Message msg = Message.obtain(mHandler);
+		       msg.what = MESSAGE_SUBMIT_ORDER;
+		       UserManager.getInstance().checkLogin(FlightOrderActivity.this, msg, true);
 			}
 		});
 	}
@@ -228,5 +239,18 @@ public class FlightOrderActivity extends Activity implements
 			t.start();
 		}
 	}
+	
+	
+	Handler mHandler = new Handler(){
+		@Override
+		public void dispatchMessage(Message msg) {
+			// TODO Auto-generated method stub
+			switch(msg.what){
+			case MESSAGE_SUBMIT_ORDER:
+				submitOrder();
+				break;
+			}
+		}
+	};
 
 }
