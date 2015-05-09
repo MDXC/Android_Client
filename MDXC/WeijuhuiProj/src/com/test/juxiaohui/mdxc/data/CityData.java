@@ -1,5 +1,6 @@
 package com.test.juxiaohui.mdxc.data;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -46,6 +47,12 @@ public class CityData implements Serializable,Comparable
 			obj.put("cityName", data.cityName);
 			obj.put("cityCode", data.cityCode);
 			obj.put("cityId", data.cityId);
+			JSONArray airportList = new JSONArray();
+			for(AirportData port:data.portList){
+				airportList.put(AirportData.toJSON(port));
+			}
+			obj.put("airports", airportList);
+
 			//obj.put("portsList", data.portList);
 		} catch (JSONException e) {
 			e.printStackTrace();
@@ -61,6 +68,11 @@ public class CityData implements Serializable,Comparable
 			data.cityCode = json.getString("cityCode");
 			data.cityName = json.getString("cityName");
 			data.cityId = json.getString("cityId");
+			JSONArray arrayAirports = json.getJSONArray("airports");
+			for(int i=0; i<arrayAirports.length(); i++){
+				JSONObject jsonObject = arrayAirports.getJSONObject(i);
+				data.portList.add(AirportData.fromJSON(jsonObject));
+			}
 		} catch (JSONException e) {
 			e.printStackTrace();
 			data = NULL;

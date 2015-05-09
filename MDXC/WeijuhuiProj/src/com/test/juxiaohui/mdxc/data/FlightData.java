@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.test.juxiaohui.mdxc.manager.UtilManager;
 import junit.framework.Assert;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -107,6 +108,8 @@ public class FlightData implements Cloneable{
         TextView mTvCurrency;
         TextView mTvPrize;
         TextView mTvStop0;
+        TextView mTvStop1;
+        TextView mTvStop2;
     }
 
     public static FlightData fromJSON(JSONObject jsonObject) {
@@ -195,25 +198,30 @@ public class FlightData implements Cloneable{
             //Picasso.with(context).load(data.mAirlineLogoUrl).into(holder.mIvAirlineLogo);
             holder.mIvAirlineLogo.setImageResource(new Integer(data.mAirlineLogoUrl));
         }
-        if (data.mRoutes.size() > 1) {
-//            holder.mTvDepartTime.setText(data.mRoutes.get(0).mDepartTime);
-//            holder.mTvDepartCity.setText(data.mRoutes.get(0).mDepartCity);
-//            holder.mTvArrivalTime.setText(data.mRoutes.get(data.mRoutes.size() - 1).mArrivalTime);
-//            holder.mTvArrivalCity.setText(data.mRoutes.get(data.mRoutes.size() - 1).mArrivalCity);
+        if (data.mRoutes.size() >= 2) {
             View stopView = convertView.findViewById(R.id.view_stop_0);
             stopView.setVisibility(View.VISIBLE);
             holder.mTvStop0 = (TextView)stopView.findViewById(R.id.tv_stop_code);
             holder.mTvStop0.setText(data.mRoutes.getFirst().mArrivalCity);
         }
-        else{
-
+        if (data.mRoutes.size() >= 3) {
+            View stopView = convertView.findViewById(R.id.view_stop_1);
+            stopView.setVisibility(View.VISIBLE);
+            holder.mTvStop0 = (TextView)stopView.findViewById(R.id.tv_stop_code);
+            holder.mTvStop0.setText(data.mRoutes.getFirst().mArrivalCity);
+        }
+        if (data.mRoutes.size() >= 4) {
+            View stopView = convertView.findViewById(R.id.view_stop_2);
+            stopView.setVisibility(View.VISIBLE);
+            holder.mTvStop0 = (TextView)stopView.findViewById(R.id.tv_stop_code);
+            holder.mTvStop0.setText(data.mRoutes.getFirst().mArrivalCity);
         }
         holder.mTvDepartTime.setText(FORMAT_SEARCH.format(data.mFromTime));
         holder.mTvDepartCity.setText(data.mFromCode);
         holder.mTvArrivalTime.setText(FORMAT_SEARCH.format(data.mToTime));
         holder.mTvArrivalCity.setText(data.mToCode);
         holder.mTvDistance.setText(data.mDurTime + " min");
-        holder.mTvCurrency.setText("CNY");
+        holder.mTvCurrency.setText(UtilManager.getInstance().getCurrency());
         holder.mTvPrize.setText(data.mPrice.mTicketPrice + data.mPrice.mTax + "");
 
         return convertView;

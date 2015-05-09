@@ -12,6 +12,7 @@ import java.util.List;
 import com.test.juxiaohui.common.data.User;
 import com.test.juxiaohui.mdxc.data.*;
 import com.test.juxiaohui.mdxc.manager.UserManager;
+import com.test.juxiaohui.mdxc.manager.UtilManager;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -58,9 +59,8 @@ public class FlightServer implements IFlightServer {
 			public List<FlightData> postExcute(String result) {
 				List<FlightData> resultObjects = new ArrayList<FlightData>();
 				try {
-					// result = createFromFile();
+					float rate = -1;
 					JSONObject json = new JSONObject(result);
-
 					JSONArray prices = json.getJSONArray("prices");
 					JSONObject flights = json.getJSONObject("flights");
 					for (int i = 0; i < prices.length(); i++) {
@@ -69,9 +69,13 @@ public class FlightServer implements IFlightServer {
 						flightData.mFromCode = request.mDepartCode;
 						flightData.mToCode = request.mArrivalCode;
 						flightData.mPrice = new PriceData();
-						flightData.mPrice.mTicketPrice = Float.valueOf(priceObj.getString("price"));
-						flightData.mPrice.mTax = Float.valueOf(priceObj.getString("taxes"));
+
 						flightData.mPrice.mCurrency = priceObj.getString("currency");
+						if(rate == -1){
+							rate = UtilManager.getInstance().getExchangeRate(flightData.mPrice.mCurrency, UtilManager.getInstance().getCurrency());
+						}
+						flightData.mPrice.mTicketPrice = Float.valueOf(priceObj.getString("price")) * rate;
+						flightData.mPrice.mTax = Float.valueOf(priceObj.getString("taxes"));
 						JSONArray fromNumbers = priceObj
 								.getJSONArray("fromNumbers");
 						for (int j = 0; j < fromNumbers.length(); j++) {
@@ -105,53 +109,7 @@ public class FlightServer implements IFlightServer {
 									resultObjects.add(flightData);
 								}
 							}
-//							if (null != flight) {
-//								flight.put("price", priceObj.getString("price"));
-//								flight.put("currency", priceObj.get("currency"));
-//								//补全机票航程类型 去程
-//								flight.put("trip_type", "depart");
-//								flight.put("taxes", priceObj.get("taxes"));
-//							}
 						}
-
-
-
-//						try {
-//							JSONArray toNumbers = priceObj
-//									.getJSONArray("toNumbers");
-//							for (int j = 0; j < toNumbers.length(); j++) {
-//								String toNumber = toNumbers.getString(j);
-//								JSONObject flight = flights
-//										.getJSONObject(toNumber);
-//								if (null != flight) {
-//									flight.put("price",
-//											priceObj.getString("price"));
-//									flight.put("currency",
-//											priceObj.get("currency"));
-//									//补全机票航程类型 返程
-//									flight.put("trip_type", "return");
-//									flight.put("price",priceObj.getString("price"));
-//									flight.put("currency",priceObj.get("currency"));
-//									flight.put("taxes", priceObj.get("taxes"));
-//								}
-//							}
-//						} catch (JSONException e) {
-//							e.printStackTrace();
-//						}
-
-						// for(String number:numbers)
-						// {
-						// JSONObject flights =
-						// json.getJSONObject("flights").getJSONObject(number);
-						// Log.v(DemoApplication.TAG, flights.toString());
-						// }
-						// Log.v(DemoApplication.TAG, nunmbers.toString());
-
-					}
-					for (int i = 0; i < flights.length(); i++) {
-//						JSONObject jsonObject = flights.getJSONObject(flights
-//								.names().getString(i));
-						//resultObjects.add(FlightData.fromJSON(jsonObject));
 					}
 
 				} catch (JSONException e) {
