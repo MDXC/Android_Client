@@ -345,7 +345,7 @@ public class UserManager {
 	 */
 	private void savePassengers()
 	{
-		JSONCache jsonCache = new JSONCache(DemoApplication.applicationContext, "passengers_" + mCurrentUser.getInnerName());
+		JSONCache jsonCache = new JSONCache(DemoApplication.applicationContext, "passengers_" + mCurrentUser.getInnerName().replace("+", "00"));
 		for(Passenger passenger:mPassengerList)
 		{
 			jsonCache.putItem(passenger.mId, Passenger.toJSON(passenger));
@@ -354,7 +354,7 @@ public class UserManager {
 
 	private void loadPassengers()
 	{
-		JSONCache jsonCache = new JSONCache(DemoApplication.applicationContext, "passengers_" + mCurrentUser.getInnerName());
+		JSONCache jsonCache = new JSONCache(DemoApplication.applicationContext, "passengers_" + mCurrentUser.getInnerName().replace("+", "00"));
 		List<JSONObject> jsonObj = jsonCache.getAllItems();
 		mPassengerList.clear();
 		for(JSONObject obj:jsonObj)
@@ -365,13 +365,13 @@ public class UserManager {
 
 	private void saveContactUser()
 	{
-		JSONCache jsonCache = new JSONCache(DemoApplication.applicationContext, "contact_" + mCurrentUser.getInnerName());
+		JSONCache jsonCache = new JSONCache(DemoApplication.applicationContext, "contact_" + mCurrentUser.getInnerName().replace("+", "00"));
 		jsonCache.putItem(mContatctUser.contactName, ContactUser.toJSON(mContatctUser));
 	}
 
 	private void loadContactUser()
 	{
-		JSONCache jsonCache = new JSONCache(DemoApplication.applicationContext, "contact_" + mCurrentUser.getInnerName());
+		JSONCache jsonCache = new JSONCache(DemoApplication.applicationContext, "contact_" + mCurrentUser.getInnerName().replace("+", "00"));
 		List<JSONObject> jsonObj = jsonCache.getAllItems();
 		for(JSONObject obj:jsonObj)
 		{
@@ -405,7 +405,7 @@ public class UserManager {
 	                    Message msg = Message.obtain();
 	                    msg.what = START_LOGIN_ACTIVITY;
 	                    msg.obj = mContext;
-	                    mHandler.sendMessageDelayed(msg, 5000);
+	                    mHandler.sendMessage(msg);  
 	                }
 	            }
 	        }

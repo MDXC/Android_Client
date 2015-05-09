@@ -13,6 +13,7 @@ import com.test.juxiaohui.mdxc.server.CitySearchServer;
 import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
 import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
 import android.content.Context;
+import android.util.Log;
 import android.util.SparseIntArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -81,13 +82,14 @@ public class CityStickyListHeadersListAdapter extends BaseAdapter implements Sti
 			int a = mNearbyPorts == null ? 0 : mNearbyPorts.size();
 			int b = mLastSearchCities == null ? 0 : mLastSearchCities.size();
 			int c = mHotCities == null ? 0 : mHotCities.size();
-			
+			Log.d("CityStickyListHeadersListAdapter", "cityName b count = " + b);
 			if(arg0 >= 0 && arg0 < a)
 			{
 				return mNearbyPorts.get(arg0);
 			}
 			if(arg0 >= a && arg0 < a + b)
 			{
+				Log.d("CityStickyListHeadersListAdapter", "cityName 1= "+mLastSearchCities.get(arg0 - a).cityName);
 				return mLastSearchCities.get(arg0 - a);
 			}
 			if(arg0 >= a + b && arg0 < a + b + c)
@@ -131,7 +133,7 @@ public class CityStickyListHeadersListAdapter extends BaseAdapter implements Sti
 		{
 			holder = (ItemViewHoler) convertView.getTag();
 		}
-		
+		Log.d("CityStickyListHeadersListAdapter", "cityName = "+data.cityName);
 		holder.title.setText(data.cityName);
 		holder.subTitle.setText(data.countryName + " - " + data.portName + "(" + data.cityCode + ")");
 		if(mNearbyPorts != null && position < mNearbyPorts.size())
@@ -243,8 +245,8 @@ public class CityStickyListHeadersListAdapter extends BaseAdapter implements Sti
 		mPositionOfSection.put(0, 0);
 		mSectionOfPosition.put(0, 0);
 		for (int i = 0; i < count; i++) {
-
-			String letter = getItem(i).cityName.substring(0, 1);
+            if(getItem(i).cityName != null && !"".equals(getItem(i).cityName.trim())){
+ 			String letter = getItem(i).cityName.substring(0, 1);
 			int section = list.size()-1;
 			if (list.get(section) != null && !list.get(section).equals(letter)) {
 				list.add(letter);
@@ -252,6 +254,8 @@ public class CityStickyListHeadersListAdapter extends BaseAdapter implements Sti
 				mPositionOfSection.put(section, i);
 			}
 			mSectionOfPosition.put(i, section);
+			
+            }
 		}
 		return list.toArray(new String[list.size()]);
 	}

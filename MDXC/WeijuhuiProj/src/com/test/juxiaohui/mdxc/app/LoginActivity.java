@@ -164,7 +164,7 @@ public class LoginActivity extends Activity implements ILoginMediator{
                             if(mLoginResult.equals(UserManager.LOGIN_SUCCESS))
                             {
                                 showErrorMessage("Login Success");
-                                EntryActivity.startActivity(LoginActivity.this);
+                                //EntryActivity.startActivity(LoginActivity.this);
                                 finish();
                             }
                             else
@@ -191,8 +191,8 @@ public class LoginActivity extends Activity implements ILoginMediator{
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                mLayoutSplash.setVisibility(View.VISIBLE);
-                mLayoutContent.setVisibility(View.INVISIBLE);
+                mLayoutSplash.setVisibility(View.INVISIBLE);
+                mLayoutContent.setVisibility(View.VISIBLE);
             }
         });
 

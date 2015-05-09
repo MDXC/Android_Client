@@ -77,6 +77,7 @@ public class UserServer implements IUserServer {
 		List params=new ArrayList();
 		params.add(new BasicNameValuePair("userName", countryCode + username));
 		params.add(new BasicNameValuePair("password", password));
+		params.add(new BasicNameValuePair("type",""+0));
 		SyncHTTPCaller<String> caller = new SyncHTTPCaller<String>(
 				url, null, params, SyncHTTPCaller.TYPE_POST, "") {
 
