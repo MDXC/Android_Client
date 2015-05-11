@@ -77,16 +77,16 @@ public class CountryCode implements Serializable,Comparable{
 //    +61 Australia
 		List<CountryCode> codeList = new ArrayList<CountryCode>();
 
-		codeList.add(new CountryCode("Myanmar", "", "+95", ""));
-		codeList.add(new CountryCode("China","", "+86", ""));
-		codeList.add(new CountryCode("Singapore","", "+65", ""));
-		codeList.add(new CountryCode("Thailand","", "+66", ""));
-		codeList.add(new CountryCode("Japan","", "+81", ""));
-		codeList.add(new CountryCode("Korea","", "+82", ""));
-		codeList.add(new CountryCode("Hong Kong","", "+852", ""));
-		codeList.add(new CountryCode("US&Canada","", "+1", ""));
-		codeList.add(new CountryCode("United Kindom","", "+44", ""));
-		codeList.add(new CountryCode("Australia","", "+61", ""));
+		codeList.add(new CountryCode("", "", "+95", ""));
+		codeList.add(new CountryCode("","", "+86", ""));
+		codeList.add(new CountryCode("","", "+65", ""));
+		codeList.add(new CountryCode("","", "+66", ""));
+		codeList.add(new CountryCode("","", "+81", ""));
+		codeList.add(new CountryCode("","", "+82", ""));
+		codeList.add(new CountryCode("","", "+852", ""));
+		codeList.add(new CountryCode("","", "+1", ""));
+		codeList.add(new CountryCode("","", "+44", ""));
+		codeList.add(new CountryCode("","", "+61", ""));
 		return codeList;
 	}
 
@@ -94,7 +94,7 @@ public class CountryCode implements Serializable,Comparable{
 	{
 		List<String> listStr = new ArrayList<String>();
 		for (CountryCode code:codeList) {
-			listStr.add(code.mCode + "(" + code.mEngName + ")");
+			listStr.add(code.mCode);
 		}
 		return listStr;
 	}

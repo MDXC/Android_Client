@@ -28,28 +28,22 @@
                         android:layout_margin="@dimen/margin_10"
                         android:text="@string/account"/>
 
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="@string/select_countryCode"
-                        android:id="@+id/textView6" android:layout_margin="5dip"
-                        android:textColor="@color/color_000000"/>
-                <ExpandableListView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/expandableListView_countryCode"
-                        android:groupIndicator="@android:drawable/arrow_down_float"/>
                 <View style="@style/line_h"/>
-
-                <EditText
-                        android:id="@+id/editText_username"
+                <LinearLayout android:layout_width="fill_parent" android:layout_height="50dip" android:orientation="horizontal" >
+                    <Spinner 
+                        android:layout_width="wrap_content" 
+                        android:layout_height="50dip" 
+                        android:id="@+id/expandableListView_countryCode" 
+                         />
+                     <EditText
+                        android:id="@+id/editText_username"  
                         android:background="@color/color_ffffff"
-                        android:layout_width="fill_parent"
+                        android:layout_width="375dp"
                         android:hint="@string/account_hint"
                         android:imeOptions="actionNext"
                         style="@style/BaseInput"/>
-
+                </LinearLayout>
+               
                 <View
                         android:layout_marginBottom="@dimen/margin_10"
                         style="@style/line_h"/>

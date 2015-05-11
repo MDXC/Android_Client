@@ -1,7 +1,11 @@
 package com.test.juxiaohui.mdxc.app;
 
+import java.util.List;
+
 import android.app.Activity;
 import android.content.Intent;
+import android.database.DataSetObserver;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,11 +15,8 @@ import android.widget.*;
 import com.test.juxiaohui.DemoApplication;
 import com.test.juxiaohui.R;
 import com.test.juxiaohui.mdxc.data.CountryCode;
-import com.test.juxiaohui.mdxc.data.CountryCode_Temp;
 import com.test.juxiaohui.mdxc.manager.UserManager;
 import com.test.juxiaohui.mdxc.mediator.ILoginMediator;
-
-import java.util.List;
 
 /**
  * Created by yihao on 15/3/4.
@@ -30,9 +31,10 @@ public class LoginActivity extends Activity implements ILoginMediator{
     String mLoginResult = "";
     RelativeLayout mLayoutSplash;
     LinearLayout mLayoutContent;
-    ExpandableListView mElvCountryCode;
+    Spinner mElvCountryCode;
     CountryCode mSelectCountryCode = CountryCode.NULL;
-
+    int selectIndex = 0;
+    MySpinnerAdapter mSpinnerAdapter = null;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -218,95 +220,218 @@ public class LoginActivity extends Activity implements ILoginMediator{
         final List<String> countryCodeList = CountryCode.convertCodeListToString(CountryCode.getDefaultCodes());
         countryCodeList.add("More");
         mSelectCountryCode = CountryCode.getDefaultCodes().get(0);
-        mElvCountryCode = (ExpandableListView)findViewById(R.id.expandableListView_countryCode);
-        mElvCountryCode.setAdapter(new BaseExpandableListAdapter() {
+        mElvCountryCode = (Spinner)findViewById(R.id.expandableListView_countryCode);
+        mSpinnerAdapter = new MySpinnerAdapter(countryCodeList); 
+        mElvCountryCode.setAdapter(mSpinnerAdapter);
+        
+//        mElvCountryCode.setAdapter(new BaseExpandableListAdapter() {
+//
+//            @Override
+//            public int getGroupCount() {
+//                return 1;
+//            }
+//
+//            @Override
+//            public int getChildrenCount(int groupPosition) {
+//                return countryCodeList.size();
+//            }
+//
+//            @Override
+//            public Object getGroup(int groupPosition) {
+//                return null;
+//            }
+//
+//            @Override
+//            public Object getChild(int groupPosition, int childPosition) {
+//                return countryCodeList.get(childPosition);
+//
+//            }
+//
+//            @Override
+//            public long getGroupId(int groupPosition) {
+//                return 0;
+//            }
+//
+//            @Override
+//            public long getChildId(int groupPosition, int childPosition) {
+//                return 0;
+//            }
+//
+//            @Override
+//            public boolean hasStableIds() {
+//                return false;
+//            }
+//
+//            @Override
+//            public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
+//                long pos = mElvCountryCode.getSelectedPosition();
+//                View view = getLayoutInflater().inflate(R.layout.item_country_code, null);
+//                TextView tv = (TextView) view.findViewById(R.id.textView_country_code);
+//                if(mSelectCountryCode != CountryCode.NULL)
+//                {
+//
+//                    tv.setText(mSelectCountryCode.mCode);
+//                }
+//                else
+//                {
+//                    tv.setText(getResources().getText(R.string.select_countryCode));
+//                }
+//
+//                return view;
+//            }
+//
+//            @Override
+//            public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
+//                View view = getLayoutInflater().inflate(R.layout.item_country_code, null);
+//                TextView tv = (TextView) view.findViewById(R.id.textView_country_code);
+//                tv.setText(countryCodeList.get(childPosition));
+//                return view;
+//            }
+//
+//            @Override
+//            public boolean isChildSelectable(int groupPosition, int childPosition) {
+//                return true;
+//            }
+//        });
+        mElvCountryCode.setOnItemSelectedListener(new Spinner.OnItemSelectedListener(){
 
-            @Override
-            public int getGroupCount() {
-                return 1;
-            }
+			@Override
+			public void onItemSelected(AdapterView<?> arg0, View arg1,
+					int arg2, long arg3) {
+				// TODO Auto-generated method stub
+			    if(arg2<CountryCode.getDefaultCodes().size())
+	            {
+	               mSelectCountryCode = CountryCode.getDefaultCodes().get(arg2);
+	            }
+	             else
+	            {
+	               CountryCodeActivity.startActivity(LoginActivity.this);
+	               mSpinnerAdapter.mCountryCodeList.remove(mSpinnerAdapter.mCountryCodeList.size() -2);
+	            }
+			}
 
-            @Override
-            public int getChildrenCount(int groupPosition) {
-                return countryCodeList.size();
-            }
-
-            @Override
-            public Object getGroup(int groupPosition) {
-                return null;
-            }
-
-            @Override
-            public Object getChild(int groupPosition, int childPosition) {
-                return countryCodeList.get(childPosition);
-
-            }
-
-            @Override
-            public long getGroupId(int groupPosition) {
-                return 0;
-            }
-
-            @Override
-            public long getChildId(int groupPosition, int childPosition) {
-                return 0;
-            }
-
-            @Override
-            public boolean hasStableIds() {
-                return false;
-            }
-
-            @Override
-            public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-                long pos = mElvCountryCode.getSelectedPosition();
-                View view = getLayoutInflater().inflate(R.layout.item_country_code, null);
-                TextView tv = (TextView) view.findViewById(R.id.textView_country_code);
-                if(mSelectCountryCode != CountryCode.NULL)
-                {
-
-                    tv.setText(mSelectCountryCode.mCode + " (" + mSelectCountryCode.mEngName + ")");
-                }
-                else
-                {
-                    tv.setText(getResources().getText(R.string.select_countryCode));
-                }
-
-                return view;
-            }
-
-            @Override
-            public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-                View view = getLayoutInflater().inflate(R.layout.item_country_code, null);
-                TextView tv = (TextView) view.findViewById(R.id.textView_country_code);
-                tv.setText(countryCodeList.get(childPosition));
-                return view;
-            }
-
-            @Override
-            public boolean isChildSelectable(int groupPosition, int childPosition) {
-                return true;
-            }
+			@Override
+			public void onNothingSelected(AdapterView<?> arg0) {
+				// TODO Auto-generated method stub
+				
+ 			}
+        	
         });
-
-        mElvCountryCode.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
-            @Override
-            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-                if(childPosition<CountryCode.getDefaultCodes().size())
-                {
-                    mSelectCountryCode = CountryCode.getDefaultCodes().get(childPosition);
-                    mElvCountryCode.collapseGroup(0);
-                }
-                else
-                {
-                    CountryCodeActivity.startActivity(LoginActivity.this);
-                }
-
-                return false;
-            }
-        });
+//        mElvCountryCode.setOnItemClickListener(new Spinner.OnItemClickListener() {
+//
+//			@Override
+//			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+//					long arg3) {
+//                if(arg2<CountryCode.getDefaultCodes().size())
+//                {
+//                    mSelectCountryCode = CountryCode.getDefaultCodes().get(arg2);
+//                }
+//                else
+//                {
+//                    CountryCodeActivity.startActivity(LoginActivity.this);
+//                }
+//			}
+//        	
+//		});
+//        mElvCountryCode.setOnItemClickListener(new ExpandableListView.OnChildClickListener() {
+//            @Override
+//            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+//                if(childPosition<CountryCode.getDefaultCodes().size())
+//                {
+//                    mSelectCountryCode = CountryCode.getDefaultCodes().get(childPosition);
+//                    mElvCountryCode.collapseGroup(0);
+//                }
+//                else
+//                {
+//                    CountryCodeActivity.startActivity(LoginActivity.this);
+//                }
+//
+//                return false;
+//            }
+//        });
     }
-
+    class MySpinnerAdapter implements SpinnerAdapter {
+		
+    	List<String> mCountryCodeList;
+    	
+    	public MySpinnerAdapter(List<String> countryCodeList){
+    		mCountryCodeList = countryCodeList;
+    	}
+    	
+    	
+		@Override
+		public void unregisterDataSetObserver(DataSetObserver observer) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		@Override
+		public void registerDataSetObserver(DataSetObserver observer) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		@Override
+		public boolean isEmpty() {
+			// TODO Auto-generated method stub
+			return false;
+		}
+		
+		@Override
+		public boolean hasStableIds() {
+			// TODO Auto-generated method stub
+			return false;
+		}
+		
+		@Override
+		public int getViewTypeCount() {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+		
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+			// TODO Auto-generated method stub
+          View view = getLayoutInflater().inflate(R.layout.item_country_code, null);
+          TextView tv = (TextView) view.findViewById(R.id.textView_country_code);
+          tv.setText(mCountryCodeList.get(position));
+          return view;
+		}
+		
+		@Override
+		public int getItemViewType(int position) {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+		
+		@Override
+		public long getItemId(int position) {
+			// TODO Auto-generated method stub
+			return position;
+		}
+		
+		@Override
+		public Object getItem(int position) {
+			// TODO Auto-generated method stub
+			return mCountryCodeList.get(position);
+		}
+		
+		@Override
+		public int getCount() {
+			// TODO Auto-generated method stub
+			return mCountryCodeList.size();
+		}
+		
+		@Override
+		public View getDropDownView(int position, View convertView, ViewGroup parent) {
+			// TODO Auto-generated method stub
+			 View view = getLayoutInflater().inflate(R.layout.item_country_code, null);
+             TextView tv = (TextView) view.findViewById(R.id.textView_country_code);
+             tv.setText(mCountryCodeList.get(position));
+             tv.setTextColor(Color.WHITE);
+             return view;
+		}
+	}
     /**
      * 若登录成功，存储国家码，电话号码，密码
      * 密码要加密保存
@@ -367,9 +492,10 @@ public class LoginActivity extends Activity implements ILoginMediator{
         if (resultCode == RESULT_OK) {
             CountryCode control = (CountryCode)data.getSerializableExtra("control");
             mSelectCountryCode = control;
-        }
+            mSpinnerAdapter.mCountryCodeList.add(0, control.mCode);
+            mElvCountryCode.setAdapter(mSpinnerAdapter);
+         }
         mElvCountryCode.invalidate();
-        mElvCountryCode.collapseGroup(0);
         super.onActivityResult(requestCode, resultCode, data);
     }
 
