@@ -254,8 +254,8 @@ public class FlightOrder implements Comparable{
 
 	@Override
 	public int compareTo(Object compareObj) {
-		long createDatetoLong = Date.parse(mCreateDate.toLocaleString());
-		long compareDate = Date.parse(((FlightOrder)compareObj).mCreateDate.toLocaleString());
+		long createDatetoLong =  mCreateDate.getTime();
+		long compareDate = ((FlightOrder)compareObj).mCreateDate.getTime();
 		if (createDatetoLong > compareDate) {
 			return 1;
 		} else if (createDatetoLong < compareDate) {
