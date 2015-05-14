@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_10" android:layout_marginBottom="@dimen/margin_10">
+            <TextView android:textSize="@dimen/font_size_x_medium" android:textColor="@color/color_gray_3" android:id="@id/tv_rating" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_10" />
+            <TextView android:textSize="@dimen/font_size_medium" android:textColor="@color/color_gray_3" android:gravity="right" android:id="@id/tv_date" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginRight="@dimen/margin_10" android:layout_weight="1.0" />
+        </LinearLayout>
+        <TextView android:textSize="@dimen/font_size_medium" android:textColor="@color/color_333333" android:id="@id/tv_content" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_10" android:layout_marginRight="@dimen/margin_10" android:layout_marginBottom="@dimen/margin_10" />
+        <View android:background="@drawable/line_dotted_h" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_10" android:layout_marginRight="@dimen/margin_10" android:layerType="software" />
+    </LinearLayout>
+</LinearLayout>

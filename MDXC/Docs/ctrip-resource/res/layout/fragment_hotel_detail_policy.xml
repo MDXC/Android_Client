@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:background="@color/color_ffffff" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:id="@id/ll_results" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <TextView android:textSize="@dimen/font_size_x_medium" android:textColor="@color/color_333333" android:background="@color/color_f5f5f5" android:paddingLeft="@dimen/margin_10" android:paddingTop="@dimen/margin_10" android:paddingBottom="@dimen/margin_10" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/hotel_policy" />
+            <View style="@style/line_h" />
+            <LinearLayout android:orientation="vertical" android:paddingLeft="15.0dip" android:paddingTop="@dimen/margin_10" android:paddingBottom="15.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <LinearLayout android:orientation="vertical" android:id="@id/ll_check_layout" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <TextView android:textSize="@dimen/font_size_medium" android:textColor="@color/color_333333" android:id="@id/tv_check_in_check_out_tit" android:paddingRight="@dimen/margin_15" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/check_in_check_out" />
+                    <TextView android:textSize="@dimen/font_size_x_small" android:textColor="@color/color_666666" android:id="@id/tv_check_in_check_out" android:paddingTop="5.0dip" android:paddingRight="@dimen/margin_15" android:paddingBottom="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+                    <View style="@style/line_h" />
+                </LinearLayout>
+                <LinearLayout android:orientation="vertical" android:id="@id/ll_cancel_layout" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <TextView android:textSize="@dimen/font_size_medium" android:textColor="@color/color_333333" android:id="@id/tv_cancellation_tit" android:paddingTop="5.0dip" android:paddingRight="@dimen/margin_15" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/cancellation" />
+                    <TextView android:textSize="@dimen/font_size_x_small" android:textColor="@color/color_666666" android:id="@id/tv_cancellation" android:paddingTop="5.0dip" android:paddingRight="@dimen/margin_15" android:paddingBottom="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+                    <View style="@style/line_h" />
+                </LinearLayout>
+                <LinearLayout android:orientation="vertical" android:id="@id/ll_prepay_layout" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <TextView android:textSize="@dimen/font_size_medium" android:textColor="@color/color_333333" android:id="@id/tv_deposit_prepayment_tit" android:paddingTop="5.0dip" android:paddingRight="@dimen/margin_15" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/deposit_prepayment" />
+                    <TextView android:textSize="@dimen/font_size_x_small" android:textColor="@color/color_666666" android:id="@id/tv_deposit_prepayment" android:paddingTop="5.0dip" android:paddingRight="@dimen/margin_15" android:paddingBottom="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+                    <View style="@style/line_h" />
+                </LinearLayout>
+                <LinearLayout android:orientation="vertical" android:id="@id/ll_dining_layout" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <TextView android:textSize="@dimen/font_size_medium" android:textColor="@color/color_333333" android:id="@id/tv_dining_tit" android:paddingTop="5.0dip" android:paddingRight="@dimen/margin_15" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/dining" />
+                    <TextView android:textSize="@dimen/font_size_x_small" android:textColor="@color/color_666666" android:id="@id/tv_dining" android:paddingTop="5.0dip" android:paddingRight="@dimen/margin_15" android:paddingBottom="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+                    <View style="@style/line_h" />
+                </LinearLayout>
+                <LinearLayout android:orientation="vertical" android:id="@id/ll_pet_layout" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <TextView android:textSize="@dimen/font_size_medium" android:textColor="@color/color_333333" android:id="@id/tv_pets_tit" android:paddingTop="5.0dip" android:paddingRight="@dimen/margin_15" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/pets" />
+                    <TextView android:textSize="@dimen/font_size_x_small" android:textColor="@color/color_666666" android:id="@id/tv_pets" android:paddingTop="5.0dip" android:paddingRight="@dimen/margin_15" android:paddingBottom="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+                    <View style="@style/line_h" />
+                </LinearLayout>
+                <LinearLayout android:orientation="vertical" android:id="@id/ll_special_layout" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <TextView android:textSize="@dimen/font_size_medium" android:textColor="@color/color_333333" android:id="@id/tv_special_requests_tit" android:paddingTop="5.0dip" android:paddingRight="@dimen/margin_15" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/special_requests" />
+                    <TextView android:textSize="@dimen/font_size_x_small" android:textColor="@color/color_666666" android:id="@id/tv_special_requests" android:paddingTop="5.0dip" android:paddingRight="@dimen/margin_15" android:paddingBottom="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+                    <View style="@style/line_h" />
+                </LinearLayout>
+                <LinearLayout android:orientation="vertical" android:id="@id/ll_credit_card_accepted_container" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <TextView android:textSize="@dimen/font_size_medium" android:textColor="@color/color_333333" android:id="@id/tv_credit_card_accepted_tit" android:paddingTop="5.0dip" android:paddingBottom="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/credit_card_accepted" />
+                    <LinearLayout android:orientation="horizontal" android:id="@id/ll_credit_card_accepted" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

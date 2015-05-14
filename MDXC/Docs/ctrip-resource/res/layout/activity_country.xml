@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/color_efefef" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <se.emilsjolander.stickylistheaders.StickyListHeadersListView android:id="@id/slv_content" android:layout_width="fill_parent" android:layout_height="fill_parent" android:listSelector="@drawable/selector_btn_4" android:divider="@color/color_c8c8c8" android:dividerHeight="@dimen/divider_line_height" />
+    <ctrip.english.views.components.CTSlideBar android:id="@id/sb_bar" android:background="@drawable/bg_gray_10_c_a" android:layout_width="25.0dip" android:layout_height="fill_parent" android:layout_marginTop="@dimen/margin_10" android:layout_marginRight="@dimen/margin_10" android:layout_marginBottom="@dimen/margin_10" android:layout_alignParentRight="true" />
+</RelativeLayout>

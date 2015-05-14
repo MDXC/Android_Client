@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="hotel_deal_types">
+        <item>Deals only</item>
+    </string-array>
+    <string-array name="hotel_payment_types">
+        <item>Prepay online</item>
+        <item>Pay at hotel</item>
+        <item>Pay with C-Money</item>
+    </string-array>
+    <integer-array name="price_range_aud">
+        <item>0</item>
+        <item>400</item>
+        <item>20</item>
+    </integer-array>
+    <integer-array name="price_range_cad">
+        <item>0</item>
+        <item>400</item>
+        <item>20</item>
+    </integer-array>
+    <integer-array name="price_range_chf">
+        <item>0</item>
+        <item>400</item>
+        <item>20</item>
+    </integer-array>
+    <integer-array name="price_range_cny">
+        <item>0</item>
+        <item>2000</item>
+        <item>100</item>
+    </integer-array>
+    <integer-array name="price_range_dkk">
+        <item>0</item>
+        <item>2000</item>
+        <item>100</item>
+    </integer-array>
+    <integer-array name="price_range_eur">
+        <item>0</item>
+        <item>250</item>
+        <item>10</item>
+    </integer-array>
+    <integer-array name="price_range_gbp">
+        <item>0</item>
+        <item>200</item>
+        <item>10</item>
+    </integer-array>
+    <integer-array name="price_range_hkd">
+        <item>0</item>
+        <item>2000</item>
+        <item>100</item>
+    </integer-array>
+    <integer-array name="price_range_idr">
+        <item>0</item>
+        <item>3000000</item>
+        <item>150000</item>
+    </integer-array>
+    <integer-array name="price_range_jpy">
+        <item>0</item>
+        <item>30000</item>
+        <item>1500</item>
+    </integer-array>
+    <integer-array name="price_range_krw">
+        <item>0</item>
+        <item>300000</item>
+        <item>15000</item>
+    </integer-array>
+    <integer-array name="price_range_mop">
+        <item>0</item>
+        <item>2000</item>
+        <item>100</item>
+    </integer-array>
+    <integer-array name="price_range_myr">
+        <item>0</item>
+        <item>1000</item>
+        <item>50</item>
+    </integer-array>
+    <integer-array name="price_range_nzd">
+        <item>0</item>
+        <item>400</item>
+        <item>20</item>
+    </integer-array>
+    <integer-array name="price_range_php">
+        <item>0</item>
+        <item>10000</item>
+        <item>500</item>
+    </integer-array>
+    <integer-array name="price_range_rub">
+        <item>0</item>
+        <item>10000</item>
+        <item>500</item>
+    </integer-array>
+    <integer-array name="price_range_sek">
+        <item>0</item>
+        <item>2000</item>
+        <item>100</item>
+    </integer-array>
+    <integer-array name="price_range_sgd">
+        <item>0</item>
+        <item>400</item>
+        <item>20</item>
+    </integer-array>
+    <integer-array name="price_range_thb">
+        <item>0</item>
+        <item>10000</item>
+        <item>500</item>
+    </integer-array>
+    <integer-array name="price_range_twd">
+        <item>0</item>
+        <item>10000</item>
+        <item>500</item>
+    </integer-array>
+    <integer-array name="price_range_usd">
+        <item>0</item>
+        <item>250</item>
+        <item>10</item>
+    </integer-array>
+    <integer-array name="price_range_vnd">
+        <item>0</item>
+        <item>3000000</item>
+        <item>150000</item>
+    </integer-array>
+</resources>

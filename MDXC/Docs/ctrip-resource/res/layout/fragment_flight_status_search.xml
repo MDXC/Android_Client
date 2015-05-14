@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/color_ffffff" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:ctrip="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/rl_ad" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/hotel_flight_banner_height">
+        <android.support.v4.view.ViewPager android:id="@id/vp_ad" android:background="@color/color_gray_9" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <LinearLayout android:orientation="horizontal" android:id="@id/ll_index_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="5.0dip" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <LinearLayout android:background="@color/color_efefef" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ctrip.english.views.components.SwitchView android:id="@id/flight_status_search_type" android:layout_width="fill_parent" android:layout_height="@dimen/switch_view_height" android:layout_margin="@dimen/margin_15" ctrip:left_text="@string/flight_status_search_type_airport" ctrip:right_text="@string/flight_status_search_type_flight_no" />
+    </LinearLayout>
+    <View style="@style/line_h" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:id="@id/flight_status_search_flight_no_container" android:paddingLeft="@dimen/margin_15" android:paddingRight="@dimen/margin_15" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <ctrip.english.views.components.TextClearSupportEditText android:id="@id/flight_status_search_flight_no" android:paddingLeft="0.0dip" android:hint="@string/flight_status_search_flight_no_hint" android:maxLength="7" android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789" ctrip:drawableClear="@drawable/icon_cancel" ctrip:drawableDefault="@drawable/icon_edit" style="@style/BaseInput.edit_text_white" />
+            <View style="@style/line_h" />
+            <TextView android:gravity="center_vertical" android:id="@id/flight_status_search_departure_date" android:paddingRight="@dimen/margin_10" android:clickable="true" android:hint="@string/flight_status_search_departure_date_hint" android:drawableRight="@drawable/icon_calendar" style="@style/text_view_with_background" />
+            <View style="@style/line_h" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/flight_status_search_airport_container" android:paddingLeft="@dimen/margin_15" android:paddingRight="@dimen/margin_15" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="20.0dip">
+            <include layout="@layout/view_airports_selector" />
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <LinearLayout android:gravity="center|left" android:orientation="horizontal" android:id="@id/ll_departDate_container" android:background="@drawable/selector_btn_4" android:padding="5.0dip" android:clickable="true" android:layout_width="fill_parent" android:layout_height="@dimen/button_height_60">
+                    <TextView android:id="@id/tv_depart_weekday" android:layout_marginRight="@dimen/margin_10" style="@style/TipView" />
+                    <TextView android:id="@id/tv_depart_date" style="@style/TitleView" />
+                </LinearLayout>
+                <View style="@style/line_h" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <include android:layout_width="fill_parent" android:layout_height="@dimen/button_height_60" android:layout_marginLeft="@dimen/margin_15" android:layout_marginRight="@dimen/margin_15" layout="@layout/view_search_button" />
+</LinearLayout>

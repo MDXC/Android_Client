@@ -1,0 +1,117 @@
+新增订单
+http://www.bookingmin.com/orders/new?amount=100&userId=0&tripType=0&source=0&contactName=zhu,xin,ze&contCountryCode=86&contPhone=13466718731&contEmail=zhuxinze@163.com&recipient=zhu,xin,ze&reciPhone=13466718731&reciAddress=中国&reciPostalCode=10086&pickUpTime=20150501&specialReq=test&receiveTime=20150501&trips=[{"flight":"123","departTime":"20150502171212","arrivalTime":"20150502171212","price":1233.68,"currency":"RMB","from":"shanghai","to":"beijing","airline":"china united airlines","clazz":"0","sortNo":"1"}]&passengers=[{"name":"zhu,xin,ze","nationality":"china","idType":"passport","idNo":"123456","age_group":"adult","gender":"0","birthday":"19990203","freqFlyerProgram":"test","freqFlyerNo":"test"}]
+取消订单
+http://www.bookingmin.com/orders/cancel?id=1
+用户订单列表(18为用户ID)
+http://www.bookingmin.com/orders/user/0
+
+[
+ {
+        "amount": 100,
+        "contCountryCode": "86",
+        "contEmail": "zhuxinze@163.com",
+        "contPhone": "13466718731",
+        "contactName": "zhuxinze",
+        "createTime": "20150422172002",
+        "id": 29,
+        "passengers": [
+            {
+                "birthday": "1999-02-03",
+                "createTime": "2015-04-22",
+                "freqFlyerNo": "test",
+                "freqFlyerProgram": "test",
+                "gender": 0,
+                "id": 20,
+                "idNo": "123456",
+                "idType": "passport",
+                "name": "zhuxinze",
+                "nationality": "China",
+                "orderId": 29
+            }
+        ],
+        "payTime": "",
+        "pickUpTime": "20150501000000",
+        "receiveTime": "20150501000000",
+        "reciAddress": "涓浗",
+        "reciPhone": "13466718731",
+        "reciPostalCode": "10086",
+        "recipient": "zhuxinze",
+        "source": 0,
+        "specialReq": "test",
+        "state": 0,
+        "tripType": 0,
+        "trips": [
+            {
+                "airline": "china united airlines",
+                "arrivalTime": "2015-05-02",
+                "clazz": 0,
+                "createTime": "2015-04-22",
+                "currency": "RMB",
+                "departTime": "2015-05-02",
+                "duration": 0,
+                "flight": "123",
+                "from": "shanghai",
+                "id": 14,
+                "orderId": 29,
+                "price": 1234,
+                "sortNo": 1,
+                "to": "beijing"
+            }
+        ],
+        "userId": "0"
+    },
+    {
+        "amount": 100,
+        "contCountryCode": "86",
+        "contEmail": "zhuxinze@163.com",
+        "contPhone": "13466718731",
+        "contactName": "zhuxinze",
+        "createTime": "20150422172142",
+        "id": 30,
+        "passengers": [
+            {
+                "birthday": "1999-02-03",
+                "createTime": "2015-04-22",
+                "freqFlyerNo": "test",
+                "freqFlyerProgram": "test",
+                "gender": 0,
+                "id": 21,
+                "idNo": "123456",
+                "idType": "passport",
+                "name": "zhuxinze",
+                "nationality": "China",
+                "orderId": 30
+            }
+        ],
+        "payTime": "",
+        "pickUpTime": "20150501000000",
+        "receiveTime": "20150501000000",
+        "reciAddress": "涓浗",
+        "reciPhone": "13466718731",
+        "reciPostalCode": "10086",
+        "recipient": "zhuxinze",
+        "source": 0,
+        "specialReq": "test",
+        "state": 0,
+        "tripType": 0,
+        "trips": [
+            {
+                "airline": "china united airlines",
+                "arrivalTime": "2015-05-02",
+                "clazz": 0,
+                "createTime": "2015-04-22",
+                "currency": "RMB",
+                "departTime": "2015-05-02",
+                "duration": 0,
+                "flight": "123",
+                "from": "shanghai",
+                "id": 15,
+                "orderId": 30,
+                "price": 1234,
+                "sortNo": 1,
+                "to": "beijing"
+            }
+        ],
+        "userId": "0"
+    }
+］

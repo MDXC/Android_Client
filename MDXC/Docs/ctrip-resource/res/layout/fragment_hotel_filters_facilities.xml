@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:background="@color/color_white" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <RelativeLayout android:orientation="vertical" android:id="@id/rl_facility_0" android:background="@drawable/selector_btn_4" android:paddingLeft="@dimen/margin_10" android:paddingRight="@dimen/margin_10" android:layout_width="fill_parent" android:layout_height="43.0dip">
+                <TextView android:textSize="@dimen/font_size_large" android:textColor="@color/color_333333" android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/hotel_facility_airport_shuttle" android:drawableLeft="@drawable/icon_service_0" android:drawablePadding="5.0dip" />
+                <ImageView android:id="@id/iv_selected_0" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/icon_selected" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <View style="@style/line_h_margin_left_10" />
+            <RelativeLayout android:orientation="vertical" android:id="@id/rl_facility_1" android:background="@drawable/selector_btn_4" android:paddingLeft="@dimen/margin_10" android:paddingRight="@dimen/margin_10" android:layout_width="fill_parent" android:layout_height="43.0dip">
+                <TextView android:textSize="@dimen/font_size_large" android:textColor="@color/color_333333" android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/hotel_facility_breakfast" android:drawableLeft="@drawable/icon_service_1" android:drawablePadding="5.0dip" />
+                <ImageView android:id="@id/iv_selected_1" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/icon_selected" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <View style="@style/line_h_margin_left_10" />
+            <RelativeLayout android:orientation="vertical" android:id="@id/rl_facility_2" android:background="@drawable/selector_btn_4" android:paddingLeft="@dimen/margin_10" android:paddingRight="@dimen/margin_10" android:layout_width="fill_parent" android:layout_height="43.0dip">
+                <TextView android:textSize="@dimen/font_size_large" android:textColor="@color/color_333333" android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/hotel_facility_restaurant" android:drawableLeft="@drawable/icon_service_2" android:drawablePadding="5.0dip" />
+                <ImageView android:id="@id/iv_selected_2" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/icon_selected" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <View style="@style/line_h_margin_left_10" />
+            <RelativeLayout android:orientation="vertical" android:id="@id/rl_facility_3" android:background="@drawable/selector_btn_4" android:paddingLeft="@dimen/margin_10" android:paddingRight="@dimen/margin_10" android:layout_width="fill_parent" android:layout_height="43.0dip">
+                <TextView android:textSize="@dimen/font_size_large" android:textColor="@color/color_333333" android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/hotel_facility_non_smoking_room" android:drawableLeft="@drawable/icon_service_3" android:drawablePadding="5.0dip" />
+                <ImageView android:id="@id/iv_selected_3" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/icon_selected" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <View style="@style/line_h_margin_left_10" />
+            <RelativeLayout android:orientation="vertical" android:id="@id/rl_facility_4" android:background="@drawable/selector_btn_4" android:paddingLeft="@dimen/margin_10" android:paddingRight="@dimen/margin_10" android:layout_width="fill_parent" android:layout_height="43.0dip">
+                <TextView android:textSize="@dimen/font_size_large" android:textColor="@color/color_333333" android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/hotel_facility_gym" android:drawableLeft="@drawable/icon_service_4" android:drawablePadding="5.0dip" />
+                <ImageView android:id="@id/iv_selected_4" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/icon_selected" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <View style="@style/line_h_margin_left_10" />
+            <RelativeLayout android:orientation="vertical" android:id="@id/rl_facility_5" android:background="@drawable/selector_btn_4" android:paddingLeft="@dimen/margin_10" android:paddingRight="@dimen/margin_10" android:layout_width="fill_parent" android:layout_height="43.0dip">
+                <TextView android:textSize="@dimen/font_size_large" android:textColor="@color/color_333333" android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/hotel_facility_parking" android:drawableLeft="@drawable/icon_service_5" android:drawablePadding="5.0dip" />
+                <ImageView android:id="@id/iv_selected_5" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/icon_selected" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <View style="@style/line_h_margin_left_10" />
+            <RelativeLayout android:orientation="vertical" android:id="@id/rl_facility_6" android:background="@drawable/selector_btn_4" android:paddingLeft="@dimen/margin_10" android:paddingRight="@dimen/margin_10" android:layout_width="fill_parent" android:layout_height="43.0dip">
+                <TextView android:textSize="@dimen/font_size_large" android:textColor="@color/color_333333" android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/hotel_facility_massage" android:drawableLeft="@drawable/icon_service_6" android:drawablePadding="5.0dip" />
+                <ImageView android:id="@id/iv_selected_6" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/icon_selected" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <View style="@style/line_h_margin_left_10" />
+            <RelativeLayout android:orientation="vertical" android:id="@id/rl_facility_7" android:background="@drawable/selector_btn_4" android:paddingLeft="@dimen/margin_10" android:paddingRight="@dimen/margin_10" android:layout_width="fill_parent" android:layout_height="43.0dip">
+                <TextView android:textSize="@dimen/font_size_large" android:textColor="@color/color_333333" android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/hotel_facility_spa" android:drawableLeft="@drawable/icon_service_7" android:drawablePadding="5.0dip" />
+                <ImageView android:id="@id/iv_selected_7" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/icon_selected" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <View style="@style/line_h_margin_left_10" />
+            <RelativeLayout android:orientation="vertical" android:id="@id/rl_facility_8" android:background="@drawable/selector_btn_4" android:paddingLeft="@dimen/margin_10" android:paddingRight="@dimen/margin_10" android:layout_width="fill_parent" android:layout_height="43.0dip">
+                <TextView android:textSize="@dimen/font_size_large" android:textColor="@color/color_333333" android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/hotel_facility_pool" android:drawableLeft="@drawable/icon_service_8" android:drawablePadding="5.0dip" />
+                <ImageView android:id="@id/iv_selected_8" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/icon_selected" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <View style="@style/line_h_margin_left_10" />
+            <RelativeLayout android:orientation="vertical" android:id="@id/rl_facility_9" android:background="@drawable/selector_btn_4" android:paddingLeft="@dimen/margin_10" android:paddingRight="@dimen/margin_10" android:layout_width="fill_parent" android:layout_height="43.0dip">
+                <TextView android:textSize="@dimen/font_size_large" android:textColor="@color/color_333333" android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/hotel_facility_internet" android:drawableLeft="@drawable/icon_service_9" android:drawablePadding="5.0dip" />
+                <ImageView android:id="@id/iv_selected_9" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/icon_selected" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <View style="@style/line_h" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/color_gray_2" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/ll_policy" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_20" android:layout_marginRight="@dimen/margin_20">
+        <ImageView android:background="@drawable/line_dotted_h" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <LinearLayout android:orientation="vertical" android:id="@id/ll_ticket_policy" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/margin_5">
+            <TextView android:textSize="@dimen/font_size_medium" android:textStyle="bold" android:textColor="@color/color_666666" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/ticket_policy" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/ll_restrictions" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/margin_10">
+            <TextView android:textSize="@dimen/font_size_medium" android:textStyle="bold" android:textColor="@color/color_666666" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/restrictions" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

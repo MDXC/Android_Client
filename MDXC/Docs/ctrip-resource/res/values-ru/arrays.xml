@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="hotel_deal_types">
+        <item>Только акции</item>
+    </string-array>
+    <string-array name="hotel_payment_types">
+        <item>Предоплата онлайн</item>
+        <item>Оплата в отеле</item>
+        <item>Оплата с C-Money</item>
+    </string-array>
+</resources>

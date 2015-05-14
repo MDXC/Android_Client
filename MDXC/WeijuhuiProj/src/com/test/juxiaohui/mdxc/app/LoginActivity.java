@@ -14,12 +14,14 @@ import android.widget.*;
 
 import com.test.juxiaohui.DemoApplication;
 import com.test.juxiaohui.R;
+import com.test.juxiaohui.common.data.User;
 import com.test.juxiaohui.mdxc.data.CountryCode;
 import com.test.juxiaohui.mdxc.manager.UserManager;
 import com.test.juxiaohui.mdxc.mediator.ILoginMediator;
 
 /**
  * Created by yihao on 15/3/4.
+ * 当前只留下手动登录方式。
  */
 public class LoginActivity extends Activity implements ILoginMediator{
 
@@ -35,6 +37,8 @@ public class LoginActivity extends Activity implements ILoginMediator{
     CountryCode mSelectCountryCode = CountryCode.NULL;
     int selectIndex = 0;
     MySpinnerAdapter mSpinnerAdapter = null;
+    Button mBtnSendCheckCode = null;
+    EditText mEtxCheckCode = null;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +49,7 @@ public class LoginActivity extends Activity implements ILoginMediator{
         addUsernameView();
         addPasswordView();
         addCountryCodeView();
+        addCheckCodeView();
 
         mBtnOK = (Button)findViewById(R.id.button_OK);
         mBtnOK.setOnClickListener(new View.OnClickListener() {
@@ -63,39 +68,40 @@ public class LoginActivity extends Activity implements ILoginMediator{
         });
 
         //当前未登录
-        showProgress();
-        if(!UserManager.getInstance().isLogin())
-        {
-            //之前登录过，从缓存中登录
-            if(isHasLoginCache()){
+        //showProgress();
+//        if(!UserManager.getInstance().isLogin())
+//        {
+            loadLoginInfo();
+//            String type = checkLoginParam(mSelectCountryCode.mCode, mEtxUsername.getText().toString(), mEtxPassword.getText().toString(), "");
+//            if(type.equals("0")){
+//
+//                Thread t= new Thread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        //loginFromCache();
+//                        if(UserManager.getInstance().isLogin())
+//                        {
+//                            gotoNext();
+//                        }
+//                        else
+//                        {
+//                            hideProgress();
+//                        }
+//
+//                    }
+//                });
+//                t.start();
+//            }
+//            else
+//            {
+//                //手动登录
+//                //hideProgress();
+//            }
 
-                Thread t= new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        loginFromCache();
-                        if(UserManager.getInstance().isLogin())
-                        {
-                            gotoNext();
-                        }
-                        else
-                        {
-                            hideProgress();
-                        }
-
-                    }
-                });
-                t.start();
-            }
-            else
-            {
-                //手动登录
-                hideProgress();
-            }
-
-        }
-        else{
-            gotoNext();
-        }
+//        }
+//        else{
+//            gotoNext();
+//        }
         
     }
 
@@ -117,14 +123,12 @@ public class LoginActivity extends Activity implements ILoginMediator{
     public void loginFromCache() {
         if(!UserManager.getInstance().isLogin())
         {
-            //String username = DemoApplication.getInstance().getUserName();
-            //String password = DemoApplication.getInstance().getPassword();
             String countryCode = UserManager.getInstance().getCachedCountryCode();
             String username = UserManager.getInstance().getCachedUsername();
             String password = UserManager.getInstance().getCachedPassword();
             if(null!=username && null!=password)
             {
-                mLoginResult = UserManager.getInstance().login(countryCode, username, password);
+                mLoginResult = UserManager.getInstance().login(countryCode, username, password, "0", null);
                 if(!mLoginResult.equals(UserManager.LOGIN_SUCCESS))
                 {
                     showErrorMessage(mLoginResult);
@@ -136,37 +140,32 @@ public class LoginActivity extends Activity implements ILoginMediator{
     @Override
     public void confirm() {
         boolean isValid = true;
-        if(mEtxUsername.getEditableText().toString().length()==0)
-        {
-            showErrorMessage("Username is empty!");
-            isValid = false;
-        }
+        final String countryCode = mSelectCountryCode.mCode;
+        final String username = mEtxUsername.getEditableText().toString();
+        final String password = mEtxPassword.getEditableText().toString();
+        final String checkCode = mEtxCheckCode.getEditableText().toString();
+        final String type = checkLoginParam(countryCode, username, password, checkCode);
 
-        if(mEtxPassword.getEditableText().toString().length()==0)
-        {
-            showErrorMessage("Password is empty!");
-            isValid = false;
-        }
-
-        if(isValid)
+        if(!type.equals("-1"))
         {
             showErrorMessage("Waiting for login...");
-            final String username = mEtxUsername.getEditableText().toString();
-            final String password = mEtxPassword.getEditableText().toString();
-    		DemoApplication.getInstance().setUserName(username);
-    		DemoApplication.getInstance().setPassword(password);
+
             Thread t = new Thread(new Runnable() {
 
                 @Override
                 public void run() {
-                    mLoginResult = UserManager.getInstance().login(mSelectCountryCode.mCode, username, password);
+                    if(type.equals("0")){
+                        mLoginResult = UserManager.getInstance().login(mSelectCountryCode.mCode, username, password, "0", null);
+                    }
+                    else if(type.equals("1")){
+                        mLoginResult = UserManager.getInstance().login(mSelectCountryCode.mCode, username, null, "1", checkCode);
+                    }
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             if(mLoginResult.equals(UserManager.LOGIN_SUCCESS))
                             {
                                 showErrorMessage("Login Success");
-                                //EntryActivity.startActivity(LoginActivity.this);
                                 finish();
                             }
                             else
@@ -224,75 +223,7 @@ public class LoginActivity extends Activity implements ILoginMediator{
         mSpinnerAdapter = new MySpinnerAdapter(countryCodeList); 
         mElvCountryCode.setAdapter(mSpinnerAdapter);
         
-//        mElvCountryCode.setAdapter(new BaseExpandableListAdapter() {
-//
-//            @Override
-//            public int getGroupCount() {
-//                return 1;
-//            }
-//
-//            @Override
-//            public int getChildrenCount(int groupPosition) {
-//                return countryCodeList.size();
-//            }
-//
-//            @Override
-//            public Object getGroup(int groupPosition) {
-//                return null;
-//            }
-//
-//            @Override
-//            public Object getChild(int groupPosition, int childPosition) {
-//                return countryCodeList.get(childPosition);
-//
-//            }
-//
-//            @Override
-//            public long getGroupId(int groupPosition) {
-//                return 0;
-//            }
-//
-//            @Override
-//            public long getChildId(int groupPosition, int childPosition) {
-//                return 0;
-//            }
-//
-//            @Override
-//            public boolean hasStableIds() {
-//                return false;
-//            }
-//
-//            @Override
-//            public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-//                long pos = mElvCountryCode.getSelectedPosition();
-//                View view = getLayoutInflater().inflate(R.layout.item_country_code, null);
-//                TextView tv = (TextView) view.findViewById(R.id.textView_country_code);
-//                if(mSelectCountryCode != CountryCode.NULL)
-//                {
-//
-//                    tv.setText(mSelectCountryCode.mCode);
-//                }
-//                else
-//                {
-//                    tv.setText(getResources().getText(R.string.select_countryCode));
-//                }
-//
-//                return view;
-//            }
-//
-//            @Override
-//            public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-//                View view = getLayoutInflater().inflate(R.layout.item_country_code, null);
-//                TextView tv = (TextView) view.findViewById(R.id.textView_country_code);
-//                tv.setText(countryCodeList.get(childPosition));
-//                return view;
-//            }
-//
-//            @Override
-//            public boolean isChildSelectable(int groupPosition, int childPosition) {
-//                return true;
-//            }
-//        });
+
         mElvCountryCode.setOnItemSelectedListener(new Spinner.OnItemSelectedListener(){
 
 			@Override
@@ -317,39 +248,24 @@ public class LoginActivity extends Activity implements ILoginMediator{
  			}
         	
         });
-//        mElvCountryCode.setOnItemClickListener(new Spinner.OnItemClickListener() {
-//
-//			@Override
-//			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-//					long arg3) {
-//                if(arg2<CountryCode.getDefaultCodes().size())
-//                {
-//                    mSelectCountryCode = CountryCode.getDefaultCodes().get(arg2);
-//                }
-//                else
-//                {
-//                    CountryCodeActivity.startActivity(LoginActivity.this);
-//                }
-//			}
-//        	
-//		});
-//        mElvCountryCode.setOnItemClickListener(new ExpandableListView.OnChildClickListener() {
-//            @Override
-//            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-//                if(childPosition<CountryCode.getDefaultCodes().size())
-//                {
-//                    mSelectCountryCode = CountryCode.getDefaultCodes().get(childPosition);
-//                    mElvCountryCode.collapseGroup(0);
-//                }
-//                else
-//                {
-//                    CountryCodeActivity.startActivity(LoginActivity.this);
-//                }
-//
-//                return false;
-//            }
-//        });
     }
+
+    /**
+     * 如果用户没有注册或者忘记密码，可以通过发送短信验证码来登录
+     */
+    @Override
+    public void addCheckCodeView() {
+        mBtnSendCheckCode = (Button)findViewById(R.id.button_send_checkCode);
+        mBtnSendCheckCode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UserManager.getInstance().sendCheckcode(mSelectCountryCode.mCode, mEtxUsername.getText().toString());
+            }
+        });
+        mEtxCheckCode = (EditText)findViewById(R.id.editText_checkCode);
+    }
+
+
     class MySpinnerAdapter implements SpinnerAdapter {
 		
     	List<String> mCountryCodeList;
@@ -388,7 +304,7 @@ public class LoginActivity extends Activity implements ILoginMediator{
 			// TODO Auto-generated method stub
 			return 0;
 		}
-		
+
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
 			// TODO Auto-generated method stub
@@ -432,24 +348,55 @@ public class LoginActivity extends Activity implements ILoginMediator{
              return view;
 		}
 	}
-    /**
-     * 若登录成功，存储国家码，电话号码，密码
-     * 密码要加密保存
-     *
-     * @param countryCode
-     * @param phoneNumber
-     */
-    @Override
-    public void saveLoginInfo(String countryCode, String phoneNumber) {
 
-    }
 
     /**
      * 读取存储信息
      */
     @Override
     public void loadLoginInfo() {
+        String countryCode = UserManager.getInstance().getCachedCountryCode();
+        List<CountryCode> countryCodeList = CountryCode.getDefaultCodes();
+        for(CountryCode code:countryCodeList)
+        {
+            if(code.mCode.equals(countryCode)){
+                mSelectCountryCode = code;
+                mElvCountryCode.setSelection(countryCodeList.indexOf(code));
+            }
 
+            break;
+        }
+
+        String username = UserManager.getInstance().getCachedUsername();
+        mEtxUsername.setText(username);
+
+        String password = UserManager.getInstance().getCachedPassword();
+        mEtxPassword.setText(password);
+    }
+
+    @Override
+    public String checkLoginParam(String coutryCode, String phoneNumber, String password, String checkCode) {
+        if(coutryCode==null||coutryCode.length()==0)
+        {
+            showErrorMessage("Coutry Code is empty!");
+            return "-1";
+        }
+
+        if(phoneNumber==null||phoneNumber.length()==0)
+        {
+            showErrorMessage("Phone Number is empty!");
+            return "-1";
+        }
+
+        if(password!=null&&password.length()>0){
+            return "0";
+        }
+
+        if(checkCode!=null&&checkCode.length()>0){
+            return "1";
+        }
+        showErrorMessage("Password or Checkcode is empty!");
+        return "-1";
     }
 
     public void showErrorMessage(final String message)
@@ -475,12 +422,6 @@ public class LoginActivity extends Activity implements ILoginMediator{
     	startActivity(intent);
     }
 
-    private boolean isHasLoginCache()
-    {
-        String username = DemoApplication.getInstance().getUserName();
-        String password = DemoApplication.getInstance().getPassword();
-        return (null!=username&&null!=password);
-    }
 
     private void gotoNext(){
         //EntryActivity.startActivity(LoginActivity.this);

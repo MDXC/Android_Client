@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/ll_container" android:background="@color/color_efefef" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/view_content" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <se.emilsjolander.stickylistheaders.StickyListHeadersListView android:id="@id/former_cards_list_view" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="wrap_content" android:listSelector="@drawable/selector_btn_4" android:divider="@color/color_c8c8c8" android:dividerHeight="@dimen/divider_line_height" />
+    </RelativeLayout>
+    <View style="@style/line_h" />
+</LinearLayout>

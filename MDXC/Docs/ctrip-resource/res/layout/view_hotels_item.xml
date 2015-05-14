@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:background="@drawable/selector_btn_4" android:layout_width="fill_parent" android:layout_height="90.0dip">
+        <RelativeLayout android:id="@id/rl_thumbnail" android:layout_width="75.0dip" android:layout_height="75.0dip" android:layout_marginLeft="@dimen/margin_10" android:layout_marginTop="5.0dip" android:layout_marginRight="5.0dip" android:layout_marginBottom="5.0dip">
+            <ImageView android:id="@id/iv_thumbnail" android:background="@color/color_gray_2" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="fitXY" />
+            <ImageView android:id="@id/iv_wish" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="5.0dip" android:src="@drawable/icon_wish" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" />
+        </RelativeLayout>
+        <ImageView android:id="@id/iv_sale" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/icon_sale" android:layout_alignParentTop="true" android:layout_alignParentRight="true" />
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="5.0dip" android:layout_marginRight="5.0dip" android:layout_toLeftOf="@id/iv_sale" android:layout_toRightOf="@id/rl_thumbnail">
+            <TextView android:textSize="@dimen/font_size_medium" android:textColor="@color/color_333333" android:id="@id/tv_hotel_name" android:duplicateParentState="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="2.0dip" android:singleLine="true" />
+            <ctrip.english.views.components.CTRatingBar android:id="@id/rb_star" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3.0dip" />
+            <RelativeLayout android:id="@id/rl_score" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:textSize="@dimen/font_size_medium" android:textColor="@color/color_099fde" android:id="@id/tv_score" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                <TextView android:textSize="@dimen/font_size_small" android:textColor="@color/color_666666" android:id="@id/tv_score_max" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="/5" android:layout_toRightOf="@id/tv_score" android:layout_alignBaseline="@id/tv_score" />
+                <TextView android:textSize="@dimen/font_size_medium" android:textStyle="bold" android:textColor="@color/color_666666" android:id="@id/tv_score_description" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_10" android:layout_toRightOf="@id/tv_score_max" android:layout_alignBaseline="@id/tv_score" />
+            </RelativeLayout>
+            <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:textSize="@dimen/font_size_small" android:textColor="@color/color_666666" android:id="@id/tv_area" android:duplicateParentState="true" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginRight="5.0dip" android:maxWidth="120.0dip" android:singleLine="true" android:layout_weight="2.0" />
+                <View android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:id="@id/ll_price" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginRight="@dimen/margin_10" android:layout_alignParentRight="true" android:layout_alignParentBottom="true">
+            <TextView android:textSize="@dimen/font_size_small" android:textColor="@color/color_666666" android:id="@id/tv_currency" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <TextView android:textSize="@dimen/font_size_x_large" android:textStyle="bold" android:textColor="@color/color_1484dc" android:id="@id/tv_price" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" />
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:background="@color/color_ff9913" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/bottom_bar_height">
+        <RelativeLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:layout_weight="1.0">
+            <LinearLayout android:orientation="horizontal" android:id="@id/ll_price" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+                <TextView android:textSize="@dimen/font_size_x_small" android:textColor="@color/color_white" android:id="@id/tv_bottom_currency" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="3.0dip" />
+                <TextView android:textSize="@dimen/font_size_xx_large" android:textStyle="bold" android:textColor="@color/color_white" android:id="@id/tv_bottom_price" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                <ProgressBar android:gravity="center" android:id="@id/pb_price_loading" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="fill_parent" style="?android:attr/progressBarStyleSmall" />
+            </LinearLayout>
+            <TextView android:textSize="@dimen/font_size_x_small" android:textColor="@color/color_white" android:id="@id/tv_bottom_tip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+        </RelativeLayout>
+        <Button android:textSize="@dimen/font_size_large" android:textStyle="bold" android:textColor="@drawable/selector_btn_text_color" android:id="@id/btn_bottom_select" android:background="@drawable/selector_btn_2" android:paddingLeft="15.0dip" android:paddingRight="15.0dip" android:layout_width="wrap_content" android:layout_height="@dimen/bottom_bar_button_width" android:minWidth="100.0dip" android:onClick="onClickNext" />
+    </LinearLayout>
+</LinearLayout>

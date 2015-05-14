@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rest-client version="3.2.2"><request><http-version>1.1</http-version><http-follow-redirects/><URL>http://www.bookingmin.com/orders/new?</URL><method>POST</method><headers><header key="reciPostalCode" value="10086"/><header key="reciAddress" value="中国"/><header key="reciPhone" value="13466718731"/><header key="recipient" value="zhu,xin,ze"/><header key="contEmail" value="zhuxinze@163.com"/><header key="contPhone" value="13466718731"/><header key="contCountryCode" value="86"/><header key="pickUpTime" value="20150501"/><header key="specialReq" value="test"/><header key="receiveTime" value="20150501"/><header key="trips" value="[{&quot;flight&quot;:&quot;123&quot;,&quot;departTime&quot;:&quot;20150502171212&quot;,&quot;arrivalTime&quot;:&quot;20150502171212&quot;,&quot;price&quot;:1233.68,&quot;currency&quot;:&quot;RMB&quot;,&quot;from&quot;:&quot;shanghai&quot;,&quot;to&quot;:&quot;beijing&quot;,&quot;airline&quot;:&quot;china united airlines&quot;,&quot;clazz&quot;:&quot;0&quot;,&quot;sortNo&quot;:&quot;1&quot;}]"/><header key="passengers" value="[{&quot;name&quot;:&quot;zhu,xin,ze&quot;,&quot;nationality&quot;:&quot;china&quot;,&quot;idType&quot;:&quot;passport&quot;,&quot;idNo&quot;:&quot;123456&quot;,&quot;age_group&quot;:&quot;adult&quot;,&quot;gender&quot;:&quot;0&quot;,&quot;birthday&quot;:&quot;19990203&quot;,&quot;freqFlyerProgram&quot;:&quot;test&quot;,&quot;freqFlyerNo&quot;:&quot;test&quot;}]"/><header key="contactName" value="zhu,xin,ze"/><header key="source" value="0"/><header key="tripType" value="0"/><header key="userId" value="0"/><header key="amount" value="100"/></headers><test-script>/*
+* This is a template provided by RESTClient. Modify as per need.
+*/
+
+// The test class name should end with `Test'--this is a convention:
+public class TemplateClassTest 
+    extends org.wiztools.restclient.RESTTestCase {
+
+  // Test method names must start with `test':
+  public void testStatus() {
+    if(response.getStatusCode() != 200) {
+      fail("This will fail the test!");
+    }
+  }
+
+}</test-script></request></rest-client>

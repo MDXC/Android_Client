@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/color_efefef" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/font_size_xx_large" android:textColor="@color/color_333333" android:id="@id/tv_dep_airport_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="PEK" android:layout_alignParentLeft="true" />
+    <TextView android:textSize="@dimen/font_size_xx_large" android:textColor="@color/color_333333" android:id="@id/tv_arr_airport_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="PVG" android:layout_alignParentRight="true" />
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginRight="5.0dip" android:layout_toLeftOf="@id/tv_arr_airport_name" android:layout_toRightOf="@id/tv_dep_airport_name" android:layout_centerInParent="true">
+        <ImageView android:background="@drawable/icon_status_flight_grey_line" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_10" android:layout_marginRight="@dimen/margin_10" android:layout_centerVertical="true" />
+        <ImageView android:background="@drawable/icon_status_flight" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_10" android:layout_marginRight="@dimen/margin_10" android:layout_centerVertical="true" />
+    </RelativeLayout>
+</RelativeLayout>

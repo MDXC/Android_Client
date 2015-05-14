@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:background="@color/color_efefef" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:id="@id/ll_container" android:background="@color/color_efefef" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <RelativeLayout android:id="@id/view_content" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <ListView android:id="@id/all_travellers_list_view" android:fadingEdge="none" android:layout_width="fill_parent" android:layout_height="fill_parent" android:listSelector="@drawable/selector_btn_4" android:divider="@color/color_c8c8c8" android:dividerHeight="@dimen/divider_line_height" />
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

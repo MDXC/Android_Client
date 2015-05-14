@@ -1,12 +1,20 @@
 package com.test.juxiaohui.mdxc.server;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
+import android.util.Log;
 import com.test.juxiaohui.mdxc.manager.UserManager;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
+import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -68,16 +76,23 @@ public class UserServer implements IUserServer {
 	 * 登录
 	 * @param username
 	 * @param password
+	 * @param type
 	 * @param user 用来将登录后的用户信息返回，主要是为了返回一个id
 	 * @return
 	 */
 	@Override
-	public String login(String countryCode, String username, String password, User user) {
+	public String login(String countryCode, String username, String password, String type, String smsCode, User user) {
 		String url = "http://64.251.7.148/user/app/login/index.json";
 		List params=new ArrayList();
 		params.add(new BasicNameValuePair("userName", countryCode + username));
-		params.add(new BasicNameValuePair("password", password));
-		params.add(new BasicNameValuePair("type",""+0));
+		params.add(new BasicNameValuePair("type",type));
+		if(type.equals("0")){
+			params.add(new BasicNameValuePair("password",password));
+		}
+		else if(type.equals("1")){
+			params.add(new BasicNameValuePair("checkCode",smsCode));
+
+		}
 		SyncHTTPCaller<String> caller = new SyncHTTPCaller<String>(
 				url, null, params, SyncHTTPCaller.TYPE_POST, "") {
 
@@ -187,6 +202,40 @@ public class UserServer implements IUserServer {
 			}
 		};
 		return caller.execute();
+	}
+
+	public String getSMSCode(){
+		HttpPost post = new HttpPost("http://64.251.7.148/user/app/register/pullcheckcode.json");
+		HttpResponse httpResponse;
+		try {
+			httpResponse = new DefaultHttpClient().execute(post);
+			if (httpResponse.getStatusLine().getStatusCode() == 200) {
+				String str = EntityUtils.toString(httpResponse.getEntity(), "utf-8");
+				try {
+					JSONObject json = new JSONObject(str);
+					Iterator<String> keys = json.keys();
+					while(keys.hasNext())
+					{
+						final String number = keys.next();
+						Log.v("SMS", number);
+						final String checkCode = json.getString(number);
+							return checkCode;
+					}
+
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+			}
+		} catch (ClientProtocolException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "";
 	}
 
 }

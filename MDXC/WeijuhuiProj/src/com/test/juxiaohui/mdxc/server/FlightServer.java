@@ -71,22 +71,18 @@ public class FlightServer implements IFlightServer {
 						flightData.mPrice = new PriceData();
 
 						flightData.mPrice.mCurrency = priceObj.getString("currency");
-						if(rate == -1){
+						if (rate == -1) {
 							rate = UtilManager.getInstance().getExchangeRate(flightData.mPrice.mCurrency, UtilManager.getInstance().getCurrency());
 						}
 						flightData.mPrice.mTicketPrice = Float.valueOf(priceObj.getString("price")) * rate;
 						flightData.mPrice.mTax = Float.valueOf(priceObj.getString("taxes"));
-						JSONArray fromNumbers = priceObj
-								.getJSONArray("fromNumbers");
+						JSONArray fromNumbers = priceObj.getJSONArray("fromNumbers");
 						for (int j = 0; j < fromNumbers.length(); j++) {
 							String fromNumber = fromNumbers.getString(j);
-							JSONObject flight = flights
-									.getJSONObject(fromNumber);
+							JSONObject flight = flights.getJSONObject(fromNumber);
 
-							if(flight.getString("fromCity").trim().equals(request.mDepartCode))
-							{
-								if(j>1)
-								{
+							if (flight.getString("fromCity").trim().equals(request.mDepartCode)) {
+								if (j > 1) {
 									flightData = new FlightData(flightData);
 								}
 								RouteData routeData = new RouteData();
@@ -94,18 +90,19 @@ public class FlightServer implements IFlightServer {
 								routeData.mAirplanes = flight.getString("airline");
 								routeData.mDepartCity = flight.getString("fromCity");
 								routeData.mArrivalCity = flight.getString("toCity");
+								routeData.mDepartTime = flight.getString("fromTime");
+								routeData.mArrivalTime = flight.getString("toTime");
 								flightData.mRoutes.add(routeData);
-							}
-							else
-							{
+							} else {
 								RouteData routeData = new RouteData();
 								routeData.mNumbers = flight.getString("number");
 								routeData.mAirplanes = flight.getString("airline");
 								routeData.mDepartCity = flight.getString("fromCity");
 								routeData.mArrivalCity = flight.getString("toCity");
+								routeData.mDepartTime = flight.getString("fromTime");
+								routeData.mArrivalTime = flight.getString("toTime");
 								flightData.mRoutes.add(routeData);
-								if(flight.getString("toCity").trim().equals(request.mArrivalCode))
-								{
+								if (flight.getString("toCity").trim().equals(request.mArrivalCode)) {
 									resultObjects.add(flightData);
 								}
 							}

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RadioGroup android:orientation="horizontal" android:id="@id/rg_switch" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <RadioButton android:textSize="@dimen/font_size_30" android:textColor="@color/tv_color_1" android:gravity="center" android:id="@id/rb_left" android:background="@drawable/selector_bg_btn_switch_left" android:layout_width="0.0dip" android:layout_height="fill_parent" android:checked="true" android:button="@null" android:layout_weight="1.0" />
+        <RadioButton android:textSize="@dimen/font_size_30" android:textColor="@color/tv_color_1" android:gravity="center" android:id="@id/rb_right" android:background="@drawable/selector_bg_btn_switch_right" android:layout_width="0.0dip" android:layout_height="fill_parent" android:button="@null" android:layout_weight="1.0" />
+    </RadioGroup>
+</merge>

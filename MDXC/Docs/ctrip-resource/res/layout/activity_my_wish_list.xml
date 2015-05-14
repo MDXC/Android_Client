@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:background="@color/color_efefef" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:id="@id/ll_container" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <RelativeLayout android:id="@id/view_content" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <ctrip.english.views.components.LoadMoreListView android:id="@id/lv_results" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout android:id="@id/ll_menu" android:background="@color/color_black_1" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:onClick="onClickMenu">
+        <ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="vertical" android:id="@id/ll_menu_content" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        </ScrollView>
+    </LinearLayout>
+</RelativeLayout>

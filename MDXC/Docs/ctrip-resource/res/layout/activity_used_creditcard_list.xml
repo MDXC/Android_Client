@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/color_efefef" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content" android:fillViewport="true">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="@dimen/font_size_x_medium" android:textColor="@color/color_666666" android:paddingLeft="@dimen/margin_10" android:paddingTop="@dimen/margin_10" android:paddingRight="@dimen/margin_10" android:paddingBottom="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/user_credit_card" android:singleLine="true" />
+            <View style="@style/line_h" />
+            <ListView android:id="@id/lv_credit_card_list" android:layout_width="fill_parent" android:layout_height="wrap_content" android:listSelector="@drawable/selector_btn_4" android:divider="@drawable/line_h_1" android:dividerHeight="@dimen/divider_line_height" />
+            <View style="@style/line_h" />
+            <TextView android:textSize="@dimen/font_size_x_medium" android:textColor="@color/color_666666" android:paddingLeft="@dimen/margin_10" android:paddingTop="@dimen/margin_10" android:paddingRight="@dimen/margin_10" android:paddingBottom="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/new_creditcard" android:singleLine="true" />
+            <View style="@style/line_h" />
+            <LinearLayout android:orientation="vertical" android:id="@id/ll_mainland_layout" android:background="@drawable/selector_btn_4" android:padding="@dimen/margin_10" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <ImageView android:id="@id/iv_next_icon1" android:background="@drawable/icon_right_arrow" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+                    <TextView android:textSize="@dimen/font_size_medium" android:textColor="@color/color_333333" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginRight="@dimen/margin_10" android:text="@string/mainland_creditcard" android:singleLine="true" android:layout_toLeftOf="@id/iv_next_icon1" android:layout_centerVertical="true" />
+                </RelativeLayout>
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:id="@id/ll_oversea_layout" android:background="@drawable/selector_btn_4" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <View style="@style/line_h_margin_left_10" />
+                <LinearLayout android:orientation="vertical" android:padding="@dimen/margin_10" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <ImageView android:id="@id/iv_next_icon2" android:background="@drawable/icon_right_arrow" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+                        <TextView android:textSize="@dimen/font_size_medium" android:textColor="@color/color_333333" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginRight="@dimen/margin_10" android:text="@string/overseas_creditcard" android:singleLine="true" android:layout_toLeftOf="@id/iv_next_icon2" android:layout_centerVertical="true" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <View style="@style/line_h" />
+            <LinearLayout android:orientation="vertical" android:id="@id/ll_promotion_layout" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_10">
+                <TextView android:textSize="@dimen/font_size_medium" android:textColor="@color/color_333333" android:id="@id/tv_promotion_textview" android:background="@drawable/bg_promotion_text" android:padding="@dimen/margin_10" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

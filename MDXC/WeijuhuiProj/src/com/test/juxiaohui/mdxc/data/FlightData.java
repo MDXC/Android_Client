@@ -44,10 +44,10 @@ public class FlightData implements Cloneable{
     public String mAirlineName = "unknown airline";
     public String mAirlineLogoUrl = "";
     public PriceData mPrice = PriceData.NULL;
-    public String mFromCity;
-    public String mToCity;
-    public String mFromCode;
-    public String mToCode;
+    public String mFromCity = "";
+    public String mToCity = "";
+    public String mFromCode = "";
+    public String mToCode = "";
     public Date mFromTime = new Date();
     public Date mToTime = new Date();
     public String mDurTime = "60";
@@ -136,6 +136,11 @@ public class FlightData implements Cloneable{
                     flightData.mTripType = FlightOrder.TRIP_ROUND;
                 }
             }
+
+            JSONArray jsonRoutes = jsonObject.getJSONArray("routes");
+            for(int i=0; i<jsonRoutes.length(); i++){
+                flightData.mRoutes.add(RouteData.fromJSON(jsonRoutes.getJSONObject(i)));
+            }
         } catch (JSONException e) {
             e.printStackTrace();
             flightData = FlightData.NULL;
@@ -166,6 +171,12 @@ public class FlightData implements Cloneable{
                     jsonObject.put("trip_type", "return");
                 }
             }
+            JSONArray jsonRoutes = new JSONArray();
+            for(RouteData data:flightData.mRoutes){
+                jsonRoutes.put(RouteData.toJSON(data));
+            }
+            jsonObject.put("routes", jsonRoutes);
+
         } catch (JSONException e) {
             e.printStackTrace();
             jsonObject = null;
@@ -193,7 +204,7 @@ public class FlightData implements Cloneable{
         holder = (ViewHolder) convertView.getTag();
         if (holder == null)
             return convertView;
-        holder.mTvAirlineName.setText(data.mAirlineName);
+        holder.mTvAirlineName.setText(data.mRoutes.getFirst().mAirplanes);
         if (data.mAirlineLogoUrl.length() > 0) {
             //Picasso.with(context).load(data.mAirlineLogoUrl).into(holder.mIvAirlineLogo);
             holder.mIvAirlineLogo.setImageResource(new Integer(data.mAirlineLogoUrl));
@@ -208,25 +219,30 @@ public class FlightData implements Cloneable{
             View stopView = convertView.findViewById(R.id.view_stop_1);
             stopView.setVisibility(View.VISIBLE);
             holder.mTvStop0 = (TextView)stopView.findViewById(R.id.tv_stop_code);
-            holder.mTvStop0.setText(data.mRoutes.getFirst().mArrivalCity);
+            holder.mTvStop0.setText(data.mRoutes.get(1).mArrivalCity);
         }
         if (data.mRoutes.size() >= 4) {
             View stopView = convertView.findViewById(R.id.view_stop_2);
             stopView.setVisibility(View.VISIBLE);
             holder.mTvStop0 = (TextView)stopView.findViewById(R.id.tv_stop_code);
-            holder.mTvStop0.setText(data.mRoutes.getFirst().mArrivalCity);
+            holder.mTvStop0.setText(data.mRoutes.get(2).mArrivalCity);
         }
-        holder.mTvDepartTime.setText(FORMAT_SEARCH.format(data.mFromTime));
+        holder.mTvDepartTime.setText(data.mRoutes.getFirst().mDepartTime);
         holder.mTvDepartCity.setText(data.mFromCode);
-        holder.mTvArrivalTime.setText(FORMAT_SEARCH.format(data.mToTime));
+        holder.mTvArrivalTime.setText(data.mRoutes.getLast().mArrivalTime);
         holder.mTvArrivalCity.setText(data.mToCode);
         holder.mTvDistance.setText(data.mDurTime + " min");
         holder.mTvCurrency.setText(UtilManager.getInstance().getCurrency());
-        holder.mTvPrize.setText(data.mPrice.mTicketPrice + data.mPrice.mTax + "");
+        holder.mTvPrize.setText(data.mPrice.mTicketPrice + "");
 
         return convertView;
     }
 
+    /**
+     *
+     * @param listFlightData
+     * @return
+     */
     public static JSONArray convertToOrderParams(List<FlightData> listFlightData) {
         Assert.assertNotNull(listFlightData);
         try {
@@ -242,8 +258,8 @@ public class FlightData implements Cloneable{
                 jsonObject.put("arrivalTime", FORMAT_ORDER.format(flight.mToTime));
                 jsonObject.put("price", flight.mPrice.mTicketPrice);
                 jsonObject.put("currency", flight.mPrice.mCurrency);
-                jsonObject.put("from", flight.mFromCity);
-                jsonObject.put("to", flight.mToCity);
+                jsonObject.put("from", flight.mRoutes.getFirst().mDepartCity);
+                jsonObject.put("to", flight.mRoutes.getLast().mArrivalCity);
                 jsonObject.put("airline", flight.mAirlineName);
                 jsonObject.put("clazz", "0");
                 jsonObject.put("sortNo", "1");

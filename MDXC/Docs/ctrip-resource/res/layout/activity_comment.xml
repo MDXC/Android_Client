@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/color_efefef" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <TextView android:textSize="@dimen/font_size_large" android:textColor="@color/color_333333" android:id="@id/tv_top_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="10.0dip" />
+            <LinearLayout android:orientation="vertical" android:id="@id/ll_star_layout" android:background="@color/color_ffffff" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <View style="@style/line_h" />
+                <TextView android:textSize="@dimen/font_size_medium" android:textColor="@color/color_666666" android:gravity="center" android:id="@id/tv_star_value" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="10.0dip" android:text="@string/tap_to_rate" />
+                <RatingBar android:id="@id/rb_rating_star" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="10.0dip" style="@style/comment_rating_style" />
+                <View style="@style/line_h" />
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="@dimen/margin_10">
+                <LinearLayout android:orientation="vertical" android:background="@color/color_ffffff" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <View style="@style/line_h" />
+                    <RelativeLayout android:background="@drawable/selector_btn_4" android:clickable="true" android:layout_width="fill_parent" android:layout_height="50.0dip" android:onClick="onTripType">
+                        <TextView android:textSize="@dimen/font_size_medium" android:textColor="@color/color_333333" android:gravity="center_vertical" android:id="@id/tv_sort_trip" android:paddingLeft="10.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/trip_type" />
+                        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginRight="10.0dip" android:src="@drawable/icon_right_arrow" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+                    </RelativeLayout>
+                    <View style="@style/line_h_margin_left_10" />
+                    <EditText android:textSize="@dimen/font_size_medium" android:textColor="@color/color_333333" android:gravity="top" android:id="@id/et_comment_content" android:background="@color/color_white" android:padding="10.0dip" android:layout_width="fill_parent" android:layout_height="250.0dip" android:hint="@string/comment_hint" android:cursorVisible="true" android:singleLine="false" style="@style/BaseInput" />
+                    <View style="@style/line_h" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

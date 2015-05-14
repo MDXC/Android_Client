@@ -23,6 +23,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.test.juxiaohui.mdxc.manager.UserManager;
+import com.test.juxiaohui.mdxc.manager.UtilManager;
 
 public class EntryActivity extends FragmentActivity {
 
@@ -38,14 +40,18 @@ public class EntryActivity extends FragmentActivity {
 	private TextView mTvFlights;
 	
 	//navigation item
+	private View mMyAccountItem;
 	private View mMyOrderItem;
 	private View mViewedHotelsItem;
 	private View mFlightStatusItem;
 	private View mSearchHistoryItem;
 	private View mSettingItem;
 	private View mFeedbackItem;
-	
+
+	//
+	private TextView mTvAccount;// = mTvAccount;
 	//navigation TAG
+	public static final int MY_ACCOUNT = 100;
 	public static final int MY_ODERS = 101;
 	public static final int VIEWED_HOTELS = 102;
 	public static final int FLIGHT_STATUS = 103;
@@ -69,7 +75,27 @@ public class EntryActivity extends FragmentActivity {
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		initView();	
+		initView();
+		if(!UserManager.getInstance().isLogin()){
+			final String countryCode = UserManager.getInstance().getCachedCountryCode();
+			final String username = UserManager.getInstance().getCachedUsername();
+			final String password = UserManager.getInstance().getCachedPassword();
+			if(countryCode!=null&&username!=null&&password!=null){
+				Thread t = new Thread(new Runnable() {
+					@Override
+					public void run() {
+						UserManager.getInstance().login(countryCode, username, password, "0", "");
+						runOnUiThread(new Runnable() {
+							@Override
+							public void run() {
+								mTvAccount.setText(UserManager.getInstance().getCurrentUser().getInnerName());
+							}
+						});
+					}
+				});
+				t.start();
+			}
+		}
 	}
 	
 	public void initView()
@@ -108,12 +134,22 @@ public class EntryActivity extends FragmentActivity {
 	 
 	public void addNavigationItem()
 	{
+		mMyAccountItem = mNavigationLayout.findViewById(R.id.channel_navigation_my_account);
+		mTvAccount = (TextView)findViewById(R.id.channel_navigation_item_my_account_textview);
 		mMyOrderItem = mNavigationLayout.findViewById(R.id.channel_navigation_my_orders);
 		mViewedHotelsItem = mNavigationLayout.findViewById(R.id.channel_navigation_item_viewed_hotels);
 		mFlightStatusItem = mNavigationLayout.findViewById(R.id.channel_navigation_item_flight_status);
 		mSearchHistoryItem = mNavigationLayout.findViewById(R.id.channel_navigation_item_search_history);
 		mSettingItem = mNavigationLayout.findViewById(R.id.channel_navigation_item_settings);
 		mFeedbackItem = mNavigationLayout.findViewById(R.id.channel_navigation_item_feed_back);
+
+		mMyAccountItem.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				mContentView.startContent(MY_ACCOUNT);
+			}
+		});
+
 		mMyOrderItem.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
@@ -159,6 +195,19 @@ public class EntryActivity extends FragmentActivity {
 			return false;
 		else 
 			return super.onKeyDown(keyCode, event);
+	}
+
+	@Override
+	public void onResume(){
+		super.onResume();
+
+		if(UserManager.getInstance().isLogin()){
+			mTvAccount.setText(UserManager.getInstance().getCurrentUser().getInnerName());
+		}
+		else{
+			mTvAccount.setText(getText(R.string.sign_in));
+		}
+
 	}
 	
 }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:background="@color/color_f2f2f2" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:layout_width="fill_parent" android:layout_height="@dimen/navigation_bar_height" android:layout_weight="1.0">
+        <LinearLayout android:gravity="center" android:id="@id/ll_filter" android:clickable="true" android:layout_width="wrap_content" android:layout_height="fill_parent" android:onClick="onClickFilter">
+            <TextView android:textSize="@dimen/font_size_large" android:textColor="@color/selector_filter_text" android:gravity="center" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="@string/filters" />
+            <ImageView android:layout_gravity="top" android:background="@drawable/selector_icon_filter" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_10" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
+        <LinearLayout android:gravity="center" android:id="@id/ll_sort" android:clickable="true" android:layout_width="wrap_content" android:layout_height="fill_parent" android:onClick="onClickSort">
+            <TextView android:textSize="@dimen/font_size_large" android:textColor="@color/selector_filter_text" android:gravity="center" android:id="@id/btn_sort" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="@string/sort" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

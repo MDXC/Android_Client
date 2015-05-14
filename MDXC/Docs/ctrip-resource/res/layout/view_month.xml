@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ctrip.english.views.components.calendar.CTMonthView android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/calendar_text_medium" android:textStyle="bold" android:textColor="@color/calendar_text_month_title" android:gravity="center_horizontal" android:id="@id/tv_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_10" android:layout_marginBottom="@dimen/margin_10" />
+    <View android:background="@color/calendar_line" android:layout_width="fill_parent" android:layout_height="@dimen/divider_line_height" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/ll_week_day_header" android:background="@color/calendar_white" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textColor="@color/calendar_yellow" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" style="@style/WeekdayHeader" />
+        <TextView android:textColor="@color/calendar_text_gray" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" style="@style/WeekdayHeader" />
+        <TextView android:textColor="@color/calendar_text_gray" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" style="@style/WeekdayHeader" />
+        <TextView android:textColor="@color/calendar_text_gray" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" style="@style/WeekdayHeader" />
+        <TextView android:textColor="@color/calendar_text_gray" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" style="@style/WeekdayHeader" />
+        <TextView android:textColor="@color/calendar_text_gray" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" style="@style/WeekdayHeader" />
+        <TextView android:textColor="@color/calendar_yellow" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" style="@style/WeekdayHeader" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/ll_week_day_content" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <include layout="@layout/view_week" />
+        <include layout="@layout/view_week" />
+        <include layout="@layout/view_week" />
+        <include layout="@layout/view_week" />
+        <include layout="@layout/view_week" />
+        <include layout="@layout/view_week" />
+    </LinearLayout>
+    <View android:background="@color/calendar_line" android:layout_width="fill_parent" android:layout_height="@dimen/divider_line_height" />
+</ctrip.english.views.components.calendar.CTMonthView>

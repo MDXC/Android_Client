@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:background="@color/color_gray_2" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ctrip.english.views.components.ScrollViewExtend android:id="@id/view_results" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <RelativeLayout android:layout_width="fill_parent" android:layout_height="250.0dip">
+                <android.support.v4.view.ViewPager android:id="@id/vp_photo" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+                <TextView android:textSize="@dimen/font_size_small" android:textColor="@color/color_white" android:id="@id/tv_index" android:background="@drawable/bg_black_1_c_a" android:paddingLeft="@dimen/margin_10" android:paddingTop="5.0dip" android:paddingRight="@dimen/margin_10" android:paddingBottom="5.0dip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="5.0dip" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+            </RelativeLayout>
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <include android:id="@id/layout_detail_address" layout="@layout/view_hotel_detail_address_item" />
+                <include android:id="@id/layout_detail_reviews" layout="@layout/view_hotel_detail_reviews_item" />
+                <include android:id="@id/layout_detail_services" layout="@layout/view_hotel_detail_services_item" />
+                <include android:id="@id/layout_detail_sale" layout="@layout/view_hotel_detail_sale_item" />
+                <include android:id="@id/layout_detail_policy" layout="@layout/view_hotel_detail_policy_item" />
+                <include android:id="@id/layout_detail_description" layout="@layout/view_hotel_detail_description_item" />
+            </LinearLayout>
+        </LinearLayout>
+    </ctrip.english.views.components.ScrollViewExtend>
+    <ProgressBar android:id="@id/pb_loading" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/CTProgressBar" />
+    <include android:id="@id/layout_failed" android:visibility="gone" layout="@layout/view_failed" />
+</LinearLayout>

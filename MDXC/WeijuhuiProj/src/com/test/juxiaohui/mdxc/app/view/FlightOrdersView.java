@@ -21,6 +21,9 @@ import com.test.juxiaohui.mdxc.widget.CommonTitleBar;
 import com.test.juxiaohui.widget.CommonAdapter;
 import com.test.juxiaohui.widget.IAdapterItem;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -42,25 +45,7 @@ public class FlightOrdersView extends LinearLayout {
         super(context);
         mContext = context;
         initView();
-        Thread t = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                final List<FlightOrder> listOrders = FlightOrderManager.getInstance().getFlightOrderList();
-                ((Activity)mContext).runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        mLayoutProgress.setVisibility(View.INVISIBLE);
-                        mLvFlightOrders.setAdapter(new CommonAdapter<FlightOrder>(listOrders, new IAdapterItem<FlightOrder>() {
-                            @Override
-                            public View getView(FlightOrder data, View convertView) {
-                                return FlightOrder.getView(mContext, mInflater, convertView, data);
-                            }
-                        }));
-                    }
-                });
-            }
-        });
-        t.start();
+
         // TODO Auto-generated constructor stub
     }
 
@@ -84,7 +69,12 @@ public class FlightOrdersView extends LinearLayout {
         mContentLayout.setLayoutParams(params);
         this.addView(mContentLayout);
         mLvFlightOrders = (ListView)findViewById(R.id.listView_flight_orders);
-
+        mLvFlightOrders.setAdapter(new CommonAdapter<FlightOrder>(new ArrayList<FlightOrder>(), new IAdapterItem<FlightOrder>() {
+            @Override
+            public View getView(FlightOrder data, View convertView) {
+                return FlightOrder.getView(mContext, mInflater, convertView, data);
+            }
+        }));
    /*     mImageButton_back = (ImageButton)findViewById(R.id.imageButton_back);
         mImageButton_back.setOnClickListener(new OnClickListener() {
             @Override
@@ -100,4 +90,38 @@ public class FlightOrdersView extends LinearLayout {
 	{
 		mTitleBar.setBackIconListener(listener);
 	}
+
+    public void queryFlightOrders(){
+        mLayoutProgress.setVisibility(View.VISIBLE);
+        ((CommonAdapter)mLvFlightOrders.getAdapter()).setData(new ArrayList<FlightOrder>());
+        this.invalidate();
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                final List<FlightOrder> listOrders = FlightOrderManager.getInstance().getFlightOrderList();
+                Object []temp = listOrders.toArray();
+                Arrays.sort(temp);
+                listOrders.clear();
+                for(Object order:temp)
+                {
+                    listOrders.add((FlightOrder)order);
+                }
+                Collections.reverse(listOrders);
+                ((Activity) mContext).runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        mLayoutProgress.setVisibility(View.INVISIBLE);
+                        ((CommonAdapter)mLvFlightOrders.getAdapter()).setData(listOrders);
+//                        mLvFlightOrders.setAdapter(new CommonAdapter<FlightOrder>(listOrders, new IAdapterItem<FlightOrder>() {
+//                            @Override
+//                            public View getView(FlightOrder data, View convertView) {
+//                                return FlightOrder.getView(mContext, mInflater, convertView, data);
+//                            }
+//                        }));
+                    }
+                });
+            }
+        });
+        t.start();
+    }
 }

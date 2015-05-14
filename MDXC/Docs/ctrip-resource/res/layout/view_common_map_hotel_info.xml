@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/ll_marker" android:background="@drawable/selector_btn_4" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:padding="@dimen/margin_10" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@id/iv_view_close" android:background="@drawable/selector_icon_close" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        <TextView android:textSize="@dimen/font_size_large" android:textColor="@color/color_333333" android:id="@id/tv_hotel_name" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginRight="5.0dip" android:singleLine="true" android:layout_toLeftOf="@id/iv_view_close" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <RelativeLayout android:paddingLeft="@dimen/margin_10" android:paddingRight="@dimen/margin_10" android:paddingBottom="@dimen/margin_10" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@id/iv_hotel_image" android:layout_width="70.0dip" android:layout_height="70.0dip" android:scaleType="fitXY" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_toRightOf="@id/iv_hotel_image" android:layout_centerVertical="true">
+            <ctrip.english.views.components.CTRatingBar android:id="@id/hotel_star" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+            <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <RelativeLayout android:id="@id/rl_price" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_centerVertical="true">
+                    <TextView android:textSize="@dimen/font_size_medium" android:textColor="@color/color_666666" android:id="@id/tv_currency" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" />
+                    <TextView android:textSize="@dimen/font_size_large" android:textColor="@color/color_099fde" android:id="@id/tv_price" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_toRightOf="@id/tv_currency" android:layout_centerVertical="true" />
+                </RelativeLayout>
+                <RelativeLayout android:id="@id/rl_score" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_toLeftOf="@id/rl_price" android:layout_centerVertical="true">
+                    <TextView android:textSize="@dimen/font_size_medium" android:textColor="@color/color_099fde" android:id="@id/tv_score" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" />
+                    <TextView android:textSize="@dimen/font_size_small" android:textColor="@color/color_666666" android:id="@id/tv_score_max" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="/5" android:layout_toRightOf="@id/tv_score" android:layout_alignBaseline="@id/tv_score" android:layout_centerVertical="true" />
+                    <TextView android:textSize="@dimen/font_size_medium" android:textStyle="bold" android:textColor="@color/color_666666" android:id="@id/tv_score_description" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_10" android:layout_toRightOf="@id/tv_score_max" android:layout_alignBaseline="@id/tv_score" android:layout_centerVertical="true" />
+                </RelativeLayout>
+            </RelativeLayout>
+            <TextView android:textSize="@dimen/font_size_medium" android:textColor="@color/color_333333" android:id="@id/tv_hotel_area" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_10" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

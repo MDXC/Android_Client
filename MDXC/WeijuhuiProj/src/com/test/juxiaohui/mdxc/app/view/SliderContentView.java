@@ -1,8 +1,11 @@
 package com.test.juxiaohui.mdxc.app.view;
 
+import android.content.Intent;
 import com.test.juxiaohui.R;
 import com.test.juxiaohui.mdxc.app.EntryActivity;
 import com.test.juxiaohui.mdxc.app.FlightSearchActivity;
+import com.test.juxiaohui.mdxc.app.LoginActivity;
+import com.test.juxiaohui.mdxc.manager.UserManager;
 import com.test.juxiaohui.mdxc.widget.CommonTitleBar;
 
 import android.content.Context;
@@ -326,6 +329,14 @@ public class SliderContentView extends RelativeLayout {
 	{
 		switch(tag)
 		{
+		case EntryActivity.MY_ACCOUNT:
+			//mConte
+			//
+			if(!UserManager.getInstance().isLogin()){
+				Intent intent = new Intent(mContext, LoginActivity.class);
+				mContext.startActivity(intent);
+			}
+			break;
 		case EntryActivity.MY_ODERS:
 			mSelf.removeAllViews();
 			if(mFlightOrdersView == null)
@@ -345,6 +356,7 @@ public class SliderContentView extends RelativeLayout {
 			}
 			
 			mSelf.addView(mFlightOrdersView);
+			mFlightOrdersView.queryFlightOrders();
 			mSelf.layout(0, 0, Math.round(orginWidth), Math.round(orginHeight));
 			isRoot = false;
 			break;

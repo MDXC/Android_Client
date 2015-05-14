@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="horizontal" android:background="@color/color_ffffff" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_15"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/font_size_30" android:textColor="@color/color_099fde" android:gravity="center" android:background="@drawable/selector_btn_4" android:clickable="true" android:layout_width="0.0dip" android:layout_height="54.0dip" android:text="@string/home_page_recent_hotel_views" android:layout_weight="1.0" android:onClick="onClickViewedHotels" />
+    <View android:layout_marginTop="5.0dip" android:layout_marginBottom="5.0dip" style="@style/line_v" />
+    <TextView android:textSize="@dimen/font_size_30" android:textColor="@color/color_099fde" android:gravity="center" android:background="@drawable/selector_btn_4" android:clickable="true" android:layout_width="0.0dip" android:layout_height="54.0dip" android:text="@string/my_wish_list" android:layout_weight="1.0" android:onClick="onClickWishList" />
+</LinearLayout>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/color_efefef" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <se.emilsjolander.stickylistheaders.StickyListHeadersListView android:id="@id/slv_content" android:layout_width="fill_parent" android:layout_height="fill_parent" android:listSelector="@drawable/selector_btn_4" android:divider="@color/color_c8c8c8" android:dividerHeight="@dimen/divider_line_height" />
+</RelativeLayout>

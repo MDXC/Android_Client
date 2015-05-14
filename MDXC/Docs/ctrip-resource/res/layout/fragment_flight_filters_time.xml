@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/color_white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:ctrip="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_margin="@dimen/margin_10" android:layout_weight="1.0">
+        <TextView android:textSize="@dimen/font_size_large" android:textColor="@color/color_333333" android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/departure_time" android:drawableLeft="@drawable/icon_filter_depart_time" android:drawablePadding="@dimen/margin_10" />
+        <ctrip.english.views.components.CTRangeSeekBar android:id="@id/rsb_depart_time" android:layout_width="fill_parent" android:layout_height="wrap_content" ctrip:thumbDrawable="@drawable/icon_filter_price_round" ctrip:progressColor="@color/color_yellow" ctrip:trackColor="@color/color_gray_8" ctrip:rangeMin="0" ctrip:rangeMax="23" ctrip:rangeStep="1" ctrip:isHorizontal="true" />
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginRight="@dimen/margin_10" android:layout_marginBottom="40.0dip">
+            <TextView android:textSize="@dimen/font_size_large" android:textColor="@color/color_333333" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="00:00" android:layout_alignParentBottom="true" />
+            <TextView android:textSize="@dimen/font_size_large" android:textColor="@color/color_333333" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="24:00" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+        </RelativeLayout>
+    </RelativeLayout>
+    <View android:layout_marginRight="@dimen/margin_10" style="@style/line_h_margin_left_10" />
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_margin="@dimen/margin_10" android:layout_weight="1.0">
+        <TextView android:textSize="@dimen/font_size_large" android:textColor="@color/color_333333" android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/arrival_time" android:drawableLeft="@drawable/icon_filter_arrival_time" android:drawablePadding="@dimen/margin_10" />
+        <ctrip.english.views.components.CTRangeSeekBar android:id="@id/rsb_arrival_time" android:layout_width="fill_parent" android:layout_height="fill_parent" ctrip:thumbDrawable="@drawable/icon_filter_price_round" ctrip:progressColor="@color/color_yellow" ctrip:trackColor="@color/color_gray_8" ctrip:rangeMin="0" ctrip:rangeMax="23" ctrip:rangeStep="1" ctrip:isHorizontal="true" />
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginRight="@dimen/margin_10" android:layout_marginBottom="40.0dip">
+            <TextView android:textSize="@dimen/font_size_large" android:textColor="@color/color_333333" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="00:00" android:layout_alignParentBottom="true" />
+            <TextView android:textSize="@dimen/font_size_large" android:textColor="@color/color_333333" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="24:00" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+        </RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>

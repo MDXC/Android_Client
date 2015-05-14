@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="ctrip.english" platformBuildVersionCode="21" platformBuildVersionName="5.0-1521886">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.ACCESS_GPS"/>
+    <uses-permission android:name="android.permission.ACCESS_ASSISTED_GPS"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/>
+    <uses-permission android:name="android.permission.READ_CALENDAR"/>
+    <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true"/>
+    <android:uses-permission android:maxSdkVersion="18" android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <application android:allowBackup="true" android:configChanges="locale" android:icon="@drawable/app_icon_launcher" android:label="@string/app_name" android:name="ctrip.english.CTApplication">
+        <meta-data android:name="com.amap.api.v2.apikey" android:value="0e9680eed7f5ffc60a7b02167d0182a3"/>
+        <meta-data android:name="CHANNEL" android:value="Ctripintl"/>
+        <meta-data android:name="TencentMapSDK" android:value="7G5BZ-RLARD-TSC4P-P35OH-GJOVH-D6FY2"/>
+        <meta-data android:name="appID" android:value="1002"/>
+        <activity android:configChanges="locale" android:label="@string/app_name" android:name="ctrip.english.views.activities.SlidingMenuHomeActivity" android:screenOrientation="portrait" android:theme="@style/lunch_homepage_theme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="" android:scheme="ctripglobal"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="locale" android:launchMode="singleTop" android:name="ctrip.english.views.activities.hotel.HotelMainActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.hotel.HotelsActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.hotel.HotelDetailActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.hotel.HotelPicsActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.hotel.RoomsActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.hotel.RoomBookActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.hotel.HotelGuestsActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.hotel.HotelGuestEditActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.account.LoginActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.account.RegisterActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.CalendarActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.hotel.HotelOrderDetailActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.flight.FlightOrderCompleteActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.payment.CreditCardPaymentActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.payment.NewCreditCardListActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="ctrip.english.views.activities.payment.NewCreditCardPaymentActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.payment.ChooseOtherCreditCardListActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.payment.CreditCardActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.payment.UseCouponsToPayActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.hotel.HotelFilterActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.CountryActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.GuestsActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.GuestEditActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.flight.FlightMainActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:name="ctrip.english.views.activities.flight.FlightsActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.flight.FlightFilterActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.flight.FlightDetailActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.flight.FlightBookActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.hotel.HotelKeywordSearchActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleOptions" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.CityActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleOptions" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.OptionsMenuActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleOptions"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.MenuActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleOptions"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.MoreInfoActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.MoreInfoContentActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.MoreInfoContactUsActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.MoreInfoAboutUsActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.MoreInfoOpenComponentsActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.CommonOrderListActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.flight.FlightOrderDetailActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.hotel.HotelOrderDetailMapActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.account.MyCouponsActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.flight.FlightsStateDetailActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.flight.FlightsMyAttentionsActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.flight.FlightStateListActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.account.MyWishListActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.AdvertiseActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.comment.CommentActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush" android:windowSoftInputMode="stateAlwaysVisible|adjustResize"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.comment.CommentSendSuccessActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.comment.CommentSendFailureActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.hotel.RoomDetailActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.account.FormerCardsActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.account.AllTravellersActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.account.EditTravellerActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.flight.FlightStateSearchActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:launchMode="singleTop" android:name="ctrip.english.views.activities.ViewedHotelsActivity" android:screenOrientation="portrait" android:theme="@style/CTActivityStyleLeftPush"/>
+        <receiver android:exported="true" android:name="com.appsflyer.MultipleInstallBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="ctrip.android.pushsdk.PushService" android:process=":pushsdk.v1"/>
+        <receiver android:name="ctrip.android.pushsdk.DaemonReceiver" android:process=":pushsdk.v1">
+            <intent-filter android:priority="10000">
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="appID" android:value="1002"/>
+        <receiver android:name="ctrip.android.pushsdk.PushMsgCenter" android:process=":pushsdk.v1">
+            <intent-filter android:priority="1000">
+                <action android:name="ctrip.android.pushsdk.msgcenter.1002"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="ctrip.english.push.MyPushReceiver">
+            <intent-filter>
+                <action android:name="ctrip.android.pushsdk.receiver.1002"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="ctrip.english.receiver.TimeAndNetworkChangeReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:ctrip="http://schemas.android.com/apk/res-auto">
+    <item android:state_enabled="true" android:state_selected="true">
+        <color android:color="@color/calendar_day_bg_selected" />
+    </item>
+    <item android:state_enabled="true" android:state_pressed="true">
+        <color android:color="@color/calendar_day_bg_selected" />
+    </item>
+    <item android:state_enabled="false">
+        <color android:color="@color/calendar_day_bg_disable" />
+    </item>
+    <item ctrip:state_highlight="true">
+        <color android:color="@color/calendar_day_bg_highlight" />
+    </item>
+    <item>
+        <color android:color="@color/calendar_day_bg_normal" />
+    </item>
+</selector>

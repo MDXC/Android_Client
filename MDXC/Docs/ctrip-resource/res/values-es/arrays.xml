@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="hotel_deal_types">
+        <item>Sólo promo</item>
+    </string-array>
+    <string-array name="hotel_payment_types">
+        <item>Prepago en línea</item>
+        <item>Pago en hotel</item>
+        <item>Pago con C-Money</item>
+    </string-array>
+</resources>

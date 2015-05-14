@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:background="@color/color_ffffff" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:id="@id/ll_results" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <TextView android:textSize="@dimen/font_size_x_medium" android:textColor="@color/color_333333" android:background="@color/color_f5f5f5" android:paddingLeft="@dimen/margin_10" android:paddingTop="@dimen/margin_10" android:paddingBottom="@dimen/margin_10" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/services_and_amenities" />
+            <View style="@style/line_h" />
+            <LinearLayout android:orientation="vertical" android:id="@id/ll_service_content" android:paddingLeft="@dimen/margin_15" android:paddingBottom="@dimen/margin_15" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

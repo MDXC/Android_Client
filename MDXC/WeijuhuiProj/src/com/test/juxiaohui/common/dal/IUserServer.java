@@ -16,15 +16,18 @@ public interface IUserServer {
 	 */
     public String register(String countryCode, String username, String password, String checkcode);
 
+
     /**
      * 登陆接口，登陆的结果用String返回
      * @param countryCode
      * @param username
-     * @param password
-     * @param user 用来将登录后的用户信息返回，主要是为了返回用户id
-     * @return 返回登陆结果
+     * @param password 密码
+     * @param type 0 普通登录 1 动态密码登录
+     * @param checkCode 动态密码
+     * @param user
+     * @return
      */
-    public String login(String countryCode, String username, String password, User user);
+    public String login(String countryCode, String username, String password, String type, String checkCode, User user);
 
     /**
      * 获取当前登录的用户

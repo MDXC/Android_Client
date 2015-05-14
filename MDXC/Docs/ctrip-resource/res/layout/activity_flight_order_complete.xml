@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:background="@color/color_white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="30.0dip" android:src="@drawable/icon_order_success" />
+            <TextView android:textSize="@dimen/font_size_large" android:textStyle="bold" android:textColor="@color/color_333333" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_20" android:layout_marginTop="@dimen/margin_10" android:layout_marginRight="@dimen/margin_20" android:text="@string/has_been_submited" />
+            <View android:layout_marginLeft="30.0dip" android:layout_marginTop="@dimen/margin_10" android:layout_marginRight="30.0dip" style="@style/line_h" />
+            <TextView android:textSize="@dimen/font_size_small" android:textColor="@color/color_333333" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="30.0dip" android:layout_marginTop="20.0dip" android:layout_marginRight="30.0dip" android:text="@string/will_confirm" android:drawableLeft="@drawable/icon_arrow" android:drawablePadding="5.0dip" />
+            <LinearLayout android:orientation="vertical" android:id="@id/ll_order_id" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" android:layout_marginBottom="@dimen/margin_10" />
+            <TextView android:textSize="@dimen/font_size_small" android:textColor="@color/color_gray_3" android:id="@id/tv_guest_flight_order" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_20" android:layout_marginTop="20.0dip" android:layout_marginRight="@dimen/margin_20" android:text="@string/flight_guest_coupon_order_tip" android:drawablePadding="5.0dip" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

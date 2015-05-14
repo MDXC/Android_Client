@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ctrip.english.views.components.ScrollViewExtend android:background="@color/color_ffffff" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="@dimen/font_size_x_medium" android:textColor="@color/color_333333" android:gravity="center_vertical" android:background="@color/color_f5f5f5" android:paddingLeft="@dimen/margin_10" android:layout_width="fill_parent" android:layout_height="@dimen/view_item_height" android:text="@string/hotel_description" />
+        <View style="@style/line_h" />
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_10" android:layout_marginTop="5.0dip" android:layout_marginBottom="5.0dip">
+            <TextView android:textSize="@dimen/font_size_x_small" android:textColor="@color/color_333333" android:id="@id/tv_post_code" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:layout_marginRight="@dimen/margin_10" android:text="@string/post_code" />
+            <TextView android:textSize="@dimen/font_size_x_small" android:textColor="@color/color_333333" android:id="@id/tv_grand_opening" android:paddingTop="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginRight="@dimen/margin_10" android:text="@string/grand_opening" />
+            <TextView android:textSize="@dimen/font_size_x_small" android:textColor="@color/color_333333" android:id="@id/tv_room_count" android:paddingTop="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginRight="@dimen/margin_10" android:text="@string/number_of_rooms" />
+            <View android:layout_marginTop="5.0dip" android:layout_marginBottom="5.0dip" style="@style/line_h" />
+            <TextView android:textSize="@dimen/font_size_x_small" android:textColor="@color/color_333333" android:id="@id/tv_hotel_description" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:layout_marginRight="@dimen/margin_10" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/ll_location_layout" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="@dimen/font_size_x_medium" android:textColor="@color/color_333333" android:gravity="center_vertical" android:background="@color/color_f5f5f5" android:paddingLeft="@dimen/margin_10" android:layout_width="fill_parent" android:layout_height="@dimen/view_item_height" android:text="@string/location" />
+            <View style="@style/line_h" />
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_10" android:layout_marginTop="@dimen/margin_10" android:layout_marginRight="@dimen/margin_10">
+                <RelativeLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="5.0dip">
+                    <TextView android:textSize="@dimen/font_size_x_small" android:textStyle="bold" android:textColor="@color/color_333333" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/distance" android:layout_alignParentLeft="true" />
+                    <TextView android:textSize="@dimen/font_size_x_small" android:textStyle="bold" android:textColor="@color/color_333333" android:layout_gravity="right" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/landmark" android:layout_alignParentRight="true" />
+                </RelativeLayout>
+                <LinearLayout android:orientation="vertical" android:id="@id/ll_location" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ctrip.english.views.components.ScrollViewExtend>

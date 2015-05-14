@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:descendantFocusability="blocksDescendants" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:background="@drawable/selector_btn_4" android:paddingLeft="12.0dip" android:paddingRight="0.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="12.0dip" android:paddingEnd="0.0dip">
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/former_cards_list_view_item_remove" android:padding="12.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/selector_icon_remove_guest" />
+        <RelativeLayout android:gravity="center_vertical" android:orientation="horizontal" android:padding="@dimen/margin_10" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <ImageView android:id="@id/former_cards_list_view_item_selection" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/icon_selected" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:layout_alignParentEnd="true" />
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginRight="@dimen/margin_10" android:layout_toLeftOf="@id/former_cards_list_view_item_selection" android:layout_marginEnd="@dimen/margin_10" android:layout_toStartOf="@id/former_cards_list_view_item_selection">
+                <TextView android:textSize="@dimen/font_size_medium" android:textColor="@color/color_333333" android:id="@id/former_cards_list_view_item_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" />
+                <TextView android:textSize="@dimen/font_size_medium" android:textColor="@color/color_666666" android:id="@id/former_cards_list_view_item_num" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:singleLine="true" />
+            </LinearLayout>
+        </RelativeLayout>
+        <Button android:textSize="@dimen/font_size_medium" android:textColor="@color/color_white" android:id="@id/former_cards_list_view_item_delete" android:background="@color/color_red" android:visibility="gone" android:layout_width="100.0dip" android:layout_height="fill_parent" android:text="@string/DELETE" />
+    </LinearLayout>
+</LinearLayout>

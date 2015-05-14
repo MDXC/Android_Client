@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View style="@style/line_h" />
+    <TextView android:id="@id/tv_order_id" android:clickable="true" android:layout_width="fill_parent" style="@style/NextButtonWithBackground" />
+    <View style="@style/line_h" />
+</LinearLayout>

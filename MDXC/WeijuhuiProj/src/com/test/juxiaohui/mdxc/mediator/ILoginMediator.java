@@ -38,17 +38,32 @@ public interface ILoginMediator {
     public void addCountryCodeView();
 
     /**
+     * 如果用户没有注册或者忘记密码，可以通过发送短信验证码来登录
+     */
+    public void addCheckCodeView();
+
+    /**
      * 若登录成功，存储国家码，电话号码，密码
      * 密码要加密保存
      * @param countryCode
      * @param phoneNumber
      */
-    public void saveLoginInfo(String countryCode, String phoneNumber);
+   // public void saveLoginInfo(String countryCode, String phoneNumber, String password);
 
     /**
-     * 读取存储信息
+     * 读取缓存的登录信息
      */
     public void loadLoginInfo();
+
+    /**
+     *
+     * @param coutryCode
+     * @param phoneNuber
+     * @param password
+     * @param checkCode
+     * @return "0" 用户名和密码登录 "1" 用户名和验证码登录 "-1"不合法
+     */
+    public String checkLoginParam(String coutryCode, String phoneNuber, String password, String checkCode);
 
 
 }

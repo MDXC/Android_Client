@@ -1,0 +1,53 @@
+{
+    errors: null, 错误信息
+    prices: [ 报价
+        {
+            currency: "RMB", 币种
+            price: "2788", 销售接个
+            publishPrice: "2840", 原价（航空公司价格）
+            taxes: "2701", 税费
+            surcharge: "0", 附加税
+            expression: "1/2[LAX-AA-Q-SHA(NOA,N121582468T,S50952,C23580)]+1/2[SHA-AA-N-DFW-AA-N-LAX(NOA,N121541912T,S50952,C23580)]",
+            fromNumbers: [ 去航班号 （映射flights节点number）
+                "AA183",
+                "AA183",
+                "AA183"
+            ],
+            toNumbers: [ 返回航班号 （映射flights节点number）
+                "AA128",
+                "AA2495",
+                "AA128",
+                "AA2497",
+                "AA128",
+                "AA2499"
+            ],
+            fromCabin: "Economy", 去航班舱
+            toCabin: "Economy", 返回航班舱
+            refund: null, 退款说明
+            reroute: null, 改签说明
+            toBaggage: { 返回行李说明
+                content: "SHA-DFW: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|DFW-LAX: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；",
+                localContent: null
+            },
+            fromBaggage: { 去行李说明
+                content: "LAX-SHA: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；",
+                localContent: null
+            },
+            remark: null 备注信息
+        }
+    ],
+    flights: { 航班信息
+        AA2279: { 航班编号
+            airline: "AA", 航空公司简称
+            number: "AA2279", 航班编号
+            aircraft: "738", 航班型号
+            fromCity: "CHI", 出发城市
+            toCity: "LAX", 到达城市
+            fromAirport: "ORD", 出发机场
+            toAirport: "LAX", 到达机场
+            fromTime: "2015-04-24T21:35:00", 出发时间
+            toTime: "2015-04-25T00:06:00", 到达时间
+            duration: 271 运行时间 （单位分钟）
+        }
+    }
+}f

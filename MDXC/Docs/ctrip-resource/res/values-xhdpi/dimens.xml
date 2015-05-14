@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="hotel_flight_banner_height">60.0dip</dimen>
+    <dimen name="main_banner_height">90.0dip</dimen>
+    <dimen name="home_fragment_icon_ad_divider">40.0dip</dimen>
+    <dimen name="home_fragment_icons_divider">70.0dip</dimen>
+    <dimen name="home_menu_divider_width">245.0dip</dimen>
+    <dimen name="home_menu_item_height">55.0dip</dimen>
+    <dimen name="home_menu_item_width">260.0dip</dimen>
+    <dimen name="home_menu_margin_top">55.0dip</dimen>
+</resources>

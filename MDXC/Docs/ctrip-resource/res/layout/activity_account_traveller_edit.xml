@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:background="@color/color_efefef" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="@dimen/font_size_medium" android:textColor="@color/color_gray_15" android:padding="@dimen/margin_10" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/name" />
+        <View style="@style/line_h" />
+        <LinearLayout android:orientation="vertical" android:id="@id/traveller_basic_info_english_name_layout" android:background="@color/color_ffffff" android:paddingLeft="@dimen/margin_10" android:paddingRight="0.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/margin_10" android:paddingEnd="0.0dip">
+            <EditText android:textColor="@color/color_333333" android:textColorHint="@color/color_dddddd" android:id="@id/et_traveller_first_name" android:background="@color/color_transparent" android:padding="0.0dip" android:layout_width="fill_parent" android:layout_marginRight="@dimen/margin_10" android:hint="@string/first_name_required" android:imeOptions="actionNext" android:layout_marginEnd="@dimen/margin_10" style="@style/BaseInput" />
+            <View style="@style/line_h" />
+            <EditText android:textColor="@color/color_333333" android:textColorHint="@color/color_dddddd" android:id="@id/et_traveller_middle_name" android:background="@color/color_transparent" android:padding="0.0dip" android:layout_width="fill_parent" android:layout_marginRight="@dimen/margin_10" android:hint="@string/middle_name" android:imeOptions="actionNext" android:layout_marginEnd="@dimen/margin_10" style="@style/BaseInput" />
+            <View android:id="@id/view_middle_name_line" style="@style/line_h" />
+            <EditText android:textColor="@color/color_333333" android:textColorHint="@color/color_dddddd" android:id="@id/et_traveller_last_name" android:background="@color/color_transparent" android:padding="0.0dip" android:layout_width="fill_parent" android:layout_marginRight="@dimen/margin_10" android:hint="@string/last_name_required" android:imeOptions="actionNext" android:layout_marginEnd="@dimen/margin_10" style="@style/BaseInput" />
+        </LinearLayout>
+        <EditText android:textColor="@color/color_333333" android:textColorHint="@color/color_dddddd" android:id="@id/et_traveller_chinese_name" android:background="@drawable/selector_btn_4" android:paddingLeft="@dimen/margin_10" android:paddingRight="@dimen/margin_10" android:layout_width="fill_parent" android:hint="@string/full_name_in_chinese" android:paddingStart="@dimen/margin_10" android:paddingEnd="@dimen/margin_10" style="@style/BaseInput" />
+        <View style="@style/line_h" />
+        <LinearLayout android:orientation="vertical" android:id="@id/traveller_basic_info_all_layout" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="@dimen/font_size_medium" android:textColor="@color/color_gray_15" android:padding="@dimen/margin_10" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/basic_info" />
+            <View style="@style/line_h" />
+            <LinearLayout android:orientation="vertical" android:id="@id/traveller_basic_info_form_layout" android:background="@color/color_ffffff" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:id="@id/tv_traveller_nationality" android:hint="@string/nationality" style="@style/ClickActionItem" />
+                <View android:id="@id/line_traveller_nationality" style="@style/line_h_margin_left_10" />
+                <TextView android:id="@id/et_traveller_birthday" android:hint="@string/birth" style="@style/ClickActionItem" />
+                <View style="@style/line_h_margin_left_10" />
+                <TextView android:id="@id/et_traveller_gender" android:hint="@string/gender" style="@style/ClickActionItem" />
+            </LinearLayout>
+            <View style="@style/line_h" />
+        </LinearLayout>
+        <TextView android:textSize="@dimen/font_size_medium" android:textColor="@color/color_gray_15" android:padding="@dimen/margin_10" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/id" />
+        <View style="@style/line_h" />
+        <LinearLayout android:orientation="vertical" android:id="@id/traveller_id_card_layout" android:background="@color/color_ffffff" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:id="@id/tv_traveller_identity_card" android:hint="@string/identity_type" style="@style/ClickActionItem" />
+            <View style="@style/line_h_margin_left_10" />
+            <EditText android:enabled="false" android:textColor="@color/color_333333" android:textColorHint="@color/color_dddddd" android:id="@id/et_traveller_card_number" android:background="@color/color_transparent" android:paddingLeft="@dimen/margin_10" android:paddingRight="@dimen/margin_10" android:layout_width="fill_parent" android:hint="@string/number" android:inputType="numberSigned" android:imeOptions="actionNext" android:paddingStart="@dimen/margin_10" android:paddingEnd="@dimen/margin_10" style="@style/BaseInput" />
+        </LinearLayout>
+        <Button android:textSize="@dimen/font_size_x_large" android:textStyle="bold" android:textColor="@color/color_white" android:layout_gravity="center_horizontal" android:id="@id/bt_traveller_delete" android:background="@drawable/selector_btn_2" android:paddingLeft="@dimen/margin_15" android:paddingRight="@dimen/margin_15" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/margin_15" android:text="@string/delete_traveller" />
+    </LinearLayout>
+</ScrollView>

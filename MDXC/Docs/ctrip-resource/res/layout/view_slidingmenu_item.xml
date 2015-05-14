@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center_vertical" android:background="@drawable/selector_residemenu_item" android:paddingLeft="@dimen/margin_15" android:layout_width="fill_parent" android:layout_height="@dimen/home_menu_item_height" android:layout_marginBottom="1.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/iv_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="fitXY" android:layout_centerVertical="true" />
+    <ImageView android:id="@id/iv_account_right_arrow" android:background="@drawable/icon_right_arrow" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/margin_15" android:scaleType="fitXY" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    <TextView android:textSize="@dimen/font_size_medium" android:id="@id/tv_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_10" android:layout_marginRight="@dimen/margin_15" android:singleLine="true" android:layout_toLeftOf="@id/iv_account_right_arrow" android:layout_toRightOf="@id/iv_icon" android:layout_centerVertical="true" />
+    <RelativeLayout android:id="@id/rl_account_info" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_10" android:layout_marginRight="@dimen/margin_15" android:layout_toRightOf="@id/iv_icon" android:layout_centerVertical="true">
+        <ImageView android:id="@id/iv_right_arrow" android:background="@drawable/icon_right_arrow" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/margin_15" android:scaleType="fitXY" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginRight="@dimen/margin_10" android:layout_toLeftOf="@id/iv_right_arrow">
+            <TextView android:textSize="@dimen/font_size_medium" android:textColor="@color/color_ffffff" android:id="@id/tv_account_email" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" />
+            <TextView android:textSize="@dimen/font_size_x_small" android:textColor="@color/account_email" android:id="@id/tv_account_name" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" />
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

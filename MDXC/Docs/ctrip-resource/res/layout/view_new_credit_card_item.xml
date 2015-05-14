@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:background="@drawable/selector_btn_4" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="@drawable/selector_btn_4" android:layout_width="fill_parent" android:layout_height="@dimen/view_item_height">
+        <TextView android:textSize="@dimen/font_size_medium" android:textColor="@color/color_333333" android:id="@id/tv_title" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_10" android:layout_marginRight="5.0dip" android:singleLine="true" android:layout_weight="1.0" />
+        <ImageView android:id="@id/iv_selection" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/margin_10" android:src="@drawable/icon_selected" />
+    </LinearLayout>
+</LinearLayout>

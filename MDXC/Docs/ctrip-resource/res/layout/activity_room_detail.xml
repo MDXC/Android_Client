@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/color_white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="250.0dip">
+        <android.support.v4.view.ViewPager android:id="@id/vp_photo" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <TextView android:textSize="@dimen/font_size_small" android:textColor="@color/color_white" android:id="@id/tv_index" android:background="@drawable/bg_black_1_c_a" android:paddingLeft="@dimen/margin_10" android:paddingTop="5.0dip" android:paddingRight="@dimen/margin_10" android:paddingBottom="5.0dip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="5.0dip" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <ScrollView android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="vertical" android:id="@id/ll_detail_content" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/margin_10" />
+            <LinearLayout android:orientation="vertical" android:id="@id/room_detail_cancellation_layout" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/margin_10">
+                <TextView android:textStyle="bold" android:textColor="@color/color_333333" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cancellation" />
+                <TextView android:textColor="@color/color_333333" android:id="@id/room_detail_cancellation" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            </LinearLayout>
+            <TextView android:textSize="@dimen/font_size_x_small" android:textColor="@color/color_white" android:gravity="center_horizontal" android:id="@id/tv_mobile_only" android:background="@color/color_ff9913" android:paddingLeft="4.0dip" android:paddingRight="4.0dip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:minWidth="65.0dip" android:text="@string/mobile_only" />
+            <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:id="@id/ll_coupon" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginTop="2.0dip">
+                <TextView android:textSize="@dimen/font_size_x_small" android:textColor="@color/color_white" android:gravity="center_horizontal" android:background="@color/color_ff9913" android:paddingLeft="2.0dip" android:paddingRight="2.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="65.0dip" android:text="@string/coupon" />
+                <TextView android:textSize="@dimen/font_size_x_small" android:textColor="@color/color_666666" android:id="@id/tv_coupon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" />
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:id="@id/ll_sale" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginTop="2.0dip">
+                <TextView android:textSize="@dimen/font_size_x_small" android:textColor="@color/color_white" android:gravity="center_horizontal" android:background="@color/color_red" android:paddingLeft="2.0dip" android:paddingRight="2.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="65.0dip" android:text="@string/sale" />
+                <TextView android:textSize="@dimen/font_size_small" android:textColor="@color/color_666666" android:layout_gravity="top" android:id="@id/tv_sale" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <include android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/view_bottom_bar" />
+</LinearLayout>

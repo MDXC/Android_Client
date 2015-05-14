@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/color_efefef" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <LinearLayout android:orientation="vertical" android:paddingBottom="@dimen/margin_10" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_10" android:layout_marginBottom="@dimen/margin_10">
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/margin_10">
+                <TextView android:textSize="@dimen/font_size_medium" android:textColor="@color/color_333333" android:paddingLeft="@dimen/margin_10" android:paddingRight="@dimen/margin_10" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/margin_10" android:text="@string/expend_per_person" />
+                <View style="@style/line_h" />
+                <LinearLayout android:orientation="vertical" android:background="@color/color_white" android:padding="@dimen/margin_10" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <LinearLayout android:background="@color/color_ffffff" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <TextView android:textSize="@dimen/font_size_large" android:textColor="@color/color_333333" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/airfare" android:layout_weight="1.0" />
+                        <TextView android:textSize="@dimen/font_size_x_small" android:textColor="@color/color_333333" android:id="@id/tv_price_currency" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                        <TextView android:textSize="@dimen/font_size_large" android:textColor="@color/color_333333" android:id="@id/tv_price" android:paddingLeft="@dimen/margin_10" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                    </LinearLayout>
+                    <LinearLayout android:background="@color/color_ffffff" android:paddingTop="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <TextView android:textSize="@dimen/font_size_large" android:textColor="@color/color_333333" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/taxes_and_fees" android:layout_weight="1.0" />
+                        <TextView android:textSize="@dimen/font_size_x_small" android:textColor="@color/color_333333" android:id="@id/tv_tax_currency" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                        <TextView android:textSize="@dimen/font_size_large" android:textColor="@color/color_333333" android:id="@id/tv_tax" android:paddingLeft="@dimen/margin_10" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                    </LinearLayout>
+                    <LinearLayout android:id="@id/ll_flight_coupon_layout" android:background="@color/color_ffffff" android:paddingTop="5.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <TextView android:textSize="@dimen/font_size_large" android:textColor="@color/color_333333" android:id="@id/tv_flight_coupon_content" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/CMONEY" android:layout_weight="1.0" />
+                        <TextView android:textSize="@dimen/font_size_x_small" android:textColor="@color/color_333333" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="CNY" />
+                        <TextView android:textSize="@dimen/font_size_large" android:textColor="@color/color_333333" android:id="@id/tv_flight_coupon" android:paddingLeft="@dimen/margin_10" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </LinearLayout>
+                <View style="@style/line_h_margin_left_10" />
+                <LinearLayout android:orientation="vertical" android:background="@color/color_yellow_1" android:padding="@dimen/margin_10" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <TextView android:textSize="@dimen/font_size_large" android:textStyle="bold" android:textColor="@color/color_333333" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/total_fare" android:layout_weight="1.0" />
+                        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                            <TextView android:textSize="@dimen/font_size_x_small" android:textColor="@color/color_333333" android:id="@id/tv_total_currency" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                            <TextView android:textSize="@dimen/font_size_x_large" android:textStyle="bold" android:textColor="@color/color_1484dc" android:id="@id/tv_total_price" android:paddingLeft="@dimen/margin_10" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout android:gravity="center_vertical" android:id="@id/ll_amount_with_current_currency" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="3.0dip" android:onClick="onClickExclamationMark">
+                        <TextView android:textSize="@dimen/font_size_x_small" android:textColor="@color/color_333333" android:gravity="right" android:id="@id/tv_amount_with_current_currency" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
+                        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:src="@drawable/icon_i" />
+                    </LinearLayout>
+                </LinearLayout>
+                <View style="@style/line_h" />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:paddingLeft="@dimen/margin_10" android:paddingRight="@dimen/margin_10" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="5.0dip">
+                <TextView android:textSize="@dimen/font_size_large" android:textColor="@color/color_333333" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/passenger" />
+                <TextView android:textSize="@dimen/font_size_large" android:textColor="@color/color_666666" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:text="@string/adult_tickets_only" />
+            </LinearLayout>
+            <TextView android:textSize="@dimen/font_size_x_small" android:textColor="@color/color_666666" android:paddingLeft="@dimen/margin_10" android:paddingRight="@dimen/margin_10" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/name_requires" />
+            <TextView android:textSize="@dimen/font_size_large" android:textColor="@color/color_ffffff" android:gravity="center_vertical" android:background="@drawable/selector_btn_6" android:paddingLeft="@dimen/margin_10" android:paddingRight="@dimen/margin_10" android:clickable="true" android:layout_width="fill_parent" android:layout_height="@dimen/view_item_height" android:layout_marginLeft="@dimen/margin_10" android:layout_marginTop="@dimen/margin_10" android:layout_marginRight="@dimen/margin_10" android:text="@string/choose_add_passenger" android:onClick="onClickChoose" />
+            <LinearLayout android:orientation="vertical" android:id="@id/ll_guests_layout" android:background="@color/color_ffffff" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_10">
+                <View style="@style/line_h" />
+                <LinearLayout android:orientation="vertical" android:id="@id/ll_guests" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+                <View style="@style/line_h" />
+            </LinearLayout>
+            <ctrip.english.views.common.ContactView android:id="@id/cv_contact" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_10" />
+            <TextView android:textSize="@dimen/font_size_medium" android:textColor="@color/color_666666" android:padding="@dimen/margin_10" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/flight_book_note" />
+            <LinearLayout android:orientation="vertical" android:id="@id/ll_taxes_not_include_layout" android:paddingLeft="@dimen/margin_10" android:paddingRight="@dimen/margin_10" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:textSize="@dimen/font_size_medium" android:textColor="@color/color_666666" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_10" android:text="@string/taxes_not_include_title" />
+                <TextView android:textSize="@dimen/font_size_medium" android:textColor="@color/color_666666" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="2.0dip" android:text="@string/taxes_not_include_content" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <include android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/view_bottom_bar" />
+</LinearLayout>

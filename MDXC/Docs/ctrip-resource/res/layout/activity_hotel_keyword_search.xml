@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/view_search_bar" android:layout_width="fill_parent" android:layout_height="@dimen/view_item_height" layout="@layout/view_search_bar" />
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:background="@color/color_white" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <ProgressBar android:id="@id/pb_loading" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/view_item_height" style="@style/CTProgressBar" />
+        <se.emilsjolander.stickylistheaders.StickyListHeadersListView android:id="@id/slv_results" android:background="@color/color_white" android:layout_width="fill_parent" android:layout_height="fill_parent" android:cacheColorHint="@color/color_transparent" android:divider="@color/color_gray_2" android:dividerHeight="@dimen/divider_line_height" android:fastScrollEnabled="true" />
+    </LinearLayout>
+</LinearLayout>

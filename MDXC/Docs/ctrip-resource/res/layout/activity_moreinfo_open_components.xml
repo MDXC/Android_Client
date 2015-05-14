@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/color_efefef" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:padding="@dimen/margin_10" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="@dimen/font_size_26" android:textStyle="bold" android:textColor="@color/color_333333" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Apache Thrift" />
+            <TextView android:textSize="@dimen/font_size_20" android:textColor="@color/color_333333" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_5" android:text="@string/OPEN_TIPS1" />
+            <TextView android:textSize="@dimen/font_size_26" android:textStyle="bold" android:textColor="@color/color_333333" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_15" android:text="Universal Image Loader" />
+            <TextView android:textSize="@dimen/font_size_20" android:textColor="@color/color_333333" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_5" android:text="@string/OPEN_TIPS2" />
+            <TextView android:textSize="@dimen/font_size_26" android:textStyle="bold" android:textColor="@color/color_333333" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_15" android:text="Ormlite" />
+            <TextView android:textSize="@dimen/font_size_20" android:textColor="@color/color_333333" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_5" android:text="@string/OPEN_TIPS3" />
+            <TextView android:textSize="@dimen/font_size_26" android:textStyle="bold" android:textColor="@color/color_333333" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_15" android:text="joda-time" />
+            <TextView android:textSize="@dimen/font_size_20" android:textColor="@color/color_333333" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_5" android:text="@string/OPEN_TIPS4" />
+            <TextView android:textSize="@dimen/font_size_26" android:textStyle="bold" android:textColor="@color/color_333333" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_15" android:text="Stickylistheaders" />
+            <TextView android:textSize="@dimen/font_size_20" android:textColor="@color/color_333333" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_5" android:text="@string/OPEN_TIPS5" />
+            <TextView android:textSize="@dimen/font_size_26" android:textStyle="bold" android:textColor="@color/color_333333" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_15" android:text="SlidingMenu" />
+            <TextView android:textSize="@dimen/font_size_20" android:textColor="@color/color_333333" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_5" android:text="@string/OPEN_TIPS6" />
+            <TextView android:textSize="@dimen/font_size_26" android:textStyle="bold" android:textColor="@color/color_333333" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_15" android:text="Nineoldandroids" />
+            <TextView android:textSize="@dimen/font_size_20" android:textColor="@color/color_333333" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_5" android:text="@string/OPEN_TIPS7" />
+            <TextView android:textSize="@dimen/font_size_26" android:textStyle="bold" android:textColor="@color/color_333333" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_15" android:text="Android Wheel Control" />
+            <TextView android:textSize="@dimen/font_size_20" android:textColor="@color/color_333333" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_5" android:text="@string/OPEN_TIPS8" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

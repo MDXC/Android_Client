@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ctrip.english.views.components.calendar.CTWeekView android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ctrip.english.views.components.calendar.CTDayView android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" style="@style/Day" />
+    <ctrip.english.views.components.calendar.CTDayView android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" style="@style/Day" />
+    <ctrip.english.views.components.calendar.CTDayView android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" style="@style/Day" />
+    <ctrip.english.views.components.calendar.CTDayView android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" style="@style/Day" />
+    <ctrip.english.views.components.calendar.CTDayView android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" style="@style/Day" />
+    <ctrip.english.views.components.calendar.CTDayView android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" style="@style/Day" />
+    <ctrip.english.views.components.calendar.CTDayView android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" style="@style/Day" />
+</ctrip.english.views.components.calendar.CTWeekView>

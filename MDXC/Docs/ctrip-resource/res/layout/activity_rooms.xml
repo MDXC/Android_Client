@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/color_efefef" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/view_item_height">
+        <RelativeLayout android:orientation="horizontal" android:background="@drawable/selector_check_in_out" android:clickable="true" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" android:onClick="onClickCheckIn">
+            <TextView android:textSize="@dimen/font_size_x_small" android:textColor="@color/color_666666" android:id="@id/tv_check_in_tip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_15" android:text="@string/check_in" android:layout_centerVertical="true" />
+            <ImageView android:id="@id/tv_check_in_icon" android:background="@drawable/icon_right_arrow" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/margin_10" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            <TextView android:textSize="@dimen/font_size_x_small" android:textColor="@color/color_333333" android:gravity="center" android:id="@id/tv_check_in" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="2.0dip" android:layout_toLeftOf="@id/tv_check_in_icon" android:layout_toRightOf="@id/tv_check_in_tip" android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <View style="@style/line_v" />
+        <RelativeLayout android:background="@drawable/selector_check_in_out" android:clickable="true" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" android:onClick="onClickCheckOut">
+            <TextView android:textSize="@dimen/font_size_x_small" android:textColor="@color/color_666666" android:id="@id/tv_check_out_tip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_15" android:text="@string/check_out" android:layout_centerVertical="true" />
+            <ImageView android:id="@id/tv_check_out_icon" android:background="@drawable/icon_right_arrow" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/margin_10" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            <TextView android:textSize="@dimen/font_size_x_small" android:textColor="@color/color_333333" android:gravity="center" android:id="@id/tv_check_out" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="2.0dip" android:layout_toLeftOf="@id/tv_check_out_icon" android:layout_toRightOf="@id/tv_check_out_tip" android:layout_centerVertical="true" />
+        </RelativeLayout>
+    </LinearLayout>
+    <View style="@style/line_h" />
+    <LinearLayout android:gravity="center" android:id="@id/ll_container" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <RelativeLayout android:id="@id/view_content" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <ListView android:id="@id/lv_rooms" android:background="@color/color_gray_2" android:layout_width="fill_parent" android:layout_height="fill_parent" android:listSelector="@color/color_transparent" android:cacheColorHint="@color/color_transparent" android:divider="@color/color_c8c8c8" android:dividerHeight="@dimen/divider_line_height" android:fastScrollEnabled="true" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

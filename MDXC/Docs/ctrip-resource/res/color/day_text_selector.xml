@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:ctrip="http://schemas.android.com/apk/res-auto">
+    <item android:state_selected="true" android:color="@color/calendar_text_selected" />
+    <item android:state_pressed="true" android:color="@color/calendar_text_selected" />
+    <item android:state_enabled="false" android:color="@color/calendar_text_disable" />
+    <item android:color="@color/calendar_text_dark_blue" ctrip:state_current_month="true" ctrip:state_today="false" />
+    <item android:color="@color/calendar_yellow" ctrip:state_current_month="true" ctrip:state_today="true" />
+    <item android:color="@color/calendar_text_selected" ctrip:state_current_month="true" ctrip:state_highlight="true" />
+    <item android:color="@color/calendar_text_dark_blue" ctrip:state_current_month="true" ctrip:state_highlight="false" />
+    <item android:color="@color/calendar_text_gray" />
+</selector>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:id="@id/rl_hotel_name" android:background="@drawable/selector_btn_4" android:padding="@dimen/margin_10" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <ImageView android:id="@id/iv_next_icon" android:background="@drawable/icon_right_arrow" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+                <TextView android:textSize="@dimen/font_size_medium" android:textStyle="bold" android:textColor="@color/color_099fde" android:id="@id/tv_hotel_name" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginRight="@dimen/margin_10" android:singleLine="true" android:layout_toLeftOf="@id/iv_next_icon" android:layout_centerVertical="true" />
+            </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/rl_hotel_address" android:background="@drawable/selector_btn_4" android:paddingLeft="@dimen/margin_10" android:paddingBottom="@dimen/margin_10" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View style="@style/line_h" />
+            <RelativeLayout android:paddingRight="@dimen/margin_10" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_10">
+                <ImageView android:id="@id/iv_address_icon" android:background="@drawable/icon_map_normal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+                <TextView android:textSize="@dimen/font_size_medium" android:textColor="@color/color_333333" android:id="@id/tv_hotel_loc" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginRight="@dimen/margin_10" android:layout_toLeftOf="@id/iv_address_icon" android:layout_centerVertical="true" />
+            </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/rl_hotel_tel" android:background="@drawable/selector_btn_4" android:paddingLeft="@dimen/margin_10" android:paddingBottom="@dimen/margin_10" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View style="@style/line_h" />
+            <RelativeLayout android:paddingRight="@dimen/margin_10" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_10">
+                <ImageView android:id="@id/iv_tel_icon" android:background="@drawable/icon_phone_normal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+                <TextView android:textSize="@dimen/font_size_medium" android:textColor="@color/color_333333" android:id="@id/tv_hotel_tel" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" android:layout_toLeftOf="@id/iv_tel_icon" android:layout_centerVertical="true" />
+            </RelativeLayout>
+        </LinearLayout>
+        <View style="@style/line_h" />
+    </LinearLayout>
+</LinearLayout>

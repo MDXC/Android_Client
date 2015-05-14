@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="hotel_deal_types">
+        <item>프로모션 호텔</item>
+    </string-array>
+    <string-array name="hotel_payment_types">
+        <item>온라인 선불</item>
+        <item>호텔 프론트</item>
+        <item>씨트립머니</item>
+    </string-array>
+</resources>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/selector_btn_4" android:clickable="true" android:layout_width="fill_parent" android:layout_height="54.0dip" android:onClick="onClickReviews"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="@dimen/margin_10" android:layout_marginRight="@dimen/margin_10">
+        <RelativeLayout android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <TextView android:textSize="@dimen/font_size_xx_large" android:textColor="@color/color_099fde" android:id="@id/tv_score" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" />
+            <TextView android:textSize="@dimen/font_size_medium" android:textColor="@color/color_666666" android:id="@id/tv_score_max" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="/5" android:layout_toRightOf="@id/tv_score" android:layout_alignBaseline="@id/tv_score" />
+            <TextView android:textSize="@dimen/font_size_x_large" android:textStyle="bold" android:textColor="@color/color_666666" android:id="@id/tv_score_description" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_10" android:layout_toRightOf="@id/tv_score_max" android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <TextView android:textSize="@dimen/font_size_medium" android:textColor="@color/color_333333" android:id="@id/tv_reviews" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/margin_10" />
+        <ImageView android:background="@drawable/icon_right_arrow" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </LinearLayout>
+    <View android:layout_marginLeft="@dimen/margin_10" style="@style/line_h" />
+</RelativeLayout>

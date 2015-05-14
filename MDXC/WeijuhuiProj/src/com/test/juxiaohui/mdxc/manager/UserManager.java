@@ -39,7 +39,7 @@ public class UserManager {
 	public static String LOGOUT_SUCCESS = "logout_success";
 	public static String LOGOUT_FAILED = "logout_failed";
 
-	private IUserServer mUserServer;
+	IUserServer mUserServer;
 	private static UserManager mInstance = null;
 	private User mCurrentUser = User.NULL;
 	private ContactUser mContatctUser = ContactUser.NULL;
@@ -79,19 +79,27 @@ public class UserManager {
 	 * @param countryCode
 	 * @param username
 	 * @param password
+	 * @param type 为1时，password有效 为0时，checkCode有效
+	 * @param checkCode
 	 * @return
 	 */
-    public String login(String countryCode, String username, String password)
+    public String login(String countryCode, String username, String password, String type, String checkCode)
     {
 		if(mCurrentUser==User.NULL)
 		{
-			String result = mUserServer.login(countryCode, username, password, null);
+			String result = mUserServer.login(countryCode, username, password, type, checkCode, null);
 			if(result.equals("Success"))
 			{
 
 				mCurrentUser = mUserServer.getUserInfo(countryCode, username);
 				//save login info
-				saveLoginInfo(username, countryCode, password);
+				if(type.equals("0")){
+					saveLoginInfo(username, countryCode, password);
+				}
+				else if(type.equals("1"))
+				{
+					saveLoginInfo(username, countryCode, "");
+				}
 				//load this user's passengers
 				loadPassengers();
 				return LOGIN_SUCCESS;//LOGIN_SUCCESS;
@@ -398,7 +406,7 @@ public class UserManager {
 	            String countryCode = getCachedCountryCode();
 	            if(null!=username && null!=password)
 	            {
-	               String mLoginResult = login(countryCode,username, password);
+	               String mLoginResult = login(countryCode,username, password, "0", null);
 	                if(!mLoginResult.equals(UserManager.LOGIN_SUCCESS))
 	                {
 	                    Toast.makeText(mContext, R.string.login_fail, Toast.LENGTH_LONG).show();

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SwipeRefreshLayout android:id="@id/sr_swipe_ly" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <ctrip.english.views.common.FlightStateView android:id="@id/fsv_state" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+            <LinearLayout android:orientation="vertical" android:id="@id/ll_pro_order_flight" android:background="@color/color_fff2df" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_10">
+                <View style="@style/line_h" />
+                <TextView android:textSize="@dimen/font_size_24" android:textColor="@color/color_666666" android:id="@id/tv_pre_order_flight" android:paddingLeft="@dimen/margin_10" android:paddingTop="@dimen/margin_5" android:paddingRight="@dimen/margin_10" android:paddingBottom="@dimen/margin_5" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+                <View style="@style/line_h" />
+            </LinearLayout>
+            <View android:id="@id/view_no_pre_order_divider" android:layout_marginTop="@dimen/margin_10" style="@style/line_h" />
+            <ctrip.english.views.common.CommonFlightAirportView android:id="@id/dep_flight_status" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+            <ctrip.english.views.common.CommonFlightAirportView android:id="@id/arr_flight_status" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+            <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <ImageView android:id="@id/iv_flight_icon" android:background="@drawable/icon_status_takeoff" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_10" android:layout_marginRight="@dimen/margin_10" />
+                <LinearLayout android:orientation="vertical" android:paddingBottom="@dimen/margin_10" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_10" android:layout_marginRight="@dimen/margin_10" android:layout_toRightOf="@id/iv_flight_icon">
+                    <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <TextView android:textColor="@color/color_666666" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/punctuality_rate" />
+                        <TextView android:textStyle="bold" android:textColor="@color/color_666666" android:id="@id/tv_punctually_num" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_10" android:singleLine="true" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_10">
+                        <TextView android:textColor="@color/color_666666" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/flight_duration" />
+                        <TextView android:textStyle="bold" android:textColor="@color/color_666666" android:id="@id/tv_duration_time" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_10" android:singleLine="true" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_10">
+                        <TextView android:textColor="@color/color_666666" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/aircraft_type" />
+                        <TextView android:textStyle="bold" android:textColor="@color/color_666666" android:id="@id/tv_equipment_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_10" android:singleLine="true" />
+                    </LinearLayout>
+                    <TextView android:textColor="@color/color_666666" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_10" android:text="@string/flight_status_tips" />
+                    <TextView android:textColor="@color/color_666666" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_10" android:text="@string/flight_state_disclaimer" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</android.support.v4.widget.SwipeRefreshLayout>

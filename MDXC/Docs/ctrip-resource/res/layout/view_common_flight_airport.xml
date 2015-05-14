@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:orientation="horizontal" android:background="@color/color_white" android:paddingTop="@dimen/margin_10" android:paddingBottom="@dimen/margin_10" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@id/iv_flight_status" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_10" android:layout_marginTop="@dimen/margin_5" android:layout_marginRight="@dimen/margin_10" android:layout_alignParentLeft="true" />
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginRight="@dimen/margin_10" android:layout_toRightOf="@id/iv_flight_status">
+            <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <RelativeLayout android:id="@id/rl_weather_layout" android:visibility="gone" android:layout_width="100.0dip" android:layout_height="wrap_content" android:layout_alignParentRight="true">
+                    <TextView android:textColor="@color/color_666666" android:gravity="center_vertical" android:id="@id/tv_temp_unit" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/TEMPERATURE" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+                    <TextView android:textColor="@color/color_666666" android:gravity="center_vertical" android:id="@id/tv_temp_num" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toLeftOf="@id/tv_temp_unit" android:layout_centerVertical="true" />
+                    <ImageView android:id="@id/iv_temp_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toLeftOf="@id/tv_temp_num" android:layout_centerVertical="true" />
+                </RelativeLayout>
+                <TextView android:textColor="@color/color_666666" android:gravity="center_vertical" android:id="@id/tv_city_name" android:layout_width="fill_parent" android:layout_height="33.0dip" android:layout_marginRight="5.0dip" android:singleLine="true" android:layout_toLeftOf="@id/rl_weather_layout" />
+            </RelativeLayout>
+            <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:textStyle="bold" android:textColor="@color/color_666666" android:id="@id/tv_dep_airport_simple_name" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                <TextView android:textStyle="bold" android:textColor="@color/color_666666" android:id="@id/tv_dep_airport_terminal_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_10" />
+                <TextView android:textColor="@color/color_666666" android:id="@id/tv_dep_airport_full_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_10" android:singleLine="true" />
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:id="@id/ll_time_container" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+            <ImageView android:background="@drawable/line_dotted_h" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_10" />
+            <LinearLayout android:orientation="vertical" android:id="@id/ll_more_info_container" android:paddingTop="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        </LinearLayout>
+    </RelativeLayout>
+    <View style="@style/line_h" />
+</LinearLayout>

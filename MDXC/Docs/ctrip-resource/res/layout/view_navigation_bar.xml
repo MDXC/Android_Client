@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:background="@color/color_099fde" android:layout_width="fill_parent" android:layout_height="@dimen/navigation_bar_height"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:id="@id/ll_nav_left" android:clickable="true" android:addStatesFromChildren="true" android:layout_width="@dimen/navigation_item_width" android:layout_height="fill_parent" />
+    <LinearLayout android:orientation="vertical" android:id="@id/ll_nav_title" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" />
+    <LinearLayout android:gravity="center" android:id="@id/ll_nav_right" android:visibility="invisible" android:addStatesFromChildren="true" android:layout_width="@dimen/navigation_item_width" android:layout_height="fill_parent" />
+</LinearLayout>

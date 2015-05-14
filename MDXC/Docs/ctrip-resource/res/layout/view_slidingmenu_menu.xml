@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/fl_menu_layout" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:scrollbars="none" android:layout_width="@dimen/home_menu_item_width" android:layout_height="fill_parent" android:layout_marginTop="@dimen/home_menu_margin_top">
+        <LinearLayout android:orientation="vertical" android:id="@id/ll_menu_item_container" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    </ScrollView>
+</FrameLayout>

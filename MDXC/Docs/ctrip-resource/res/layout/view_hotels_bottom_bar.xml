@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:background="@color/color_f2f2f2" android:layout_width="fill_parent" android:layout_height="@dimen/navigation_bar_height"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_width="75.0dip" android:layout_height="@dimen/navigation_bar_height">
+        <ImageButton android:id="@id/ib_hotel_list" android:background="@drawable/selector_hotel_map" android:clickable="true" android:layout_width="40.0dip" android:layout_height="40.0dip" android:layout_marginLeft="@dimen/margin_10" android:layout_centerInParent="true" android:onClick="onClickMap" />
+        <TextView android:background="@color/color_b2b2b2" android:layout_width="@dimen/divider_line_height" android:layout_height="fill_parent" android:layout_marginTop="@dimen/margin_10" android:layout_marginBottom="@dimen/margin_10" android:layout_alignParentRight="true" />
+    </RelativeLayout>
+    <LinearLayout android:layout_width="fill_parent" android:layout_height="@dimen/navigation_bar_height">
+        <LinearLayout android:gravity="center" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <LinearLayout android:gravity="center" android:id="@id/ll_filter" android:clickable="true" android:layout_width="wrap_content" android:layout_height="fill_parent" android:onClick="onClickFilter">
+                <TextView android:textSize="@dimen/font_size_large" android:textColor="@color/selector_filter_text" android:gravity="center" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="@string/filters" />
+                <ImageView android:layout_gravity="top" android:id="@id/iv_filter_icon" android:background="@drawable/selector_icon_filter" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_5" android:layout_marginTop="@dimen/margin_10" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <LinearLayout android:gravity="center" android:id="@id/ll_sort" android:clickable="true" android:layout_width="wrap_content" android:layout_height="fill_parent" android:onClick="onClickSort">
+                <TextView android:textSize="@dimen/font_size_large" android:textColor="@color/selector_filter_text" android:gravity="center" android:id="@id/btn_sort" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="@string/sort" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

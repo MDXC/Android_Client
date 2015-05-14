@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:background="@drawable/selector_btn_4" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_10" android:layout_marginTop="@dimen/margin_10" android:layout_marginRight="@dimen/margin_10">
+            <TextView android:textSize="@dimen/font_size_large" android:textColor="@color/color_333333" android:id="@id/tv_depart_city" android:layout_width="0.0dip" android:layout_height="wrap_content" android:singleLine="true" android:layout_weight="1.0" />
+            <ImageView android:id="@id/iv_trip_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginRight="5.0dip" />
+            <TextView android:textSize="@dimen/font_size_large" android:textColor="@color/color_333333" android:id="@id/tv_arrival_city" android:layout_width="0.0dip" android:layout_height="wrap_content" android:singleLine="true" android:layout_weight="1.0" />
+        </LinearLayout>
+        <TextView android:textSize="@dimen/font_size_small" android:textColor="@color/color_666666" android:id="@id/tv_passenger_count" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_10" android:layout_marginRight="@dimen/margin_10" android:singleLine="true" />
+        <TextView android:textSize="@dimen/font_size_x_small" android:textColor="@color/color_666666" android:id="@id/tv_date" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_10" android:layout_marginRight="@dimen/margin_10" android:layout_marginBottom="@dimen/margin_10" android:singleLine="true" />
+    </LinearLayout>
+    <Button android:textSize="@dimen/font_size_medium" android:textColor="@color/color_white" android:id="@id/btn_remove" android:background="@color/color_red" android:visibility="gone" android:layout_width="100.0dip" android:layout_height="fill_parent" android:text="@string/DELETE" />
+</LinearLayout>

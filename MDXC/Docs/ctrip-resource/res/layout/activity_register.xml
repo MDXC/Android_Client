@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/color_efefef" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="@dimen/margin_10">
+        <TextView android:textSize="@dimen/font_size_large" android:textColor="@color/color_333333" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/margin_10" android:text="@string/email" />
+        <View style="@style/line_h" />
+        <EditText android:id="@id/et_user_name" android:layout_width="fill_parent" android:imeOptions="actionNext" style="@style/BaseInput" />
+        <View style="@style/line_h" />
+        <TextView android:textSize="@dimen/font_size_large" android:textColor="@color/color_333333" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/margin_10" android:text="@string/password" />
+        <View style="@style/line_h" />
+        <EditText android:id="@id/et_password" android:layout_width="fill_parent" android:inputType="textPassword" android:imeOptions="actionNext" style="@style/BaseInput" />
+        <View style="@style/line_h" />
+        <TextView android:textSize="@dimen/font_size_large" android:textColor="@color/color_333333" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/margin_10" android:text="@string/confirm_password" />
+        <View style="@style/line_h" />
+        <EditText android:id="@id/et_confirm_password" android:layout_width="fill_parent" android:inputType="textPassword" android:imeOptions="actionGo" style="@style/BaseInput" />
+        <View android:layout_marginBottom="@dimen/margin_10" style="@style/line_h" />
+        <Button android:textSize="@dimen/font_size_large" android:textStyle="bold" android:textColor="@color/color_white" android:layout_gravity="center_horizontal" android:background="@drawable/selector_btn_1" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/margin_10" android:text="@string/register" android:onClick="onClickRegister" />
+    </LinearLayout>
+</LinearLayout>

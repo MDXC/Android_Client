@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_gravity="center" android:background="@color/color_efefef" android:paddingTop="10.0dip" android:paddingRight="5.0dip" android:paddingBottom="20.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/iv_what_is_cvv" android:background="@drawable/icon_what_is_cvv" android:layout_width="260.0dip" android:layout_height="wrap_content" android:layout_marginLeft="25.0dip" android:layout_marginTop="20.0dip" />
+    <ImageView android:id="@id/iv_close" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10.0dip" android:src="@drawable/selector_icon_close" android:layout_toRightOf="@id/iv_what_is_cvv" android:layout_alignParentTop="true" android:layout_alignParentRight="true" />
+</RelativeLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:background="@color/color_efefef" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/ll_container" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:id="@id/view_content" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <TextView android:textSize="@dimen/font_size_20" android:textColor="@color/color_999999" android:gravity="center_vertical" android:id="@id/tv_tip" android:background="#fffff2df" android:paddingLeft="@dimen/margin_10" android:paddingRight="@dimen/margin_10" android:layout_width="fill_parent" android:layout_height="33.0dip" android:text="@string/max_hotel_viewed_history_tip" />
+            <se.emilsjolander.stickylistheaders.StickyListHeadersListView android:id="@id/slv_content" android:fadingEdge="none" android:layout_width="fill_parent" android:layout_height="fill_parent" android:listSelector="@drawable/selector_btn_4" android:cacheColorHint="@color/color_transparent" android:divider="@color/color_c8c8c8" android:dividerHeight="@dimen/divider_line_height" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

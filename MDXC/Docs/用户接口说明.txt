@@ -1,0 +1,100 @@
+# 概述
+
+# 用户中心数据结构
+
+1.用户表：user 登录信息表：login_info 登录日志表：login_log
+
+# 用户中心接口
+
+1.用户注册
+	* URL：http://64.251.7.148/user/app/register/index.json
+	
+	* 参数说明:
+		+ userName : 用户名
+		+ password ： 密码
+		+ confirmPassword ： 确认密码
+		+ checkCode ： 校验码
+	* 请求方式 ：
+		+ post
+	
+	*  响应结果(json) ：
+		+ 注册成功 ：{"status":"200"}
+		+ 禁止访问 : {"status":"403"}
+		+ 服务错误 : {"status":"500"}
+		+ 系统错误 : {"status":"100000"}
+		+ 参数错误 : {"status":"100001"}
+		+ 用户已存在 : {"status":"200000"}
+		+ 密码和确认密码不一致 : {"status":"200001"}
+
+2.用户登录
+	* URL ：http://64.251.7.148/user/app/login/index.json
+	
+	* 参数说明:
+		+ userName : 用户名
+		+ password ：密码
+		
+	* 请求方式 ：
+		+ post
+		
+	*  响应结果(json) ：
+		+ 登录成功 ：{"status":"200"}
+		+ 禁止访问 : {"status":"403"}
+		+ 服务错误 : {"status":"500"}
+		+ 系统错误 : {"status":"100000"}
+		+ 参数错误 : {"status":"100001"}
+		+ 用户名或密码有误 : {"status":"200002"}
+		
+3.创建手机校验码
+	* URL ：http://64.251.7.148/user/app/register/checkcode.json
+	
+	* 参数说明：
+		+ "userName":用户名
+	
+	* 请求方式：
+		+ post
+	
+	* 响应结果(json) :
+		+ 创建成功 : {"status":"200"}
+		+ 参数错误 : {"status":"100001"}
+		+ 创建手机校验码失败 : {"status":"200004"}
+		
+4.获取待发送的手机号及校验码
+	* URL ：http://64.251.7.148/user/app/register/pullcheckcode.json
+	
+	* 参数说明：
+		无
+	
+	* 请求方式：
+		+ post
+	
+	* 响应结果(json) :
+		+ 手机号:校验码 : {"15811560377":"264074","15811560376":"103418"}
+		+ 无数据 : {}
+		
+		
+		
+所有机型信息URL：
+http://www.bookingmin.com/flight/aircraft/
+机型信息按编号查询
+http://www.bookingmin.com/flight/aircraft/{code}
+
+所有航空公司URL：
+http://www.bookingmin.com/flight/airline/
+航空公司按编号查询：
+http://www.bookingmin.com/flight/airline/{code}
+
+所有机场URL：
+http://www.bookingmin.com/flight/airport/
+机场按编号查询：
+http://www.bookingmin.com/flight/airport/{code}
+
+所有城市URL：
+http://www.bookingmin.com/flight/cities/
+通过英文名模糊查询城市
+http://www.bookingmin.com/flight/cities/fuzzy?q=ab
+
+所有国家URL:
+http://www.bookingmin.com/flight/country/
+
+所有货币URL：
+http://www.bookingmin.com/flight/currency/

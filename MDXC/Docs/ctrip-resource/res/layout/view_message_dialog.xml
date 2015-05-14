@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/bg_white_c_a" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="30.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:layout_width="fill_parent" android:layout_height="30.0dip" />
+    <TextView android:textSize="@dimen/font_size_medium" android:textStyle="bold" android:textColor="@color/color_333333" android:gravity="center" android:id="@id/tv_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_marginRight="20.0dip" android:layout_marginBottom="@dimen/margin_10" />
+    <TextView android:textSize="@dimen/font_size_medium" android:textColor="@color/color_333333" android:gravity="center" android:id="@id/tv_message" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_marginTop="@dimen/margin_10" android:layout_marginRight="20.0dip" />
+    <View android:layout_marginTop="30.0dip" style="@style/line_h" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/ll_button" android:layout_width="fill_parent" android:layout_height="40.0dip">
+        <TextView android:textSize="@dimen/font_size_medium" android:textColor="@color/tv_color_2" android:gravity="center" android:id="@id/btn_negative" android:clickable="true" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" />
+        <View style="@style/line_v" />
+        <TextView android:textSize="@dimen/font_size_medium" android:textColor="@color/tv_color_2" android:gravity="center" android:id="@id/btn_positive" android:clickable="true" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" />
+    </LinearLayout>
+</LinearLayout>

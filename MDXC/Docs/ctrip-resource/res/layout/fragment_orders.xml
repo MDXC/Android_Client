@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/color_efefef" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:background="@color/color_ffffff" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_15">
+        <View style="@style/line_h" />
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:id="@id/tv_current_orders" android:background="@drawable/selector_btn_4" android:layout_width="fill_parent" android:text="@string/current_orders" style="@style/NextButton" />
+            <TextView android:textSize="@dimen/font_size_x_small" android:textColor="@color/color_white" android:gravity="center" android:id="@id/tv_order_count" android:background="@drawable/icon_order_count" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="40.0dip" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <View android:layout_width="wrap_content" style="@style/line_h_margin_left_10" />
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:id="@id/view_uncomment_orders" android:background="@drawable/selector_btn_4" android:layout_width="fill_parent" android:layout_marginLeft="1.0dip" android:layout_marginRight="1.0dip" android:text="@string/hotel_uncomment_order_history" style="@style/NextButton" />
+            <TextView android:textSize="@dimen/font_size_x_small" android:textColor="@color/color_white" android:gravity="center" android:id="@id/tv_uncomment_order_count" android:background="@drawable/icon_order_count" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="40.0dip" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:layout_marginEnd="40.0dip" android:layout_alignParentEnd="true" />
+        </RelativeLayout>
+        <View style="@style/line_h_margin_left_10" />
+        <TextView android:id="@id/tv_hotel_orders" android:background="@drawable/selector_btn_4" android:layout_width="fill_parent" android:text="@string/hotel_order_history" style="@style/NextButton" />
+        <View style="@style/line_h_margin_left_10" />
+        <TextView android:id="@id/tv_flight_orders" android:background="@drawable/selector_btn_4" android:layout_width="fill_parent" android:text="@string/flight_order_history" style="@style/NextButton" />
+        <View style="@style/line_h" />
+    </LinearLayout>
+</LinearLayout>

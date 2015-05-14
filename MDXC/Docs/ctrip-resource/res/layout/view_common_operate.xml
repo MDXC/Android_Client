@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/selector_btn_4" android:paddingLeft="@dimen/margin_10" android:paddingRight="@dimen/margin_10" android:paddingBottom="@dimen/margin_10" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_10">
+        <ImageView android:id="@id/view_common_operate_next" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/icon_right_arrow" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        <ImageView android:id="@id/view_common_operate_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/icon_cancelorder" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+        <TextView android:textSize="@dimen/font_size_medium" android:textColor="@color/color_099fde" android:id="@id/view_common_operate_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_10" android:layout_marginRight="@dimen/margin_10" android:text="@string/cancel_order" android:layout_toLeftOf="@id/view_common_operate_next" android:layout_toRightOf="@id/view_common_operate_icon" android:layout_centerVertical="true" />
+    </RelativeLayout>
+</LinearLayout>

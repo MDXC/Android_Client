@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:orientation="vertical" android:background="@color/color_white" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <include android:id="@id/layout_bottom_bar" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" layout="@layout/view_hotels_bottom_bar" />
+        <LinearLayout android:id="@id/ll_container" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/layout_bottom_bar">
+            <WebView android:id="@id/wv_map" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+            <include android:id="@id/layout_empty" layout="@layout/view_empty" />
+            <include android:id="@id/layout_failed" layout="@layout/view_failed" />
+        </LinearLayout>
+    </RelativeLayout>
+    <TextView android:textColor="@color/color_white" android:id="@id/tv_index" android:background="@color/color_black_1" android:paddingLeft="@dimen/margin_10" android:paddingTop="2.0dip" android:paddingRight="@dimen/margin_10" android:paddingBottom="2.0dip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+</RelativeLayout>

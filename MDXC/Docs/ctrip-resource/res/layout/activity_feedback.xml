@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:background="@color/color_efefef" android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="false"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:background="@color/color_ffffff" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="@dimen/font_size_small" android:textColor="@color/color_666666" android:background="@color/color_efefef" android:padding="@dimen/margin_10" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/feedback_tip" />
+        <View style="@style/line_h" />
+        <EditText android:id="@id/feedback_email" android:background="@null" android:paddingLeft="@dimen/margin_10" android:paddingRight="@dimen/margin_10" android:layout_width="fill_parent" android:layout_height="@dimen/view_item_height" android:hint="@string/feedback_email_hint" android:singleLine="true" android:inputType="textEmailAddress" android:imeOptions="actionNext" style="@style/InputWithBackground" />
+        <View style="@style/line_h" />
+        <TextView android:textSize="@dimen/font_size_large" android:textColor="@color/color_333333" android:gravity="center_vertical" android:background="@color/color_efefef" android:paddingLeft="@dimen/margin_10" android:paddingRight="@dimen/margin_10" android:layout_width="fill_parent" android:layout_height="36.0dip" android:text="@string/feedback_label" />
+        <View style="@style/line_h" />
+        <RelativeLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/feedback_category_container" android:background="@drawable/selector_btn_4" android:padding="@dimen/margin_10" android:layout_width="fill_parent" android:layout_height="@dimen/view_item_height">
+            <ImageView android:id="@id/iv_right_arrow" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/icon_right_arrow" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            <TextView android:textSize="@dimen/font_size_x_small" android:textColor="@color/color_333333" android:id="@id/feedback_topic_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginRight="@dimen/margin_5" android:text="@string/feedback_topic" android:layout_toLeftOf="@id/iv_right_arrow" android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <View style="@style/line_h_margin_left_10" />
+        <EditText android:textColor="@color/color_black" android:gravity="start|center|top" android:id="@id/feedback_content" android:background="@null" android:padding="@dimen/margin_10" android:layout_width="fill_parent" android:layout_height="240.0dip" android:hint="@string/feedback_invalidate_content" android:singleLine="false" android:maxLength="1000" android:imeOptions="actionNext" style="@style/InputWithBackground" />
+    </LinearLayout>
+</ScrollView>

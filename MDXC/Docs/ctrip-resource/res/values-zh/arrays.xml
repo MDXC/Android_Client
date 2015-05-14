@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="hotel_deal_types">
+        <item>促銷中的酒店</item>
+    </string-array>
+    <string-array name="hotel_payment_types">
+        <item>線上預付</item>
+        <item>於酒店付款</item>
+        <item>可使用C-Money付款</item>
+    </string-array>
+</resources>

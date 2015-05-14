@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:background="@drawable/bg_flight_detail_header" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_marginTop="3.0dip" android:layout_marginBottom="3.0dip">
+            <TextView android:textSize="@dimen/font_size_large" android:textColor="@color/color_333333" android:id="@id/tv_airport_code_depart" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <TextView android:textSize="@dimen/font_size_small" android:textColor="@color/color_gray_3" android:id="@id/tv_city_name_depart" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </LinearLayout>
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_10" android:layout_marginRight="@dimen/margin_10" android:src="@drawable/icon_flight_aircraft" />
+        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView android:textSize="@dimen/font_size_large" android:textColor="@color/color_333333" android:id="@id/tv_airport_code_arrival" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <TextView android:textSize="@dimen/font_size_small" android:textColor="@color/color_gray_3" android:id="@id/tv_city_name_arrival" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </LinearLayout>
+        <TextView android:textSize="@dimen/font_size_x_small" android:textColor="@color/color_gray_3" android:gravity="right" android:id="@id/tv_date_depart" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginRight="@dimen/margin_10" android:layout_weight="1.0" />
+    </LinearLayout>
+    <ImageView android:background="@color/color_099fde" android:layout_width="fill_parent" android:layout_height="3.0dip" />
+</LinearLayout>

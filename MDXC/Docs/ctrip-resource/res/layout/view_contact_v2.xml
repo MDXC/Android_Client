@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/font_size_large" android:textColor="@color/color_333333" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_10" android:layout_marginBottom="5.0dip" android:text="@string/contact" />
+    <LinearLayout android:orientation="vertical" android:background="@color/color_ffffff" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <View style="@style/line_h" />
+        <EditText android:textColor="@color/color_333333" android:textColorHint="@color/color_dddddd" android:id="@id/et_contact_first_name" android:background="@color/color_transparent" android:layout_width="fill_parent" android:hint="@string/first_name" android:imeOptions="actionNext" style="@style/BaseInput" />
+        <View android:layout_marginLeft="@dimen/margin_10" style="@style/line_h" />
+        <EditText android:textColor="@color/color_333333" android:textColorHint="@color/color_dddddd" android:id="@id/et_contact_last_name" android:background="@color/color_transparent" android:layout_width="fill_parent" android:hint="@string/last_name" android:layout_weight="1.0" android:imeOptions="actionNext" style="@style/BaseInput" />
+        <View android:layout_marginLeft="@dimen/margin_10" style="@style/line_h" />
+        <EditText android:textColor="@color/color_333333" android:textColorHint="@color/color_dddddd" android:id="@id/et_email" android:background="@color/color_transparent" android:layout_width="fill_parent" android:hint="@string/email" android:inputType="textEmailAddress" android:imeOptions="actionNext" style="@style/BaseInput" />
+        <View android:layout_marginLeft="@dimen/margin_10" style="@style/line_h" />
+        <LinearLayout android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="@dimen/font_size_medium" android:textColor="@color/color_333333" android:gravity="center_vertical" android:layout_gravity="left" android:id="@id/tv_country_code" android:background="@drawable/selector_btn_4" android:padding="@dimen/margin_10" android:clickable="true" android:layout_width="100.0dip" android:layout_height="@dimen/view_item_height" android:drawableRight="@drawable/icon_right_arrow" android:onClick="onClickCountry" android:textCursorDrawable="@null" />
+            <View style="@style/line_v" />
+            <EditText android:textColor="@color/color_333333" android:textColorHint="@color/color_dddddd" android:id="@id/et_phone_number" android:background="@color/color_transparent" android:layout_width="0.0dip" android:hint="@string/phone_number_hint" android:layout_weight="1.0" android:inputType="phone" android:imeOptions="actionNext" style="@style/BaseInput" />
+        </LinearLayout>
+        <View style="@style/line_h" />
+    </LinearLayout>
+</LinearLayout>

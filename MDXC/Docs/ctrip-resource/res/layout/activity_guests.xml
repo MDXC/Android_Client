@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:background="@color/color_efefef" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <TextView android:textSize="@dimen/font_size_36" android:textStyle="bold" android:textColor="@color/color_ffffff" android:gravity="center" android:id="@id/tv_bottom" android:background="@drawable/selector_btn_1" android:clickable="true" android:layout_width="fill_parent" android:layout_height="@dimen/button_height_60" android:layout_margin="@dimen/margin_15" android:text="@string/done" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" android:onClick="onClickDone" />
+        <ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_above="@id/tv_bottom" android:layout_alignParentTop="true">
+            <LinearLayout android:orientation="vertical" android:id="@id/ll_guests" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        </ScrollView>
+    </RelativeLayout>
+</LinearLayout>

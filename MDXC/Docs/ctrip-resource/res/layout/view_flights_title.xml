@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/ll_header" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="5.0dip" android:layout_marginRight="5.0dip">
+        <TextView android:textSize="@dimen/font_size_large" android:textStyle="bold" android:textColor="@color/color_white" android:gravity="right" android:id="@id/tv_depart" android:layout_width="0.0dip" android:layout_height="wrap_content" android:singleLine="true" android:layout_weight="1.0" />
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_5" android:layout_marginRight="@dimen/margin_5" android:src="@drawable/icon_flight" />
+        <TextView android:textSize="@dimen/font_size_large" android:textStyle="bold" android:textColor="@color/color_white" android:gravity="left" android:id="@id/tv_arrival" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:singleLine="true" android:layout_weight="1.0" />
+    </LinearLayout>
+</LinearLayout>
