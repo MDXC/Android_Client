@@ -37,7 +37,7 @@ public class FlightData implements Cloneable{
 
     public static SimpleDateFormat FORMAT_SEARCH = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     public static SimpleDateFormat FORMAT_ORDER = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
+    public static SimpleDateFormat FORMAT_FLIGHT_VIEW = new SimpleDateFormat("HH:mm:ss");
 
 
     public LinkedList<RouteData> mRoutes = new LinkedList<RouteData>();
@@ -50,7 +50,7 @@ public class FlightData implements Cloneable{
     public String mToCode = "";
     public Date mFromTime = new Date();
     public Date mToTime = new Date();
-    public String mDurTime = "60";
+    public int mDurTime = 0;
     public int mTripType = FlightOrder.TRIP_ONE_WAY;
 
 
@@ -104,7 +104,7 @@ public class FlightData implements Cloneable{
         TextView mTvArrivalTime;
         TextView mTvDepartCity;
         TextView mTvArrivalCity;
-        TextView mTvDistance;
+        TextView mTvDuration;
         TextView mTvCurrency;
         TextView mTvPrize;
         TextView mTvStop0;
@@ -125,7 +125,7 @@ public class FlightData implements Cloneable{
             flightData.mToCode = jsonObject.getString("toAirport");
             flightData.mFromTime = FORMAT_SEARCH.parse(jsonObject.getString("fromTime").replace("T", " "));
             flightData.mToTime = FORMAT_SEARCH.parse(jsonObject.getString("toTime").replace("T", " "));
-            flightData.mDurTime = jsonObject.getString("duration");
+           // flightData.mDurTime = jsonObject.getString("duration");
             if (jsonObject.has("price")) {
                 flightData.mPrice = new PriceData();
                 flightData.mPrice.mTicketPrice = Float
@@ -139,7 +139,9 @@ public class FlightData implements Cloneable{
 
             JSONArray jsonRoutes = jsonObject.getJSONArray("routes");
             for(int i=0; i<jsonRoutes.length(); i++){
-                flightData.mRoutes.add(RouteData.fromJSON(jsonRoutes.getJSONObject(i)));
+                RouteData route = RouteData.fromJSON(jsonRoutes.getJSONObject(i));
+                flightData.mRoutes.add(route);
+                flightData.mDurTime += route.mDurTime;
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -195,7 +197,7 @@ public class FlightData implements Cloneable{
             holder.mTvDepartCity = (TextView) convertView.findViewById(R.id.tv_depart_city);
             holder.mTvArrivalTime = (TextView) convertView.findViewById(R.id.tv_arrival_date);
             holder.mTvArrivalCity = (TextView) convertView.findViewById(R.id.tv_arrival_city);
-            holder.mTvDistance = (TextView) convertView.findViewById(R.id.tv_duration);
+            holder.mTvDuration = (TextView) convertView.findViewById(R.id.tv_duration);
             holder.mTvCurrency = (TextView) convertView.findViewById(R.id.tv_currency);
             holder.mTvPrize = (TextView) convertView.findViewById(R.id.tv_price);
 
@@ -227,11 +229,13 @@ public class FlightData implements Cloneable{
             holder.mTvStop0 = (TextView)stopView.findViewById(R.id.tv_stop_code);
             holder.mTvStop0.setText(data.mRoutes.get(2).mArrivalCity);
         }
-        holder.mTvDepartTime.setText(data.mRoutes.getFirst().mDepartTime);
+        holder.mTvDepartTime.setText(FORMAT_FLIGHT_VIEW.format(data.mRoutes.getFirst().mDepartTime));
         holder.mTvDepartCity.setText(data.mFromCode);
-        holder.mTvArrivalTime.setText(data.mRoutes.getLast().mArrivalTime);
+        holder.mTvArrivalTime.setText(FORMAT_FLIGHT_VIEW.format(data.mRoutes.getLast().mArrivalTime));
         holder.mTvArrivalCity.setText(data.mToCode);
-        holder.mTvDistance.setText(data.mDurTime + " min");
+        int hour = data.mDurTime/60;
+        int min = data.mDurTime%60;
+        holder.mTvDuration.setText(hour + "h" + min + "min");
         holder.mTvCurrency.setText(UtilManager.getInstance().getCurrency());
         holder.mTvPrize.setText(data.mPrice.mTicketPrice + "");
 

@@ -82,40 +82,6 @@ public class TestFlightServer implements IFlightServer {
 	@Override
 	public List<FlightData> flightSearch(FlightSearchRequest request,
 										 int type) {
-		// test mode
-		mDatas.clear();
-
-		FlightData data = FlightData.createTestData();
-		data.mAirlineName = "Jixiang";
-		RouteData route = new RouteData();
-		route.mDepartCity = request.mDepartCity;
-		route.mArrivalCity = request.mArrivalCity;
-		//route.mDepartDate = request.mDepartDate;
-		//route.mArrivalDate = request.mReturnDate;
-		route.mDepartTime = "8:00";
-		route.mArrivalTime = "10:00";
-		route.mDepartAirport = "T3";
-		route.mArrivalAirport = "hongqiao";
-		data.mRoutes.add(route);
-		data.mAirlineLogoUrl = String.valueOf(R.drawable.icon_airline_ho);
-		data.mPrice = new PriceData(800.0f, 100.0f);
-		mDatas.add(data);
-
-		data = FlightData.createTestData();
-		data.mAirlineName = "Nanfang";
-		route = new RouteData();
-		route.mDepartCity = request.mDepartCity;
-		route.mArrivalCity = request.mArrivalCity;
-		//route.mDepartDate = request.mDepartDate;
-		//route.mArrivalDate = request.mReturnDate;
-		route.mDepartTime = "9:00";
-		route.mArrivalTime = "11:00";
-		route.mDepartAirport = "T3";
-		route.mArrivalAirport = "hongqiao";
-		data.mAirlineLogoUrl = String.valueOf(R.drawable.icon_airline_ca);
-		data.mRoutes.add(route);
-		data.mPrice = new PriceData(700.0f, 80.0f);
-		mDatas.add(data);
 		return mDatas;
 	}
 	

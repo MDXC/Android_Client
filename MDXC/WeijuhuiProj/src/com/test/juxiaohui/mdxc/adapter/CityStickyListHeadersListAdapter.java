@@ -44,7 +44,6 @@ public class CityStickyListHeadersListAdapter extends BaseAdapter implements Sti
 		mHotCities = hotCitys;
 		mNearbyPorts = nearbyPorts;
 		mLastSearchCities = CityManager.getInstance().getRecentCity();
-		//mResultCities = CityManager.getInstance().getSearchResult("");//CitySearchServer.getInstance().getSearchResult("");
 		mInflater = LayoutInflater.from(context);
 		mContext = context;
 		mStickHeaderListView = stickHeaderListView;
@@ -69,7 +68,9 @@ public class CityStickyListHeadersListAdapter extends BaseAdapter implements Sti
 			return a + b + c;
 		}
 		else
-			return 0;
+		{
+			return mResultCities.size();
+		}
 	}
 
 	@Override
@@ -263,6 +264,7 @@ public class CityStickyListHeadersListAdapter extends BaseAdapter implements Sti
 	public void setFilter(String filter)
 	{
 		mResultCities = CityManager.getInstance().getSearchResult(filter);
+		isShowResult = true;
 		this.notifyDataSetChanged();
 	}
 

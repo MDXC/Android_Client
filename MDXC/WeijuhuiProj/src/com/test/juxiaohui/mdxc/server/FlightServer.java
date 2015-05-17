@@ -85,24 +85,15 @@ public class FlightServer implements IFlightServer {
 								if (j > 1) {
 									flightData = new FlightData(flightData);
 								}
-								RouteData routeData = new RouteData();
-								routeData.mNumbers = flight.getString("number");
-								routeData.mAirplanes = flight.getString("airline");
-								routeData.mDepartCity = flight.getString("fromCity");
-								routeData.mArrivalCity = flight.getString("toCity");
-								routeData.mDepartTime = flight.getString("fromTime");
-								routeData.mArrivalTime = flight.getString("toTime");
+								RouteData routeData = RouteData.fromJSON(flight);
 								flightData.mRoutes.add(routeData);
 							} else {
-								RouteData routeData = new RouteData();
-								routeData.mNumbers = flight.getString("number");
-								routeData.mAirplanes = flight.getString("airline");
-								routeData.mDepartCity = flight.getString("fromCity");
-								routeData.mArrivalCity = flight.getString("toCity");
-								routeData.mDepartTime = flight.getString("fromTime");
-								routeData.mArrivalTime = flight.getString("toTime");
+								RouteData routeData = RouteData.fromJSON(flight);
 								flightData.mRoutes.add(routeData);
 								if (flight.getString("toCity").trim().equals(request.mArrivalCode)) {
+									for(RouteData route:flightData.mRoutes){
+										flightData.mDurTime += route.mDurTime;
+									}
 									resultObjects.add(flightData);
 								}
 							}

@@ -1,5 +1,20 @@
 新增订单
-http://www.bookingmin.com/orders/new?amount=100&userId=0&tripType=0&source=0&contactName=zhu,xin,ze&contCountryCode=86&contPhone=13466718731&contEmail=zhuxinze@163.com&recipient=zhu,xin,ze&reciPhone=13466718731&reciAddress=中国&reciPostalCode=10086&pickUpTime=20150501&specialReq=test&receiveTime=20150501&trips=[{"flight":"123","departTime":"20150502171212","arrivalTime":"20150502171212","price":1233.68,"currency":"RMB","from":"shanghai","to":"beijing","airline":"china united airlines","clazz":"0","sortNo":"1"}]&passengers=[{"name":"zhu,xin,ze","nationality":"china","idType":"passport","idNo":"123456","age_group":"adult","gender":"0","birthday":"19990203","freqFlyerProgram":"test","freqFlyerNo":"test"}]
+http://www.bookingmin.com/orders/new?amount=100
+&userId=0
+&tripType=0
+&source=0
+&contactName=zhu,xin,ze
+&contCountryCode=86
+&contPhone=13466718731
+&contEmail=zhuxinze@163.com
+&recipient=zhu,xin,ze
+&reciPhone=13466718731
+&reciAddress=中国
+&reciPostalCode=10086
+&pickUpTime=20150501
+&specialReq=test
+&receiveTime=20150501
+&trips=[{"flight":"123","departTime":"20150502171212","arrivalTime":"20150502171212","price":1233.68,"currency":"RMB","from":"shanghai","to":"beijing","airline":"china united airlines","clazz":"0","sortNo":"1"}]&passengers=[{"name":"zhu,xin,ze","nationality":"china","idType":"passport","idNo":"123456","age_group":"adult","gender":"0","birthday":"19990203","freqFlyerProgram":"test","freqFlyerNo":"test"}]
 取消订单
 http://www.bookingmin.com/orders/cancel?id=1
 用户订单列表(18为用户ID)

@@ -2,10 +2,11 @@ package com.test.juxiaohui.mdxc.manager;
 
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.util.SparseIntArray;
 import com.test.juxiaohui.DemoApplication;
-import com.test.juxiaohui.mdxc.data.AirportData;
 import com.test.juxiaohui.mdxc.data.CityData;
 import com.test.juxiaohui.mdxc.server.CitySearchServer;
+import com.test.juxiaohui.utils.DoubleArrayTrie;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -17,7 +18,11 @@ import java.util.*;
  * Created by yihao on 15/4/8.
  */
 public class CityManager {
-    private ArrayList<CityData> mCities = new ArrayList<CityData>();
+    private ArrayList<CityData> mCityList = new ArrayList<CityData>();
+    private SparseIntArray mCityKeyMap = new SparseIntArray();
+    private List<String> mCityKeyList = new ArrayList<String>();
+    DoubleArrayTrie mCityTrie = new DoubleArrayTrie();
+
     private static CityManager mInstance = null;
 
     public static final int MAX_RECENT_CITY = 3;
@@ -34,42 +39,49 @@ public class CityManager {
 
     public ArrayList<CityData> getSearchResult(String condition) {
 
-        if(isNeedUpdate())
-        {
-            mCities = CitySearchServer.getInstance().getSearchResult("");
-            cacheCities();
-        }
-        else
-        {
-            if(mCities.size() == 0)
-            {
-                readFromCache();
-            }
+//        if(isNeedUpdate())
+//        {
+//            mCityList = CitySearchServer.getInstance().getSearchResult("");
+//            cacheCities();
+//        }
+//        else
+//        {
+//            if(mCityList.size() == 0)
+//            {
+//                readFromCache();
+//            }
+//
+//        }
+//
+//        if(condition==null||condition.length()==0)
+//        {
+//            return mCityList;
+//        }
+//        else
+//        {
+//            ArrayList<CityData> results = (ArrayList<CityData>) mCityList.clone();
+//            ArrayList<CityData> temp = new ArrayList<CityData>();
+//            for(int i=0; i<condition.length(); i++)
+//            {
+//                for(int j=0; j<results.size(); j++)
+//                {
+//                    if(results.get(j).cityName.length()>i&&results.get(j).cityName.substring(i, i+1).equalsIgnoreCase(condition.substring(i, i+1)))
+//                    {
+//                        temp.add(results.get(j));
+//                    }
+//                }
+//                results = (ArrayList<CityData>) temp.clone();
+//                temp.clear();
+//            }
+//            return results;
+//        }
+        ArrayList<String> posList = mCityTrie.FindAllWords(condition);
+        ArrayList<CityData> result = new ArrayList<CityData>();
+//        for(Integer pos:posList){
+//            result.add(mCityList.get(pos));
+//        }
+        return result;
 
-        }
-
-        if(condition==null||condition.length()==0)
-        {
-            return mCities;
-        }
-        else
-        {
-            ArrayList<CityData> results = (ArrayList<CityData>) mCities.clone();
-            ArrayList<CityData> temp = new ArrayList<CityData>();
-            for(int i=0; i<condition.length(); i++)
-            {
-                for(int j=0; j<results.size(); j++)
-                {
-                    if(results.get(j).cityName.length()>i&&results.get(j).cityName.substring(i, i+1).equalsIgnoreCase(condition.substring(i, i+1)))
-                    {
-                        temp.add(results.get(j));
-                    }
-                }
-                results = (ArrayList<CityData>) temp.clone();
-                temp.clear();
-            }
-            return results;
-        }
     }
 
     private boolean isNeedUpdate()
@@ -85,41 +97,125 @@ public class CityManager {
     public void readFromCache()
     {
 
-        HashMap<String, ArrayList<AirportData>> portMap = new HashMap<String,ArrayList< AirportData>>();
+//        HashMap<String, ArrayList<AirportData>> portMap = new HashMap<String,ArrayList< AirportData>>();
+//        try {
+//            InputStream is = DemoApplication.applicationContext.getAssets().open("all_airports.txt");
+//            InputStreamReader isr=new InputStreamReader(is, "UTF-8");
+//            BufferedReader br = new BufferedReader(isr);
+//            char []buffer = new char[is.available()];
+//            isr.read(buffer);
+//            String str = String.valueOf(buffer);
+//
+//            //AirportData[] tempDatas = null;
+//
+//            try {
+//                JSONArray array = new JSONArray(str);
+//                //tempDatas = new AirportData[array.length()];
+//                for(int i=0; i<array.length(); i++)
+//                {
+//                    JSONObject json = array.getJSONObject(i);
+//                    AirportData data = new AirportData();
+//                    data.portCode = json.getString("code");
+//                    data.portName = json.getString("name");
+//                    data.cityId = json.getString("cityId");
+//                    ArrayList<AirportData> ports;
+//                    if(!portMap.containsKey(data.cityId)){
+//                        ports = new ArrayList<AirportData>();
+//                        portMap.put(data.cityId, ports);
+//
+//                    }
+//                    ports = portMap.get(data.cityId);
+//                    ports.add(data);
+//                    //tempDatas[i] = data;
+//
+//                }
+//            } catch (JSONException e) {
+//                e.printStackTrace();
+//                //tempDatas = null;
+//            }
+//
+//
+//            is.close();
+//            br.close();
+//            isr.close();
+//        } catch (IOException e) {
+//            // TODO Auto-generated catch block
+//            e.printStackTrace();
+//        }
+//
+//        try {
+//            InputStream is = DemoApplication.applicationContext.getAssets().open("cities_server.txt");
+//            InputStreamReader isr=new InputStreamReader(is, "UTF-8");
+//            BufferedReader br = new BufferedReader(isr);
+//            char []buffer = new char[is.available()];
+//            isr.read(buffer);
+//            String str = String.valueOf(buffer);
+//
+//            try {
+//                JSONArray array = new JSONArray(str);
+//                for(int i=0; i<array.length(); i++)
+//                {
+//                    JSONObject json = array.getJSONObject(i);
+//                    if(null!=portMap.get(json.getString("id"))){
+//                        JSONArray jsonArray = new JSONArray();
+//                        for(AirportData port:portMap.get(json.getString("id"))){
+//                            jsonArray.put(AirportData.toJSON(port));
+//                        }
+//                        json.put("airports", jsonArray);
+//                    }
+//                }
+//
+//                FileOutputStream fos = new FileOutputStream("mnt/sdcard/new_cities.txt");
+//                fos.write(array.toString().getBytes());
+//                fos.close();
+//            } catch (JSONException e) {
+//                e.printStackTrace();
+//            }
+//
+//
+//            is.close();
+//            br.close();
+//            isr.close();
+//        } catch (IOException e) {
+//            // TODO Auto-generated catch block
+//            e.printStackTrace();
+//        }
+
         try {
-            InputStream is = DemoApplication.applicationContext.getAssets().open("all_airports.txt");
+            mCityList.clear();
+            mCityKeyMap.clear();
+            mCityKeyList.clear();
+            InputStream is = DemoApplication.applicationContext.getAssets().open("new_cities.txt");
             InputStreamReader isr=new InputStreamReader(is, "UTF-8");
             BufferedReader br = new BufferedReader(isr);
             char []buffer = new char[is.available()];
             isr.read(buffer);
             String str = String.valueOf(buffer);
 
-            //AirportData[] tempDatas = null;
-
             try {
                 JSONArray array = new JSONArray(str);
-                //tempDatas = new AirportData[array.length()];
                 for(int i=0; i<array.length(); i++)
                 {
                     JSONObject json = array.getJSONObject(i);
-                    AirportData data = new AirportData();
-                    data.portCode = json.getString("code");
-                    data.portName = json.getString("name");
-                    data.cityId = json.getString("cityId");
-                    ArrayList<AirportData> ports;
-                    if(!portMap.containsKey(data.cityId)){
-                        ports = new ArrayList<AirportData>();
-                        portMap.put(data.cityId, ports);
+                    //convert JSONObject to CityData
+                    CityData data = CityData.fromJSON(json);
+                    if(data.airportList.size()>0)
+                    {
+                        mCityList.add(data);
+                        mCityKeyList.add(data.cityName.toLowerCase());
+                        //mCityKeyMap.append(mCityKeyMap.size(), i);
+                        //mCityKeyList.add(data.cityCode);
 
                     }
-                    ports = portMap.get(data.cityId);
-                    ports.add(data);
-                    //tempDatas[i] = data;
 
                 }
+                for(){
+
+                }
+                mCityTrie.build(mCityKeyList);
+
             } catch (JSONException e) {
                 e.printStackTrace();
-                //tempDatas = null;
             }
 
 
@@ -130,45 +226,6 @@ public class CityManager {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-
-        try {
-            InputStream is = DemoApplication.applicationContext.getAssets().open("cities_server.txt");
-            InputStreamReader isr=new InputStreamReader(is, "UTF-8");
-            BufferedReader br = new BufferedReader(isr);
-            char []buffer = new char[is.available()];
-            isr.read(buffer);
-            String str = String.valueOf(buffer);
-
-            try {
-                JSONArray array = new JSONArray(str);
-                for(int i=0; i<array.length(); i++)
-                {
-                    JSONObject json = array.getJSONObject(i);
-                    if(null!=portMap.get(json.getString("id"))){
-                        JSONArray jsonArray = new JSONArray();
-                        for(AirportData port:portMap.get(json.getString("id"))){
-                            jsonArray.put(AirportData.toJSON(port));
-                        }
-                        json.put("airports", jsonArray);
-                    }
-                }
-
-                FileOutputStream fos = new FileOutputStream("mnt/sdcard/new_cities.txt");
-                fos.write(array.toString().getBytes());
-                fos.close();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-
-            is.close();
-            br.close();
-            isr.close();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
     }
     
 	public ArrayList<CityData> getNearbyPort()

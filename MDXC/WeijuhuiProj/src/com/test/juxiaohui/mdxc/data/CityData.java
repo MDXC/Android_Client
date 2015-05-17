@@ -23,7 +23,7 @@ public class CityData implements Serializable,Comparable
 	public String portName = "";
 	public String portCode = "";
 
-	public ArrayList<AirportData> portList = new ArrayList<AirportData>();
+	public ArrayList<AirportData> airportList = new ArrayList<AirportData>();
 
 	public static CityData NULL = new CityData();
 
@@ -44,16 +44,16 @@ public class CityData implements Serializable,Comparable
 	{
 		JSONObject obj = new JSONObject();
 		try {
-			obj.put("cityName", data.cityName);
-			obj.put("cityCode", data.cityCode);
-			obj.put("cityId", data.cityId);
+			obj.put("name", data.cityName);
+			obj.put("code", data.cityCode);
+			obj.put("id", data.cityId);
 			JSONArray airportList = new JSONArray();
-			for(AirportData port:data.portList){
+			for(AirportData port:data.airportList){
 				airportList.put(AirportData.toJSON(port));
 			}
 			obj.put("airports", airportList);
 
-			//obj.put("portsList", data.portList);
+			//obj.put("portsList", data.airportList);
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
@@ -65,13 +65,13 @@ public class CityData implements Serializable,Comparable
 	{
 		CityData data = new CityData();
 		try {
-			data.cityCode = json.getString("cityCode");
-			data.cityName = json.getString("cityName");
-			data.cityId = json.getString("cityId");
+			data.cityCode = json.getString("code");
+			data.cityName = json.getString("name");
+			data.cityId = json.getString("id");
 			JSONArray arrayAirports = json.getJSONArray("airports");
 			for(int i=0; i<arrayAirports.length(); i++){
 				JSONObject jsonObject = arrayAirports.getJSONObject(i);
-				data.portList.add(AirportData.fromJSON(jsonObject));
+				data.airportList.add(AirportData.fromJSON(jsonObject));
 			}
 		} catch (JSONException e) {
 			e.printStackTrace();
