@@ -68,11 +68,14 @@ public class CityData implements Serializable,Comparable
 			data.cityCode = json.getString("code");
 			data.cityName = json.getString("name");
 			data.cityId = json.getString("id");
-			JSONArray arrayAirports = json.getJSONArray("airports");
-			for(int i=0; i<arrayAirports.length(); i++){
-				JSONObject jsonObject = arrayAirports.getJSONObject(i);
-				data.airportList.add(AirportData.fromJSON(jsonObject));
+			if(json.has("airports")){
+				JSONArray arrayAirports = json.getJSONArray("airports");
+				for(int i=0; i<arrayAirports.length(); i++){
+					JSONObject jsonObject = arrayAirports.getJSONObject(i);
+					data.airportList.add(AirportData.fromJSON(jsonObject));
+				}
 			}
+
 		} catch (JSONException e) {
 			e.printStackTrace();
 			data = NULL;

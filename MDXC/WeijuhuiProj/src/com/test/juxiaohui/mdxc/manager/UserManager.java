@@ -429,7 +429,11 @@ public class UserManager {
 	    		}
 	    	};
 	    };
-   
+
+	/**
+	 * 拉起登录Activity
+	 * @param mContext
+	 */
       public void sendMessageToLogin(Context mContext){
     	  Message msg = Message.obtain();
     	  msg.what = START_LOGIN_ACTIVITY;

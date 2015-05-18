@@ -286,8 +286,8 @@ public class FlightData implements Cloneable{
             flightData.mPrice = new PriceData();
             flightData.mPrice.mTicketPrice = (float)jsonObject.getDouble("price");
             flightData.mPrice.mCurrency = jsonObject.getString("currency");
-            flightData.mFromCity = jsonObject.getString("from");
-            flightData.mToCity = jsonObject.getString("to");
+            flightData.mFromCity = jsonObject.getString("fromCity");
+            flightData.mToCity = jsonObject.getString("toCity");
             flightData.mAirlineName = jsonObject.getString("airline");
             //flightData.clazz = jsonObject.getString("from");
         } catch (JSONException e) {

@@ -3,9 +3,12 @@ package com.test.juxiaohui.mdxc.adapter;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.*;
 import java.util.zip.Inflater;
 
+import com.test.juxiaohui.DemoApplication;
 import com.test.juxiaohui.R;
+import com.test.juxiaohui.mdxc.data.AirportData;
 import com.test.juxiaohui.mdxc.data.CityData;
 import com.test.juxiaohui.mdxc.manager.CityManager;
 import com.test.juxiaohui.mdxc.server.CitySearchServer;
@@ -128,6 +131,9 @@ public class CityStickyListHeadersListAdapter extends BaseAdapter implements Sti
 			holder.title =  (TextView) convertView.findViewById(R.id.tv_title);
 			holder.subTitle = (TextView) convertView.findViewById(R.id.tv_subtitle);
 			holder.distance = (TextView) convertView.findViewById(R.id.tv_distance);
+			holder.airport0 = (TextView)convertView.findViewById(R.id.textView_airport_0);
+			holder.airport1 = (TextView)convertView.findViewById(R.id.textView_airport_1);
+			holder.airport2 = (TextView)convertView.findViewById(R.id.textView_airport_2);
 			convertView.setTag(holder);
 		} 
 		else 
@@ -135,8 +141,27 @@ public class CityStickyListHeadersListAdapter extends BaseAdapter implements Sti
 			holder = (ItemViewHoler) convertView.getTag();
 		}
 		Log.d("CityStickyListHeadersListAdapter", "cityName = "+data.cityName);
-		holder.title.setText(data.cityName);
-		holder.subTitle.setText(data.countryName + " - " + data.portName + "(" + data.cityCode + ")");
+		holder.title.setText(data.cityName + " " + "(" + data.cityCode + ")");
+		//holder.subTitle.setText(data.countryName + " - " + data.portName + "(" + data.cityCode + ")");
+
+		holder.airport0.setVisibility(View.GONE);
+		holder.airport1.setVisibility(View.GONE);
+		holder.airport2.setVisibility(View.GONE);
+		if(data.airportList.size()>0){
+			holder.airport0.setVisibility(View.VISIBLE);
+			AirportData airportData = data.airportList.get(0);
+			holder.airport0.setText(airportData.portName + " " + "(" + airportData.portCode + ")");
+		}
+		if(data.airportList.size()>1){
+			holder.airport1.setVisibility(View.VISIBLE);
+			AirportData airportData = data.airportList.get(1);
+			holder.airport1.setText(airportData.portName + " " + "(" + airportData.portCode + ")");
+		}
+		if(data.airportList.size()>2){
+			holder.airport2.setVisibility(View.VISIBLE);
+			AirportData airportData = data.airportList.get(2);
+			holder.airport2.setText(airportData.portName + " " + "(" + airportData.portCode + ")");
+		}
 		if(mNearbyPorts != null && position < mNearbyPorts.size())
 			holder.distance.setText("" + Float.valueOf(data.distanceFromMe/1000) + mContext.getString(R.string.kilometers));
 
@@ -216,6 +241,10 @@ public class CityStickyListHeadersListAdapter extends BaseAdapter implements Sti
 		TextView title;
 		TextView subTitle;
 		TextView distance;
+		TextView airport0;
+		TextView airport1;
+		TextView airport2;
+
 	}
 	
 	class HeaderViewHolder
@@ -260,12 +289,44 @@ public class CityStickyListHeadersListAdapter extends BaseAdapter implements Sti
 		}
 		return list.toArray(new String[list.size()]);
 	}
-	
-	public void setFilter(String filter)
+
+	private ExecutorService mExecService = null;
+	public void setFilter(final String filter)
 	{
-		mResultCities = CityManager.getInstance().getSearchResult(filter);
-		isShowResult = true;
-		this.notifyDataSetChanged();
+		if(filter!=null){
+			if(filter.length()>0){
+				Callable<Void> callable = new Callable<Void>() {
+					@Override
+					public Void call() throws Exception {
+						mResultCities = CityManager.getInstance().getSearchResult(filter);
+						isShowResult = true;
+
+						Log.v(DemoApplication.TAG, "Search City end " + filter);
+						return null;
+					}
+				};
+				if(null != mExecService){
+					mExecService.shutdownNow();
+				}
+				mExecService = Executors.newSingleThreadExecutor();
+				Future<Void> future = mExecService.submit(callable);
+				Log.v(DemoApplication.TAG, "Search City begin " + filter);
+				try {
+					future.get();
+
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				} catch (ExecutionException e) {
+					e.printStackTrace();
+				}
+			}
+			else {
+				isShowResult = false;
+			}
+		}
+
+		CityStickyListHeadersListAdapter.this.notifyDataSetChanged();
+
 	}
 
 	@Override

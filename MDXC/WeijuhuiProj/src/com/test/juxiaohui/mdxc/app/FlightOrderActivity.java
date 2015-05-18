@@ -154,8 +154,16 @@ public class FlightOrderActivity extends Activity implements
 			
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(FlightOrderActivity.this, PassengerListActivity.class);
-				startActivityForResult(intent, REQ_SELECT_PASSENGER);
+				if(UserManager.getInstance().isLogin()){
+					Intent intent = new Intent(FlightOrderActivity.this, PassengerListActivity.class);
+					startActivityForResult(intent, REQ_SELECT_PASSENGER);
+				}
+				else {
+
+					UserManager.getInstance().sendMessageToLogin(FlightOrderActivity.this);
+				}
+
+
 			}
 		});
 		mLlPassengers = (LinearLayout) findViewById(R.id.ll_guests);
@@ -222,6 +230,7 @@ public class FlightOrderActivity extends Activity implements
 				
 				@Override
 				public void run() {
+					mFlightOrder.mListPassenger.clear();
 					for (String id : ids) {
 						final Passenger passenger = UserManager.getInstance().getPassengerById(
 								id);

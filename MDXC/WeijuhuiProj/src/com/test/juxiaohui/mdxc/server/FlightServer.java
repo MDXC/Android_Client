@@ -175,6 +175,26 @@ public class FlightServer implements IFlightServer {
 		params.add(new BasicNameValuePair("tripType", order.mTripType + ""));
 		//接口调用源
 		//* order source, 0:websit,10: mobile explorer,11:android app,12:ios app,3:others
+//		&remarks=测试
+//				&baggages=测试
+//				&reroute=No
+//				&refund=NO
+//				&expression=测试
+//				&surcharge=100
+//				&taxes=100
+//				&publishPrice=100
+//				&currency=RMB
+		params.add(new BasicNameValuePair("remarks", "test"));
+		params.add(new BasicNameValuePair("baggages", "test"));
+		params.add(new BasicNameValuePair("reroute", "No"));
+		params.add(new BasicNameValuePair("refund", "NO"));
+		params.add(new BasicNameValuePair("expression", "test"));
+		params.add(new BasicNameValuePair("surcharge", "100"));
+		params.add(new BasicNameValuePair("taxes", "100"));
+		params.add(new BasicNameValuePair("publishPrice", "100"));
+		params.add(new BasicNameValuePair("currency", "USD"));
+
+
 		params.add(new BasicNameValuePair("source", "11"));
 		params.add(new BasicNameValuePair("contactName", contactUser.contactName));
 		params.add(new BasicNameValuePair("contCountryCode", contactUser.contCountryCode));

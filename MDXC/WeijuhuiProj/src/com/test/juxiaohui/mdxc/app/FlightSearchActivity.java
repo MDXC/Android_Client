@@ -93,19 +93,18 @@ public class FlightSearchActivity extends Activity implements IFlightSearchMedia
 
         if(IS_TEST_MODE) {
             mLlDepart.setVisibility(View.VISIBLE);
-            mTvDepartCity.setText("Las vagas");
+            mTvDepartCity.setText("Yangon");
             mTvDepartTip.setVisibility(View.GONE);
             mSearchRequest.mDepartCity = mTvDepartCity.getText().toString();
-            mSearchRequest.mDepartCode = "LAS";
+            mSearchRequest.mDepartCode = "RGN";
 
             mLlArrival.setVisibility(View.VISIBLE);
-            mTvArrivalCity.setText("Shanghai");
+            mTvArrivalCity.setText("Kunming");
             mTvArrivalTip.setVisibility(View.GONE);
             mSearchRequest.mArrivalCity = mTvArrivalCity.getText().toString();
-            mSearchRequest.mArrivalCode = "SHA";
+            mSearchRequest.mArrivalCode = "KMG";
 
             mSearchRequest.mTripType = FlightOrder.TRIP_ONE_WAY;
-            mSearchRequest.mDepartDate = "2015/4/27";
             mSearchRequest.mClassType = FlightSearchRequest.CLASS_ECONOMY;
         }
     }
@@ -180,7 +179,10 @@ public class FlightSearchActivity extends Activity implements IFlightSearchMedia
         mLlDepartDate = (LinearLayout) findViewById(R.id.ll_departDate_container);
         mLlReturnlDate = (LinearLayout) findViewById(R.id.flight_search_returnDate_container);
         mTvDepartTime = (TextView) findViewById(R.id.tv_depart_date);
-        mTvDepartTime.setText(mDataFormat.format(new Date()));
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DAY_OF_MONTH, 1);
+
+        setDepartDate(calendar.getTime());
         mTvReturnTime = (TextView)findViewById(R.id.tv_return_date);
         mTvReturnTime.setText(R.string.return_time);
         mLlDepartDate.setClickable(true);
@@ -229,6 +231,7 @@ public class FlightSearchActivity extends Activity implements IFlightSearchMedia
     @Override
     public void addClassView() {
     	mTvClass = (TextView)findViewById(R.id.tv_flight_class);
+        mTvClass.setText(getResources().getString(R.string.economy));
     	if(mDlgCabinClass == null)
     	{
     		mDlgCabinClass = new CabinClassDialog(this, new ICabinClassListener() {
@@ -375,6 +378,7 @@ public class FlightSearchActivity extends Activity implements IFlightSearchMedia
     @Override
     public void setFlightClass(String class_type) {
         mSearchRequest.mClassType = class_type;
+        //mTvClass
     }
 
     /**
@@ -440,8 +444,6 @@ public class FlightSearchActivity extends Activity implements IFlightSearchMedia
     	String str = mDataFormat.format(date);
 		mTvDepartTime.setText(str);
 		mSearchRequest.mDepartDate = str;
-//		mTvReturnTime.setText(getDayafter(str));
-//		mSearchRequest.mReturnDate = mTvReturnTime.getText().toString();
     }
 
     @Override
@@ -474,19 +476,29 @@ public class FlightSearchActivity extends Activity implements IFlightSearchMedia
         if (null != data) {
             switch (requestCode) {
                 case REQ_CITY_DEPART:
-                    CityData citydata = (CityData) data.getSerializableExtra("city");
+                    CityData citydata;
+                    try {
+                    citydata = CityData.fromJSON(new JSONObject(data.getStringExtra("city")));
                     mTvDepartCity.setText(citydata.cityName);
                     mSearchRequest.mDepartCity = citydata.cityName;
                     mSearchRequest.mDepartCode = citydata.cityCode;
                     mTvDepartTip.setVisibility(View.GONE);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                     break;
 
                 case REQ_CITY_ARRIVAL:
-                    citydata = (CityData) data.getSerializableExtra("city");
-                    mTvArrivalCity.setText(citydata.cityName);
-                    mSearchRequest.mArrivalCity = citydata.cityName;
-                    mSearchRequest.mArrivalCode = citydata.cityCode;
-                    mTvArrivalTip.setVisibility(View.GONE);
+                    try {
+                        citydata = CityData.fromJSON(new JSONObject(data.getStringExtra("city")));
+                        mTvArrivalCity.setText(citydata.cityName);
+                        mSearchRequest.mArrivalCity = citydata.cityName;
+                        mSearchRequest.mArrivalCode = citydata.cityCode;
+                        mTvArrivalTip.setVisibility(View.GONE);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
                     break;
 
                 case REQ_SEARCH_FLIGHT_START:

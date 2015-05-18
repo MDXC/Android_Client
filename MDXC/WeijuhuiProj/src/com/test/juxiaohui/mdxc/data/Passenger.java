@@ -28,7 +28,15 @@ public class Passenger implements Comparable,Serializable{
 	public static final String ID_TYPE_ID = "id";
 
 	public static Passenger NULL = new Passenger();
-	
+	//name":"zhu,xin,ze",
+	// "nationality":"china",
+	// "idType":"passport",
+	// "idNo":"123456",
+	// "age_group":"adult",
+	// "gender":"0",
+	// "birthday":"1999-02-03",
+	// "freqFlyerProgram":"test",
+	// "freqFlyerNo":"test"
 	public String mId = "";
 	public String mName = ""; //"name"
 	public String mIdType = ID_TYPE_PASSPORT; //"idType"

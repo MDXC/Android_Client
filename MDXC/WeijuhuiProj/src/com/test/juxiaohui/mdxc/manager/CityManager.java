@@ -4,6 +4,7 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.SparseIntArray;
 import com.test.juxiaohui.DemoApplication;
+import com.test.juxiaohui.mdxc.data.AirportData;
 import com.test.juxiaohui.mdxc.data.CityData;
 import com.test.juxiaohui.mdxc.server.CitySearchServer;
 import com.test.juxiaohui.utils.DoubleArrayTrie;
@@ -75,11 +76,24 @@ public class CityManager {
 //            }
 //            return results;
 //        }
-        ArrayList<String> posList = mCityTrie.FindAllWords(condition);
-        ArrayList<CityData> result = new ArrayList<CityData>();
+//        ArrayList<String> posList = mCityTrie.FindAllWords(condition);
+//        ArrayList<CityData> result = new ArrayList<CityData>();
 //        for(Integer pos:posList){
 //            result.add(mCityList.get(pos));
 //        }
+        ArrayList<CityData> result = new ArrayList<CityData>();
+        for(CityData city:mCityList){
+            if(city.cityName.toLowerCase().contains(condition)){
+                result.add(city);
+                continue;
+            }
+            for(AirportData airport:city.airportList){
+                if(airport.portName.toLowerCase().contains(condition)){
+                    result.add(city);
+                    continue;
+                }
+            }
+        }
         return result;
 
     }
@@ -209,10 +223,10 @@ public class CityManager {
                     }
 
                 }
-                for(){
-
-                }
-                mCityTrie.build(mCityKeyList);
+//                for(){
+//
+//                }
+//                mCityTrie.build(mCityKeyList);
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -233,11 +247,7 @@ public class CityManager {
 		return CitySearchServer.getInstance().getNearbyPort();
 	}
 	
-	public List<CityData> getLastSearchCities()
-	{
-		return CitySearchServer.getInstance().getLastSearchCities();
-	}
-	
+
 	public ArrayList<CityData> getHotCities()
 	{
 		return CitySearchServer.getInstance().getHotCities();
@@ -257,11 +267,18 @@ public class CityManager {
         try {
             JSONArray jsonArray = new JSONArray(preferences.getString(PREF_RECENT_CITIES, "[]"));
             LinkedList<CityData> cityDataLinkedList = fromJSONArray(jsonArray);
+            Iterator<CityData> iter = cityDataLinkedList.iterator();
+            while (iter.hasNext()){
+                if(iter.next().cityName.equals(cityData.cityName)){
+                    return;
+                }
+            }
             if(cityDataLinkedList.size() == MAX_RECENT_CITY){
                 cityDataLinkedList.removeLast();
             }
             cityDataLinkedList.addFirst(cityData);
             editor.putString(PREF_RECENT_CITIES, toJSONArray(cityDataLinkedList).toString()).commit();
+
         } catch (JSONException e) {
             e.printStackTrace();
         }

@@ -103,10 +103,11 @@ public class CitySearchActivity extends Activity implements ICitySearchActivityM
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
 				// TODO Auto-generated method stub
-				CityManager.getInstance().addRecentCity(mCityAdapter.getItem(arg2));
+				CityData data = mCityAdapter.getDataByPosition(arg2);
+				CityManager.getInstance().addRecentCity(data);
 				mCityAdapter.notifyDataSetChanged();
 				Intent intent = new Intent();
-				intent.putExtra("city", mCityAdapter.getDataByPosition(arg2));
+				intent.putExtra("city", CityData.toJSON(data).toString());
 				setResult(0, intent);
 				finish();
 

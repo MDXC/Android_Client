@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_ffffff"
+    android:orientation="vertical" >
+    <RelativeLayout 
+        android:gravity="center" 
+        android:orientation="horizontal" 
+        android:background="@color/color_099fde" 
+        android:paddingLeft="@dimen/margin_10" 
+        android:paddingTop="7.0dip" 
+        android:paddingRight="@dimen/margin_10" 
+        android:paddingBottom="7.0dip" 
+        android:layout_width="fill_parent" 
+        android:layout_height="wrap_content">
+        <TextView 
+            android:textSize="@dimen/font_size_medium" 
+            android:textColor="@color/color_ffffff" 
+            android:gravity="center" 
+            android:id="@+id/tv_valid_day_picker_cancel" 
+            android:background="@android:color/transparent" 
+            android:paddingRight="@dimen/margin_10" 
+            android:layout_width="wrap_content" 
+            android:layout_height="35.0dip" 
+            android:layout_marginRight="@dimen/margin_10" 
+            android:text="@string/id_type" 
+            android:layout_alignParentLeft="true" />
+        
+        <Button 
+            android:textSize="@dimen/font_size_medium" 
+            android:textColor="@color/color_ffffff" 
+            android:gravity="center" 
+            android:id="@+id/btn_cancle" 
+            android:background="@android:color/transparent" 
+            android:paddingLeft="@dimen/margin_10" 
+            android:layout_width="wrap_content" 
+            android:layout_height="35.0dip" 
+            android:layout_marginLeft="@dimen/margin_10" 
+            android:text="@string/cancel" 
+            android:layout_alignParentRight="true" />
+    </RelativeLayout>
+    
+    <RelativeLayout 
+        android:gravity="center_vertical" 
+        android:id="@+id/identify_layout"
+        android:layout_width="fill_parent" 
+        android:background="@drawable/selector_btn_4"
+        android:paddingLeft="@dimen/margin_10"
+        android:clickable="true"
+        android:layout_height="40.0dip">        
+        <ImageView 
+            android:id="@+id/iv_identify_selected" 
+            android:background="@drawable/icon_selected" 
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content" 
+            android:layout_marginLeft="@dimen/margin_10" 
+            android:layout_marginRight="20.0dip" 
+            android:layout_alignParentRight="true" 
+            android:visibility="invisible"
+            android:layout_centerVertical="true" />
+        <TextView
+            android:id="@+id/tv_identify_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:text="@string/identity_card_ID"
+            android:textColor="@color/color_000000"
+            android:textSize="@dimen/font_size_small" />
+
+    </RelativeLayout>    
+    <View 
+        style="@style/line_h" />
+    
+    <RelativeLayout 
+        android:gravity="center_vertical" 
+        android:layout_width="fill_parent" 
+        android:id="@+id/passport_layout"
+        android:background="@drawable/selector_btn_4"
+        android:paddingLeft="@dimen/margin_10"
+        android:clickable="true"
+        android:layout_height="40.0dip">        
+        <ImageView 
+            android:id="@+id/iv_passport_selected" 
+            android:background="@drawable/icon_selected" 
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content" 
+            android:layout_marginLeft="@dimen/margin_10" 
+            android:layout_marginRight="20.0dip" 
+            android:layout_alignParentRight="true" 
+            android:visibility="invisible"
+            android:layout_centerVertical="true" />
+        <TextView
+            android:id="@+id/tv_passport_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:text="@string/passport"
+            android:textColor="@color/color_000000"
+            android:textSize="@dimen/font_size_small" />
+
+    </RelativeLayout>    
+    <View 
+        style="@style/line_h" />
+    
+</LinearLayout>

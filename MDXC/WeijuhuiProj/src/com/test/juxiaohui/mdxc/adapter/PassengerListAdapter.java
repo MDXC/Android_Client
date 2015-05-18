@@ -80,9 +80,9 @@ public class PassengerListAdapter extends BaseAdapter {
 			holder.subTitle = (TextView) convertView.findViewById(R.id.tv_subtitle);
 			holder.checkView = (ImageView) convertView.findViewById(R.id.iv_check);
 			holder.checkSection = (LinearLayout) convertView.findViewById(R.id.view_check_section);
-			holder.checkSection.setTag(position);
+			holder.checkView.setTag(position);
 
-			holder.checkSection.setOnClickListener(new OnClickListener() {
+			holder.checkView.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
 					// TODO Auto-generated method stub
