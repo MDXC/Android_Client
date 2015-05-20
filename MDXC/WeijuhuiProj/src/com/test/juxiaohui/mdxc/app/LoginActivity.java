@@ -67,41 +67,8 @@ public class LoginActivity extends Activity implements ILoginMediator{
             }
         });
 
-        //当前未登录
-        //showProgress();
-//        if(!UserManager.getInstance().isLogin())
-//        {
-            loadLoginInfo();
-//            String type = checkLoginParam(mSelectCountryCode.mCode, mEtxUsername.getText().toString(), mEtxPassword.getText().toString(), "");
-//            if(type.equals("0")){
-//
-//                Thread t= new Thread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        //loginFromCache();
-//                        if(UserManager.getInstance().isLogin())
-//                        {
-//                            gotoNext();
-//                        }
-//                        else
-//                        {
-//                            hideProgress();
-//                        }
-//
-//                    }
-//                });
-//                t.start();
-//            }
-//            else
-//            {
-//                //手动登录
-//                //hideProgress();
-//            }
+        loadLoginInfo();
 
-//        }
-//        else{
-//            gotoNext();
-//        }
         
     }
 

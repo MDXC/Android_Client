@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import android.util.Log;
 import com.test.juxiaohui.common.data.User;
 import com.test.juxiaohui.mdxc.data.*;
 import com.test.juxiaohui.mdxc.manager.UserManager;
@@ -163,15 +164,7 @@ public class FlightServer implements IFlightServer {
 		String url = "http://www.bookingmin.com/orders/new?";
 		ContactUser contactUser = UserManager.getInstance().getContactUser();
 		List params = new ArrayList();
-		params.add(new BasicNameValuePair("amount", ""+order.getAmount()));
-		if(isTestMode)
-		{
-			params.add(new BasicNameValuePair("userId", "18"));
-		}
-		else
-		{
-			params.add(new BasicNameValuePair("userId", UserManager.getInstance().getCurrentUser().getId()));
-		}
+		params.add(new BasicNameValuePair("userId", UserManager.getInstance().getCurrentUser().getId()));
 		params.add(new BasicNameValuePair("tripType", order.mTripType + ""));
 		//接口调用源
 		//* order source, 0:websit,10: mobile explorer,11:android app,12:ios app,3:others
@@ -184,6 +177,7 @@ public class FlightServer implements IFlightServer {
 //				&taxes=100
 //				&publishPrice=100
 //				&currency=RMB
+		params.add(new BasicNameValuePair("adults", "2"));
 		params.add(new BasicNameValuePair("remarks", "test"));
 		params.add(new BasicNameValuePair("baggages", "test"));
 		params.add(new BasicNameValuePair("reroute", "No"));
@@ -193,20 +187,19 @@ public class FlightServer implements IFlightServer {
 		params.add(new BasicNameValuePair("taxes", "100"));
 		params.add(new BasicNameValuePair("publishPrice", "100"));
 		params.add(new BasicNameValuePair("currency", "USD"));
-
-
+		params.add(new BasicNameValuePair("amount", ""+order.getAmount()));
 		params.add(new BasicNameValuePair("source", "11"));
-		params.add(new BasicNameValuePair("contactName", contactUser.contactName));
-		params.add(new BasicNameValuePair("contCountryCode", contactUser.contCountryCode));
-		params.add(new BasicNameValuePair("contPhone", contactUser.contPhone));
-		params.add(new BasicNameValuePair("contEmail", contactUser.contEmail));
-/*		params.add(new BasicNameValuePair("recipient", "zhuxinze"));
+		params.add(new BasicNameValuePair("contactName", "yihao"));//contactUser.contactName));
+		params.add(new BasicNameValuePair("contCountryCode", "86"));//contactUser.contCountryCode));
+		params.add(new BasicNameValuePair("contPhone", "15510472558"));//contactUser.contPhone));
+		params.add(new BasicNameValuePair("contEmail", "yihao@qq.com"));//contactUser.contEmail));
+		params.add(new BasicNameValuePair("recipient", "zhuxinze"));
 		params.add(new BasicNameValuePair("reciPhone", "13466718731"));
 		params.add(new BasicNameValuePair("reciAddress", "中国"));
 		params.add(new BasicNameValuePair("reciPostalCode", "10086"));
-		params.add(new BasicNameValuePair("pickUpTime", "20150501"));
+		params.add(new BasicNameValuePair("pickUpTime", "2015-05-01"));
 		params.add(new BasicNameValuePair("specialReq", "test"));
-		params.add(new BasicNameValuePair("receiveTime", "20150501"));*/
+		params.add(new BasicNameValuePair("receiveTime", "2015-05-01"));
 
 		params.add(new BasicNameValuePair("trips", FlightData.convertToOrderParams(order.mFlightdataList).toString()));
 
@@ -221,19 +214,18 @@ public class FlightServer implements IFlightServer {
 		{
 			params.add(new BasicNameValuePair("passengers", Passenger.converToOrderParams(order.mListPassenger).toString()));
 		}
-
+		Log.v(DemoApplication.TAG, params.toString());
 		SyncHTTPCaller<String> caller;
 		caller = new SyncHTTPCaller<String>(url, "", params) {
 
 			@Override
 			public String postExcute(String result) {
 				String resultObj = null;
-				try {
-					JSONObject json = new JSONObject(result);
-					return json.getString("result");
-				} catch (JSONException e) {
-					e.printStackTrace();
-					return "Fail";
+				if(result.contains("error")){
+					return  "fail";
+				}
+				else{
+					return "success";
 				}
 
 			}

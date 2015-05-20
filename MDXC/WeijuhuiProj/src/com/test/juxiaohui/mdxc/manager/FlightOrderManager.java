@@ -23,7 +23,7 @@ public class FlightOrderManager {
     private static FlightOrderManager mInstance = null;
     private HashMap<String, FlightOrder> mMapOrders = new HashMap<String, FlightOrder>();
 
-    private static boolean isTestMode = true;
+    private static boolean isTestMode = false;
     public static FlightOrderManager getInstance()
     {
         if(null == mInstance)
@@ -47,7 +47,7 @@ public class FlightOrderManager {
         else
         {
             String result = mFlightServer.submitOrder(flightOrder);
-            if(!result.equals(""))
+            if(!result.contains("Fail"))
             {
                 return "24";
             }

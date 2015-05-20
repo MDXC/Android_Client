@@ -1,9 +1,15 @@
 package com.test.juxiaohui.mdxc.data;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+import android.widget.RelativeLayout;
+import com.test.juxiaohui.DemoApplication;
 import com.test.juxiaohui.R;
 
 import android.content.Context;
@@ -37,7 +43,8 @@ public class FlightData implements Cloneable{
 
     public static SimpleDateFormat FORMAT_SEARCH = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     public static SimpleDateFormat FORMAT_ORDER = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    public static SimpleDateFormat FORMAT_FLIGHT_VIEW = new SimpleDateFormat("HH:mm:ss");
+    public static SimpleDateFormat FORMAT_FLIGHT_VIEW_TIME = new SimpleDateFormat("HH:mm");
+    public static SimpleDateFormat FORMAT_FLIGHT_VIEW_DATE = new SimpleDateFormat("yyyy-MM-dd");
 
 
     public LinkedList<RouteData> mRoutes = new LinkedList<RouteData>();
@@ -74,22 +81,27 @@ public class FlightData implements Cloneable{
     public static FlightData NULL = new FlightData();
 
     public static FlightData createTestData() {
-        FlightData data = new FlightData();
-        data.mId = UUID.randomUUID().toString();
-        data.mNumber = "123";
         try {
-            data.mFromTime = FORMAT_ORDER.parse("20150502171212");
-        } catch (ParseException e) {
+            InputStream is = DemoApplication.applicationContext.getAssets().open("test_flight_data.txt");
+            InputStreamReader isr=new InputStreamReader(is, "UTF-8");
+            BufferedReader br = new BufferedReader(isr);
+            char []buffer = new char[is.available()];
+            isr.read(buffer);
+            String str = String.valueOf(buffer);
+
+            try {
+                JSONObject object = new JSONObject(str);
+                return FlightData.fromJSON(object);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            is.close();
+            br.close();
+            isr.close();
+        } catch (IOException e) {
             e.printStackTrace();
         }
-        PriceData prize = new PriceData();
-        prize.mTicketPrice = 1234;
-        prize.mCurrency = "RMB";
-        data.mPrice = prize;
-        data.mFromCity = "shanghai";
-        data.mToCity = "beijing";
-        data.mAirlineName = "china united airlines";
-        return data;
+        return FlightData.NULL;
     }
 
     public String getId() {
@@ -206,7 +218,7 @@ public class FlightData implements Cloneable{
         holder = (ViewHolder) convertView.getTag();
         if (holder == null)
             return convertView;
-        holder.mTvAirlineName.setText(data.mRoutes.getFirst().mAirplanes);
+        holder.mTvAirlineName.setText(data.mRoutes.getFirst().mAirlineName);
         if (data.mAirlineLogoUrl.length() > 0) {
             //Picasso.with(context).load(data.mAirlineLogoUrl).into(holder.mIvAirlineLogo);
             holder.mIvAirlineLogo.setImageResource(new Integer(data.mAirlineLogoUrl));
@@ -229,9 +241,9 @@ public class FlightData implements Cloneable{
             holder.mTvStop0 = (TextView)stopView.findViewById(R.id.tv_stop_code);
             holder.mTvStop0.setText(data.mRoutes.get(2).mArrivalCity);
         }
-        holder.mTvDepartTime.setText(FORMAT_FLIGHT_VIEW.format(data.mRoutes.getFirst().mDepartTime));
+        holder.mTvDepartTime.setText(FORMAT_FLIGHT_VIEW_TIME.format(data.mRoutes.getFirst().mDepartTime));
         holder.mTvDepartCity.setText(data.mFromCode);
-        holder.mTvArrivalTime.setText(FORMAT_FLIGHT_VIEW.format(data.mRoutes.getLast().mArrivalTime));
+        holder.mTvArrivalTime.setText(FORMAT_FLIGHT_VIEW_TIME.format(data.mRoutes.getLast().mArrivalTime));
         holder.mTvArrivalCity.setText(data.mToCode);
         int hour = data.mDurTime/60;
         int min = data.mDurTime%60;
@@ -240,6 +252,19 @@ public class FlightData implements Cloneable{
         holder.mTvPrize.setText(data.mPrice.mTicketPrice + "");
 
         return convertView;
+    }
+
+    public static View displayDepartTime(View view, FlightData data){
+        RelativeLayout layout = (RelativeLayout) view.findViewById(R.id.layout_depart_time);
+        if(null==layout){
+            return null;
+        }
+        else{
+            layout.setVisibility(View.VISIBLE);
+            TextView tv = (TextView) layout.findViewById(R.id.textView_depart_time);
+            tv.setText("Depart time :" + FORMAT_FLIGHT_VIEW_TIME.format(data.mRoutes.getFirst().mDepartTime));
+        }
+        return view;
     }
 
     /**
@@ -262,9 +287,12 @@ public class FlightData implements Cloneable{
                 jsonObject.put("arrivalTime", FORMAT_ORDER.format(flight.mToTime));
                 jsonObject.put("price", flight.mPrice.mTicketPrice);
                 jsonObject.put("currency", flight.mPrice.mCurrency);
-                jsonObject.put("from", flight.mRoutes.getFirst().mDepartCity);
-                jsonObject.put("to", flight.mRoutes.getLast().mArrivalCity);
+                jsonObject.put("fromCity", flight.mRoutes.getFirst().mDepartCity);
+                jsonObject.put("fromAirport", flight.mRoutes.getFirst().mDepartAirport);
+                jsonObject.put("toCity", flight.mRoutes.getLast().mArrivalCity);
+                jsonObject.put("toAirport", flight.mRoutes.getLast().mArrivalAirport);
                 jsonObject.put("airline", flight.mAirlineName);
+                jsonObject.put("aircraft", "737");
                 jsonObject.put("clazz", "0");
                 jsonObject.put("sortNo", "1");
                 array.put(jsonObject);

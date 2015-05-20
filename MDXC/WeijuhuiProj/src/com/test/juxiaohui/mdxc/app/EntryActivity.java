@@ -23,6 +23,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.test.juxiaohui.mdxc.manager.AirlineManager;
+import com.test.juxiaohui.mdxc.manager.CityManager;
 import com.test.juxiaohui.mdxc.manager.UserManager;
 import com.test.juxiaohui.mdxc.manager.UtilManager;
 
@@ -47,7 +49,7 @@ public class EntryActivity extends FragmentActivity {
 	private View mSearchHistoryItem;
 	private View mSettingItem;
 	private View mFeedbackItem;
-
+	private View mLayoutProgress;
 	//
 	private TextView mTvAccount;// = mTvAccount;
 	//navigation TAG
@@ -108,7 +110,10 @@ public class EntryActivity extends FragmentActivity {
 		setContentView(mRootLayout);
 		addFlightView();
 		addNavigationItem();
+		//addProgressView();
+		//showProgress();
 
+		//hideProgress();
 		mInstance = this;
 	}
 	
@@ -193,7 +198,13 @@ public class EntryActivity extends FragmentActivity {
 		// TODO Auto-generated method stub
 		if(mContentView.startContent(FLIGHT_STATUS))
 			return false;
-		else 
+		else
+		{
+			if(keyCode == KeyEvent.KEYCODE_BACK){
+				//showDialog();
+				System.exit(0);
+			}
+		}
 			return super.onKeyDown(keyCode, event);
 	}
 
@@ -209,5 +220,6 @@ public class EntryActivity extends FragmentActivity {
 		}
 
 	}
-	
+
+
 }

@@ -1,0 +1,1184 @@
+[
+    {
+        "code": "KE",
+        "name": "Korean Air",
+        "localName": "大韩航空公司",
+        "shortLocalName": "大韩航空"
+    },
+    {
+        "code": "VV",
+        "name": "Aerosvit Airlines",
+        "localName": "空中世界乌克兰航空公司",
+        "shortLocalName": "空中世界航空"
+    },
+    {
+        "code": "HX",
+        "name": "Hong Kong Airlines",
+        "localName": "香港航空公司",
+        "shortLocalName": "香港航空"
+    },
+    {
+        "code": "AM",
+        "name": "Aeromexico Aerovias De Mexico",
+        "localName": "墨西哥航空公司",
+        "shortLocalName": "墨西哥航空"
+    },
+    {
+        "code": "BK",
+        "name": "Okay Airways",
+        "localName": "奥凯航空有限公司",
+        "shortLocalName": "奥凯航空"
+    },
+    {
+        "code": "A7",
+        "name": "Brymon Airways",
+        "localName": "西班牙红风筝航空公司",
+        "shortLocalName": "普卢斯科梅特"
+    },
+    {
+        "code": "EU",
+        "name": "United Eagle Airlines",
+        "localName": "成都航空有限公司",
+        "shortLocalName": "成都航空"
+    },
+    {
+        "code": "JR",
+        "name": "JOY AIR CO",
+        "localName": "幸福航空有限责任公司",
+        "shortLocalName": "幸福航空"
+    },
+    {
+        "code": "F6",
+        "name": "",
+        "localName": "中国航空股份有限公司",
+        "shortLocalName": "中国航空"
+    },
+    {
+        "code": "K2",
+        "name": "Kyrgyzstan Airlines",
+        "localName": "吉尔吉斯坦航空公司",
+        "shortLocalName": "吉尔吉斯坦航空"
+    },
+    {
+        "code": "JQ",
+        "name": "",
+        "localName": "捷星航空",
+        "shortLocalName": "捷星航空"
+    },
+    {
+        "code": "SR",
+        "name": "Swiss Airlines",
+        "localName": "瑞士航空公司",
+        "shortLocalName": "瑞士航空"
+    },
+    {
+        "code": "MF",
+        "name": "Xiamen Airlines",
+        "localName": "厦门航空有限公司",
+        "shortLocalName": "厦门航空"
+    },
+    {
+        "code": "QZ",
+        "name": "",
+        "localName": "印尼亚航",
+        "shortLocalName": "印尼亚航"
+    },
+    {
+        "code": "6U",
+        "name": "Air Ukraine",
+        "localName": "乌克兰航空公司",
+        "shortLocalName": "乌克兰航空"
+    },
+    {
+        "code": "UO",
+        "name": "Hong Kong Express Airways",
+        "localName": "香港快运航空公司",
+        "shortLocalName": "香港快运航空"
+    },
+    {
+        "code": "IT",
+        "name": "",
+        "localName": "印度翠鸟航空公司",
+        "shortLocalName": "印度翠鸟航空"
+    },
+    {
+        "code": "6A",
+        "name": "Aviacsa airlines",
+        "localName": "阿维亚克萨航空公司",
+        "shortLocalName": "哈维亚克萨"
+    },
+    {
+        "code": "BR",
+        "name": "EVA Airways",
+        "localName": "台湾长荣航公司",
+        "shortLocalName": "长荣航空"
+    },
+    {
+        "code": "MX",
+        "name": "Mexicana",
+        "localName": "墨西哥航空公司",
+        "shortLocalName": "墨西哥航空"
+    },
+    {
+        "code": "NZ",
+        "name": "Air New Zealand",
+        "localName": "新西兰航空公司",
+        "shortLocalName": "新西兰航空"
+    },
+    {
+        "code": "FD",
+        "name": "Thai AirAsia",
+        "localName": "泰国亚洲航空公司",
+        "shortLocalName": "泰国亚洲"
+    },
+    {
+        "code": "BD",
+        "name": "British Midland",
+        "localName": "英国米特兰航空",
+        "shortLocalName": "米特兰航空"
+    },
+    {
+        "code": "CO",
+        "name": "Continental Airlines",
+        "localName": "美国大陆航空公司",
+        "shortLocalName": "美国大陆航空"
+    },
+    {
+        "code": "IC",
+        "name": "IAC Indian Airlines",
+        "localName": "印度航空公司",
+        "shortLocalName": "印度航空"
+    },
+    {
+        "code": "MK",
+        "name": "",
+        "localName": "毛里求斯航空公司",
+        "shortLocalName": "毛里求斯航空"
+    },
+    {
+        "code": "AB",
+        "name": "Air Berlin",
+        "localName": "柏林航空",
+        "shortLocalName": "柏林航空"
+    },
+    {
+        "code": "LX",
+        "name": "Swiss International Air Lines",
+        "localName": "瑞士国际航空公司",
+        "shortLocalName": "瑞士国际航空"
+    },
+    {
+        "code": "OQ",
+        "name": "",
+        "localName": "重庆航空有限责任公司",
+        "shortLocalName": "重庆航空"
+    },
+    {
+        "code": "LH",
+        "name": "Lufthansa German Airlines",
+        "localName": "德国汉莎航空公司",
+        "shortLocalName": "汉莎航空"
+    },
+    {
+        "code": "9Q",
+        "name": "PB Air",
+        "localName": "泰国金狮航空公司",
+        "shortLocalName": "金狮航空"
+    },
+    {
+        "code": "WN",
+        "name": "",
+        "localName": "西南航空",
+        "shortLocalName": "西南航空"
+    },
+    {
+        "code": "J2",
+        "name": "Azerbaijan  Airlines",
+        "localName": "阿塞拜疆航空公司",
+        "shortLocalName": "阿塞拜疆航空"
+    },
+    {
+        "code": "KY",
+        "name": "KUNMING AIR",
+        "localName": "昆明航空有限公司",
+        "shortLocalName": "昆明航空"
+    },
+    {
+        "code": "JU",
+        "name": "JAT Yugoslav Airlines",
+        "localName": "南斯拉夫航空公司",
+        "shortLocalName": "南斯拉夫航空"
+    },
+    {
+        "code": "8C",
+        "name": "East Star Airlines",
+        "localName": "东星航空有限公司",
+        "shortLocalName": "东星航空"
+    },
+    {
+        "code": "TG",
+        "name": "Thai Airways International",
+        "localName": "泰国国际航空公司",
+        "shortLocalName": "泰国国际航空"
+    },
+    {
+        "code": "AP",
+        "name": "Air One",
+        "localName": "波利尼西亚航空公司",
+        "shortLocalName": "波利尼西亚航空"
+    },
+    {
+        "code": "VD",
+        "name": "HE NAN AIRLINES",
+        "localName": "河南航空有限公司",
+        "shortLocalName": "河南航空"
+    },
+    {
+        "code": "KL",
+        "name": "KLM Royal Dutch Airlines",
+        "localName": "荷兰皇家航空公司",
+        "shortLocalName": "荷兰皇家"
+    },
+    {
+        "code": "PN",
+        "name": "China West Air",
+        "localName": "西部航空有限责任公司",
+        "shortLocalName": "西部航空"
+    },
+    {
+        "code": "SN",
+        "name": "SAB Sabena",
+        "localName": "比利时航空公司",
+        "shortLocalName": "比利时航空"
+    },
+    {
+        "code": "UM",
+        "name": "Air Zimbabwe",
+        "localName": "津巴布韦航空公司",
+        "shortLocalName": "津巴布韦航空"
+    },
+    {
+        "code": "LA",
+        "name": "Lan Chile Airlines",
+        "localName": "智利国家航空公司",
+        "shortLocalName": "智利航空"
+    },
+    {
+        "code": "JO",
+        "name": "",
+        "localName": "日线航空",
+        "shortLocalName": "日线航空"
+    },
+    {
+        "code": "NH",
+        "name": "All Nippon Airways",
+        "localName": "全日本空输株式会社",
+        "shortLocalName": "全日空航空"
+    },
+    {
+        "code": "CP",
+        "name": "Canadian Airlines International",
+        "localName": "加拿大国际航空公司",
+        "shortLocalName": "加拿大国际航空"
+    },
+    {
+        "code": "GA",
+        "name": "Garuda Indonesia",
+        "localName": "印度尼西亚鹰航公司",
+        "shortLocalName": "印尼鹰航航空"
+    },
+    {
+        "code": "VJ",
+        "name": "Royal Air Cambodge",
+        "localName": "柬埔寨航空公司",
+        "shortLocalName": "柬埔寨航空"
+    },
+    {
+        "code": "CA",
+        "name": "Air China",
+        "localName": "中国国际航空股份有限公司",
+        "shortLocalName": "中国国航"
+    },
+    {
+        "code": "IW",
+        "name": "AOM French Airlines",
+        "localName": "密涅瓦法国空运公司（法国）",
+        "shortLocalName": "密涅瓦航空"
+    },
+    {
+        "code": "J8",
+        "name": "",
+        "localName": "成功航空公司",
+        "shortLocalName": "成功航空"
+    },
+    {
+        "code": "QV",
+        "name": "LAO Aviation",
+        "localName": "老挝航空公司",
+        "shortLocalName": "老挝航空"
+    },
+    {
+        "code": "ET",
+        "name": "Ethiopian Airlines",
+        "localName": "埃塞俄比亚航空公司",
+        "shortLocalName": "埃塞俄比亚航空"
+    },
+    {
+        "code": "DJ",
+        "name": "",
+        "localName": "维尔京蓝航空",
+        "shortLocalName": "维尔京蓝航空"
+    },
+    {
+        "code": "KC",
+        "name": "Air Astana",
+        "localName": "哈萨克斯坦阿斯塔纳航空公司",
+        "shortLocalName": "阿斯塔纳"
+    },
+    {
+        "code": "KQ",
+        "name": "Kenya Airways",
+        "localName": "肯尼亚航空公司",
+        "shortLocalName": "肯尼亚航空"
+    },
+    {
+        "code": "X7",
+        "name": "Chita Avia",
+        "localName": "俄罗斯赤塔航空公司",
+        "shortLocalName": "赤塔航空"
+    },
+    {
+        "code": "OZ",
+        "name": "Asiana Airlines",
+        "localName": "韩亚航空公司",
+        "shortLocalName": "韩亚航空"
+    },
+    {
+        "code": "TR",
+        "name": "",
+        "localName": "特里加纳航空公司",
+        "shortLocalName": "特里加纳航空"
+    },
+    {
+        "code": "HA",
+        "name": "",
+        "localName": "夏威夷航空公司",
+        "shortLocalName": "夏威夷航空"
+    },
+    {
+        "code": "VN",
+        "name": "Vietnam Airlines",
+        "localName": "越南航空公司",
+        "shortLocalName": "越南航空"
+    },
+    {
+        "code": "VX",
+        "name": "Virgin America",
+        "localName": "维珍美国航空",
+        "shortLocalName": "维珍美国航空"
+    },
+    {
+        "code": "AO",
+        "name": "",
+        "localName": "澳亚航空公司",
+        "shortLocalName": "澳亚航空"
+    },
+    {
+        "code": "UN",
+        "name": "Transaero Airlines",
+        "localName": "环空航空公司",
+        "shortLocalName": "环空航空"
+    },
+    {
+        "code": "AY",
+        "name": "Finnair",
+        "localName": "芬兰航空公司",
+        "shortLocalName": "芬兰航空"
+    },
+    {
+        "code": "NX",
+        "name": "Air Macau",
+        "localName": "澳门航空公司",
+        "shortLocalName": "澳门航空"
+    },
+    {
+        "code": "SU",
+        "name": "Aeroflot-Russian International Airlines",
+        "localName": "俄罗斯航空公司",
+        "shortLocalName": "俄罗斯航空"
+    },
+    {
+        "code": "YP",
+        "name": "Aero Lloyd",
+        "localName": "劳埃德航空公司",
+        "shortLocalName": "劳埃德航航空"
+    },
+    {
+        "code": "OX",
+        "name": "",
+        "localName": "泰国东方航空公司",
+        "shortLocalName": "泰国东方"
+    },
+    {
+        "code": "8S",
+        "name": "",
+        "localName": "Unknown",
+        "shortLocalName": ""
+    },
+    {
+        "code": "AR",
+        "name": "Aerolineas Argentinas",
+        "localName": "阿根廷航空公司",
+        "shortLocalName": "阿根廷航空"
+    },
+    {
+        "code": "3K",
+        "name": "",
+        "localName": "捷星亚洲航空公司",
+        "shortLocalName": "捷星航空"
+    },
+    {
+        "code": "TW",
+        "name": "Trans World Airlines",
+        "localName": "美国环球航空公司",
+        "shortLocalName": "环球航空"
+    },
+    {
+        "code": "HU",
+        "name": "Hainan Airlines",
+        "localName": "海南航空股份有限公司",
+        "shortLocalName": "海南航空"
+    },
+    {
+        "code": "MA",
+        "name": "Malev-Hungarian Airlines",
+        "localName": "匈牙利航空公司",
+        "shortLocalName": "匈牙利航空"
+    },
+    {
+        "code": "PK",
+        "name": "Pakistan International Airlines",
+        "localName": "巴基斯坦国际航空公司",
+        "shortLocalName": "巴基斯坦航空"
+    },
+    {
+        "code": "IR",
+        "name": "Iran Air",
+        "localName": "伊朗航空公司",
+        "shortLocalName": "伊朗航空"
+    },
+    {
+        "code": "CI",
+        "name": "China Airlines",
+        "localName": "中华航空公司",
+        "shortLocalName": "中华航空"
+    },
+    {
+        "code": "AH",
+        "name": "",
+        "localName": "阿尔及利亚航空公司",
+        "shortLocalName": "阿尔及利亚航空"
+    },
+    {
+        "code": "VQ",
+        "name": "Vintage Props and Jets",
+        "localName": "Vintage航空公司",
+        "shortLocalName": "文特芝航空"
+    },
+    {
+        "code": "SV",
+        "name": "",
+        "localName": "沙特航空",
+        "shortLocalName": "沙特航空"
+    },
+    {
+        "code": "MD",
+        "name": "Societe Nationale Malgache de Transports",
+        "localName": "马达加斯加航空",
+        "shortLocalName": "马达加斯加"
+    },
+    {
+        "code": "BT",
+        "name": "Air Baltic",
+        "localName": "Saltic航空公司",
+        "shortLocalName": "赛提克航空"
+    },
+    {
+        "code": "FV",
+        "name": "ROSSIYA-RUSSIAN AIRLINES",
+        "localName": "俄罗斯普尔科沃航空公司",
+        "shortLocalName": "普尔科沃航空"
+    },
+    {
+        "code": "DL",
+        "name": "Delta Air Lines",
+        "localName": "美国达美航空公司",
+        "shortLocalName": "达美航空"
+    },
+    {
+        "code": "GS",
+        "name": "TIANJIN AIRLINES",
+        "localName": "天津航空有限责任公司",
+        "shortLocalName": "天津航空"
+    },
+    {
+        "code": "BV",
+        "name": "Blue Panorama Airlines S.p.A.",
+        "localName": "博普航空公司（南非）",
+        "shortLocalName": "博普航空"
+    },
+    {
+        "code": "FI",
+        "name": "Icelandic Airlines Ltd",
+        "localName": "冰岛航空公司",
+        "shortLocalName": "冰岛航空"
+    },
+    {
+        "code": "BC",
+        "name": "SEABORNE AVIATION",
+        "localName": "布利蒙航空公司",
+        "shortLocalName": "布利蒙航空"
+    },
+    {
+        "code": "H8",
+        "name": "Dalavia-Far East Airways (Russian Federation)",
+        "localName": "俄罗斯远东(阿巴罗夫斯克)航空公司",
+        "shortLocalName": "远东航空"
+    },
+    {
+        "code": "AE",
+        "name": "",
+        "localName": "华信航空",
+        "shortLocalName": "华信航空"
+    },
+    {
+        "code": "S7",
+        "name": "Siberia Airlines",
+        "localName": "俄罗斯西伯利亚航空公司",
+        "shortLocalName": "西伯利亚航空"
+    },
+    {
+        "code": "PH",
+        "name": "Polynesian Airlines",
+        "localName": "波利尼西亚航空公司",
+        "shortLocalName": "波利尼西亚航空"
+    },
+    {
+        "code": "TH",
+        "name": "",
+        "localName": "金鹏航空公司",
+        "shortLocalName": "金鹏航空"
+    },
+    {
+        "code": "EY",
+        "name": "ETIHAD AIRWAYS",
+        "localName": "阿联酋阿提哈德航空",
+        "shortLocalName": "阿提哈德"
+    },
+    {
+        "code": "US",
+        "name": "US Airways",
+        "localName": "美国合众国航空公司",
+        "shortLocalName": "全美航空"
+    },
+    {
+        "code": "JL",
+        "name": "Japan Airlines",
+        "localName": "日本航空公司",
+        "shortLocalName": "日本航空"
+    },
+    {
+        "code": "MI",
+        "name": "SilkAir",
+        "localName": "新加坡胜安航空公司",
+        "shortLocalName": "新加坡胜安航空"
+    },
+    {
+        "code": "FT",
+        "name": "Siem Reap Airways International",
+        "localName": "暹粒航空公司",
+        "shortLocalName": "暹粒航空"
+    },
+    {
+        "code": "G5",
+        "name": "China　Express　Airlines",
+        "localName": "华夏航空有限公司",
+        "shortLocalName": "华夏航空"
+    },
+    {
+        "code": "TV",
+        "name": "China Tibetan Airlines",
+        "localName": "西藏航空有限公司",
+        "shortLocalName": "西藏航空"
+    },
+    {
+        "code": "AC",
+        "name": "Air Canada",
+        "localName": "加拿大航空公司",
+        "shortLocalName": "加拿大航空"
+    },
+    {
+        "code": "EK",
+        "name": "Emirates",
+        "localName": "阿联酋国际航空公司",
+        "shortLocalName": "阿联酋航空"
+    },
+    {
+        "code": "TF",
+        "name": "Air Transport Pyrenees",
+        "localName": "泰国飞行航空公司",
+        "shortLocalName": "泰国飞行航空"
+    },
+    {
+        "code": "GF",
+        "name": "GULF AIR",
+        "localName": "海湾航空公司",
+        "shortLocalName": "海湾航空"
+    },
+    {
+        "code": "CZ",
+        "name": "China Southern Airlines",
+        "localName": "中国南方航空股份有限公司",
+        "shortLocalName": "南方航空"
+    },
+    {
+        "code": "Z2",
+        "name": "",
+        "localName": "菲律宾飞龙航空",
+        "shortLocalName": "菲律宾飞龙"
+    },
+    {
+        "code": "NS",
+        "name": "hbairlines",
+        "localName": "河北航空有限公司",
+        "shortLocalName": "河北航空"
+    },
+    {
+        "code": "AF",
+        "name": "Air France",
+        "localName": "法国航空公司",
+        "shortLocalName": "法国航空"
+    },
+    {
+        "code": "OA",
+        "name": "Olympic Airways",
+        "localName": "奥林匹克航空公司",
+        "shortLocalName": "奥林匹克航空"
+    },
+    {
+        "code": "LY",
+        "name": "EL AL Israel Airlines",
+        "localName": "以色列航空公司",
+        "shortLocalName": "以色列航空"
+    },
+    {
+        "code": "LO",
+        "name": "Lot-Polish Airlines",
+        "localName": "波兰航空公司",
+        "shortLocalName": "波兰航空"
+    },
+    {
+        "code": "S2",
+        "name": "",
+        "localName": "撒哈拉航空",
+        "shortLocalName": "撒哈拉航空"
+    },
+    {
+        "code": "5J",
+        "name": "",
+        "localName": "宿雾航空",
+        "shortLocalName": "宿雾航空"
+    },
+    {
+        "code": "IY",
+        "name": "",
+        "localName": "也门航空",
+        "shortLocalName": "也门航空"
+    },
+    {
+        "code": "KA",
+        "name": "Dragonair",
+        "localName": "港龙航空公司",
+        "shortLocalName": "港龙航空"
+    },
+    {
+        "code": "LT",
+        "name": "LTU International Airways",
+        "localName": "温特内曼国际航空公司",
+        "shortLocalName": "温特内曼航空"
+    },
+    {
+        "code": "OM",
+        "name": "MIAT Mongolian Airlines",
+        "localName": "蒙古航空公司",
+        "shortLocalName": "蒙古航空"
+    },
+    {
+        "code": "TK",
+        "name": "Turkish Airlines",
+        "localName": "土耳其航空公司",
+        "shortLocalName": "土耳其航空"
+    },
+    {
+        "code": "OS",
+        "name": "Austrian Airlines",
+        "localName": "奥地利航空公司",
+        "shortLocalName": "奥地利航空"
+    },
+    {
+        "code": "SK",
+        "name": "SAS-Scandinavian Airlines",
+        "localName": "北欧航空公司",
+        "shortLocalName": "北欧航空"
+    },
+    {
+        "code": "MU",
+        "name": "China Eastern Airlines",
+        "localName": "中国东方航空股份有限公司",
+        "shortLocalName": "东方航空"
+    },
+    {
+        "code": "9C",
+        "name": "",
+        "localName": "春秋航空",
+        "shortLocalName": "春秋航空"
+    },
+    {
+        "code": "3U",
+        "name": "Sichuan Airlines",
+        "localName": "四川航空股份有限公司",
+        "shortLocalName": "四川航空"
+    },
+    {
+        "code": "SA",
+        "name": "South African Airways",
+        "localName": "南非航空公司",
+        "shortLocalName": "南非航空"
+    },
+    {
+        "code": "BI",
+        "name": "Royal Brunei Airlines",
+        "localName": "汶莱皇家航空公司",
+        "shortLocalName": "汶莱皇家航空"
+    },
+    {
+        "code": "AK",
+        "name": "",
+        "localName": "亚洲航空",
+        "shortLocalName": "亚洲航空"
+    },
+    {
+        "code": "KU",
+        "name": "Kuwait Airways",
+        "localName": "科威特航空公司",
+        "shortLocalName": "科威特航空"
+    },
+    {
+        "code": "PR",
+        "name": "Philippine Airlines",
+        "localName": "菲律宾航空公司",
+        "shortLocalName": "菲律宾航空"
+    },
+    {
+        "code": "RI",
+        "name": "",
+        "localName": "Unknown",
+        "shortLocalName": ""
+    },
+    {
+        "code": "P7",
+        "name": "Russian Sky Airlines",
+        "localName": "俄罗斯天空航空公司",
+        "shortLocalName": "俄东方航空"
+    },
+    {
+        "code": "TN",
+        "name": "",
+        "localName": "大溪地航空公司",
+        "shortLocalName": "大溪地"
+    },
+    {
+        "code": "WY",
+        "name": "",
+        "localName": "Unknown",
+        "shortLocalName": ""
+    },
+    {
+        "code": "VS",
+        "name": "Virgin Atlantic",
+        "localName": "维珍航空公司",
+        "shortLocalName": "维珍航空"
+    },
+    {
+        "code": "X3",
+        "name": "Baikal Airlines",
+        "localName": "贝加尔航空公司",
+        "shortLocalName": "贝加尔航空"
+    },
+    {
+        "code": "UL",
+        "name": "SriLankan Airlines",
+        "localName": "斯里兰卡航空公司",
+        "shortLocalName": "斯里兰卡航空"
+    },
+    {
+        "code": "4L",
+        "name": "",
+        "localName": "哈萨克斯坦航空公司",
+        "shortLocalName": "哈萨克斯坦"
+    },
+    {
+        "code": "AZ",
+        "name": "Alitalia",
+        "localName": "意大利航空公司",
+        "shortLocalName": "意大利航空"
+    },
+    {
+        "code": "JD",
+        "name": "Dear Air",
+        "localName": "北京首都航空有限公司",
+        "shortLocalName": "首都航空"
+    },
+    {
+        "code": "QR",
+        "name": "Qatar Airways",
+        "localName": "卡塔尔航空公司",
+        "shortLocalName": "卡塔尔航空"
+    },
+    {
+        "code": "7C",
+        "name": "",
+        "localName": "Unknown",
+        "shortLocalName": ""
+    },
+    {
+        "code": "E5",
+        "name": "Samara Airlines",
+        "localName": "萨马拉航空公司",
+        "shortLocalName": "萨马拉航空"
+    },
+    {
+        "code": "DT",
+        "name": "",
+        "localName": "安哥拉航空公司",
+        "shortLocalName": ""
+    },
+    {
+        "code": "8G",
+        "name": "Angel Airlines",
+        "localName": "安琪尔航空公司",
+        "shortLocalName": "安琪尔航空"
+    },
+    {
+        "code": "EF",
+        "name": "Far Eastern Air Transport",
+        "localName": "远东航空运输公司（中国台湾）",
+        "shortLocalName": "远东航空"
+    },
+    {
+        "code": "B7",
+        "name": "",
+        "localName": "立荣航空公司",
+        "shortLocalName": "立荣航空"
+    },
+    {
+        "code": "3G",
+        "name": "",
+        "localName": "大西洋航空公司",
+        "shortLocalName": "大西洋航空"
+    },
+    {
+        "code": "GE",
+        "name": "TransAsia Airways",
+        "localName": "台湾复兴航空公司",
+        "shortLocalName": "复兴航空"
+    },
+    {
+        "code": "JK",
+        "name": "Spanair S.A.",
+        "localName": "斯潘航空公司",
+        "shortLocalName": "斯潘航空"
+    },
+    {
+        "code": "SC",
+        "name": "Shandong Airlines",
+        "localName": "山东航空股份有限公司",
+        "shortLocalName": "山东航空"
+    },
+    {
+        "code": "UX",
+        "name": "Air Europa",
+        "localName": "西班牙欧洲航空公司",
+        "shortLocalName": "西班牙欧航空"
+    },
+    {
+        "code": "RA",
+        "name": "Royal Nepal Airlines",
+        "localName": "尼泊尔航空公司",
+        "shortLocalName": "尼泊尔航空"
+    },
+    {
+        "code": "UB",
+        "name": "Myanmar Airways International",
+        "localName": "缅甸航空公司",
+        "shortLocalName": "缅甸航空"
+    },
+    {
+        "code": "MH",
+        "name": "Malaysia Airlines",
+        "localName": "马来西亚航空公司",
+        "shortLocalName": "马来西亚航空"
+    },
+    {
+        "code": "8U",
+        "name": "",
+        "localName": "Unknown",
+        "shortLocalName": ""
+    },
+    {
+        "code": "AA",
+        "name": "American Airlines",
+        "localName": "美国航空公司",
+        "shortLocalName": "美国航空"
+    },
+    {
+        "code": "AS",
+        "name": "Alaska Airlines",
+        "localName": "阿拉斯加航空公司",
+        "shortLocalName": "阿拉斯加航空"
+    },
+    {
+        "code": "HQ",
+        "name": "",
+        "localName": "商务捷运航空公司",
+        "shortLocalName": "捷运航空"
+    },
+    {
+        "code": "8L",
+        "name": "Lucky Air",
+        "localName": "云南祥鹏航空有限责任公司",
+        "shortLocalName": "祥鹏航空"
+    },
+    {
+        "code": "MS",
+        "name": "Egypt Air",
+        "localName": "埃及航空公司",
+        "shortLocalName": "埃及航空"
+    },
+    {
+        "code": "CX",
+        "name": "Cathay Pacific Airways",
+        "localName": "国泰航空公司",
+        "shortLocalName": "国泰航空"
+    },
+    {
+        "code": "RO",
+        "name": "Romanian Air Transport",
+        "localName": "罗马尼亚航空公司",
+        "shortLocalName": "罗马尼亚航空"
+    },
+    {
+        "code": "AN",
+        "name": "Ansett Australia",
+        "localName": "澳大利亚安赛特航空公司",
+        "shortLocalName": "安赛特航空"
+    },
+    {
+        "code": "KF",
+        "name": "Blue1",
+        "localName": "蓝天航空公司",
+        "shortLocalName": "蓝天航空"
+    },
+    {
+        "code": "5M",
+        "name": "MEGA MALDIVES AIRLINE",
+        "localName": "美佳航空",
+        "shortLocalName": "美佳航空"
+    },
+    {
+        "code": "ZH",
+        "name": "Shenzhen Airlines",
+        "localName": "深圳航空有限责任公司",
+        "shortLocalName": "深圳航空"
+    },
+    {
+        "code": "NU",
+        "name": "Japan Transocean Air",
+        "localName": "日本跨洋航空公司",
+        "shortLocalName": "日本跨洋航空"
+    },
+    {
+        "code": "WS",
+        "name": "WESTJET",
+        "localName": "加拿大WESTJET",
+        "shortLocalName": "加拿大WESTJET"
+    },
+    {
+        "code": "IV",
+        "name": "Wind Jet",
+        "localName": "意大利风航",
+        "shortLocalName": "福建航空"
+    },
+    {
+        "code": "9Y",
+        "name": "Air Kazakhstan",
+        "localName": "哈萨克斯坦航空公司",
+        "shortLocalName": "哈萨克斯坦航空"
+    },
+    {
+        "code": "9W",
+        "name": "Jet Airways India",
+        "localName": "印度捷特航空公司",
+        "shortLocalName": "印度捷特"
+    },
+    {
+        "code": "HY",
+        "name": "Uzbekistan Airways",
+        "localName": "乌兹别克斯坦航空公司",
+        "shortLocalName": "乌兹别克斯坦航空"
+    },
+    {
+        "code": "JS",
+        "name": "Air Koryo",
+        "localName": "朝鲜航空公司",
+        "shortLocalName": "朝鲜航空"
+    },
+    {
+        "code": "XF",
+        "name": "Vladivostok Air",
+        "localName": "符拉迪沃斯托克航空公司",
+        "shortLocalName": "符拉迪沃航空"
+    },
+    {
+        "code": "HO",
+        "name": "Juneyao Airlines",
+        "localName": "上海吉祥航空股份有限公司",
+        "shortLocalName": "吉祥航空"
+    },
+    {
+        "code": "CN",
+        "name": "GRAND CHINA AIR",
+        "localName": "大新华航空有限公司",
+        "shortLocalName": "大新华"
+    },
+    {
+        "code": "SQ",
+        "name": "Singapore Airlines",
+        "localName": "新加坡航空公司",
+        "shortLocalName": "新加坡航空"
+    },
+    {
+        "code": "QF",
+        "name": "Qantas Airways",
+        "localName": "澳洲航空公司",
+        "shortLocalName": "澳洲航空"
+    },
+    {
+        "code": "AI",
+        "name": "Air India",
+        "localName": "印度航空公司",
+        "shortLocalName": "印度航空"
+    },
+    {
+        "code": "BA",
+        "name": "British Airways",
+        "localName": "英国航空公司",
+        "shortLocalName": "英国航空"
+    },
+    {
+        "code": "KN",
+        "name": "China United Airlines",
+        "localName": "中国联合航空有限公司",
+        "shortLocalName": "中国联航"
+    },
+    {
+        "code": "7P",
+        "name": "Batavia Air",
+        "localName": "印尼巴达维亚航空公司",
+        "shortLocalName": "安帕国际航空"
+    },
+    {
+        "code": "FM",
+        "name": "Shanghai Airlines",
+        "localName": "上海航空有限公司",
+        "shortLocalName": "上海航空"
+    },
+    {
+        "code": "D7",
+        "name": "",
+        "localName": "亚航 X",
+        "shortLocalName": "亚航 X"
+    },
+    {
+        "code": "NW",
+        "name": "Northwest Airlines",
+        "localName": "美国西北航空公司",
+        "shortLocalName": "美西北航空"
+    },
+    {
+        "code": "RJ",
+        "name": "",
+        "localName": "约旦王家航空公司",
+        "shortLocalName": "约旦王家"
+    },
+    {
+        "code": "DA",
+        "name": "AIR GEORGIA",
+        "localName": "达恩空中服务公司（英国）",
+        "shortLocalName": "达恩航空"
+    },
+    {
+        "code": "U6",
+        "name": "URAL AIRLINES",
+        "localName": "乌拉尔航空公司",
+        "shortLocalName": "乌拉尔航空"
+    },
+    {
+        "code": "YX",
+        "name": "",
+        "localName": "中西部航空",
+        "shortLocalName": "中西部航空"
+    },
+    {
+        "code": "8M",
+        "name": "",
+        "localName": "Unknown",
+        "shortLocalName": ""
+    },
+    {
+        "code": "UA",
+        "name": "United Airlines",
+        "localName": "美国联合航空公司",
+        "shortLocalName": "联合航空"
+    },
+    {
+        "code": "LJ",
+        "name": "",
+        "localName": "塞拉里昂航空公司",
+        "shortLocalName": "塞拉里昂航空"
+    },
+    {
+        "code": "MZ",
+        "name": "",
+        "localName": "美派蒂航空公司",
+        "shortLocalName": "美派蒂航空"
+    },
+    {
+        "code": "IB",
+        "name": "Iberia Airlines",
+        "localName": "西班牙航空公司",
+        "shortLocalName": "西班牙航空"
+    },
+    {
+        "code": "MP",
+        "name": "Martinair Holland",
+        "localName": "荷兰马丁航空公司",
+        "shortLocalName": "荷兰马丁航空"
+    },
+    {
+        "code": "PG",
+        "name": "Bangkok Airways",
+        "localName": "曼谷航空公司",
+        "shortLocalName": "曼谷航空"
+    }
+]

@@ -393,9 +393,10 @@ public class UserManager {
 	
 	   public boolean isHasLoginCache()
 	    {
-	        String username = DemoApplication.getInstance().getUserName();
-	        String password = DemoApplication.getInstance().getPassword();
-	        return (null!=username&&null!=password);
+			String countryCode = getCachedCountryCode();
+	        String username = getCachedUsername();
+	        String password = getCachedPassword();
+	        return (null!=username&&null!=password&&null!=countryCode);
 	    }
 	    
 	    public void loginFromCache(Context mContext) {

@@ -63,4 +63,13 @@ public class ContactUser {
         }
         return ContactUser.NULL;
     }
+
+    public static ContactUser createTestUser(){
+        ContactUser contactUser = new ContactUser();
+        contactUser.contactName = "yihao";
+        contactUser.contCountryCode = "+86";
+        contactUser.contPhone = "15510472558";
+        contactUser.contEmail = "yhchinabest@163.com";
+        return contactUser;
+    }
 }

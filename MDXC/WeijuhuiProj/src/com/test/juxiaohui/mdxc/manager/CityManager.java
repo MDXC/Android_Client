@@ -38,6 +38,11 @@ public class CityManager {
         return mInstance;
     }
 
+    private CityManager(){
+        readFromCache();
+    }
+
+
     public ArrayList<CityData> getSearchResult(String condition) {
 
 //        if(isNeedUpdate())
@@ -108,7 +113,7 @@ public class CityManager {
 
     }
 
-    public void readFromCache()
+    private void readFromCache()
     {
 
 //        HashMap<String, ArrayList<AirportData>> portMap = new HashMap<String,ArrayList< AirportData>>();

@@ -112,6 +112,7 @@ public class FlightOrdersView extends LinearLayout {
                     public void run() {
                         mLayoutProgress.setVisibility(View.INVISIBLE);
                         ((CommonAdapter)mLvFlightOrders.getAdapter()).setData(listOrders);
+                        ((CommonAdapter)mLvFlightOrders.getAdapter()).notifyDataSetChanged();
 //                        mLvFlightOrders.setAdapter(new CommonAdapter<FlightOrder>(listOrders, new IAdapterItem<FlightOrder>() {
 //                            @Override
 //                            public View getView(FlightOrder data, View convertView) {

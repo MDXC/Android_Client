@@ -31,7 +31,7 @@ import com.test.juxiaohui.mdxc.mediator.IFlightOrderMediator;
 public class FlightOrderActivity extends Activity implements
 		IFlightOrderMediator {
 	public static int REQ_SELECT_PASSENGER = 0;
-
+	public static final int MESSAGE_SUBMIT_ORDER = 1;
 	
 	private TextView mTvPerAireFarePrice,mTvPerAireFareCurrency,mTvPerTaxPrice,mTvPerTaxCurrency,mTvTotalPrice;
 	private ImageButton mIbAddPassenger;
@@ -46,9 +46,19 @@ public class FlightOrderActivity extends Activity implements
 	private FlightOrder mFlightOrder;
 	
 	
-	public static final int MESSAGE_SUBMIT_ORDER = 1;
-	
-	
+
+
+	Handler mHandler = new Handler(){
+		@Override
+		public void dispatchMessage(Message msg) {
+			// TODO Auto-generated method stub
+			switch(msg.what){
+				case MESSAGE_SUBMIT_ORDER:
+					submitOrder();
+					break;
+			}
+		}
+	};
 	public static void startActivity(String orderId, Context context)
 	{
 		Intent intent = new Intent(context, FlightOrderActivity.class);
@@ -94,10 +104,18 @@ public class FlightOrderActivity extends Activity implements
 	public void addFlightView() {
 		mLlFlights = (LinearLayout) findViewById(R.id.ll_airlines);
 		if(mFlightOrder.mTripType == FlightOrder.TRIP_ONE_WAY){
-			mLlFlights.addView(FlightData.getItemView(this, this.getLayoutInflater(), null, mFlightOrder.getStartFlightData()));
+			View view = FlightData.getItemView(this, this.getLayoutInflater(), null, mFlightOrder.getStartFlightData());
+			view = FlightData.displayDepartTime(view, mFlightOrder.getStartFlightData());
+			mLlFlights.addView(view);
 		}else if(mFlightOrder.mTripType == FlightOrder.TRIP_ROUND){
-			mLlFlights.addView(FlightData.getItemView(this, this.getLayoutInflater(), null, mFlightOrder.getReturnFlightData()));
-			mLlFlights.addView(FlightData.getItemView(this, this.getLayoutInflater(), null, mFlightOrder.getStartFlightData()));
+			View view;
+			view = FlightData.getItemView(this, this.getLayoutInflater(), null, mFlightOrder.getStartFlightData());
+			view = FlightData.displayDepartTime(view, mFlightOrder.getStartFlightData());
+			mLlFlights.addView(view);
+
+			view = FlightData.getItemView(this, this.getLayoutInflater(), null, mFlightOrder.getReturnFlightData());
+			view = FlightData.displayDepartTime(view, mFlightOrder.getReturnFlightData());
+			mLlFlights.addView(view);
 		}
 	}
 
@@ -170,24 +188,24 @@ public class FlightOrderActivity extends Activity implements
 
 	}
 
+	/**
+	 * 设置一组乘客
+	 * @param passengerList
+	 */
 	@Override
-	public void addPassenger(final Passenger passenger) {
-		mFlightOrder.mListPassenger.add(passenger);
+	public void setPassengerList(List<Passenger> passengerList) {
 		LinearLayout ll = (LinearLayout) this.getLayoutInflater().inflate(R.layout.item_remove_container, null);
-		ImageView ivRemove = (ImageView)ll.findViewById(R.id.imageView_remove);
-		ivRemove.setClickable(true);
-		ivRemove.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				removePassenger(passenger);
-			}
-		});
-		ll.addView(Passenger.getItemView(this, this.getLayoutInflater(), null, passenger),  ll.getChildCount(),
-				new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
-		mLlPassengers.addView(ll);
+		ll.removeAllViews();
+		for(Passenger passenger:passengerList){
+			addPassenger(passenger);
+		}
 	}
 
+
+	/**
+	 * 移除一个乘客
+	 * @param passenger
+	 */
 	@Override
 	public void removePassenger(final Passenger passenger) {
 		int index = mFlightOrder.mListPassenger.indexOf(passenger);
@@ -202,9 +220,29 @@ public class FlightOrderActivity extends Activity implements
 
 	@Override
 	public void submitOrder() {
-		FlightOrderManager.getInstance().submitFlightOrder(mFlightOrder);
-		Toast.makeText(this, getString(R.string.order_submitted), Toast.LENGTH_SHORT).show();
-		finish();
+		Thread t = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				final String result = FlightOrderManager.getInstance().submitFlightOrder(mFlightOrder);
+				runOnUiThread(new Runnable() {
+					@Override
+					public void run() {
+						if(result.equals(FlightOrderManager.SUBMIT_FAILED)){
+							Toast.makeText(FlightOrderActivity.this, getString(R.string.order_submitted_failed), Toast.LENGTH_SHORT).show();
+						}
+						else{
+							Toast.makeText(FlightOrderActivity.this, getString(R.string.order_submitted), Toast.LENGTH_SHORT).show();
+							finish();
+						}
+					}
+				});
+
+			}
+		});
+		t.start();
+
+
+
 	}
 
 	@Override
@@ -215,6 +253,16 @@ public class FlightOrderActivity extends Activity implements
 	@Override
 	public void setFlightOrder(FlightOrder order) {
 		mFlightOrder = order;
+	}
+
+	@Override
+	public void showSubmitProgress() {
+
+	}
+
+	@Override
+	public void hideSubmitProgress() {
+
 	}
 
 
@@ -231,18 +279,18 @@ public class FlightOrderActivity extends Activity implements
 				@Override
 				public void run() {
 					mFlightOrder.mListPassenger.clear();
+					final List<Passenger> passengerList = new ArrayList<Passenger>();
 					for (String id : ids) {
-						final Passenger passenger = UserManager.getInstance().getPassengerById(
+						 Passenger passenger = UserManager.getInstance().getPassengerById(
 								id);
-						runOnUiThread(new Runnable() {
-							@Override
-							public void run() {
-								addPassenger(passenger);
-							}
-						});
-						
+						passengerList.add(passenger);
 					}
-					
+					runOnUiThread(new Runnable() {
+						@Override
+						public void run() {
+							setPassengerList(passengerList);
+						}
+					});
 				}
 			});
 			t.start();
@@ -250,16 +298,23 @@ public class FlightOrderActivity extends Activity implements
 	}
 	
 	
-	Handler mHandler = new Handler(){
-		@Override
-		public void dispatchMessage(Message msg) {
-			// TODO Auto-generated method stub
-			switch(msg.what){
-			case MESSAGE_SUBMIT_ORDER:
-				submitOrder();
-				break;
+
+
+	private void addPassenger(final Passenger passenger) {
+		mFlightOrder.mListPassenger.add(passenger);
+		LinearLayout ll = (LinearLayout) this.getLayoutInflater().inflate(R.layout.item_remove_container, null);
+		ImageView ivRemove = (ImageView)ll.findViewById(R.id.imageView_remove);
+		ivRemove.setClickable(true);
+		ivRemove.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				removePassenger(passenger);
 			}
-		}
-	};
+		});
+		ll.addView(Passenger.getItemView(this, this.getLayoutInflater(), null, passenger),  ll.getChildCount(),
+				new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
+		mLlPassengers.addView(ll);
+	}
 
 }

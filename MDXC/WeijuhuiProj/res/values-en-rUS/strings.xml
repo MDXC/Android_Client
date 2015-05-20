@@ -661,6 +661,7 @@
     <string name="CNY">CNY</string>
     <string name="USD">USD</string>
     <string name="order_submitted">Order submitted!!</string>
+    <string name="order_submitted_failed">Order submitted failed !!</string>
     <string name="depart_time">Depart Time</string>
     <string name="return_time">Return Time</string>
     <string name="reg_success">Register Success</string>

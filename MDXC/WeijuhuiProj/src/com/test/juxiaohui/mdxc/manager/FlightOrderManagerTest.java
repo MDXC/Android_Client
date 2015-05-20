@@ -24,10 +24,10 @@ public class FlightOrderManagerTest extends AndroidTestCase {
 
     public void testSubmitOrder()
     {
-/*        UserManager.getInstance().login("15510472558", "123456");
-        FlightData flightData = new FlightData();
-        FlightOrder flightOrder = FlightOrder.NULL;
-        mOrderManager.submitFlightOrder(flightOrder);
+        UserManager.getInstance().login("+86", "15510472558", "123456", "1", null);
+        FlightData flightData = FlightData.createTestData();
+        //FlightOrder flightOrder = FlightOrder.NULL;
+        //mOrderManager.submitFlightOrder(flightOrder);
 
         ContactUser contactUser = new ContactUser();
         List<Passenger> passengerList = new ArrayList<Passenger>();
@@ -41,10 +41,10 @@ public class FlightOrderManagerTest extends AndroidTestCase {
         }
 
         //登录
-        UserManager.getInstance().login("15510472558", "123456");
-        Assert.assertEquals(true, UserManager.getInstance().isLogin());*/
+        UserManager.getInstance().login("+86", "15510472558", "123456", "1", null);
+        Assert.assertEquals(true, UserManager.getInstance().isLogin());
 
-        //联系人无效，失败
+        //联系人无，失败
 
 
         //乘客信息无效，失败
@@ -52,6 +52,7 @@ public class FlightOrderManagerTest extends AndroidTestCase {
         //全部信息有效，提交订单，成功
 
         //重复提交，失败
+
 
     }
 
