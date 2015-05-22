@@ -811,5 +811,9 @@
     <string name="select_countryCode">Please select the phone\'s country code</string>
     <string name="login_fail">Login failed, will jump to the login screen</string>
     <string name="order_submitted_failed">Order submitted failed !!</string>
-
+    <string name="account_firstname_hint">First Name</string>
+    <string name="account_lastname_hint">Last Name</string>
+    <string name="account_email_hint">Email</string>
+    <string name="contact_text">Contact</string>
+    <string name="contact_add_text_hint">Click Here Add Contact Info</string>
 </resources>

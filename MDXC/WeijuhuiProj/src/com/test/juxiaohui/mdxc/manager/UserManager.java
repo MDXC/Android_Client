@@ -162,6 +162,7 @@ public class UserManager {
 		if(mCurrentUser!=User.NULL)
 		{
 			mContatctUser = contactUser;
+			saveContactUser();
 		}
 	}
 
@@ -174,6 +175,7 @@ public class UserManager {
 		//have already login
 		if(mCurrentUser!=User.NULL)
 		{
+			loadContactUser();
 			return mContatctUser;
 		}
 		else

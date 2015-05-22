@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -31,12 +32,15 @@ import com.test.juxiaohui.mdxc.mediator.IFlightOrderMediator;
 public class FlightOrderActivity extends Activity implements
 		IFlightOrderMediator {
 	public static int REQ_SELECT_PASSENGER = 0;
+	public static int REQ_CONTACT_INFO = 1;
 	public static final int MESSAGE_SUBMIT_ORDER = 1;
 	
 	private TextView mTvPerAireFarePrice,mTvPerAireFareCurrency,mTvPerTaxPrice,mTvPerTaxCurrency,mTvTotalPrice;
 	private ImageButton mIbAddPassenger;
 	private LinearLayout mLlFlights;
 	private LinearLayout mLlPassengers;
+	private LinearLayout mContactInfoLayout;
+	private LinearLayout mAddContactLayout;
 	private TextView mTvAddPassengers;
 	private UserManager mUserManager = UserManager.getInstance();
 	
@@ -45,7 +49,7 @@ public class FlightOrderActivity extends Activity implements
 	private LayoutInflater mInflater;
 	private FlightOrder mFlightOrder;
 	
-	
+	private String mOrderId = "";
 
 
 	Handler mHandler = new Handler(){
@@ -71,12 +75,12 @@ public class FlightOrderActivity extends Activity implements
 		super.onCreate(savedInstanceState);
 		mInflater = this.getLayoutInflater();
 		mSelf = (LinearLayout) mInflater.inflate(R.layout.activity_flight_book, null);
-		setFlightOrder(FlightOrderManager.getInstance().getFlightOrderbyId(getIntent().getStringExtra("order_id")));
+		mOrderId = getIntent().getStringExtra("order_id");
+		setFlightOrder(FlightOrderManager.getInstance().getFlightOrderbyId(mOrderId));
 		setContentView(mSelf);	
 		addFlightView();
 		addPassengerView();
 		addPriceView();
-
 		Button btn_OK = (Button)this.findViewById(R.id.btn_bottom_submit);
 		btn_OK.setOnClickListener(new OnClickListener() {
 			@Override
@@ -156,11 +160,64 @@ public class FlightOrderActivity extends Activity implements
 											toData.mPrice.mTicketPrice + toData.mPrice.mTax));
 
 	}
+	
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		addContactView();
+	}
 
 	@Override
 	public void addContactView() 
 	{
+		mContactInfoLayout = (LinearLayout)findViewById(R.id.contact_info_layout);
+		mAddContactLayout  = (LinearLayout)findViewById(R.id.add_contact_layout);
 		
+		if (!"".equals(mFlightOrder.mContactUser.contactName)) {
+			mContactInfoLayout.setVisibility(View.VISIBLE);
+			mAddContactLayout.setVisibility(View.GONE);
+			TextView contactNameView = (TextView)mContactInfoLayout.findViewById(R.id.contact_info_name);
+			contactNameView.setText(mFlightOrder.mContactUser.contactName);
+			
+			TextView contactEmailView = (TextView)mContactInfoLayout.findViewById(R.id.contact_info_email);
+			contactEmailView.setText(mFlightOrder.mContactUser.contEmail);
+			
+			TextView contactPhoneNumberView = (TextView)mContactInfoLayout.findViewById(R.id.contact_info_phonenumber);
+			contactPhoneNumberView.setText(mFlightOrder.mContactUser.contCountryCode+" "+mFlightOrder.mContactUser.contPhone);
+			
+			ImageView contactDetailView  = (ImageView)mContactInfoLayout.findViewById(R.id.contact_detail_info);
+			contactDetailView.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					Intent intent = new Intent();
+					intent.setClass(FlightOrderActivity.this, ContactEditorActivity.class);
+					intent.putExtra("contactName", mFlightOrder.mContactUser.contactName);
+					intent.putExtra("contEmail", mFlightOrder.mContactUser.contEmail);
+					intent.putExtra("contCountryCode", mFlightOrder.mContactUser.contCountryCode);
+					intent.putExtra("contPhone", mFlightOrder.mContactUser.contPhone);
+                    intent.putExtra("order_id", mOrderId);
+  					startActivity(intent);
+				}
+			});
+		} else {
+			mContactInfoLayout.setVisibility(View.GONE);
+			mAddContactLayout.setVisibility(View.VISIBLE);
+			TextView addContactTextView = (TextView)findViewById(R.id.add_contact_textview);
+			Log.d("FlightOrderActivity", addContactTextView.getText()+"");
+			addContactTextView.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					Intent intent = new Intent();
+					intent.setClass(FlightOrderActivity.this, ContactEditorActivity.class);
+					intent.putExtra("order_id", mOrderId);
+	  			    startActivity(intent);
+				}
+			});
+		}
 	}
 
 	@Override
@@ -294,7 +351,9 @@ public class FlightOrderActivity extends Activity implements
 				}
 			});
 			t.start();
-		}
+		} else if(requestCode == REQ_CONTACT_INFO) {
+			//不需要做任何处理。返回时直接会调用onResume函数。
+ 		}
 	}
 	
 	

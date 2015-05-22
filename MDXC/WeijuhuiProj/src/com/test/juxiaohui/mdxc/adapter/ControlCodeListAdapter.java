@@ -155,7 +155,7 @@ public class ControlCodeListAdapter extends BaseAdapter  implements StickyListHe
 			return null;
 		if (convertView == null) {
 			holder = new ItemViewHoler();
-			convertView = mInflater.inflate(R.layout.view_city_item,parent, false);
+			convertView = mInflater.inflate(R.layout.view_country_item,parent, false);
 			holder.title =  (TextView) convertView.findViewById(R.id.tv_title);
 			holder.subTitle = (TextView) convertView.findViewById(R.id.tv_subtitle);
 			holder.distance = (TextView) convertView.findViewById(R.id.tv_distance);

@@ -269,12 +269,6 @@
                     android:text="@string/adult_tickets_only"
                     android:textColor="@color/color_666666"
                     android:textSize="@dimen/font_size_large" />
-
-<!--                 <ImageButton
-                    android:id="@+id/imageButton_addPassenger"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/add" /> -->
             </LinearLayout>
 
             <TextView
@@ -313,6 +307,89 @@
                 <View style="@style/line_h" />
             </LinearLayout>
             <!-- <ctrip.english.views.common.ContactView android:id="@+id/cv_contact" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_10" /> -->
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_10"
+                android:paddingLeft="@dimen/margin_10"
+                android:paddingRight="@dimen/margin_10"
+                android:text="@string/contact_text"
+                android:textColor="@color/color_333333"
+                android:textSize="@dimen/font_size_medium" />
+
+
+            <LinearLayout
+                android:id="@+id/add_contact_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:paddingLeft="@dimen/margin_10"
+                    android:paddingRight="@dimen/margin_10"
+                    android:id="@+id/add_contact_textview"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_666666"
+                    android:drawableRight="@drawable/icon_right_arrow"
+                    android:text="@string/contact_add_text_hint" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/contact_info_layout"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" >
+
+                <LinearLayout
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.9"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/contact_info_name"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/margin_10"
+                        android:paddingRight="@dimen/margin_10"
+                        android:textColor="@color/color_666666"
+                        android:textSize="@dimen/font_size_x_small" />
+
+                    <TextView
+                        android:id="@+id/contact_info_email"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/margin_10"
+                        android:paddingRight="@dimen/margin_10"
+                        android:textColor="@color/color_666666"
+                        android:textSize="@dimen/font_size_x_small" />
+
+                    <TextView
+                        android:id="@+id/contact_info_phonenumber"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/margin_10"
+                        android:paddingRight="@dimen/margin_10"
+                        android:textColor="@color/color_666666"
+                        android:textSize="@dimen/font_size_x_small" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1" >
+
+                    <ImageView
+                        android:id="@+id/contact_detail_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="@dimen/margin_10"
+                        android:background="@drawable/icon_right_arrow" />
+                </LinearLayout>
+            </LinearLayout>
 
             <TextView
                 android:layout_width="fill_parent"

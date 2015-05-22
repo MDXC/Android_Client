@@ -1,6 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_efefef" >
+
+    <LinearLayout
+        android:id="@+id/contact_firstname_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <EditText
+            android:id="@+id/editText_contact_firstname"
+            style="@style/BaseInput"
+            android:layout_width="fill_parent"
+            android:background="@color/color_ffffff"
+            android:hint="@string/account_firstname_hint"
+            android:imeOptions="actionNext" />
+    </LinearLayout>
+
+    <View style="@style/line_h" />
+
+    <LinearLayout
+        android:id="@+id/contact_lastname_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/contact_firstname_layout" >
+
+        <EditText
+            android:id="@+id/editText_contact_lastname"
+            style="@style/BaseInput"
+            android:layout_width="fill_parent"
+            android:background="@color/color_ffffff"
+            android:hint="@string/account_lastname_hint"
+            android:imeOptions="actionNext" />
+    </LinearLayout>
+
+    <View style="@style/line_h" />
+
+    <LinearLayout
+        android:id="@+id/contact_email_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/contact_lastname_layout" >
+
+        <EditText
+            android:id="@+id/editText_contact_email"
+            style="@style/BaseInput"
+            android:layout_width="fill_parent"
+            android:background="@color/color_ffffff"
+            android:hint="@string/account_email_hint"
+            android:inputType="textEmailAddress"
+            android:imeOptions="actionNext" />
+    </LinearLayout>
+
+    <View style="@style/line_h" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:layout_below="@id/contact_email_layout"
+        android:orientation="horizontal" >
+
+        <Spinner
+            android:id="@+id/expandableListView_countryCode"
+            android:layout_width="wrap_content"
+            android:layout_height="50dip" />
+
+        <EditText
+            android:id="@+id/editText_contact_phonenumber"
+            style="@style/BaseInput"
+            android:layout_width="375dp"
+            android:background="@color/color_ffffff"
+            android:hint="@string/account_hint"
+            android:inputType="phone|number"
+            android:imeOptions="actionNext" />
+    </LinearLayout>
+
+    <View style="@style/line_h" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/color_ff9913" 
+        android:id="@+id/confirm_contact_info">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Done"
+            android:textColor="@color/white"
+            android:textSize="21sp" />
+    </RelativeLayout>
 
 </RelativeLayout>
