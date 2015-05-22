@@ -174,17 +174,18 @@ public class FlightOrderActivity extends Activity implements
 		mContactInfoLayout = (LinearLayout)findViewById(R.id.contact_info_layout);
 		mAddContactLayout  = (LinearLayout)findViewById(R.id.add_contact_layout);
 		
-		if (!"".equals(mFlightOrder.mContactUser.contactName)) {
+		if (ContactUser.NULL!= UserManager.getInstance().getContactUser()) {
+			final ContactUser contactUser = UserManager.getInstance().getContactUser();
 			mContactInfoLayout.setVisibility(View.VISIBLE);
 			mAddContactLayout.setVisibility(View.GONE);
 			TextView contactNameView = (TextView)mContactInfoLayout.findViewById(R.id.contact_info_name);
-			contactNameView.setText(mFlightOrder.mContactUser.contactName);
+			contactNameView.setText(contactUser.contactName);
 			
 			TextView contactEmailView = (TextView)mContactInfoLayout.findViewById(R.id.contact_info_email);
-			contactEmailView.setText(mFlightOrder.mContactUser.contEmail);
+			contactEmailView.setText(contactUser.contEmail);
 			
 			TextView contactPhoneNumberView = (TextView)mContactInfoLayout.findViewById(R.id.contact_info_phonenumber);
-			contactPhoneNumberView.setText(mFlightOrder.mContactUser.contCountryCode+" "+mFlightOrder.mContactUser.contPhone);
+			contactPhoneNumberView.setText(contactUser.contCountryCode+" "+contactUser.contPhone);
 			
 			ImageView contactDetailView  = (ImageView)mContactInfoLayout.findViewById(R.id.contact_detail_info);
 			contactDetailView.setOnClickListener(new OnClickListener() {
@@ -193,10 +194,10 @@ public class FlightOrderActivity extends Activity implements
 				public void onClick(View v) {
 					Intent intent = new Intent();
 					intent.setClass(FlightOrderActivity.this, ContactEditorActivity.class);
-					intent.putExtra("contactName", mFlightOrder.mContactUser.contactName);
-					intent.putExtra("contEmail", mFlightOrder.mContactUser.contEmail);
-					intent.putExtra("contCountryCode", mFlightOrder.mContactUser.contCountryCode);
-					intent.putExtra("contPhone", mFlightOrder.mContactUser.contPhone);
+					intent.putExtra("contactName", contactUser.contactName);
+					intent.putExtra("contEmail", contactUser.contEmail);
+					intent.putExtra("contCountryCode", contactUser.contCountryCode);
+					intent.putExtra("contPhone", contactUser.contPhone);
                     intent.putExtra("order_id", mOrderId);
   					startActivity(intent);
 				}
@@ -374,6 +375,12 @@ public class FlightOrderActivity extends Activity implements
 		ll.addView(Passenger.getItemView(this, this.getLayoutInflater(), null, passenger),  ll.getChildCount(),
 				new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
 		mLlPassengers.addView(ll);
+	}
+
+	public void setContactUser(ContactUser contactUser){
+		if(contactUser!=null&&contactUser!=ContactUser.NULL){
+
+		}
 	}
 
 }

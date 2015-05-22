@@ -222,15 +222,15 @@ class MySpinnerAdapter implements SpinnerAdapter {
     
     
     private void initData(){
-    	
-    	if (!"".equals(mFlightOrder.mContactUser.contactName)) {
+		final ContactUser contactUser = UserManager.getInstance().getContactUser();
+    	if (ContactUser.NULL!=contactUser) {
     		
-    		String[] contactName = mFlightOrder.mContactUser.contactName.split("/");
+    		String[] contactName = contactUser.contactName.split("/");
     		firstNameEdit.setText(contactName[0]);
     		lastNameEdit.setText(contactName[1]);
-    		emailEdit.setText(mFlightOrder.mContactUser.contEmail);
-    		phoneNumberEdit.setText(mFlightOrder.mContactUser.contPhone);
-    		int index = mSpinnerAdapter.mCountryCodeList.indexOf(mFlightOrder.mContactUser.contCountryCode);
+    		emailEdit.setText(contactUser.contEmail);
+    		phoneNumberEdit.setText(contactUser.contPhone);
+    		int index = mSpinnerAdapter.mCountryCodeList.indexOf(contactUser.contCountryCode);
     		mElvCountryCode.setSelection(index);
     		
     	}
@@ -242,20 +242,20 @@ class MySpinnerAdapter implements SpinnerAdapter {
 			public void onClick(View v) {
 				if (("".equals(firstNameEdit.getText().toString().trim()))) {
 					
-					Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), "Please Input First Name", Toast.LENGTH_SHORT).show();
 					
 				} else if("".equals(lastNameEdit.getText().toString().trim())) { 
 					
-					Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), "Please Input Last Name", Toast.LENGTH_SHORT).show();
 
 				} else if("".equals(emailEdit.getText().toString().trim())) {
 					
-					Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), "Please Input Your Email", Toast.LENGTH_SHORT).show();
 					
 				} else if("".equals(phoneNumberEdit.getText().toString().trim())) {
 					
-					Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
-					
+					Toast.makeText(getApplicationContext(), "Please Input Your Phone Number", Toast.LENGTH_SHORT).show();
+
 				} else {
 					
 					confirm();
