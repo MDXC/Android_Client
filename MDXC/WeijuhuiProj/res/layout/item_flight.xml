@@ -167,9 +167,9 @@
                                 android:layout_width="wrap_content" 
                                 android:layout_height="wrap_content">
                                 
-                                <include android:id="@+id/view_stop_0" layout="@layout/view_stop_info" android:visibility="invisible"/>
-                                <include android:id="@+id/view_stop_1" layout="@layout/view_stop_info" android:visibility="invisible"/>
-                                <include android:id="@+id/view_stop_2" layout="@layout/view_stop_info" android:visibility="invisible"/>
+                                <include android:id="@+id/view_stop_0" layout="@layout/view_stop_info" android:visibility="gone"/>
+                                <include android:id="@+id/view_stop_1" layout="@layout/view_stop_info" android:visibility="gone"/>
+                                <include android:id="@+id/view_stop_2" layout="@layout/view_stop_info" android:visibility="gone"/>
                             </LinearLayout>
                         </LinearLayout>
                     </RelativeLayout>

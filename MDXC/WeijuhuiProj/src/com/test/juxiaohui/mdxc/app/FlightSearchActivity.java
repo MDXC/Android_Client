@@ -18,6 +18,7 @@ import com.test.juxiaohui.mdxc.data.FlightData;
 import com.test.juxiaohui.mdxc.data.FlightOrder;
 import com.test.juxiaohui.mdxc.data.FlightSearchRequest;
 import com.test.juxiaohui.mdxc.manager.FlightOrderManager;
+import com.test.juxiaohui.mdxc.manager.UserManager;
 import com.test.juxiaohui.mdxc.mediator.IFlightSearchMediator;
 import com.test.juxiaohui.widget.CalendarActivity;
 import com.test.juxiaohui.widget.CalendarActivity.onDataSelectedListener;
@@ -456,11 +457,9 @@ public class FlightSearchActivity extends Activity implements IFlightSearchMedia
     @Override
     public void onSetStartFlight(FlightData data) {
         mCurrentOrder.setStartFlightData(data);
-        if(mSearchRequest.mTripType==FlightOrder.TRIP_ONE_WAY)
-        {
+        if (mSearchRequest.mTripType == FlightOrder.TRIP_ONE_WAY) {
             FlightOrderActivity.startActivity(mCurrentOrder.mId, this);
-        }
-        else if(mSearchRequest.mTripType == FlightOrder.TRIP_ROUND){
+        } else if (mSearchRequest.mTripType == FlightOrder.TRIP_ROUND) {
             search(1);
         }
     }

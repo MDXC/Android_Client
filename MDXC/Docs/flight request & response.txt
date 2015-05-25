@@ -8,719 +8,753 @@ departDate：出发日期
 returnDate：返回日期
 cabin: 机舱类型
 
-response :
 {
-    errors: null, 错误信息
-    prices: [ 报价
-        {
-            currency: "RMB", 币种
-            price: "2788", 只用这个即可
-            publishPrice: "2840", 原价（航空公司价格）
-            taxes: "2701", 税费
-            surcharge: "0", 附加税
-            expression: "1/2[LAX-AA-Q-SHA(NOA,N121582468T,S50952,C23580)]+1/2[SHA-AA-N-DFW-AA-N-LAX(NOA,N121541912T,S50952,C23580)]",
-            fromNumbers: [ 去航班号 （映射flights节点number）
-                "AA183",
-                "AA183",
-                "AA183"
-            ],
-            toNumbers: [ 返回航班号 （映射flights节点number）
-                "AA128",
-                "AA2495",
-                "AA128",
-                "AA2497",
-                "AA128",
-                "AA2499"
-            ],
-            fromCabin: "Economy", 去航班舱
-            toCabin: "Economy", 返回航班舱
-            refund: null, 退款说明
-            reroute: null, 改签说明
-            toBaggage: { 返回行李说明
-                content: "SHA-DFW: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|DFW-LAX: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；",
-                localContent: null
-            },
-            fromBaggage: { 去行李说明
-                content: "LAX-SHA: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；",
-                localContent: null
-            },
-            remark: null 备注信息
+    "toAirports": {
+        "HKG": {
+            "code": "HKG",
+            "name": "HONG KONG",
+            "localName": "赤腊角国际机场",
+            "shortLocalName": "赤腊角",
+            "cityId": 58
+        },
+        "TPE": {
+            "code": "TPE",
+            "name": "TAIWAN TAOYUAN",
+            "localName": "桃园中正国际机场",
+            "shortLocalName": "桃园中正",
+            "cityId": 617
+        },
+        "HNL": {
+            "code": "HNL",
+            "name": "HONOLULU",
+            "localName": "火奴鲁鲁国际机场",
+            "shortLocalName": "火奴鲁鲁",
+            "cityId": 757
+        },
+        "ICN": {
+            "code": "ICN",
+            "name": "INCHEON",
+            "localName": "仁川国际机场",
+            "shortLocalName": "仁川",
+            "cityId": 274
+        },
+        "DXB": {
+            "code": "DXB",
+            "name": "DUBAI",
+            "localName": "迪拜机场",
+            "shortLocalName": "迪拜",
+            "cityId": 220
+        },
+        "ORD": {
+            "code": "ORD",
+            "name": "O'HARE",
+            "localName": "奥黑尔国际机场",
+            "shortLocalName": "奥黑尔国际",
+            "cityId": 549
+        },
+        "PVG": {
+            "code": "PVG",
+            "name": "PU DONG",
+            "localName": "浦东国际机场",
+            "shortLocalName": "浦东",
+            "cityId": 2
+        },
+        "DOH": {
+            "code": "DOH",
+            "name": "DOHA",
+            "localName": "多哈机场",
+            "shortLocalName": "多哈",
+            "cityId": 1401
         }
-    ],
-    flights: { 航班信息
-        AA2279: { 航班编号
-            airline: "AA", 航空公司简称
-            number: "AA2279", 航班编号
-            aircraft: "738", 航班型号
-            fromCity: "CHI", 出发城市
-            toCity: "LAX", 到达城市
-            fromAirport: "ORD", 出发机场
-            toAirport: "LAX", 到达机场
-            fromTime: "2015-04-24T21:35:00", 出发时间
-            toTime: "2015-04-25T00:06:00", 到达时间
-            duration: 271 运行时间 （单位分钟）
+    },
+    "flights": {
+        "KA870": {
+            "airline": "KA",
+            "number": "KA870",
+            "aircraft": "333",
+            "fromCity": "HKG",
+            "toCity": "SHA",
+            "fromAirport": "HKG",
+            "toAirport": "PVG",
+            "fromTime": "2015-05-28T21:15:00",
+            "toTime": "2015-05-28T23:40:00",
+            "duration": 145
+        },
+        "HA459": {
+            "airline": "HA",
+            "number": "HA459",
+            "aircraft": "332",
+            "fromCity": "HNL",
+            "toCity": "SEL",
+            "fromAirport": "HNL",
+            "toAirport": "ICN",
+            "fromTime": "2015-05-28T13:25:00",
+            "toTime": "2015-05-29T18:50:00",
+            "duration": 625
+        },
+        "EK216": {
+            "airline": "EK",
+            "number": "EK216",
+            "aircraft": "388",
+            "fromCity": "LAX",
+            "toCity": "DXB",
+            "fromAirport": "LAX",
+            "toAirport": "DXB",
+            "fromTime": "2015-05-27T16:45:00",
+            "toTime": "2015-05-28T19:35:00",
+            "duration": 950
+        },
+        "QR870": {
+            "airline": "QR",
+            "number": "QR870",
+            "aircraft": "77W",
+            "fromCity": "DOH",
+            "toCity": "SHA",
+            "fromAirport": "DOH",
+            "toAirport": "PVG",
+            "fromTime": "2015-05-29T01:25:00",
+            "toTime": "2015-05-29T14:50:00",
+            "duration": 505
+        },
+        "CX885": {
+            "airline": "CX",
+            "number": "CX885",
+            "aircraft": "77W",
+            "fromCity": "LAX",
+            "toCity": "HKG",
+            "fromAirport": "LAX",
+            "toAirport": "HKG",
+            "fromTime": "2015-05-27T13:00:00",
+            "toTime": "2015-05-28T18:55:00",
+            "duration": 895
+        },
+        "CI505": {
+            "airline": "CI",
+            "number": "CI505",
+            "aircraft": "744",
+            "fromCity": "TPE",
+            "toCity": "SHA",
+            "fromAirport": "TPE",
+            "toAirport": "PVG",
+            "fromTime": "2015-05-29T17:50:00",
+            "toTime": "2015-05-29T19:40:00",
+            "duration": 110
+        },
+        "AA2278": {
+            "airline": "AA",
+            "number": "AA2278",
+            "aircraft": "738",
+            "fromCity": "LAX",
+            "toCity": "CHI",
+            "fromAirport": "LAX",
+            "toAirport": "ORD",
+            "fromTime": "2015-05-27T05:00:00",
+            "toTime": "2015-05-27T11:06:00",
+            "duration": 246
+        },
+        "CX360": {
+            "airline": "CX",
+            "number": "CX360",
+            "aircraft": "333",
+            "fromCity": "HKG",
+            "toCity": "SHA",
+            "fromAirport": "HKG",
+            "toAirport": "PVG",
+            "fromTime": "2015-05-29T13:55:00",
+            "toTime": "2015-05-29T16:25:00",
+            "duration": 150
+        },
+        "CI501": {
+            "airline": "CI",
+            "number": "CI501",
+            "aircraft": "77W",
+            "fromCity": "TPE",
+            "toCity": "SHA",
+            "fromAirport": "TPE",
+            "toAirport": "PVG",
+            "fromTime": "2015-05-29T09:05:00",
+            "toTime": "2015-05-29T10:50:00",
+            "duration": 105
+        },
+        "CX364": {
+            "airline": "CX",
+            "number": "CX364",
+            "aircraft": "343",
+            "fromCity": "HKG",
+            "toCity": "SHA",
+            "fromAirport": "HKG",
+            "toAirport": "PVG",
+            "fromTime": "2015-05-29T17:35:00",
+            "toTime": "2015-05-29T20:10:00",
+            "duration": 155
+        },
+        "CI503": {
+            "airline": "CI",
+            "number": "CI503",
+            "aircraft": "744",
+            "fromCity": "TPE",
+            "toCity": "SHA",
+            "fromAirport": "TPE",
+            "toAirport": "PVG",
+            "fromTime": "2015-05-29T16:50:00",
+            "toTime": "2015-05-29T18:35:00",
+            "duration": 105
+        },
+        "QR722": {
+            "airline": "QR",
+            "number": "QR722",
+            "aircraft": "77W",
+            "fromCity": "CHI",
+            "toCity": "DOH",
+            "fromAirport": "ORD",
+            "toAirport": "DOH",
+            "fromTime": "2015-05-27T19:45:00",
+            "toTime": "2015-05-28T17:05:00",
+            "duration": 800
+        },
+        "HA009": {
+            "airline": "HA",
+            "number": "HA009",
+            "aircraft": "332",
+            "fromCity": "LAX",
+            "toCity": "HNL",
+            "fromAirport": "LAX",
+            "toAirport": "HNL",
+            "fromTime": "2015-05-27T18:00:00",
+            "toTime": "2015-05-27T20:35:00",
+            "duration": 335
+        },
+        "CX368": {
+            "airline": "CX",
+            "number": "CX368",
+            "aircraft": "333",
+            "fromCity": "HKG",
+            "toCity": "SHA",
+            "fromAirport": "HKG",
+            "toAirport": "PVG",
+            "fromTime": "2015-05-29T08:40:00",
+            "toTime": "2015-05-29T11:10:00",
+            "duration": 150
+        },
+        "OZ361": {
+            "airline": "OZ",
+            "number": "OZ361",
+            "aircraft": "333",
+            "fromCity": "SEL",
+            "toCity": "SHA",
+            "fromAirport": "ICN",
+            "toAirport": "PVG",
+            "fromTime": "2015-05-30T09:05:00",
+            "toTime": "2015-05-30T10:05:00",
+            "duration": 120
+        },
+        "CI005": {
+            "airline": "CI",
+            "number": "CI005",
+            "aircraft": "77W",
+            "fromCity": "LAX",
+            "toCity": "TPE",
+            "fromAirport": "LAX",
+            "toAirport": "TPE",
+            "fromTime": "2015-05-27T16:00:00",
+            "toTime": "2015-05-28T21:05:00",
+            "duration": 845
+        },
+        "CX883": {
+            "airline": "CX",
+            "number": "CX883",
+            "aircraft": "77W",
+            "fromCity": "LAX",
+            "toCity": "HKG",
+            "fromAirport": "LAX",
+            "toAirport": "HKG",
+            "fromTime": "2015-05-27T23:55:00",
+            "toTime": "2015-05-29T05:45:00",
+            "duration": 890
+        },
+        "EK304": {
+            "airline": "EK",
+            "number": "EK304",
+            "aircraft": "77W",
+            "fromCity": "DXB",
+            "toCity": "SHA",
+            "fromAirport": "DXB",
+            "toAirport": "PVG",
+            "fromTime": "2015-05-29T09:35:00",
+            "toTime": "2015-05-29T22:00:00",
+            "duration": 505
         }
-    }
-}
-
-Sample
-
-http://64.251.7.148/flight/list?from=LAX&to=SHA&departDate=2015/04/14&returnDate=2015/04/15&cabin=Economy
-
-{
-    "errors":null,
-    "prices":[
-        {
-            "currency":"RMB",
-            "price":"4120",
-            "publishPrice":"4120",
-            "taxes":"2666",
-            "surcharge":"0",
-            "expression":"1/2[LAX-AA-S-SHA(NOA,N121567184T,S50952,C26672)]+1/2[SHA-AA-S-LAX(NOA,N121567184T,S50952,C26672)]",
-            "fromCabin":"Economy",
-            "toCabin":"Economy",
-            "refund":null,
-            "reroute":null,
-            "toBaggage":{
-                "content":"SHA-LAX: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；",
-                "localContent":null
-            },
-            "fromBaggage":{
-                "content":"LAX-SHA: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；",
-                "localContent":null
-            },
-            "remark":null
-        },
-        {
-            "currency":"RMB",
-            "price":"18836",
-            "publishPrice":"18580",
-            "taxes":"2666",
-            "surcharge":"0",
-            "expression":"1/2[LAX-AA-Y-DFW-AA-Y-SHA(NOA,N121562143T,S50952,C26672)]+1/2[SHA-AA-S-LAX(NOA,N121567184T,S50952,C26672)]",
-            "fromCabin":"Economy",
-            "toCabin":"Economy",
-            "refund":null,
-            "reroute":null,
-            "toBaggage":{
-                "content":"SHA-LAX: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；",
-                "localContent":null
-            },
-            "fromBaggage":{
-                "content":"LAX-DFW: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|DFW-SHA: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；",
-                "localContent":null
-            },
-            "remark":null
-        },
-        {
-            "currency":"RMB",
-            "price":"18836",
-            "publishPrice":"18580",
-            "taxes":"2666",
-            "surcharge":"0",
-            "expression":"1/2[LAX-AA-Y-DFW-AA-Y-SHA(NOA,N121562143T,S50952,C26672)]+1/2[SHA-AA-S-LAX(NOA,N121567184T,S50952,C26672)]",
-            "fromCabin":"Economy",
-            "toCabin":"Economy",
-            "refund":null,
-            "reroute":null,
-            "toBaggage":{
-                "content":"SHA-LAX: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；",
-                "localContent":null
-            },
-            "fromBaggage":{
-                "content":"LAX-DFW: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|DFW-SHA: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；",
-                "localContent":null
-            },
-            "remark":null
-        },
-        {
-            "currency":"RMB",
-            "price":"33955",
-            "publishPrice":"33040",
-            "taxes":"3278",
-            "surcharge":"0",
-            "expression":"1/2[LAX-AA-Y-DFW-AA-Y-SHA(NOA,N121562143T,S50952,C26672)]+1/2[SHA-CA-Y-TYO-AA-Y-LAX(NOA,N121562143T,S40659,C26672)]",
-            "fromCabin":"Economy",
-            "toCabin":"Economy",
-            "refund":null,
-            "reroute":null,
-            "toBaggage":{
-                "content":"SHA-TYO: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|TYO-LAX: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；",
-                "localContent":null
-            },
-            "fromBaggage":{
-                "content":"LAX-DFW: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|DFW-SHA: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；",
-                "localContent":null
-            },
-            "remark":null
-        },
-        {
-            "currency":"RMB",
-            "price":"33955",
-            "publishPrice":"33040",
-            "taxes":"3278",
-            "surcharge":"0",
-            "expression":"1/2[LAX-AA-Y-DFW-AA-Y-SHA(NOA,N121562143T,S50952,C26672)]+1/2[SHA-CA-Y-TYO-AA-Y-LAX(NOA,N121562143T,S40659,C26672)]",
-            "fromCabin":"Economy",
-            "toCabin":"Economy",
-            "refund":null,
-            "reroute":null,
-            "toBaggage":{
-                "content":"SHA-TYO: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|TYO-LAX: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；",
-                "localContent":null
-            },
-            "fromBaggage":{
-                "content":"LAX-DFW: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|DFW-SHA: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；",
-                "localContent":null
-            },
-            "remark":null
-        },
-        {
-            "currency":"RMB",
-            "price":"71546",
-            "publishPrice":"69620",
-            "taxes":"3471",
-            "surcharge":"0",
-            "expression":"1/2[LAX-AA-Y-DFW-AA-Y-SHA(NOA,N121562143T,S50952,C26672)]+1/2[SHA-JL-J$I$C$D$X$Y$G-TYO-AA-J$Y-LAX(NOA,N121579942T,S40659,C26672)]",
-            "fromCabin":"Economy",
-            "toCabin":"Business",
-            "refund":null,
-            "reroute":null,
-            "toBaggage":{
-                "content":"SHA-TYO: 3 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|TYO-LAX: 3 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；",
-                "localContent":null
-            },
-            "fromBaggage":{
-                "content":"LAX-DFW: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|DFW-SHA: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；",
-                "localContent":null
-            },
-            "remark":null
-        },
-        {
-            "currency":"RMB",
-            "price":"71546",
-            "publishPrice":"69620",
-            "taxes":"3471",
-            "surcharge":"0",
-            "expression":"1/2[LAX-AA-Y-DFW-AA-Y-SHA(NOA,N121562143T,S50952,C26672)]+1/2[SHA-JL-J$I$C$D$X$Y$G-TYO-AA-J$Y-LAX(NOA,N121579942T,S40659,C26672)]",
-            "fromCabin":"Economy",
-            "toCabin":"Business",
-            "refund":null,
-            "reroute":null,
-            "toBaggage":{
-                "content":"SHA-TYO: 3 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|TYO-LAX: 3 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；",
-                "localContent":null
-            },
-            "fromBaggage":{
-                "content":"LAX-DFW: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|DFW-SHA: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；",
-                "localContent":null
-            },
-            "remark":null
-        }
-    ],
-    "flights":{
-        "JL5602":{
-            "airline":"JL",
-            "number":"JL5602",
-            "aircraft":"EQV",
-            "fromCity":"SHA",
-            "toCity":"TYO",
-            "fromAirport":"PVG",
-            "toAirport":"NRT",
-            "fromTime":"2015-04-15T17:30:00",
-            "toTime":"2015-04-15T20:55:00",
-            "duration":145
-        },
-        "AA2406":{
-            "airline":"AA",
-            "number":"AA2406",
-            "aircraft":"757",
-            "fromCity":"LAX",
-            "toCity":"DFW",
-            "fromAirport":"LAX",
-            "toAirport":"DFW",
-            "fromTime":"2015-04-14T00:59:00",
-            "toTime":"2015-04-14T05:54:00",
-            "duration":175
-        },
-        "AA182":{
-            "airline":"AA",
-            "number":"AA182",
-            "aircraft":"777",
-            "fromCity":"SHA",
-            "toCity":"LAX",
-            "fromAirport":"PVG",
-            "toAirport":"LAX",
-            "fromTime":"2015-04-15T18:10:00",
-            "toTime":"2015-04-15T14:55:00",
-            "duration":705
-        },
-        "AA127":{
-            "airline":"AA",
-            "number":"AA127",
-            "aircraft":"777",
-            "fromCity":"DFW",
-            "toCity":"SHA",
-            "fromAirport":"DFW",
-            "toAirport":"PVG",
-            "fromTime":"2015-04-14T10:30:00",
-            "toTime":"2015-04-15T14:55:00",
-            "duration":925
-        },
-        "AA183":{
-            "airline":"AA",
-            "number":"AA183",
-            "aircraft":"777",
-            "fromCity":"LAX",
-            "toCity":"SHA",
-            "fromAirport":"LAX",
-            "toAirport":"PVG",
-            "fromTime":"2015-04-14T11:10:00",
-            "toTime":"2015-04-15T16:10:00",
-            "duration":840
-        },
-        "AA170":{
-            "airline":"AA",
-            "number":"AA170",
-            "aircraft":"777",
-            "fromCity":"TYO",
-            "toCity":"LAX",
-            "fromAirport":"NRT",
-            "toAirport":"LAX",
-            "fromTime":"2015-04-16T17:25:00",
-            "toTime":"2015-04-16T11:35:00",
-            "duration":610
-        },
-        "AA2400":{
-            "airline":"AA",
-            "number":"AA2400",
-            "aircraft":"757",
-            "fromCity":"LAX",
-            "toCity":"DFW",
-            "fromAirport":"LAX",
-            "toAirport":"DFW",
-            "fromTime":"2015-04-14T01:15:00",
-            "toTime":"2015-04-14T06:07:00",
-            "duration":172
-        },
-        "CA157":{
-            "airline":"CA",
-            "number":"CA157",
-            "aircraft":"738",
-            "fromCity":"SHA",
-            "toCity":"TYO",
-            "fromAirport":"PVG",
-            "toAirport":"NRT",
-            "fromTime":"2015-04-15T17:20:00",
-            "toTime":"2015-04-15T20:40:00",
-            "duration":140
-        }
-    }
-}
-
-{"errors":null,"prices":[{"currency":"RMB","price":"4088","publishPrice":"4050","taxes":"2625","surcharge":"0","expression":"1/2[LAX-AA-S-SHA(NOA,N121567184T,S50952,C27109)]+1/2[SHA-AA-S-LAX(NOA,N121567184T,S50952,C27109)]","fromNumbers":["AA183"],"toNumbers":["AA182"],"fromCabin":"Economy","toCabin":"Economy","refund":null,"reroute":null,"toBaggage":{"content":"SHA-LAX: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；","localContent":null},"fromBaggage":{"content":"LAX-SHA: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；","localContent":null},"remark":null},{"currency":"RMB","price":"18707","publishPrice":"18290","taxes":"2625","surcharge":"0","expression":"1/2[LAX-AA-Y-DFW-AA-Y-SHA(NOA,N121562143T,S50952,C27109)]+1/2[SHA-AA-S-LAX(NOA,N121567184T,S50952,C27109)]","fromNumbers":["AA2406","AA127","AA2400","AA127"],"toNumbers":["AA182","AA182"],"fromCabin":"Economy","toCabin":"Economy","refund":null,"reroute":null,"toBaggage":{"content":"SHA-LAX: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；","localContent":null},"fromBaggage":{"content":"LAX-DFW: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|DFW-SHA: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；","localContent":null},"remark":null},{"currency":"RMB","price":"18707","publishPrice":"18290","taxes":"2625","surcharge":"0","expression":"1/2[LAX-AA-Y-DFW-AA-Y-SHA(NOA,N121562143T,S50952,C27109)]+1/2[SHA-AA-S-LAX(NOA,N121567184T,S50952,C27109)]","fromNumbers":["AA2406","AA127","AA2400","AA127"],"toNumbers":["AA182","AA182"],"fromCabin":"Economy","toCabin":"Economy","refund":null,"reroute":null,"toBaggage":{"content":"SHA-LAX: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；","localContent":null},"fromBaggage":{"content":"LAX-DFW: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|DFW-SHA: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；","localContent":null},"remark":null},{"currency":"RMB","price":"33723","publishPrice":"32520","taxes":"3234","surcharge":"0","expression":"1/2[LAX-AA-Y-DFW-AA-Y-SHA(NOA,N121562143T,S50952,C27109)]+1/2[SHA-CA-Y-TYO-AA-Y-LAX(NOA,N121562143T,S40659,C27109)]","fromNumbers":["AA2406","AA127","AA2400","AA127"],"toNumbers":["CA157","AA170","CA157","AA170"],"fromCabin":"Economy","toCabin":"Economy","refund":null,"reroute":null,"toBaggage":{"content":"SHA-TYO: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|TYO-LAX: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；","localContent":null},"fromBaggage":{"content":"LAX-DFW: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|DFW-SHA: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；","localContent":null},"remark":null},{"currency":"RMB","price":"33723","publishPrice":"32520","taxes":"3234","surcharge":"0","expression":"1/2[LAX-AA-Y-DFW-AA-Y-SHA(NOA,N121562143T,S50952,C27109)]+1/2[SHA-CA-Y-TYO-AA-Y-LAX(NOA,N121562143T,S40659,C27109)]","fromNumbers":["AA2406","AA127","AA2400","AA127"],"toNumbers":["CA157","AA170","CA157","AA170"],"fromCabin":"Economy","toCabin":"Economy","refund":null,"reroute":null,"toBaggage":{"content":"SHA-TYO: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|TYO-LAX: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；","localContent":null},"fromBaggage":{"content":"LAX-DFW: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|DFW-SHA: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；","localContent":null},"remark":null},{"currency":"RMB","price":"71064","publishPrice":"68530","taxes":"3417","surcharge":"0","expression":"1/2[LAX-AA-Y-DFW-AA-Y-SHA(NOA,N121562143T,S50952,C27109)]+1/2[SHA-JL-J$I$C$D$X$Y$G-TYO-AA-J$Y-LAX(NOA,N121579942T,S40659,C27109)]","fromNumbers":["AA2406","AA127","AA2400","AA127"],"toNumbers":["JL5602","AA170","JL5602","AA170"],"fromCabin":"Economy","toCabin":"Business","refund":null,"reroute":null,"toBaggage":{"content":"SHA-TYO: 3 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|TYO-LAX: 3 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；","localContent":null},"fromBaggage":{"content":"LAX-DFW: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|DFW-SHA: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；","localContent":null},"remark":null},{"currency":"RMB","price":"71064","publishPrice":"68530","taxes":"3417","surcharge":"0","expression":"1/2[LAX-AA-Y-DFW-AA-Y-SHA(NOA,N121562143T,S50952,C27109)]+1/2[SHA-JL-J$I$C$D$X$Y$G-TYO-AA-J$Y-LAX(NOA,N121579942T,S40659,C27109)]","fromNumbers":["AA2406","AA127","AA2400","AA127"],"toNumbers":["JL5602","AA170","JL5602","AA170"],"fromCabin":"Economy","toCabin":"Business","refund":null,"reroute":null,"toBaggage":{"content":"SHA-TYO: 3 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|TYO-LAX: 3 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；","localContent":null},"fromBaggage":{"content":"LAX-DFW: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|DFW-SHA: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；","localContent":null},"remark":null},{"currency":"RMB","price":"71064","publishPrice":"68530","taxes":"5630","surcharge":"0","expression":"1/2[LAX-AA-Y-DFW-AA-Y-SHA(NOA,N121562143T,S50952,C27109)]+1/2[SHA-MU-C$J$Y-TYO-AA-J$Y-LAX(NOA,N121579942T,S40659,C27109)]","fromNumbers":["AA2406","AA127","AA2400","AA127"],"toNumbers":["MU271","AA170","MU271","AA170"],"fromCabin":"Economy","toCabin":"Business","refund":null,"reroute":null,"toBaggage":{"content":"SHA-TYO: 3 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|TYO-LAX: 3 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；","localContent":null},"fromBaggage":{"content":"LAX-DFW: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|DFW-SHA: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；","localContent":null},"remark":null},{"currency":"RMB","price":"71064","publishPrice":"68530","taxes":"5630","surcharge":"0","expression":"1/2[LAX-AA-Y-DFW-AA-Y-SHA(NOA,N121562143T,S50952,C27109)]+1/2[SHA-MU-C$J$Y-TYO-AA-J$Y-LAX(NOA,N121579942T,S40659,C27109)]","fromNumbers":["AA2406","AA127","AA2400","AA127"],"toNumbers":["MU271","AA170","MU271","AA170"],"fromCabin":"Economy","toCabin":"Business","refund":null,"reroute":null,"toBaggage":{"content":"SHA-TYO: 3 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|TYO-LAX: 3 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；","localContent":null},"fromBaggage":{"content":"LAX-DFW: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|DFW-SHA: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；","localContent":null},"remark":null}],"flights":{"JL5602":{"airline":"JL","number":"JL5602","aircraft":"EQV","fromCity":"SHA","toCity":"TYO","fromAirport":"PVG","toAirport":"NRT","fromTime":"2015-04-15T17:30:00","toTime":"2015-04-15T20:55:00","duration":145},"AA2406":{"airline":"AA","number":"AA2406","aircraft":"757","fromCity":"LAX","toCity":"DFW","fromAirport":"LAX","toAirport":"DFW","fromTime":"2015-04-14T00:59:00","toTime":"2015-04-14T05:54:00","duration":175},"MU271":{"airline":"MU","number":"MU271","aircraft":"321","fromCity":"SHA","toCity":"TYO","fromAirport":"PVG","toAirport":"NRT","fromTime":"2015-04-15T17:30:00","toTime":"2015-04-15T20:55:00","duration":145},"AA182":{"airline":"AA","number":"AA182","aircraft":"777","fromCity":"SHA","toCity":"LAX","fromAirport":"PVG","toAirport":"LAX","fromTime":"2015-04-15T18:10:00","toTime":"2015-04-15T14:55:00","duration":705},"AA127":{"airline":"AA","number":"AA127","aircraft":"777","fromCity":"DFW","toCity":"SHA","fromAirport":"DFW","toAirport":"PVG","fromTime":"2015-04-14T10:30:00","toTime":"2015-04-15T14:55:00","duration":925},"AA183":{"airline":"AA","number":"AA183","aircraft":"777","fromCity":"LAX","toCity":"SHA","fromAirport":"LAX","toAirport":"PVG","fromTime":"2015-04-14T11:10:00","toTime":"2015-04-15T16:10:00","duration":840},"AA170":{"airline":"AA","number":"AA170","aircraft":"777","fromCity":"TYO","toCity":"LAX","fromAirport":"NRT","toAirport":"LAX","fromTime":"2015-04-16T17:25:00","toTime":"2015-04-16T11:35:00","duration":610},"AA2400":{"airline":"AA","number":"AA2400","aircraft":"757","fromCity":"LAX","toCity":"DFW","fromAirport":"LAX","toAirport":"DFW","fromTime":"2015-04-14T01:15:00","toTime":"2015-04-14T06:07:00","duration":172},"CA157":{"airline":"CA","number":"CA157","aircraft":"738","fromCity":"SHA","toCity":"TYO","fromAirport":"PVG","toAirport":"NRT","fromTime":"2015-04-15T17:20:00","toTime":"2015-04-15T20:40:00","duration":140}}}
-
-{
+    },
     "errors": null,
+    "cities": {
+        "SHA": {
+            "id": 2,
+            "code": "SHA",
+            "name": "Shanghai",
+            "localName": "上海",
+            "countryId": 1,
+            "provinceId": 2,
+            "countryName": "中国",
+            "dCity": false,
+            "aCity": false,
+            "tCity": false,
+            "domesticCity": true
+        },
+        "HKG": {
+            "id": 58,
+            "code": "HKG",
+            "name": "Hong Kong",
+            "localName": "香港",
+            "countryId": 1,
+            "provinceId": 32,
+            "countryName": "中国",
+            "dCity": false,
+            "aCity": false,
+            "tCity": false,
+            "domesticCity": false
+        },
+        "TPE": {
+            "id": 617,
+            "code": "TPE",
+            "name": "Taipei",
+            "localName": "台北",
+            "countryId": 1,
+            "provinceId": 53,
+            "countryName": "中国",
+            "dCity": false,
+            "aCity": false,
+            "tCity": false,
+            "domesticCity": false
+        },
+        "LAX": {
+            "id": 347,
+            "code": "LAX",
+            "name": "Los Angeles",
+            "localName": "洛杉矶",
+            "countryId": 66,
+            "provinceId": 0,
+            "countryName": "美国",
+            "dCity": false,
+            "aCity": false,
+            "tCity": false,
+            "domesticCity": false
+        },
+        "CHI": {
+            "id": 549,
+            "code": "CHI",
+            "name": "Chicago",
+            "localName": "芝加哥",
+            "countryId": 66,
+            "provinceId": 0,
+            "countryName": "美国",
+            "dCity": false,
+            "aCity": false,
+            "tCity": false,
+            "domesticCity": false
+        },
+        "HNL": {
+            "id": 757,
+            "code": "HNL",
+            "name": "Honolulu",
+            "localName": "夏威夷·火奴鲁鲁",
+            "countryId": 66,
+            "provinceId": 0,
+            "countryName": "美国",
+            "dCity": false,
+            "aCity": false,
+            "tCity": false,
+            "domesticCity": false
+        },
+        "DXB": {
+            "id": 220,
+            "code": "DXB",
+            "name": "Dubai",
+            "localName": "迪拜",
+            "countryId": 9,
+            "provinceId": 0,
+            "countryName": "阿联酋",
+            "dCity": false,
+            "aCity": false,
+            "tCity": false,
+            "domesticCity": false
+        },
+        "SEL": {
+            "id": 274,
+            "code": "SEL",
+            "name": "Seoul",
+            "localName": "首尔",
+            "countryId": 42,
+            "provinceId": 0,
+            "countryName": "韩国",
+            "dCity": false,
+            "aCity": false,
+            "tCity": false,
+            "domesticCity": false
+        },
+        "DOH": {
+            "id": 1401,
+            "code": "DOH",
+            "name": "Doha",
+            "localName": "多哈",
+            "countryId": 163,
+            "provinceId": 0,
+            "countryName": "卡塔尔",
+            "dCity": false,
+            "aCity": false,
+            "tCity": false,
+            "domesticCity": false
+        }
+    },
+    "fromAirports": {
+        "HKG": {
+            "code": "HKG",
+            "name": "HONG KONG",
+            "localName": "赤腊角国际机场",
+            "shortLocalName": "赤腊角",
+            "cityId": 58
+        },
+        "TPE": {
+            "code": "TPE",
+            "name": "TAIWAN TAOYUAN",
+            "localName": "桃园中正国际机场",
+            "shortLocalName": "桃园中正",
+            "cityId": 617
+        },
+        "LAX": {
+            "code": "LAX",
+            "name": "LOS ANGELES",
+            "localName": "洛杉矶机场",
+            "shortLocalName": "洛杉矶",
+            "cityId": 347
+        },
+        "HNL": {
+            "code": "HNL",
+            "name": "HONOLULU",
+            "localName": "火奴鲁鲁国际机场",
+            "shortLocalName": "火奴鲁鲁",
+            "cityId": 757
+        },
+        "ICN": {
+            "code": "ICN",
+            "name": "INCHEON",
+            "localName": "仁川国际机场",
+            "shortLocalName": "仁川",
+            "cityId": 274
+        },
+        "DXB": {
+            "code": "DXB",
+            "name": "DUBAI",
+            "localName": "迪拜机场",
+            "shortLocalName": "迪拜",
+            "cityId": 220
+        },
+        "ORD": {
+            "code": "ORD",
+            "name": "O'HARE",
+            "localName": "奥黑尔国际机场",
+            "shortLocalName": "奥黑尔国际",
+            "cityId": 549
+        },
+        "DOH": {
+            "code": "DOH",
+            "name": "DOHA",
+            "localName": "多哈机场",
+            "shortLocalName": "多哈",
+            "cityId": 1401
+        }
+    },
+    "airlines": {
+        "CI": {
+            "code": "CI",
+            "name": "China Airlines",
+            "localName": "中华航空公司",
+            "shortLocalName": "中华航空"
+        },
+        "KA": {
+            "code": "KA",
+            "name": "Dragonair",
+            "localName": "港龙航空公司",
+            "shortLocalName": "港龙航空"
+        },
+        "AA": {
+            "code": "AA",
+            "name": "American Airlines",
+            "localName": "美国航空公司",
+            "shortLocalName": "美国航空"
+        },
+        "CX": {
+            "code": "CX",
+            "name": "Cathay Pacific Airways",
+            "localName": "国泰航空公司",
+            "shortLocalName": "国泰航空"
+        },
+        "OZ": {
+            "code": "OZ",
+            "name": "Asiana Airlines",
+            "localName": "韩亚航空公司",
+            "shortLocalName": "韩亚航空"
+        },
+        "QR": {
+            "code": "QR",
+            "name": "Qatar Airways",
+            "localName": "卡塔尔航空公司",
+            "shortLocalName": "卡塔尔航空"
+        },
+        "HA": {
+            "code": "HA",
+            "name": "",
+            "localName": "夏威夷航空公司",
+            "shortLocalName": "夏威夷航空"
+        },
+        "EK": {
+            "code": "EK",
+            "name": "Emirates",
+            "localName": "阿联酋国际航空公司",
+            "shortLocalName": "阿联酋航空"
+        }
+    },
     "prices": [
         {
+            "id": "{Ctrip,,0,,}{EK216,1,Y,U,,-EK304,1,Y,U,,}{3494|EK|0}{NOR}{124986031}",
             "currency": "RMB",
-            "price": "4088",
-            "publishPrice": "4050",
-            "taxes": "2625",
+            "price": "3494",
+            "publishPrice": "3220",
+            "taxes": "2348",
             "surcharge": "0",
-            "expression": "1/2[LAX-AA-S-SHA(NOA,N121567184T,S50952,C27109)]+1/2[SHA-AA-S-LAX(NOA,N121567184T,S50952,C27109)]",
+            "expression": "LAX-EK-U-DXB-EK-U-SHA(NOA,N124986031T,S46214,C24108)",
             "fromNumbers": [
-                "AA183"
+                "EK216",
+                "EK304"
             ],
-            "toNumbers": [
-                "AA182"
-            ],
+            "toNumbers": null,
             "fromCabin": "Economy",
-            "toCabin": "Economy",
+            "toCabin": null,
             "refund": null,
             "reroute": null,
-            "toBaggage": {
-                "content": "SHA-LAX: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；",
-                "localContent": null
-            },
+            "toBaggage": null,
             "fromBaggage": {
-                "content": "LAX-SHA: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；",
+                "content": "LAX-DXB: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|DXB-SHA: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；",
                 "localContent": null
             },
             "remark": null
         },
         {
+            "id": "{Ctrip,,0,,}{CX883,1,Y,L,,-CX368,1,Y,L,,}{6476|CX|0}{NOR}{133290989}",
             "currency": "RMB",
-            "price": "18707",
-            "publishPrice": "18290",
-            "taxes": "2625",
-            "surcharge": "0",
-            "expression": "1/2[LAX-AA-Y-DFW-AA-Y-SHA(NOA,N121562143T,S50952,C27109)]+1/2[SHA-AA-S-LAX(NOA,N121567184T,S50952,C27109)]",
+            "price": "6476",
+            "publishPrice": "6210",
+            "taxes": "369",
+            "surcharge": "40",
+            "expression": "LAX-CX-S$L-HKG-CX-S$L-SHA(NOA,N133290989T,S45887,C23450)",
             "fromNumbers": [
-                "AA2406",
-                "AA127",
-                "AA2400",
-                "AA127"
+                "CX883",
+                "CX368"
             ],
-            "toNumbers": [
-                "AA182",
-                "AA182"
-            ],
+            "toNumbers": null,
             "fromCabin": "Economy",
-            "toCabin": "Economy",
+            "toCabin": null,
             "refund": null,
             "reroute": null,
-            "toBaggage": {
-                "content": "SHA-LAX: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；",
-                "localContent": null
-            },
+            "toBaggage": null,
+            "fromBaggage": null,
+            "remark": null
+        },
+        {
+            "id": "{Ctrip,,0,,}{CI005,1,Y,H,,-CI503,1,Y,H,,}{3532|CI|0}{NOR}{132230226}",
+            "currency": "RMB",
+            "price": "3532",
+            "publishPrice": "3450",
+            "taxes": "561",
+            "surcharge": "0",
+            "expression": "LAX-CI-H-TPE-CI-H-SHA(NOA,N132230226T,S40861,C23371)",
+            "fromNumbers": [
+                "CI005",
+                "CI503"
+            ],
+            "toNumbers": null,
+            "fromCabin": "Economy",
+            "toCabin": null,
+            "refund": null,
+            "reroute": null,
+            "toBaggage": null,
+            "fromBaggage": null,
+            "remark": null
+        },
+        {
+            "id": "{Ctrip,,0,,}{CX883,1,Y,L,,-CX360,1,Y,L,,}{6476|CX|0}{NOR}{133290989}",
+            "currency": "RMB",
+            "price": "6476",
+            "publishPrice": "6210",
+            "taxes": "369",
+            "surcharge": "40",
+            "expression": "LAX-CX-S$L-HKG-CX-S$L-SHA(NOA,N133290989T,S45887,C23450)",
+            "fromNumbers": [
+                "CX883",
+                "CX360"
+            ],
+            "toNumbers": null,
+            "fromCabin": "Economy",
+            "toCabin": null,
+            "refund": null,
+            "reroute": null,
+            "toBaggage": null,
+            "fromBaggage": null,
+            "remark": null
+        },
+        {
+            "id": "{Ctrip,,0,,}{CI005,1,Y,H,,-CI505,1,Y,H,,}{3532|CI|0}{NOR}{132230226}",
+            "currency": "RMB",
+            "price": "3532",
+            "publishPrice": "3450",
+            "taxes": "561",
+            "surcharge": "0",
+            "expression": "LAX-CI-H-TPE-CI-H-SHA(NOA,N132230226T,S40861,C23371)",
+            "fromNumbers": [
+                "CI005",
+                "CI505"
+            ],
+            "toNumbers": null,
+            "fromCabin": "Economy",
+            "toCabin": null,
+            "refund": null,
+            "reroute": null,
+            "toBaggage": null,
+            "fromBaggage": null,
+            "remark": null
+        },
+        {
+            "id": "{Ctrip,,0,,}{HA009,1,Y,Q,,-HA459,1,Y,Q,,-OZ361,1,Y,W,,}{5454|HA|0}{NOR}{113601590}",
+            "currency": "RMB",
+            "price": "5454",
+            "publishPrice": "5390",
+            "taxes": "290",
+            "surcharge": "920",
+            "expression": "LAX-HA-Q-HNL-HA-Q-SEL-OZ-W$V$S$K-SHA(NOA,N113601590T,S59183,C23572)",
+            "fromNumbers": [
+                "HA009",
+                "HA459",
+                "OZ361"
+            ],
+            "toNumbers": null,
+            "fromCabin": "Economy",
+            "toCabin": null,
+            "refund": null,
+            "reroute": null,
+            "toBaggage": null,
             "fromBaggage": {
-                "content": "LAX-DFW: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|DFW-SHA: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；",
+                "content": "LAX-HNL: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|HNL-SEL: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|SEL-SHA: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；",
                 "localContent": null
             },
             "remark": null
         },
         {
+            "id": "{Ctrip,,0,,}{CI005,1,Y,Q,,-CI501,1,Y,Q,,}{3726|CI|0}{NOR}{132235584}",
             "currency": "RMB",
-            "price": "18707",
-            "publishPrice": "18290",
-            "taxes": "2625",
+            "price": "3726",
+            "publishPrice": "3640",
+            "taxes": "561",
             "surcharge": "0",
-            "expression": "1/2[LAX-AA-Y-DFW-AA-Y-SHA(NOA,N121562143T,S50952,C27109)]+1/2[SHA-AA-S-LAX(NOA,N121567184T,S50952,C27109)]",
+            "expression": "LAX-CI-Q-TPE-CI-Q-SHA(NOA,N132235584T,S40861,C23371)",
             "fromNumbers": [
-                "AA2406",
-                "AA127",
-                "AA2400",
-                "AA127"
+                "CI005",
+                "CI501"
             ],
-            "toNumbers": [
-                "AA182",
-                "AA182"
-            ],
+            "toNumbers": null,
             "fromCabin": "Economy",
-            "toCabin": "Economy",
+            "toCabin": null,
             "refund": null,
             "reroute": null,
-            "toBaggage": {
-                "content": "SHA-LAX: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；",
-                "localContent": null
-            },
+            "toBaggage": null,
+            "fromBaggage": null,
+            "remark": null
+        },
+        {
+            "id": "{Ctrip,,0,,}{AA2278,1,Y,S,,-QR722,1,Y,S,,-QR870,1,Y,S,,}{5156|QR|0}{NOR}{1487951,131875729}",
+            "currency": "RMB",
+            "price": "5156",
+            "publishPrice": "5160",
+            "taxes": "1664",
+            "surcharge": "0",
+            "expression": "LAX-AA-S-CHI-QR-S-DOH-QR-S-SHA(A1487951,N131875729T,S37146,C23522)",
+            "fromNumbers": [
+                "AA2278",
+                "QR722",
+                "QR870"
+            ],
+            "toNumbers": null,
+            "fromCabin": "Economy",
+            "toCabin": null,
+            "refund": null,
+            "reroute": null,
+            "toBaggage": null,
             "fromBaggage": {
-                "content": "LAX-DFW: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|DFW-SHA: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；",
+                "content": "LAX-CHI: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|CHI-DOH: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|DOH-SHA: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；",
                 "localContent": null
             },
             "remark": null
         },
         {
+            "id": "{Ctrip,,0,,}{CX885,1,Y,L,,-KA870,1,Y,L,,}{6476|CX|0}{NOR}{133290989}",
             "currency": "RMB",
-            "price": "33723",
-            "publishPrice": "32520",
-            "taxes": "3234",
-            "surcharge": "0",
-            "expression": "1/2[LAX-AA-Y-DFW-AA-Y-SHA(NOA,N121562143T,S50952,C27109)]+1/2[SHA-CA-Y-TYO-AA-Y-LAX(NOA,N121562143T,S40659,C27109)]",
+            "price": "6476",
+            "publishPrice": "6210",
+            "taxes": "369",
+            "surcharge": "40",
+            "expression": "LAX-CX-S$L-HKG-KA-L-SHA(NOA,N133290989T,S45886,C23450)",
             "fromNumbers": [
-                "AA2406",
-                "AA127",
-                "AA2400",
-                "AA127"
+                "CX885",
+                "KA870"
             ],
-            "toNumbers": [
-                "CA157",
-                "AA170",
-                "CA157",
-                "AA170"
-            ],
+            "toNumbers": null,
             "fromCabin": "Economy",
-            "toCabin": "Economy",
+            "toCabin": null,
             "refund": null,
             "reroute": null,
-            "toBaggage": {
-                "content": "SHA-TYO: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|TYO-LAX: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；",
-                "localContent": null
-            },
-            "fromBaggage": {
-                "content": "LAX-DFW: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|DFW-SHA: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；",
-                "localContent": null
-            },
+            "toBaggage": null,
+            "fromBaggage": null,
             "remark": null
         },
         {
+            "id": "{Ctrip,,0,,}{CX883,1,Y,L,,-CX364,1,Y,L,,}{6476|CX|0}{NOR}{133290989}",
             "currency": "RMB",
-            "price": "33723",
-            "publishPrice": "32520",
-            "taxes": "3234",
-            "surcharge": "0",
-            "expression": "1/2[LAX-AA-Y-DFW-AA-Y-SHA(NOA,N121562143T,S50952,C27109)]+1/2[SHA-CA-Y-TYO-AA-Y-LAX(NOA,N121562143T,S40659,C27109)]",
+            "price": "6476",
+            "publishPrice": "6210",
+            "taxes": "369",
+            "surcharge": "40",
+            "expression": "LAX-CX-S$L-HKG-CX-S$L-SHA(NOA,N133290989T,S45887,C23450)",
             "fromNumbers": [
-                "AA2406",
-                "AA127",
-                "AA2400",
-                "AA127"
+                "CX883",
+                "CX364"
             ],
-            "toNumbers": [
-                "CA157",
-                "AA170",
-                "CA157",
-                "AA170"
-            ],
+            "toNumbers": null,
             "fromCabin": "Economy",
-            "toCabin": "Economy",
+            "toCabin": null,
             "refund": null,
             "reroute": null,
-            "toBaggage": {
-                "content": "SHA-TYO: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|TYO-LAX: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；",
-                "localContent": null
-            },
-            "fromBaggage": {
-                "content": "LAX-DFW: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|DFW-SHA: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；",
-                "localContent": null
-            },
+            "toBaggage": null,
+            "fromBaggage": null,
             "remark": null
         },
         {
+            "id": "{Ctrip,,0,,}{CX883,1,S,E,,-CX364,1,S,E,,}{8875|CX|0}{NOR}{133292270}",
             "currency": "RMB",
-            "price": "71064",
-            "publishPrice": "68530",
-            "taxes": "3417",
-            "surcharge": "0",
-            "expression": "1/2[LAX-AA-Y-DFW-AA-Y-SHA(NOA,N121562143T,S50952,C27109)]+1/2[SHA-JL-J$I$C$D$X$Y$G-TYO-AA-J$Y-LAX(NOA,N121579942T,S40659,C27109)]",
+            "price": "8875",
+            "publishPrice": "8590",
+            "taxes": "369",
+            "surcharge": "40",
+            "expression": "LAX-CX-E$S-HKG-CX-S$E$H-SHA(NOA,N133292270T,S45887,C23452)",
             "fromNumbers": [
-                "AA2406",
-                "AA127",
-                "AA2400",
-                "AA127"
+                "CX883",
+                "CX364"
             ],
-            "toNumbers": [
-                "JL5602",
-                "AA170",
-                "JL5602",
-                "AA170"
-            ],
-            "fromCabin": "Economy",
-            "toCabin": "Business",
+            "toNumbers": null,
+            "fromCabin": "Premium",
+            "toCabin": null,
             "refund": null,
             "reroute": null,
-            "toBaggage": {
-                "content": "SHA-TYO: 3 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|TYO-LAX: 3 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；",
-                "localContent": null
-            },
-            "fromBaggage": {
-                "content": "LAX-DFW: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|DFW-SHA: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；",
-                "localContent": null
-            },
-            "remark": null
-        },
-        {
-            "currency": "RMB",
-            "price": "71064",
-            "publishPrice": "68530",
-            "taxes": "3417",
-            "surcharge": "0",
-            "expression": "1/2[LAX-AA-Y-DFW-AA-Y-SHA(NOA,N121562143T,S50952,C27109)]+1/2[SHA-JL-J$I$C$D$X$Y$G-TYO-AA-J$Y-LAX(NOA,N121579942T,S40659,C27109)]",
-            "fromNumbers": [
-                "AA2406",
-                "AA127",
-                "AA2400",
-                "AA127"
-            ],
-            "toNumbers": [
-                "JL5602",
-                "AA170",
-                "JL5602",
-                "AA170"
-            ],
-            "fromCabin": "Economy",
-            "toCabin": "Business",
-            "refund": null,
-            "reroute": null,
-            "toBaggage": {
-                "content": "SHA-TYO: 3 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|TYO-LAX: 3 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；",
-                "localContent": null
-            },
-            "fromBaggage": {
-                "content": "LAX-DFW: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|DFW-SHA: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；",
-                "localContent": null
-            },
-            "remark": null
-        },
-        {
-            "currency": "RMB",
-            "price": "71064",
-            "publishPrice": "68530",
-            "taxes": "5630",
-            "surcharge": "0",
-            "expression": "1/2[LAX-AA-Y-DFW-AA-Y-SHA(NOA,N121562143T,S50952,C27109)]+1/2[SHA-MU-C$J$Y-TYO-AA-J$Y-LAX(NOA,N121579942T,S40659,C27109)]",
-            "fromNumbers": [
-                "AA2406",
-                "AA127",
-                "AA2400",
-                "AA127"
-            ],
-            "toNumbers": [
-                "MU271",
-                "AA170",
-                "MU271",
-                "AA170"
-            ],
-            "fromCabin": "Economy",
-            "toCabin": "Business",
-            "refund": null,
-            "reroute": null,
-            "toBaggage": {
-                "content": "SHA-TYO: 3 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|TYO-LAX: 3 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；",
-                "localContent": null
-            },
-            "fromBaggage": {
-                "content": "LAX-DFW: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|DFW-SHA: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；",
-                "localContent": null
-            },
-            "remark": null
-        },
-        {
-            "currency": "RMB",
-            "price": "71064",
-            "publishPrice": "68530",
-            "taxes": "5630",
-            "surcharge": "0",
-            "expression": "1/2[LAX-AA-Y-DFW-AA-Y-SHA(NOA,N121562143T,S50952,C27109)]+1/2[SHA-MU-C$J$Y-TYO-AA-J$Y-LAX(NOA,N121579942T,S40659,C27109)]",
-            "fromNumbers": [
-                "AA2406",
-                "AA127",
-                "AA2400",
-                "AA127"
-            ],
-            "toNumbers": [
-                "MU271",
-                "AA170",
-                "MU271",
-                "AA170"
-            ],
-            "fromCabin": "Economy",
-            "toCabin": "Business",
-            "refund": null,
-            "reroute": null,
-            "toBaggage": {
-                "content": "SHA-TYO: 3 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|TYO-LAX: 3 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；",
-                "localContent": null
-            },
-            "fromBaggage": {
-                "content": "LAX-DFW: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；|DFW-SHA: 2 PIECES OF NO MORE THAN 23KG EACH for normal passengers ；",
-                "localContent": null
-            },
+            "toBaggage": null,
+            "fromBaggage": null,
             "remark": null
         }
-    ],
-    "flights": {
-        "JL5602": {
-            "airline": "JL",
-            "number": "JL5602",
-            "aircraft": "EQV",
-            "fromCity": "SHA",
-            "toCity": "TYO",
-            "fromAirport": "PVG",
-            "toAirport": "NRT",
-            "fromTime": "2015-04-15T17:30:00",
-            "toTime": "2015-04-15T20:55:00",
-            "duration": 145
-        },
-        "AA2406": {
-            "airline": "AA",
-            "number": "AA2406",
-            "aircraft": "757",
-            "fromCity": "LAX",
-            "toCity": "DFW",
-            "fromAirport": "LAX",
-            "toAirport": "DFW",
-            "fromTime": "2015-04-14T00:59:00",
-            "toTime": "2015-04-14T05:54:00",
-            "duration": 175
-        },
-        "MU271": {
-            "airline": "MU",
-            "number": "MU271",
-            "aircraft": "321",
-            "fromCity": "SHA",
-            "toCity": "TYO",
-            "fromAirport": "PVG",
-            "toAirport": "NRT",
-            "fromTime": "2015-04-15T17:30:00",
-            "toTime": "2015-04-15T20:55:00",
-            "duration": 145
-        },
-        "AA182": {
-            "airline": "AA",
-            "number": "AA182",
-            "aircraft": "777",
-            "fromCity": "SHA",
-            "toCity": "LAX",
-            "fromAirport": "PVG",
-            "toAirport": "LAX",
-            "fromTime": "2015-04-15T18:10:00",
-            "toTime": "2015-04-15T14:55:00",
-            "duration": 705
-        },
-        "AA127": {
-            "airline": "AA",
-            "number": "AA127",
-            "aircraft": "777",
-            "fromCity": "DFW",
-            "toCity": "SHA",
-            "fromAirport": "DFW",
-            "toAirport": "PVG",
-            "fromTime": "2015-04-14T10:30:00",
-            "toTime": "2015-04-15T14:55:00",
-            "duration": 925
-        },
-        "AA183": {
-            "airline": "AA",
-            "number": "AA183",
-            "aircraft": "777",
-            "fromCity": "LAX",
-            "toCity": "SHA",
-            "fromAirport": "LAX",
-            "toAirport": "PVG",
-            "fromTime": "2015-04-14T11:10:00",
-            "toTime": "2015-04-15T16:10:00",
-            "duration": 840
-        },
-        "AA170": {
-            "airline": "AA",
-            "number": "AA170",
-            "aircraft": "777",
-            "fromCity": "TYO",
-            "toCity": "LAX",
-            "fromAirport": "NRT",
-            "toAirport": "LAX",
-            "fromTime": "2015-04-16T17:25:00",
-            "toTime": "2015-04-16T11:35:00",
-            "duration": 610
-        },
-        "AA2400": {
-            "airline": "AA",
-            "number": "AA2400",
-            "aircraft": "757",
-            "fromCity": "LAX",
-            "toCity": "DFW",
-            "fromAirport": "LAX",
-            "toAirport": "DFW",
-            "fromTime": "2015-04-14T01:15:00",
-            "toTime": "2015-04-14T06:07:00",
-            "duration": 172
-        },
-        "CA157": {
-            "airline": "CA",
-            "number": "CA157",
-            "aircraft": "738",
-            "fromCity": "SHA",
-            "toCity": "TYO",
-            "fromAirport": "PVG",
-            "toAirport": "NRT",
-            "fromTime": "2015-04-15T17:20:00",
-            "toTime": "2015-04-15T20:40:00",
-            "duration": 140
-        }
-    }
+    ]
 }
-
-GyMdkHmsSEDFwWahKzZLc

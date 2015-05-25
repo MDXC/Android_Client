@@ -12,6 +12,7 @@ import com.test.juxiaohui.R;
 import com.test.juxiaohui.mdxc.manager.ServerManager;
 import com.test.juxiaohui.mdxc.data.FlightData;
 import com.test.juxiaohui.mdxc.data.FlightSearchRequest;
+import com.test.juxiaohui.mdxc.manager.UserManager;
 import com.test.juxiaohui.mdxc.mediator.ISearchResultMediator;
 import com.test.juxiaohui.widget.CommonAdapter;
 import com.test.juxiaohui.widget.IAdapterItem;
@@ -77,14 +78,6 @@ public class FlightSearchResultActivity extends Activity implements ISearchResul
 				ProgressBar bar = (ProgressBar) mRlprogress.findViewById(R.id.progressBar);
 				bar.setVisibility(View.INVISIBLE);
 			}
-//			if(results.size()==0)
-//			{
-//				mEmptyView = getLayoutInflater().inflate(R.layout.item_empty_default, null);
-//				mListView.removeFooterView(mProgressView);
-//				mListView.addFooterView(mEmptyView);
-//			}
-
-			//((CommonAdapter<FlightData>)mListView.getAdapter()).setEmptyDataView(emptyView);
 
 		}
 
@@ -118,10 +111,16 @@ public class FlightSearchResultActivity extends Activity implements ISearchResul
     @Override
     public void selectOneFlight(FlightData data) {
     	 //FlightOrderActivity.startActivity(data.getId(),null, this);
-		Intent intent = new Intent();
-		intent.putExtra(INTENT_FLIGHT, FlightData.toJSON(data).toString());
-		setResult(RESULT_OK, intent);
-		finish();
+		if(!UserManager.getInstance().isLogin()){
+			Intent intent = new Intent(this, LoginActivity.class);
+			startActivity(intent);
+		}else{
+			Intent intent = new Intent();
+			intent.putExtra(INTENT_FLIGHT, FlightData.toJSON(data).toString());
+			setResult(RESULT_OK, intent);
+			finish();
+		}
+
     }
 
 	@Override

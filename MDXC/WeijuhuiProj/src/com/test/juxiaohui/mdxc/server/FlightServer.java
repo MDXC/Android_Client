@@ -62,13 +62,25 @@ public class FlightServer implements IFlightServer {
 				try {
 					float rate = -1;
 					JSONObject json = new JSONObject(result);
+					//toAirports
+					JSONObject toAirports = json.getJSONObject("toAirports");
+					//flights
+
+					//cities
+					JSONObject cities = json.getJSONObject("cities");
+
+					//fromAirports
+					JSONObject fromAirports = json.getJSONObject("fromAirports");
+
+					//airlines
+					JSONObject airlines = json.getJSONObject("airlines");
+
+					//prices
 					JSONArray prices = json.getJSONArray("prices");
 					JSONObject flights = json.getJSONObject("flights");
 					for (int i = 0; i < prices.length(); i++) {
 						JSONObject priceObj = prices.getJSONObject(i);
 						FlightData flightData = new FlightData();
-						flightData.mFromCode = request.mDepartCode;
-						flightData.mToCode = request.mArrivalCode;
 						flightData.mPrice = new PriceData();
 
 						flightData.mPrice.mCurrency = priceObj.getString("currency");
@@ -77,6 +89,7 @@ public class FlightServer implements IFlightServer {
 						}
 						flightData.mPrice.mTicketPrice = Float.valueOf(priceObj.getString("price")) * rate;
 						flightData.mPrice.mTax = Float.valueOf(priceObj.getString("taxes"));
+
 						JSONArray fromNumbers = priceObj.getJSONArray("fromNumbers");
 						for (int j = 0; j < fromNumbers.length(); j++) {
 							String fromNumber = fromNumbers.getString(j);
@@ -86,10 +99,11 @@ public class FlightServer implements IFlightServer {
 								if (j > 1) {
 									flightData = new FlightData(flightData);
 								}
-								RouteData routeData = RouteData.fromJSON(flight);
+								RouteData routeData = RouteData.fromJSON(flight, fromAirports, toAirports, cities, airlines);
+								routeData.mCabinType = priceObj.getString("fromCabin");
 								flightData.mRoutes.add(routeData);
 							} else {
-								RouteData routeData = RouteData.fromJSON(flight);
+								RouteData routeData = RouteData.fromJSON(flight, fromAirports, toAirports, cities, airlines);
 								flightData.mRoutes.add(routeData);
 								if (flight.getString("toCity").trim().equals(request.mArrivalCode)) {
 									for(RouteData route:flightData.mRoutes){
@@ -99,6 +113,30 @@ public class FlightServer implements IFlightServer {
 								}
 							}
 						}
+
+//						JSONArray fromNumbers = priceObj.getJSONArray("fromNumbers");
+//						for (int j = 0; j < fromNumbers.length(); j++) {
+//							String fromNumber = fromNumbers.getString(j);
+//							JSONObject flight = flights.getJSONObject(fromNumber);
+//
+//							if (flight.getString("fromCity").trim().equals(request.mDepartCode)) {
+//								if (j > 1) {
+//									flightData = new FlightData(flightData);
+//								}
+//								RouteData routeData = RouteData.fromJSON(flight, fromAirports, toAirports, cities, airlines);
+//								routeData.mCabinType = priceObj.getString("fromCabin");
+//								flightData.mRoutes.add(routeData);
+//							} else {
+//								RouteData routeData = RouteData.fromJSON(flight, fromAirports, toAirports, cities, airlines);
+//								flightData.mRoutes.add(routeData);
+//								if (flight.getString("toCity").trim().equals(request.mArrivalCode)) {
+//									for(RouteData route:flightData.mRoutes){
+//										flightData.mDurTime += route.mDurTime;
+//									}
+//									resultObjects.add(flightData);
+//								}
+//							}
+//						}
 					}
 
 				} catch (JSONException e) {

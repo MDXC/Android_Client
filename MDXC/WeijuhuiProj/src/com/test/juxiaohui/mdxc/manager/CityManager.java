@@ -44,48 +44,6 @@ public class CityManager {
 
 
     public ArrayList<CityData> getSearchResult(String condition) {
-
-//        if(isNeedUpdate())
-//        {
-//            mCityList = CitySearchServer.getInstance().getSearchResult("");
-//            cacheCities();
-//        }
-//        else
-//        {
-//            if(mCityList.size() == 0)
-//            {
-//                readFromCache();
-//            }
-//
-//        }
-//
-//        if(condition==null||condition.length()==0)
-//        {
-//            return mCityList;
-//        }
-//        else
-//        {
-//            ArrayList<CityData> results = (ArrayList<CityData>) mCityList.clone();
-//            ArrayList<CityData> temp = new ArrayList<CityData>();
-//            for(int i=0; i<condition.length(); i++)
-//            {
-//                for(int j=0; j<results.size(); j++)
-//                {
-//                    if(results.get(j).cityName.length()>i&&results.get(j).cityName.substring(i, i+1).equalsIgnoreCase(condition.substring(i, i+1)))
-//                    {
-//                        temp.add(results.get(j));
-//                    }
-//                }
-//                results = (ArrayList<CityData>) temp.clone();
-//                temp.clear();
-//            }
-//            return results;
-//        }
-//        ArrayList<String> posList = mCityTrie.FindAllWords(condition);
-//        ArrayList<CityData> result = new ArrayList<CityData>();
-//        for(Integer pos:posList){
-//            result.add(mCityList.get(pos));
-//        }
         ArrayList<CityData> result = new ArrayList<CityData>();
         for(CityData city:mCityList){
             if(city.cityName.toLowerCase().contains(condition)){
@@ -115,91 +73,6 @@ public class CityManager {
 
     private void readFromCache()
     {
-
-//        HashMap<String, ArrayList<AirportData>> portMap = new HashMap<String,ArrayList< AirportData>>();
-//        try {
-//            InputStream is = DemoApplication.applicationContext.getAssets().open("all_airports.txt");
-//            InputStreamReader isr=new InputStreamReader(is, "UTF-8");
-//            BufferedReader br = new BufferedReader(isr);
-//            char []buffer = new char[is.available()];
-//            isr.read(buffer);
-//            String str = String.valueOf(buffer);
-//
-//            //AirportData[] tempDatas = null;
-//
-//            try {
-//                JSONArray array = new JSONArray(str);
-//                //tempDatas = new AirportData[array.length()];
-//                for(int i=0; i<array.length(); i++)
-//                {
-//                    JSONObject json = array.getJSONObject(i);
-//                    AirportData data = new AirportData();
-//                    data.portCode = json.getString("code");
-//                    data.portName = json.getString("name");
-//                    data.cityId = json.getString("cityId");
-//                    ArrayList<AirportData> ports;
-//                    if(!portMap.containsKey(data.cityId)){
-//                        ports = new ArrayList<AirportData>();
-//                        portMap.put(data.cityId, ports);
-//
-//                    }
-//                    ports = portMap.get(data.cityId);
-//                    ports.add(data);
-//                    //tempDatas[i] = data;
-//
-//                }
-//            } catch (JSONException e) {
-//                e.printStackTrace();
-//                //tempDatas = null;
-//            }
-//
-//
-//            is.close();
-//            br.close();
-//            isr.close();
-//        } catch (IOException e) {
-//            // TODO Auto-generated catch block
-//            e.printStackTrace();
-//        }
-//
-//        try {
-//            InputStream is = DemoApplication.applicationContext.getAssets().open("cities_server.txt");
-//            InputStreamReader isr=new InputStreamReader(is, "UTF-8");
-//            BufferedReader br = new BufferedReader(isr);
-//            char []buffer = new char[is.available()];
-//            isr.read(buffer);
-//            String str = String.valueOf(buffer);
-//
-//            try {
-//                JSONArray array = new JSONArray(str);
-//                for(int i=0; i<array.length(); i++)
-//                {
-//                    JSONObject json = array.getJSONObject(i);
-//                    if(null!=portMap.get(json.getString("id"))){
-//                        JSONArray jsonArray = new JSONArray();
-//                        for(AirportData port:portMap.get(json.getString("id"))){
-//                            jsonArray.put(AirportData.toJSON(port));
-//                        }
-//                        json.put("airports", jsonArray);
-//                    }
-//                }
-//
-//                FileOutputStream fos = new FileOutputStream("mnt/sdcard/new_cities.txt");
-//                fos.write(array.toString().getBytes());
-//                fos.close();
-//            } catch (JSONException e) {
-//                e.printStackTrace();
-//            }
-//
-//
-//            is.close();
-//            br.close();
-//            isr.close();
-//        } catch (IOException e) {
-//            // TODO Auto-generated catch block
-//            e.printStackTrace();
-//        }
-
         try {
             mCityList.clear();
             mCityKeyMap.clear();
@@ -222,16 +95,10 @@ public class CityManager {
                     {
                         mCityList.add(data);
                         mCityKeyList.add(data.cityName.toLowerCase());
-                        //mCityKeyMap.append(mCityKeyMap.size(), i);
-                        //mCityKeyList.add(data.cityCode);
 
                     }
 
                 }
-//                for(){
-//
-//                }
-//                mCityTrie.build(mCityKeyList);
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -267,8 +134,6 @@ public class CityManager {
     {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(DemoApplication.applicationContext);
         SharedPreferences.Editor editor = preferences.edit();
-        //mRecentCities.add(cityName);
-        //editor.putStringSet(PREF_RECENT_CITIES, mRecentCities).commit();
         try {
             JSONArray jsonArray = new JSONArray(preferences.getString(PREF_RECENT_CITIES, "[]"));
             LinkedList<CityData> cityDataLinkedList = fromJSONArray(jsonArray);
@@ -306,6 +171,8 @@ public class CityManager {
         }
         return  result;
     }
+
+
 
     private LinkedList<CityData> fromJSONArray(JSONArray array)
     {

@@ -27,16 +27,7 @@ import org.json.JSONObject;
  * Created by yihao on 15/3/13.
  */
 public class FlightData implements Cloneable{
-	
-	public static enum BEHAVIOR_TYPE
-	{
-		DOMISTIC, INTERNATIONAL
-	}
 
-	public static enum TRIP_TYPE
-	{
-		DEPART, RETURN
-	}
 	
 	public String mId = "";
 	public String mNumber = "";
@@ -44,7 +35,6 @@ public class FlightData implements Cloneable{
     public static SimpleDateFormat FORMAT_SEARCH = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     public static SimpleDateFormat FORMAT_ORDER = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     public static SimpleDateFormat FORMAT_FLIGHT_VIEW_TIME = new SimpleDateFormat("HH:mm");
-    public static SimpleDateFormat FORMAT_FLIGHT_VIEW_DATE = new SimpleDateFormat("yyyy-MM-dd");
 
 
     public LinkedList<RouteData> mRoutes = new LinkedList<RouteData>();
@@ -218,33 +208,34 @@ public class FlightData implements Cloneable{
         holder = (ViewHolder) convertView.getTag();
         if (holder == null)
             return convertView;
-        holder.mTvAirlineName.setText(data.mRoutes.getFirst().mAirlineName);
+        if(data.mRoutes.size()>0){
+            holder.mTvAirlineName.setText(data.mRoutes.getFirst().mAirlineName);
+        }
         if (data.mAirlineLogoUrl.length() > 0) {
-            //Picasso.with(context).load(data.mAirlineLogoUrl).into(holder.mIvAirlineLogo);
             holder.mIvAirlineLogo.setImageResource(new Integer(data.mAirlineLogoUrl));
         }
         if (data.mRoutes.size() >= 2) {
             View stopView = convertView.findViewById(R.id.view_stop_0);
             stopView.setVisibility(View.VISIBLE);
             holder.mTvStop0 = (TextView)stopView.findViewById(R.id.tv_stop_code);
-            holder.mTvStop0.setText(data.mRoutes.getFirst().mArrivalCity);
+            holder.mTvStop0.setText(data.mRoutes.getFirst().mArrivalCityName);
         }
         if (data.mRoutes.size() >= 3) {
             View stopView = convertView.findViewById(R.id.view_stop_1);
             stopView.setVisibility(View.VISIBLE);
-            holder.mTvStop0 = (TextView)stopView.findViewById(R.id.tv_stop_code);
-            holder.mTvStop0.setText(data.mRoutes.get(1).mArrivalCity);
+            holder.mTvStop1 = (TextView)stopView.findViewById(R.id.tv_stop_code);
+            holder.mTvStop1.setText(data.mRoutes.get(1).mArrivalCityName);
         }
         if (data.mRoutes.size() >= 4) {
             View stopView = convertView.findViewById(R.id.view_stop_2);
             stopView.setVisibility(View.VISIBLE);
-            holder.mTvStop0 = (TextView)stopView.findViewById(R.id.tv_stop_code);
-            holder.mTvStop0.setText(data.mRoutes.get(2).mArrivalCity);
+            holder.mTvStop2 = (TextView)stopView.findViewById(R.id.tv_stop_code);
+            holder.mTvStop2.setText(data.mRoutes.get(2).mArrivalCityName);
         }
         holder.mTvDepartTime.setText(FORMAT_FLIGHT_VIEW_TIME.format(data.mRoutes.getFirst().mDepartTime));
-        holder.mTvDepartCity.setText(data.mFromCode);
+        holder.mTvDepartCity.setText(data.mRoutes.getFirst().mDepartAirportName);
         holder.mTvArrivalTime.setText(FORMAT_FLIGHT_VIEW_TIME.format(data.mRoutes.getLast().mArrivalTime));
-        holder.mTvArrivalCity.setText(data.mToCode);
+        holder.mTvArrivalCity.setText(data.mRoutes.getLast().mArrivalAirportName);
         int hour = data.mDurTime/60;
         int min = data.mDurTime%60;
         holder.mTvDuration.setText(hour + "h" + min + "min");
@@ -287,12 +278,12 @@ public class FlightData implements Cloneable{
                 jsonObject.put("arrivalTime", FORMAT_ORDER.format(flight.mToTime));
                 jsonObject.put("price", flight.mPrice.mTicketPrice);
                 jsonObject.put("currency", flight.mPrice.mCurrency);
-                jsonObject.put("fromCity", flight.mRoutes.getFirst().mDepartCity);
-                jsonObject.put("fromAirport", flight.mRoutes.getFirst().mDepartAirport);
-                jsonObject.put("toCity", flight.mRoutes.getLast().mArrivalCity);
-                jsonObject.put("toAirport", flight.mRoutes.getLast().mArrivalAirport);
+                jsonObject.put("fromCity", flight.mRoutes.getFirst().mDepartCityCode);
+                jsonObject.put("fromAirport", flight.mRoutes.getFirst().mDepartAirportCode);
+                jsonObject.put("toCity", flight.mRoutes.getLast().mArrivalCityCode);
+                jsonObject.put("toAirport", flight.mRoutes.getLast().mArrivalAirportCode);
                 jsonObject.put("airline", flight.mAirlineName);
-                jsonObject.put("aircraft", "737");
+                jsonObject.put("aircraft", flight.mRoutes.getFirst().mAircraft);
                 jsonObject.put("clazz", "0");
                 jsonObject.put("sortNo", "1");
                 array.put(jsonObject);
@@ -304,6 +295,11 @@ public class FlightData implements Cloneable{
         }
     }
 
+    /**
+     *
+     * @param jsonObject
+     * @return
+     */
     public static FlightData fromOrderParam(JSONObject jsonObject)
     {
         FlightData flightData = new FlightData();
@@ -317,7 +313,6 @@ public class FlightData implements Cloneable{
             flightData.mFromCity = jsonObject.getString("fromCity");
             flightData.mToCity = jsonObject.getString("toCity");
             flightData.mAirlineName = jsonObject.getString("airline");
-            //flightData.clazz = jsonObject.getString("from");
         } catch (JSONException e) {
             e.printStackTrace();
         } catch (ParseException e) {

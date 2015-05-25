@@ -203,13 +203,7 @@ public class RegisterActivity extends Activity implements IRegisterMediator {
 			mRegisterResult = "name_is_null";
 			return;
 		}
-		
-		if(name.length() != 11)
-		{
-			showErrorMessage(mContext.getString(R.string.user_name_invalid));
-			mRegisterResult = "user_name_invalid";
-			return;
-		}
+
 		
 		if(password == null || confirmPassword  == null || password.equalsIgnoreCase("") || confirmPassword.equalsIgnoreCase(""))
 		{
