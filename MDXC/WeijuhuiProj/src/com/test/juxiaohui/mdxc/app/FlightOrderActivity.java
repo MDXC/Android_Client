@@ -87,9 +87,12 @@ public class FlightOrderActivity extends Activity implements
 			public void onClick(View v) {
 		       Message msg = Message.obtain(mHandler);
 		       msg.what = MESSAGE_SUBMIT_ORDER;
-		       UserManager.getInstance().checkLogin(FlightOrderActivity.this, msg, true);
+		       mHandler.sendMessage(msg);
+		       //UserManager.getInstance().checkLogin(FlightOrderActivity.this, msg, true);
 			}
 		});
+        Log.d("Test", "listsize = "+UserManager.getInstance().getPassengerList().size());
+
 	}
 	
 /*	@Override
@@ -290,6 +293,7 @@ public class FlightOrderActivity extends Activity implements
 						}
 						else{
 							Toast.makeText(FlightOrderActivity.this, getString(R.string.order_submitted), Toast.LENGTH_SHORT).show();
+							
 							finish();
 						}
 					}

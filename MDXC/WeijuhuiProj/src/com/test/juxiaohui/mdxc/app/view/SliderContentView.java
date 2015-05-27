@@ -1,7 +1,9 @@
 package com.test.juxiaohui.mdxc.app.view;
 
 import android.content.Intent;
+
 import com.test.juxiaohui.R;
+import com.test.juxiaohui.mdxc.app.AccountActivity;
 import com.test.juxiaohui.mdxc.app.EntryActivity;
 import com.test.juxiaohui.mdxc.app.FlightSearchActivity;
 import com.test.juxiaohui.mdxc.app.LoginActivity;
@@ -334,6 +336,9 @@ public class SliderContentView extends RelativeLayout {
 			//
 			if(!UserManager.getInstance().isLogin()){
 				Intent intent = new Intent(mContext, LoginActivity.class);
+				mContext.startActivity(intent);
+			} else {
+				Intent intent = new Intent(mContext,AccountActivity.class);
 				mContext.startActivity(intent);
 			}
 			break;

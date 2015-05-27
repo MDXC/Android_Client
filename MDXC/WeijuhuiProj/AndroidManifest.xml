@@ -50,8 +50,11 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".mdxc.app.ContactEditorActivity"/>
-
+        <activity android:name=".mdxc.app.ContactEditorActivity" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:name=".mdxc.app.AccountActivity" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:name=".mdxc.app.TravelersListActivity" android:theme="@style/CTActivityStyleLeftPush"/>
+        <activity android:name=".mdxc.app.ContactInfoActivity" android:theme="@style/CTActivityStyleLeftPush"/>
+                
     </application>
 
     <uses-permission android:name="android.permission.INTERNET"/>

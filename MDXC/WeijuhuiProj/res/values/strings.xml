@@ -816,4 +816,7 @@
     <string name="account_email_hint">Email</string>
     <string name="contact_text">Contact</string>
     <string name="contact_add_text_hint">Click Here Add Contact Info</string>
+    <string name="my_travelers">Saved travelers</string>
+    <string name="my_contact">Saved contact</string>
+    <string name="no_travelers_info">You have no recently saved traveler info</string>
 </resources>

@@ -249,6 +249,19 @@ public class UserManager {
 			return Passenger.NULL;
 		}
 	}
+	
+	
+	public boolean removePassengerById(String id) {
+		Passenger tempPassenger = new Passenger();
+		tempPassenger.mId = id;
+		int result = Arrays.binarySearch(mPassengerList.toArray(), tempPassenger);
+		if (result >= 0) {
+			mPassengerList.remove(result);
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 	public boolean isLogin()
 	{
