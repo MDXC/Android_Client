@@ -205,8 +205,15 @@ public class FlightOrderActivity extends Activity implements
 				@Override
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
+					if (UserManager.getInstance().getContactUserList().size() == 0) {
+						Intent intent = new Intent();
+						intent.setClass(FlightOrderActivity.this, ContactEditorActivity.class);
+						intent.putExtra("order_id", mOrderId);
+						startActivityForResult(intent,FlightOrderActivity.REQ_CONTACT_INFO);
+					} else {
+						contactListDialog.show();
+					}
 					
-					contactListDialog.show();
 					
 				}
 			});
