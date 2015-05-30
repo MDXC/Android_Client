@@ -1,5 +1,7 @@
 package com.test.juxiaohui.mdxc.data;
 
+import java.io.Serializable;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -7,11 +9,12 @@ import org.json.JSONObject;
  * Created by yihao on 15/4/18.
  * 用来表示联系人,既可以给机票使用，也可以给酒店使用
  */
-public class ContactUser {
+public class ContactUser implements Comparable,Serializable{
     //public String mFirstName = "";
     //public String mLastName = "";
     //public String mEmail = "";
     //public String mPhoneNumber = "";
+	public String contactIndex = "0";
     public String contactName = "";
     public String contCountryCode = "";
     public String contPhone = "";
@@ -32,6 +35,7 @@ public class ContactUser {
             try {
 //                obj.put("firstName", contactUser.mFirstName);
 //                obj.put("lastName", contactUser.mLastName);
+            	obj.put("contactIndex", contactUser.contactIndex);
                 obj.put("contactName", contactUser.contactName);
                 obj.put("contEmail", contactUser.contEmail);
                 obj.put("contPhone", contactUser.contPhone);
@@ -55,6 +59,7 @@ public class ContactUser {
                 contactUser.contEmail = jsonObject.getString("contEmail");
                 contactUser.contPhone = jsonObject.getString("contPhone");
                 contactUser.contCountryCode = jsonObject.getString("contCountryCode");
+                contactUser.contactIndex = jsonObject.getString("contactIndex");
                 return contactUser;
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -70,6 +75,13 @@ public class ContactUser {
         contactUser.contCountryCode = "+86";
         contactUser.contPhone = "15510472558";
         contactUser.contEmail = "yhchinabest@163.com";
+        contactUser.contactIndex = "0";
         return contactUser;
     }
+
+	@Override
+	public int compareTo(Object another) {
+        ContactUser tmp = (ContactUser)another;
+		return contactIndex.compareTo(tmp.contactIndex);
+	}
 }

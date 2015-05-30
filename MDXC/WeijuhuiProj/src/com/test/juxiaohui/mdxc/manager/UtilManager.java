@@ -18,6 +18,7 @@ public class  UtilManager {
     IUtilServer mServer;
     private static UtilManager mInstance = null;
     private static final String PREF_CURRENCY = "pref_currency";
+    private static final String PREF_CONTACT = "pref_contact";
     public static UtilManager getInstance(){
         if(mInstance == null){
             mInstance = new UtilManager();
@@ -60,5 +61,17 @@ public class  UtilManager {
     public String getCurrency(){
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(DemoApplication.applicationContext);
         return preferences.getString(PREF_CURRENCY, "USD");
+    }
+    
+    
+    
+    public void setContactIndex(String index){
+    	 SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(DemoApplication.applicationContext);
+    	 preferences.edit().putString(PREF_CONTACT, index).commit();
+    }
+    
+    public String getContctIndex(){
+    	SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(DemoApplication.applicationContext);
+    	return preferences.getString(PREF_CONTACT, "0");
     }
 }

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/contact_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="50.0dip"
+        android:background="@drawable/selector_btn_4"
+        android:clickable="true"
+        android:paddingLeft="@dimen/margin_10" >
+
+        <TextView
+            android:id="@+id/tv_contact_name_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:textColor="@color/color_000000"
+            android:textSize="@dimen/font_size_30" />
+
+        <TextView
+            android:id="@+id/tv_contact_number_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:textColor="@color/color_gray_15"
+            android:textSize="@dimen/font_size_20" />
+
+        <TextView
+            android:id="@+id/tv_contact_email_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:paddingRight="10dip"
+            android:textColor="@color/color_gray_15"
+            android:textSize="@dimen/font_size_20" />
+    </RelativeLayout>
+    
+    
+    
+      <RelativeLayout
+        android:id="@+id/add_contact_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="50.0dip"
+        android:background="@drawable/selector_btn_4"
+        android:clickable="true"
+        android:paddingLeft="@dimen/margin_10" android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/tv_add_contact_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/contact_add_text_hint"
+            android:textColor="@color/color_000000"
+            android:textSize="@dimen/font_size_30" />
+ 
+    </RelativeLayout>
+
+</LinearLayout>

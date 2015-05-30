@@ -201,6 +201,7 @@ public class FlightOrder implements Comparable{
             contactUser.contEmail = object.getString("contEmail");
             contactUser.contPhone = object.getString("contPhone");
             contactUser.contactName = object.getString("contactName");
+            contactUser.contactIndex = object.getString("contactIndex");
             order.mContactUser = contactUser;
             order.mCreateDate = FlightData.FORMAT_ORDER.parse(object.getString("createTime"));
             order.mId = object.getString("id");

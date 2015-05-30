@@ -13,19 +13,21 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.*;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import com.test.juxiaohui.DemoApplication;
 import com.test.juxiaohui.R;
+import com.test.juxiaohui.mdxc.app.view.ContactListDialog;
 import com.test.juxiaohui.mdxc.data.ContactUser;
 import com.test.juxiaohui.mdxc.data.FlightData;
 import com.test.juxiaohui.mdxc.data.FlightOrder;
 import com.test.juxiaohui.mdxc.data.Passenger;
 import com.test.juxiaohui.mdxc.manager.FlightOrderManager;
-import com.test.juxiaohui.mdxc.manager.ServerManager;
-import com.test.juxiaohui.mdxc.data.FlightData;
-import com.test.juxiaohui.mdxc.data.Passenger;
 import com.test.juxiaohui.mdxc.manager.UserManager;
 import com.test.juxiaohui.mdxc.mediator.IFlightOrderMediator;
 
@@ -50,8 +52,8 @@ public class FlightOrderActivity extends Activity implements
 	private FlightOrder mFlightOrder;
 	
 	private String mOrderId = "";
-
-
+	ContactUser contactUser = ContactUser.NULL;
+	ContactListDialog contactListDialog = null;
 	Handler mHandler = new Handler(){
 		@Override
 		public void dispatchMessage(Message msg) {
@@ -81,6 +83,7 @@ public class FlightOrderActivity extends Activity implements
 		addFlightView();
 		addPassengerView();
 		addPriceView();
+		addContactView();
 		Button btn_OK = (Button)this.findViewById(R.id.btn_bottom_submit);
 		btn_OK.setOnClickListener(new OnClickListener() {
 			@Override
@@ -164,12 +167,12 @@ public class FlightOrderActivity extends Activity implements
 
 	}
 	
-	@Override
-	protected void onResume() {
-		// TODO Auto-generated method stub
-		super.onResume();
-		addContactView();
-	}
+//	@Override
+//	protected void onResume() {
+//		// TODO Auto-generated method stub
+//		super.onResume();
+//		addContactView();
+//	}
 
 	@Override
 	public void addContactView() 
@@ -177,48 +180,34 @@ public class FlightOrderActivity extends Activity implements
 		mContactInfoLayout = (LinearLayout)findViewById(R.id.contact_info_layout);
 		mAddContactLayout  = (LinearLayout)findViewById(R.id.add_contact_layout);
 		
-		if (ContactUser.NULL!= UserManager.getInstance().getContactUser()) {
-			final ContactUser contactUser = UserManager.getInstance().getContactUser();
+		if (ContactUser.NULL != contactUser) {
 			mContactInfoLayout.setVisibility(View.VISIBLE);
 			mAddContactLayout.setVisibility(View.GONE);
-			TextView contactNameView = (TextView)mContactInfoLayout.findViewById(R.id.contact_info_name);
-			contactNameView.setText(contactUser.contactName);
-			
-			TextView contactEmailView = (TextView)mContactInfoLayout.findViewById(R.id.contact_info_email);
-			contactEmailView.setText(contactUser.contEmail);
-			
-			TextView contactPhoneNumberView = (TextView)mContactInfoLayout.findViewById(R.id.contact_info_phonenumber);
-			contactPhoneNumberView.setText(contactUser.contCountryCode+" "+contactUser.contPhone);
-			
-			ImageView contactDetailView  = (ImageView)mContactInfoLayout.findViewById(R.id.contact_detail_info);
-			contactDetailView.setOnClickListener(new OnClickListener() {
-				
-				@Override
-				public void onClick(View v) {
-					Intent intent = new Intent();
-					intent.setClass(FlightOrderActivity.this, ContactEditorActivity.class);
-					intent.putExtra("contactName", contactUser.contactName);
-					intent.putExtra("contEmail", contactUser.contEmail);
-					intent.putExtra("contCountryCode", contactUser.contCountryCode);
-					intent.putExtra("contPhone", contactUser.contPhone);
-                    intent.putExtra("order_id", mOrderId);
-  					startActivity(intent);
-				}
-			});
+			setDataByContactUser();
 		} else {
 			mContactInfoLayout.setVisibility(View.GONE);
 			mAddContactLayout.setVisibility(View.VISIBLE);
 			TextView addContactTextView = (TextView)findViewById(R.id.add_contact_textview);
 			Log.d("FlightOrderActivity", addContactTextView.getText()+"");
+			if(contactListDialog == null) contactListDialog = new ContactListDialog(FlightOrderActivity.this, new IContactListener() {
+				
+				@Override
+				public void onChangeContact(ContactUser user) {
+					contactUser = user;
+					mFlightOrder.mContactUser = contactUser;
+					UserManager.getInstance().setContactUser(contactUser);
+					addContactView();
+					contactListDialog.dismiss();
+				}
+			},mOrderId);
 			addContactTextView.setOnClickListener(new OnClickListener() {
 				
 				@Override
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
-					Intent intent = new Intent();
-					intent.setClass(FlightOrderActivity.this, ContactEditorActivity.class);
-					intent.putExtra("order_id", mOrderId);
-	  			    startActivity(intent);
+					
+					contactListDialog.show();
+					
 				}
 			});
 		}
@@ -358,6 +347,7 @@ public class FlightOrderActivity extends Activity implements
 			t.start();
 		} else if(requestCode == REQ_CONTACT_INFO) {
 			//不需要做任何处理。返回时直接会调用onResume函数。
+			contactUser = UserManager.getInstance().getContactUserById(data.getExtras().getString("contactIndex"));
  		}
 	}
 	
@@ -381,10 +371,41 @@ public class FlightOrderActivity extends Activity implements
 		mLlPassengers.addView(ll);
 	}
 
-	public void setContactUser(ContactUser contactUser){
+	public void setContactUser(ContactUser contactUser) {
 		if(contactUser!=null&&contactUser!=ContactUser.NULL){
 
 		}
+	}
+	
+	
+	private void setDataByContactUser() {
+		
+		TextView contactNameView = (TextView)mContactInfoLayout.findViewById(R.id.contact_info_name);
+		contactNameView.setText(contactUser.contactName);
+		
+		TextView contactEmailView = (TextView)mContactInfoLayout.findViewById(R.id.contact_info_email);
+		contactEmailView.setText(contactUser.contEmail);
+		
+		TextView contactPhoneNumberView = (TextView)mContactInfoLayout.findViewById(R.id.contact_info_phonenumber);
+		contactPhoneNumberView.setText(contactUser.contCountryCode+" "+contactUser.contPhone);
+		
+		ImageView contactDetailView  = (ImageView)mContactInfoLayout.findViewById(R.id.contact_detail_info);
+		contactDetailView.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent();
+				intent.setClass(FlightOrderActivity.this, ContactEditorActivity.class);
+				intent.putExtra("contactIndex", contactUser.contactIndex);
+                intent.putExtra("order_id", mOrderId);
+				startActivityForResult(intent,REQ_CONTACT_INFO);
+			}
+		});
+		mContactInfoLayout.invalidate();
+	}
+	
+	public interface IContactListener {
+		public void onChangeContact(ContactUser user);
 	}
 
 }

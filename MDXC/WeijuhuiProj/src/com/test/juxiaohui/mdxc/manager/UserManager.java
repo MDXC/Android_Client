@@ -44,6 +44,7 @@ public class UserManager {
 	private User mCurrentUser = User.NULL;
 	private ContactUser mContatctUser = ContactUser.NULL;
 	private List<Passenger> mPassengerList = new ArrayList<Passenger>();
+	private List<ContactUser> mContactUserList = new ArrayList<ContactUser>();
 
 	public static boolean DEBUG = true;
 	public static final int START_LOGIN_ACTIVITY = 1;
@@ -175,13 +176,54 @@ public class UserManager {
 		//have already login
 		if(mCurrentUser!=User.NULL)
 		{
-			loadContactUser();
+			loadContactUser(false);
 			return mContatctUser;
 		}
 		else
 		{
 			return ContactUser.NULL;
 		}
+	}
+	
+	
+	
+	/**
+	 * 获取当前用户的联系人
+	 * @return
+	 */
+	public ContactUser getContactUserById(String contactIndex)
+	{
+		ContactUser tempContactUser = new ContactUser();
+		tempContactUser.contactIndex = contactIndex;
+		loadContactUser(true);
+		int result = Arrays.binarySearch(mContactUserList.toArray(), tempContactUser);
+		if(result>=0)
+		{
+			return mContactUserList.get(result);
+		}
+		else
+		{
+			return ContactUser.NULL;
+		}
+	}
+	
+	/**
+	 * 获取常用联系人列表信息
+	 * @return
+	 */
+	public List<ContactUser> getContactUserList() {
+		
+		if(mCurrentUser!=User.NULL){
+			
+			loadContactUser(true);
+			return mContactUserList;
+			
+		} else {
+			
+			return new ArrayList<ContactUser>();
+			
+		}
+		
 	}
 
 	/**
@@ -389,19 +431,31 @@ public class UserManager {
 	private void saveContactUser()
 	{
 		JSONCache jsonCache = new JSONCache(DemoApplication.applicationContext, "contact_" + mCurrentUser.getInnerName().replace("+", "00"));
-		jsonCache.putItem(mContatctUser.contactName, ContactUser.toJSON(mContatctUser));
+		String key = UtilManager.getInstance().getContctIndex();
+		int index = Integer.parseInt(key);
+		if(jsonCache.getItem(mContatctUser.contactIndex) == null) {
+			index++;
+			mContatctUser.contactIndex = (index+"");
+		}
+		
+		jsonCache.putItem(mContatctUser.contactIndex, ContactUser.toJSON(mContatctUser));
+ 		UtilManager.getInstance().setContactIndex(index+"");
 	}
 
-	private void loadContactUser()
+	private void loadContactUser(boolean isListRequest)
 	{
 		JSONCache jsonCache = new JSONCache(DemoApplication.applicationContext, "contact_" + mCurrentUser.getInnerName().replace("+", "00"));
 		List<JSONObject> jsonObj = jsonCache.getAllItems();
+		mContactUserList.clear();
 		for(JSONObject obj:jsonObj)
 		{
-			mContatctUser = ContactUser.fromJSON(obj);
+			 if(isListRequest) {
+				 mContactUserList.add(ContactUser.fromJSON(obj));
+			 } else {
+				 mContatctUser = ContactUser.fromJSON(obj);
+			 }
 		}
 	}
-	
 	
 	
 	

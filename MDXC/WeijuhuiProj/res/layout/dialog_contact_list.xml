@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_ffffff"
+    android:orientation="vertical" >
+
+    <ListView
+        android:id="@+id/dialog_contact_list"
+        android:layout_width="fill_parent"
+        android:layout_height="384dip"
+        android:layout_weight="1.28" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_099fde"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="7.0dip"
+        android:paddingLeft="@dimen/margin_10"
+        android:paddingRight="@dimen/margin_10" >
+
+        <Button
+            android:id="@+id/btn_cancle"
+            android:layout_width="wrap_content"
+            android:layout_height="35.0dip"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="@dimen/margin_10"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:paddingLeft="@dimen/margin_10"
+            android:text="@string/cancel"
+            android:textColor="@color/color_ffffff"
+            android:textSize="@dimen/font_size_medium" />
+    </RelativeLayout>
+
+</LinearLayout>

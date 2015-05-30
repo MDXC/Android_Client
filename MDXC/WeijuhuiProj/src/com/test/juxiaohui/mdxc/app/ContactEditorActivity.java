@@ -23,6 +23,7 @@ import com.test.juxiaohui.mdxc.data.CountryCode;
 import com.test.juxiaohui.mdxc.data.FlightOrder;
 import com.test.juxiaohui.mdxc.manager.FlightOrderManager;
 import com.test.juxiaohui.mdxc.manager.UserManager;
+import com.test.juxiaohui.mdxc.manager.UtilManager;
 import com.test.juxiaohui.mdxc.mediator.IContactEditMediator;
 
 /**
@@ -34,22 +35,25 @@ public class ContactEditorActivity extends Activity implements IContactEditMedia
 	EditText lastNameEdit;
 	EditText emailEdit;
 	EditText phoneNumberEdit;
-	RelativeLayout mComfimContactInfoLayout;
+	RelativeLayout mComfimContactInfoLayout;  
 	Spinner mElvCountryCode;
 	CountryCode mSelectCountryCode = CountryCode.NULL;
 	int selectIndex = 0;
 	MySpinnerAdapter mSpinnerAdapter = null;
-	
+	ContactUser contactUser = ContactUser.NULL;
 	private String mOrderId = "";
 	
 	private FlightOrder mFlightOrder = null;
+	String contactIndex = null;
+	private boolean isClickDone = false;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mOrderId = getIntent().getStringExtra("order_id");
         mFlightOrder = FlightOrderManager.getInstance().getFlightOrderbyId(mOrderId);
         initView();
-        initData();
+        String contactIndex = getIntent().getExtras().getString("contactIndex");
+        initData(contactIndex);
     }
     
     private void initView(){
@@ -205,13 +209,43 @@ class MySpinnerAdapter implements SpinnerAdapter {
     @Override
     public void confirm() {
     	
-    	  ContactUser mContactUser = new ContactUser(); 
-    	  mContactUser.contactName = firstNameEdit.getText().toString() + "/" +lastNameEdit.getText().toString();
-    	  mContactUser.contEmail = emailEdit.getText().toString();
-    	  mContactUser.contPhone = phoneNumberEdit.getText().toString();
-    	  mContactUser.contCountryCode =  mSelectCountryCode.mCode;
-    	  mFlightOrder.mContactUser  = mContactUser;
-          UserManager.getInstance().setContactUser(mContactUser);
+//    	  ContactUser mContactUser = null;
+//    	  if (contactIndex != null) {
+//    		
+//    		 mContactUser = UserManager.getInstance().getContactUserById(contactIndex);
+//    		
+//    	  } else {
+//    		
+//    		 mContactUser = new ContactUser(); 
+//    	  }
+    	  String fristName = firstNameEdit.getText().toString().trim();
+    	  String lastName = lastNameEdit.getText().toString().trim();
+    	  if (!"".equals(fristName) && !"".equals(lastName)) {
+    		  
+    		 contactUser.contactName = fristName + "/" +lastName;
+    	  
+    	  } else if (!"".equals(fristName) && "".equals(lastName)) {
+    		  
+    		 contactUser.contactName = fristName;
+    		  
+          } else if ("".equals(fristName) && !"".equals(lastName)) {
+    		
+        	 contactUser.contactName = lastName;
+    	  
+    	  }
+    	 
+    	  contactUser.contEmail = emailEdit.getText().toString();
+    	  contactUser.contPhone = phoneNumberEdit.getText().toString();
+    	  contactUser.contCountryCode =  mSelectCountryCode.mCode;
+    	  if(mFlightOrder != FlightOrder.NULL){
+        	  mFlightOrder.mContactUser  = contactUser;
+    	  }
+
+          UserManager.getInstance().setContactUser(contactUser);
+          Intent intent = new Intent();
+          intent.putExtra("contactIndex", UserManager.getInstance().getContactUser().contactIndex);
+          setResult(0, intent);
+          isClickDone = true;
           finish();
     }
 
@@ -220,10 +254,26 @@ class MySpinnerAdapter implements SpinnerAdapter {
 
     }
     
+    @Override
+    public void finish() {
+    	// TODO Auto-generated method stub
+    	if(!isClickDone){
+    		Intent intent = new Intent();
+            intent.putExtra("contactIndex", "");
+            setResult(0, intent);
+    	}
+    	super.finish();
+    	  
+          
+    }
     
-    private void initData(){
-		final ContactUser contactUser = UserManager.getInstance().getContactUser();
-    	if (ContactUser.NULL!=contactUser) {
+    private void initData(String contactIndex){
+    	
+    	if (contactIndex != null) {
+    		contactUser = UserManager.getInstance().getContactUserById(contactIndex);
+    	}
+		
+    	if (ContactUser.NULL != contactUser) {
     		
     		String[] contactName = contactUser.contactName.split("/");
     		firstNameEdit.setText(contactName[0]);
@@ -265,6 +315,8 @@ class MySpinnerAdapter implements SpinnerAdapter {
 			}
 		});
     }
+    
+    
     
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
