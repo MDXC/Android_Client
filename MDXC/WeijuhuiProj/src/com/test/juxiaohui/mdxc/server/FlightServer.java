@@ -44,7 +44,7 @@ public class FlightServer implements IFlightServer {
 	@Override
 	public List<FlightData> flightSearch(final FlightSearchRequest request,
 			int type) {
-		String url = "http://64.251.7.148/flight/list?";
+		String url = "http://64.251.7.148/flight/list.json?";
 		url += "from=" + request.mDepartCode;
 		url += "&to=" + request.mArrivalCode;
 		url += "&departDate=" + request.mDepartDate;
@@ -91,27 +91,39 @@ public class FlightServer implements IFlightServer {
 						flightData.mPrice.mTax = Float.valueOf(priceObj.getString("taxes"));
 
 						JSONArray fromNumbers = priceObj.getJSONArray("fromNumbers");
-						for (int j = 0; j < fromNumbers.length(); j++) {
+						int fromNumbersLength = fromNumbers.length();
+						for (int j = 0; j < fromNumbersLength; j++) {
 							String fromNumber = fromNumbers.getString(j);
 							JSONObject flight = flights.getJSONObject(fromNumber);
 
 							if (flight.getString("fromCity").trim().equals(request.mDepartCode)) {
 								if (j > 1) {
 									flightData = new FlightData(flightData);
-								}
+								} 
 								RouteData routeData = RouteData.fromJSON(flight, fromAirports, toAirports, cities, airlines);
 								routeData.mCabinType = priceObj.getString("fromCabin");
+								if(fromNumbersLength == 1) {
+									flightData.mDurTime =  routeData.mDurTime;
+								}
+							
 								flightData.mRoutes.add(routeData);
 							} else {
 								RouteData routeData = RouteData.fromJSON(flight, fromAirports, toAirports, cities, airlines);
 								flightData.mRoutes.add(routeData);
 								if (flight.getString("toCity").trim().equals(request.mArrivalCode)) {
-									for(RouteData route:flightData.mRoutes){
+									for(RouteData route:flightData.mRoutes) {
 										flightData.mDurTime += route.mDurTime;
 									}
+								}
+								if(fromNumbersLength > 1){
 									resultObjects.add(flightData);
 								}
 							}
+				
+							if(fromNumbersLength == 1){
+								resultObjects.add(flightData);
+							}
+							
 						}
 
 //						JSONArray fromNumbers = priceObj.getJSONArray("fromNumbers");
@@ -142,6 +154,7 @@ public class FlightServer implements IFlightServer {
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
+				Log.e("FlightServer", "resultObjects size = " + resultObjects.size());
 				return resultObjects;
 			}
 		};

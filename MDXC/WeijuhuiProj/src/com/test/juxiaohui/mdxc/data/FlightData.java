@@ -9,16 +9,22 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 import android.widget.RelativeLayout;
+
 import com.test.juxiaohui.DemoApplication;
 import com.test.juxiaohui.R;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import com.test.juxiaohui.mdxc.manager.UtilManager;
+
 import junit.framework.Assert;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -32,8 +38,8 @@ public class FlightData implements Cloneable{
 	public String mId = "";
 	public String mNumber = "";
 
-    public static SimpleDateFormat FORMAT_SEARCH = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    public static SimpleDateFormat FORMAT_ORDER = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    public static SimpleDateFormat FORMAT_SEARCH = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+    public static SimpleDateFormat FORMAT_ORDER = new SimpleDateFormat("yyyy-MM-dd HH:mm");
     public static SimpleDateFormat FORMAT_FLIGHT_VIEW_TIME = new SimpleDateFormat("HH:mm");
 
 
@@ -209,7 +215,13 @@ public class FlightData implements Cloneable{
         if (holder == null)
             return convertView;
         if(data.mRoutes.size()>0){
-            holder.mTvAirlineName.setText(data.mRoutes.getFirst().mAirlineName);
+        	if (data.mRoutes.size() > 1) {
+        		
+                holder.mTvAirlineName.setText(data.mRoutes.getFirst().mAirlineName + " " + data.mRoutes.getFirst().mNumbers + " / " + data.mRoutes.getLast().mAirlineName + " " + data.mRoutes.getLast().mNumbers);
+        	} else {
+        		
+                holder.mTvAirlineName.setText(data.mRoutes.getFirst().mAirlineName + " " + data.mRoutes.getFirst().mNumbers);
+        	}
         }
         if (data.mAirlineLogoUrl.length() > 0) {
             holder.mIvAirlineLogo.setImageResource(new Integer(data.mAirlineLogoUrl));
@@ -231,6 +243,11 @@ public class FlightData implements Cloneable{
             stopView.setVisibility(View.VISIBLE);
             holder.mTvStop2 = (TextView)stopView.findViewById(R.id.tv_stop_code);
             holder.mTvStop2.setText(data.mRoutes.get(2).mArrivalCityName);
+        } 
+        if(data.mRoutes.size() == 1) {
+        	LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+        	params.bottomMargin = (int)(20 * context.getResources().getDisplayMetrics().density);
+         	holder.mTvDuration.setLayoutParams(params);
         }
         holder.mTvDepartTime.setText(FORMAT_FLIGHT_VIEW_TIME.format(data.mRoutes.getFirst().mDepartTime));
         holder.mTvDepartCity.setText(data.mRoutes.getFirst().mDepartAirportName);

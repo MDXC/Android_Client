@@ -1,6 +1,9 @@
 package com.test.juxiaohui.mdxc.data;
 
+import android.util.Log;
+
 import com.test.juxiaohui.mdxc.manager.AirlineManager;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -192,7 +195,7 @@ public class RouteData {
                 e.printStackTrace();
             }
             routeData.mDurTime = flight.getInt("duration");
-            routeData.mCabinType = flight.getString("cabinType");
+            //routeData.mCabinType = flight.getString("cabinType");
         } catch (JSONException e) {
             e.printStackTrace();
         }
