@@ -47,6 +47,7 @@ public class CityStickyListHeadersListAdapter extends BaseAdapter implements Sti
 		mHotCities = hotCitys;
 		mNearbyPorts = nearbyPorts;
 		mLastSearchCities = CityManager.getInstance().getRecentCity();
+		mResultCities = CityManager.getInstance().getSearchResult("");//CitySearchServer.getInstance().getSearchResult("");
 		mInflater = LayoutInflater.from(context);
 		mContext = context;
 		mStickHeaderListView = stickHeaderListView;
@@ -68,7 +69,7 @@ public class CityStickyListHeadersListAdapter extends BaseAdapter implements Sti
 			int a = mNearbyPorts == null ? 0 : mNearbyPorts.size();
 			int b = mLastSearchCities == null ? 0 : mLastSearchCities.size();
 			int c = mHotCities == null ? 0 : mHotCities.size();
-			return a + b + c;
+			return a + b + c + mResultCities.size();
 		}
 		else
 		{
@@ -99,6 +100,9 @@ public class CityStickyListHeadersListAdapter extends BaseAdapter implements Sti
 			if(arg0 >= a + b && arg0 < a + b + c)
 			{
 				return mHotCities.get(arg0 - a - b);
+			}
+			if(arg0 >= a + b + c && arg0 < a + b + c +mResultCities.size()) {
+				return mResultCities.get(arg0 - a - b - c);
 			}
 		}
 		return null;
@@ -189,6 +193,9 @@ public class CityStickyListHeadersListAdapter extends BaseAdapter implements Sti
 		if(position >= a + b && position < a + b + c)
 		{
 			return 2;
+		} 
+		if(position >= a + b + c && position < a + b + c + mResultCities.size()) {
+			return 3;
 		}
 		return position;
 		//return 0;
@@ -200,8 +207,8 @@ public class CityStickyListHeadersListAdapter extends BaseAdapter implements Sti
 
 		HeaderViewHolder holder;
 
-		if(isShowResult)
-			return null;
+//		if(isShowResult)
+//			return null;
 		
 		if (convertView == null) {
 			convertView = new TextView(mContext);
@@ -230,6 +237,9 @@ public class CityStickyListHeadersListAdapter extends BaseAdapter implements Sti
 			break;
 		case 2:
 			((TextView)convertView).setText(mContext.getText(R.string.hot_destination));
+			break;
+		case 3:
+			((TextView)convertView).setText(mContext.getText(R.string.all_city));
 			break;
 		}
 		

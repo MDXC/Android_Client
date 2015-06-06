@@ -253,9 +253,47 @@ public class FlightData implements Cloneable{
         holder.mTvDepartCity.setText(data.mRoutes.getFirst().mDepartAirportName);
         holder.mTvArrivalTime.setText(FORMAT_FLIGHT_VIEW_TIME.format(data.mRoutes.getLast().mArrivalTime));
         holder.mTvArrivalCity.setText(data.mRoutes.getLast().mArrivalAirportName);
-        int hour = data.mDurTime/60;
-        int min = data.mDurTime%60;
-        holder.mTvDuration.setText(hour + "h" + min + "min");
+        int dataSize = data.mRoutes.size();
+        int hour = 0;
+        int min = 0;
+        int day = 0;
+        if (dataSize > 1) {
+        	int durTime = 0;
+        	for (RouteData routeData:data.mRoutes) {
+        		 for (RouteData mtempData:data.mRoutes) {
+        			 if (mtempData.mArrivalTime == routeData.mArrivalTime) {
+        				 continue;
+        			 } else {
+        				 long longtime = mtempData.mDepartTime.getTime() - routeData.mArrivalTime.getTime();
+        				 if (longtime > 0) {
+        					 durTime = (int)(longtime/1000/60) + durTime;
+        				 }
+        			 }
+        		 }
+        		durTime += routeData.mDurTime;
+            }
+        	 hour = durTime/60;
+             min = durTime%60;
+             if (hour >= 24) {
+            	 day = hour/24;
+            	 hour = hour%24;
+             }
+        } else {
+        	 hour = data.mRoutes.getFirst().mDurTime/60;
+             min = data.mRoutes.getFirst().mDurTime%60;
+             if (hour > 24) {
+            	 day = hour/24;
+            	 hour = hour%24;
+             }
+        }
+        
+        if (day > 0) {
+        	holder.mTvDuration.setText(day+ "day" + hour + "h" + min + "min");
+        } else {
+        	holder.mTvDuration.setText(hour + "h" + min + "min");
+        }
+       
+        
         holder.mTvCurrency.setText(UtilManager.getInstance().getCurrency());
         holder.mTvPrize.setText(data.mPrice.mTicketPrice + "");
 

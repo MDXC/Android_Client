@@ -800,6 +800,7 @@
     <string name="nearby_airports">Nearby Airports</string>
     <string name="recently_searched">Recently Searched</string>
     <string name="hot_destination">Hot Destination</string>
+    <string name="all_city">All City</string>
     <string name="kilometers">km</string>
     <string name="CNY">CNY</string>
     <string name="USD">USD</string>

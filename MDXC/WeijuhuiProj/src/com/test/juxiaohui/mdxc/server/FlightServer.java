@@ -105,23 +105,24 @@ public class FlightServer implements IFlightServer {
 								if(fromNumbersLength == 1) {
 									flightData.mDurTime =  routeData.mDurTime;
 								}
-							
 								flightData.mRoutes.add(routeData);
 							} else {
 								RouteData routeData = RouteData.fromJSON(flight, fromAirports, toAirports, cities, airlines);
 								flightData.mRoutes.add(routeData);
-								if (flight.getString("toCity").trim().equals(request.mArrivalCode)) {
-									for(RouteData route:flightData.mRoutes) {
-										flightData.mDurTime += route.mDurTime;
-									}
-								}
+								Log.d("flightData.mRoutes", flightData.mRoutes.getFirst().mArrivalCityName + " " + flightData.mRoutes.getLast().mDepartCityName);
+//								if (flight.getString("toCity").trim().equals(request.mArrivalCode)) {
+//									for(RouteData route:flightData.mRoutes) {
+//										flightData.mDurTime += route.mDurTime;
+//									}
+									
+//								}
 								if(fromNumbersLength > 1){
 									resultObjects.add(flightData);
 								}
 							}
 				
 							if(fromNumbersLength == 1){
-								resultObjects.add(flightData);
+								resultObjects.add(0,flightData);
 							}
 							
 						}

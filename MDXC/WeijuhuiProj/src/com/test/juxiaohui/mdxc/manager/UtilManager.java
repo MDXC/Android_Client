@@ -2,14 +2,10 @@ package com.test.juxiaohui.mdxc.manager;
 
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+
 import com.test.juxiaohui.DemoApplication;
 import com.test.juxiaohui.common.dal.IUtilServer;
-import com.test.juxiaohui.mdxc.data.CityData;
 import com.test.juxiaohui.mdxc.server.UtilServer;
-import org.json.JSONArray;
-import org.json.JSONException;
-
-import java.util.LinkedList;
 
 /**
  * Created by yihao on 15/5/9.
@@ -74,4 +70,5 @@ public class  UtilManager {
     	SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(DemoApplication.applicationContext);
     	return preferences.getString(PREF_CONTACT, "0");
     }
+    
 }

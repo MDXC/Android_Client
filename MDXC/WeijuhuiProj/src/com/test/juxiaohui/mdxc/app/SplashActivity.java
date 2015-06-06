@@ -3,6 +3,8 @@ package com.test.juxiaohui.mdxc.app;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Looper;
+import android.util.Log;
+
 import com.test.juxiaohui.R;
 import com.test.juxiaohui.mdxc.manager.AirlineManager;
 import com.test.juxiaohui.mdxc.manager.CityManager;
@@ -24,6 +26,7 @@ public class SplashActivity extends Activity {
                 CityManager.getInstance();
                 AirlineManager.getInstance();
                 EntryActivity.startActivity(SplashActivity.this);
+                finish();
             }
         });
         t.start();
